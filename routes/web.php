@@ -11,6 +11,14 @@
 |
 */
 
+//トップページ
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
+
+//ログイン画面
+Route::get('welcome/top', function () {
+    return view('welcome.top');
+});
+
+//アカウント登録
