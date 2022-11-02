@@ -22,3 +22,7 @@ Route::get('welcome/top', function () {
 });
 
 //アカウント登録
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
