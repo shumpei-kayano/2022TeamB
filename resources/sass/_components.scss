@@ -1,0 +1,9 @@
+.c-bgcolor{
+    background-color: black;
+    &--brown{
+        background-color: brown;
+    }
+    &--yellow{
+        background-color: yellow;
+    }
+}
