@@ -10,10 +10,16 @@
 <body>
     <header class="p-header">
         <nav class="navbar navbar-light">
-          <div class="container-fluid">
+          <div class="container-fluid logo">
             <a class="navbar-brand" href="#">
-              <img src="/img/logo_hane.png" alt="" >
+              <img src="/img/logo_hane.png" alt="">
+              <img src="/img/logo_usagi.png" alt="">
             </a>
+            <div class="header-searchbox">
+              <input class="search" type="search" name="search" placeholder="キーワードを入力">
+              <input type="submit" name="submit" value="検索">
+              <input type="submit" name="submit" value="ログイン">
+            </div>
           </div>
         </nav>
     </header>

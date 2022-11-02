@@ -24,3 +24,6 @@ Route::get('welcome/top', function () {
 //アカウント登録
 
 Route::get('Proof', 'ProofController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
