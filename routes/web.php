@@ -22,3 +22,5 @@ Route::get('welcome/top', function () {
 });
 
 //アカウント登録
+
+Route::get('Proof', 'ProofController@index');
