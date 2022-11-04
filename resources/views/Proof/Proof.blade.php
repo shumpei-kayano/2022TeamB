@@ -1,60 +1,102 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
-@section('title')
-認証
-@endsection
 
-@section('main')
+<body>
+    <header class="p-header">
+        <nav class="navbar navbar-light">
+          <div class="container-fluid logo">
+            <a class="navbar-brand" href="#">
+              <img src="/img/logo_hane.png" alt="">
+              <img src="/img/logo_usagi.png" alt="">
+            </a>
+          </div>
+        </nav>
+    </header>
 
-<form>
-    <a>ログイン</a>
-    <div class="row g-3 align-items-center">
-        <div class="col-auto">
-        </div>
-        <div class="col-auto">
-          <input type="email" id="inputPassword6" class="form-control" aria-describedby="emailHelpInline">
-        </div>
-      </div>
-    <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <label for="inputPassword6" class="col-form-label">Password</label>
-        </div>
-        <div class="col-auto">
-          <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-        </div>
-        <div class="col-auto">
-          <span id="passwordHelpInline" class="form-text">
-            Must be 8-20 characters long.
-          </span>
-        </div>
-      </div>
-    <button type="submit" class="btn btn-primary">ログイン</button><br>
 
-    <a>アカウントをお持ちでない方はこちら</a><br>
+    <div>  <br><br><br></div>
+    <div class="box"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Login') }}</div>
 
-    <button type="submit" class="btn btn-primary">アカウント作成</button>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="form-group row">
+
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+<br>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                           
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <!--<div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                               <!-- @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif-->
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav ml-auto">
+                    
+                            <!-- Authentication Links -->
     
-  </form>
-
-<form>
-    <input type="email" placeholder="メールアドレス"/>
-    <input type="password" placeholder=""/><br>
-    <button type="submit" class="btn btn-primary">ログイン</button><br>
-</form>
-
-@endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                            
+                        
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                           
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
