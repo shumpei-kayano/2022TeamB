@@ -1,5 +1,62 @@
+//限定的
+
 .p-header{
     width:100%;
-    height:120px;
+    height:90px;
     background-color:#EAAB06;
+    &__container {
+        height: 90px;
+        display: flex;
+        justify-content: space-around; // 水平方向を中央揃え
+        align-items: center; // 垂直方向中央揃え
+    }
+    &__search {
+        padding-right: 70px;   //検索ボックスと検索ボタンを中央に寄せる
+    }
+    &__login{
+        padding-right:20px;
+    }
+    input {
+        border: none;   //外枠の線を消す
+    }
 }
+
+
+.p-searchbox{
+    width:400px;
+    height:40px;
+    border-radius: 30px;
+    border:none;
+    padding-left:15px;
+    position: relative; //親要素として設定
+    // &::before {
+    //     content: "";           /* 疑似要素に必須 */
+    //     width: 20px;           /* アイコンの横幅 */
+    //     height: 20px;          /* アイコンの高さ */
+    //     background: url(../img/search.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+    //     display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+    //     position: absolute;    /* 親要素に対して、相対位置に指定 */
+    //     top: 4px;              /* アイコンの位置。微調整してね */
+    //     left: 5px;             /* アイコンの位置。微調整してね */
+    // }
+    // input {
+    //     padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+    // }
+}
+
+.p-search-button{
+    width:90px;
+    height:40px;
+    border-radius: 30px;
+    background-color:$navy;
+    color:white;
+}
+
+.p-login-button{
+    width:130px;
+    height:40px;
+    border-radius: 30px;
+    background-color:$navy;
+    color:white;
+}
+

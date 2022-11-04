@@ -6,23 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="css/app.css">
   <title>@yield('title')</title>
+  {{-- noto sansフォントの読み込み --}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="p-header">
-        <nav class="navbar navbar-light">
-          <div class="container-fluid logo">
-            <a class="navbar-brand" href="#">
-              <img src="/img/logo_hane.png" alt="">
-              <img src="/img/logo_usagi.png" alt="">
-            </a>
-            <div class="header-searchbox">
-              <input class="search" type="search" name="search" placeholder="キーワードを入力">
-              <input type="submit" name="submit" value="検索">
-              <input type="submit" name="submit" value="ログイン">
-            </div>
-          </div>
-        </nav>
-    </header>
+  <header class="p-header">
+      <div class="p-header__container">
+        <div class="p-header__logo">
+          <img src="/img/logo.png" height="80px" width="380px" alt="" class="p-logo_img">
+        </div>
+        <div class="p-header__search">
+          <input class="p-searchbox" type="search" name="search" placeholder="キーワードを入力">
+          <input class="p-search-button" type="submit" name="submit" value="検索">
+        </div>
+        <div class="p-header__login">
+          <input class="p-login-button" type="submit" name="submit" value="ログイン">
+        </div>
+      </div>
+  </header>
+
+
     <div class="main">
         @yield('main')
     </div>
@@ -30,32 +35,3 @@
 </html>
 
 
-
-{{-- <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>トップページ</title>
-    <link rel="stylesheet" type="text/css" href="css/app.css">
-
-    <div class="p-header">
-    {{-- ロゴマークとロゴ --}}
-      {{-- <div class="symbol">
-        <img src="/img/logo_hane.png" alt="ロゴマーク">
-        <img src="img/logo_usagi.png" alt="ロゴ">
-      </div> --}}
-    {{-- ヘッダー検索機能 --}}
-    {{-- <div class="header-searchbox">
-            <input class="search" type="search" name="search" placeholder="キーワードを入力">
-            <input type="submit" name="submit" value="検索">
-            <input type="submit" name="submit" value="ログイン">
-    </div> --}}
-    {{-- ヘッダー検索機能ここまで --}}
-  {{-- </div>
-</head>
-<body>
-    
-</body>
-</html> --}} 
