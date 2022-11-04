@@ -27,3 +27,8 @@ Route::get('Proof', 'ProofController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//イベント一覧（個人）画面
+Route::get('/event013', function () {
+    return view('eventichirankojin');
+});
