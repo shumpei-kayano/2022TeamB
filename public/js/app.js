@@ -572,7 +572,7 @@ module.exports = function isBuffer(arg) {
   \*******************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7583,7 +7583,7 @@ function isnan (val) {
   \*******************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 /* eslint-env browser */
 
 /**
@@ -40851,7 +40851,7 @@ process.umask = function() { return 0; };
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 
 
 var parseUrl = (__webpack_require__(/*! url */ "./node_modules/url/url.js").parse);
@@ -51313,7 +51313,7 @@ throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an ap
 
 "use strict";
 /* provided dependency */ var Buffer = __webpack_require__(/*! buffer */ "./node_modules/buffer/index.js")["Buffer"];
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 // Axios v1.1.3 Copyright (c) 2022 Matt Zabriskie and contributors
 
 
