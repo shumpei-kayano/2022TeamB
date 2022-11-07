@@ -7,57 +7,58 @@
 @section('main')
   <div class="container-fluid">
     <div class="row">
+
       {{-- 左メニューバー --}}
-      <div class="col-2" style="background-color: aliceblue">
-        左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　左メニューバー　
-      </div>
+      @component('components.left')
+      @endcomponent
+
       {{-- 右側 --}}
-      <div class="col-10" style="background-color: red"> 
-        {{-- おすすめ写真表示 --}}
-        <div class="row" style="background-color: aqua">おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　</div>
+      <div class="col-10"> 
+        
         <div class="row">
+          {{-- おすすめ写真表示 --}}
+          <div class="col-12 c-bgcolor--darkbrown">
+          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
+          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
+          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
+          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能
+          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能おすすめ写真表示機能　おすすめ写真表示機能
+          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能おすすめ写真表示機能　おすすめ写真表示機能
+          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能</div>
+          </div>
+          <div class="row">
             {{-- エリアから探す --}}
-            <div class="col-6 c-bgcolor--brown">
-              エリアから探す　エリアから探す　エリアから探す　エリアから探す　エリアから探す　エリアから探す　エリアから探す　エリアから探す　エリアから探す　エリアから探す　エリアから探す　
+            <div class="col-6 c-bgcolor--beige">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>大分市</td>　<td>日田市</td>　<td>津久見市</td>　<td>杵築市</td>　<td>由布市</td>　<td>日出町</td>
+                  </tr>
+                  <tr>
+                    <td>別府市</td>　<td>佐伯市</td>　<td>竹田市</td>　<td>宇佐市</td>　<td>国東市</td>　<td>九重町</td>
+                  </tr>
+                  <tr>
+                    <td>中津市</td>　<td>臼杵市</td>　<td>豊後高田市</td>　<td>豊後大野市</td>　<td>姫島村</td>　<td>玖珠町</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="col-6 c-bgcolor--yellow">
+            <div class="col-6 c-bgcolor--brown">
               新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　新着ブログ　
             </div>
+        </div>
+        <div class="row">
+          <div class="col-4 c-bgcolor--darkbrown">【イベント募集掲示板】イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報
+            イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報イベント情報　
+           イベント情報　イベント情報　イベント情報　イベント情報イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報　イベント情報</div>
+          <div class="col-4 c-bgcolor--brown">【県・市町村からの募集】県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　県市町村募集　</div>
+          <div class="col-4 c-bgcolor--beige">【オープンチャット】オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　
+            オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　
+            オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　オープンチャット　
+          </div>
         </div>
 
       </div>
     </div>
   </div>
   @endsection
-
-
-
-
-{{-- <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>トップページ</title>
-    <link rel="stylesheet" type="text/css" href="css/app.css">
-
-    <div class="p-header">
-    {{-- ロゴマークとロゴ --}}
-      {{-- <div class="symbol">
-        <img src="/img/logo_hane.png" alt="ロゴマーク">
-        <img src="img/logo_usagi.png" alt="ロゴ">
-      </div> --}}
-    {{-- ヘッダー検索機能 --}}
-    {{-- <div class="header-searchbox">
-            <input class="search" type="search" name="search" placeholder="キーワードを入力">
-            <input type="submit" name="submit" value="検索">
-            <input type="submit" name="submit" value="ログイン">
-    </div> --}}
-    {{-- ヘッダー検索機能ここまで --}}
-  {{-- </div>
-</head>
-<body>
-    
-</body>
-</html> --}} 
