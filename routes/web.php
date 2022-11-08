@@ -26,3 +26,9 @@ Route::get('welcome/top', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//ログイン画面
+Route::get('/unko', function () {
+    return view('a');
+});
