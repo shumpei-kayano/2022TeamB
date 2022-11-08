@@ -33,20 +33,20 @@
 
 
 .p-search-button{                   /*検索ボタン設定*/
-    width:90px;
-    height:40px;
+    width:90px;                     //検索ボタンの幅
+    height:40px;                    //検索ボタンの高さ
     text-align: center;
     border-radius: 30px;
-    background-color:$navy;
-    color:white;
+    background-color:$navy;         //ボタンの色指定
+    color:white;                  //ボタン内の文字色
 }
 
 .p-login-button{                    /*ログインボタン設定*/
-    width:130px;
-    height:40px;
-    border-radius: 30px;
-    background-color:$navy;
-    color:white;
+    width:130px;                    //ログインボタンの幅
+    height:40px;                    //ログインボタンの高さ
+    border-radius: 30px;             //ボタンの角
+    background-color:$navy;          //ボタンの色指定
+    color:white;                   //ボタン内の文字色
 }
 
 .area_search{
@@ -72,19 +72,13 @@
 }
 
 .blog_user_icon{
-    width: 20px;                    /*円の横幅*/
-    height: 20px;                   /*円の縦幅*/
+    width: 25px;                    /*円の横幅*/
+    height: 25px;                   /*円の縦幅*/
     border-radius: 50%;             /*円*/
     background: $beige;             /*背景色*/
 }
 
-.blog_area1{
-    display: flex;                  /*Flexboxを使って子要素を横並び*/
-    justify-content: flex-start;    /*水平方向揃え(flex-start:初期値)*/
-
-}
-
-.blog_area2{
+.blog_area{
     display: flex;                  /*Flexboxを使って子要素を横並び*/
     justify-content: flex-start;    /*水平方向揃え(flex-start:初期値)*/
 }
@@ -112,18 +106,81 @@
     display: flex;                  /*Flexboxを使って子要素を横並び*/
     flex-wrap: wrap;
     justify-content: space-between;
-    &_area {
+    &__area {
         text-align: center;
         width: 90px;
     }
-    &_icon {
+    &__icon {
         width: 50px;                    /*円の横幅*/
         height: 50px;                   /*円の縦幅*/
         border-radius: 50%;             /*円*/
         background: $brown;             /*背景色*/
         margin:0 auto;
     }
-    &_title {
-        // text-align: center;
-    }
+}
+
+
+/*------ スライダーの横幅 ------*/
+.slider{
+    width:90%;
+    margin:0 auto;
+}
+
+/*------ スライダー画像 ------*/
+.slider img{
+    width:100%;
+}
+
+/*-------- スライダー高さ調整 ----------*/
+.slider .slick-slide{
+    height:230px;
+}
+
+/*---------- スライダー矢印 ----------*/
+.slider .slick-next{                        //矢印の位置やサイズを調整したい場合は下記の値を変更すればOKです。
+    right:0!important;                      //font-size位置を調整したい場合：.slick-nextと.slick-prevのrightとleft
+}                                           //サイズを変えたい場合：.slick-arrow:beforeのfont-size
+
+.slider .slick-prev{
+    left:0!important;
+}
+
+.slider .slick-arrow{
+    width: initial!important;
+    height: initial!important;
+    z-index:2!important;
+}
+
+.slider .slick-arrow:before{
+    font-size: 30px!important;
+}
+
+
+
+// アカウント仮登録画面タブ切り替え
+.tab-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tab-label {
+    color: White;
+    background: LightGray;
+    margin-right: 5px;
+    padding: 3px 12px;
+    order: -1;
+}
+.tab-content {
+    width: 100%;
+    display: none;
+}
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+    background: DeepSkyBlue;
+}
+.tab-switch:checked+.tab-label+.tab-content {
+     display: block;
+}
+/* ラジオボタン非表示 */
+.tab-switch {
+    display: none;
 }

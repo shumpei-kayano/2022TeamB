@@ -9338,18 +9338,13 @@ body {
 }
 
 .blog_user_icon {
-  width: 20px; /*円の横幅*/
-  height: 20px; /*円の縦幅*/
+  width: 25px; /*円の横幅*/
+  height: 25px; /*円の縦幅*/
   border-radius: 50%; /*円*/
   background: #D6C3A1; /*背景色*/
 }
 
-.blog_area1 {
-  display: flex; /*Flexboxを使って子要素を横並び*/
-  justify-content: flex-start; /*水平方向揃え(flex-start:初期値)*/
-}
-
-.blog_area2 {
+.blog_area {
   display: flex; /*Flexboxを使って子要素を横並び*/
   justify-content: flex-start; /*水平方向揃え(flex-start:初期値)*/
 }
@@ -9378,14 +9373,81 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.open_chat_area {
+.open_chat__area {
   text-align: center;
   width: 90px;
 }
-.open_chat_icon {
+.open_chat__icon {
   width: 50px; /*円の横幅*/
   height: 50px; /*円の縦幅*/
   border-radius: 50%; /*円*/
   background: #CC860C; /*背景色*/
   margin: 0 auto;
+}
+
+/*------ スライダーの横幅 ------*/
+.slider {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*------ スライダー画像 ------*/
+.slider img {
+  width: 100%;
+}
+
+/*-------- スライダー高さ調整 ----------*/
+.slider .slick-slide {
+  height: 230px;
+}
+
+/*---------- スライダー矢印 ----------*/
+.slider .slick-next {
+  right: 0 !important;
+}
+
+.slider .slick-prev {
+  left: 0 !important;
+}
+
+.slider .slick-arrow {
+  width: initial !important;
+  height: initial !important;
+  z-index: 2 !important;
+}
+
+.slider .slick-arrow:before {
+  font-size: 30px !important;
+}
+
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab-label {
+  color: White;
+  background: LightGray;
+  margin-right: 5px;
+  padding: 3px 12px;
+  order: -1;
+}
+
+.tab-content {
+  width: 100%;
+  display: none;
+}
+
+/* アクティブなタブ */
+.tab-switch:checked + .tab-label {
+  background: DeepSkyBlue;
+}
+
+.tab-switch:checked + .tab-label + .tab-content {
+  display: block;
+}
+
+/* ラジオボタン非表示 */
+.tab-switch {
+  display: none;
 }

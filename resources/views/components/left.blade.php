@@ -1,5 +1,5 @@
-<div class="col-2 c-bgcolor--brown">
-    カテゴリから検索<br>
+<div class="col-2 c-bgcolor--brown"><br>
+    【カテゴリから検索】<br>
     <br>
     出会い<br>
     <br>

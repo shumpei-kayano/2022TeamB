@@ -14,20 +14,16 @@
 
       {{-- 右側 --}}
       <div class="col-10"> 
-        
         <div class="row">
           {{-- おすすめ写真表示 --}}
           <div class="col-12 c-bgcolor--darkbrown">
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能おすすめ写真表示機能　おすすめ写真表示機能
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能おすすめ写真表示機能　おすすめ写真表示機能
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
-          おすすめ写真表示機能　おすすめ写真表示機能　おすすめ写真表示機能　
-          おすすめ写真表示機能　
+            <div class="slider">   
+              <div><img src="./img/beppuwan.jpg" width="400px" height="230px"></div>
+              <div><img src="./img/ramuneonsen.jpg" width="400px" height="230px"></div>   
+              <div><img src="./img/suginoi.jpg" width="400px" height="230px"></div>
+              <div><img src="./img/tsurumidake.jpg" width="400px" height="230px"></div>
+              <div><img src="./img/sekisaba.jpg" width="400px" height="230px"></div>
+          </div>
           </div>
         </div>
           <div class="row">
@@ -56,10 +52,10 @@
           {{-- 新着ブログコーナー --}}
             <div class="col-4 c-bgcolor--brown">
               <div class=blog>【新着ブログ】</div>
-              <div class="blog_area1">
+              <div class="blog_area">
                 <div class="blog_user_icon"></div><p class="blog_title">　2022.10.22.〇〇〇に行ってきた</p>
               </div>
-              <div class="blog_area2">
+              <div class="blog_area">
                 <div class="blog_user_icon"></div><p class="blog_title">　2022.10.20.〇〇〇に行ってきた</p>
               </div>
               <div class="click">もっと見る...Click here</div>
@@ -70,41 +66,35 @@
         <div class="row">
           <div class="col-4 c-bgcolor--darkbrown">
             <div class=event>【イベント募集掲示板】</div><br>
-            <div class="event_area1">
+            <div class="event_area">
               <p class="event_title">2022.10.29.<br>トリニータファン集まれ！オフ会開催</p>
             </div>
-            <div class="event_area2">
+            <div class="event_area">
               <p class="event_title">2022.10.22.<br>ゲーム大会開催</p>
             </div>
-            <div class="event_area3">
+            <div class="event_area">
               <p class="event_title">2022.10.20.<br>一緒に焼き肉行きませんか</p>
             </div>
-            <div class="event_area4">
+            <div class="event_area">
               <p class="event_title">2022.10.15.<br>フットサルメンバー募集</p>
             </div>
-            <div class="event_area5">
-              <p class="event_title">2022.10.02.<br>写真仲間募集</p>
-            </div>
-           <div class="click">もっと見る...Click here</div>
+            <div class="click">もっと見る...Click here</div>
           </div>
 
         {{-- 自治体コーナー --}}
           <div class="col-4 c-bgcolor--brown">
             <div class="gov">【県・市町村からの募集】</div><br>
-            <div class="gov_area1">
+            <div class="gov_area">
               <p class="gov_title">2022.10.29.<br>（竹田市）岡城跡散策</p>
             </div>
-            <div class="gov_area2">
+            <div class="gov_area">
               <p class="gov_title">2022.10.22.<br>（豊後高田市）国宝　富貴寺大堂ライトアップ</p>
             </div>
-            <div class="gov_area3">
+            <div class="gov_area">
               <p class="gov_title">2022.10.20.<br>（杵築市）城下町散策ツアー</p>
             </div>
-            <div class="gov_area4">
+            <div class="gov_area">
               <p class="gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
-            </div>
-            <div class="gov_area5">
-              <p class="gov_title">2022.10.18.<br>（別府市）別府路地裏散策ツアー</p>
             </div>
             <div class="click">もっと見る...Click here</div>
           </div>
@@ -113,24 +103,24 @@
           <div class="col-4 c-bgcolor--beige">
             <div class="open">【オープンチャットコーナー】</div><br>
             <div class="open_chat">
-            <div class="open_chat_area">
-              <div class="open_chat_icon"></div><p class="open_chat_title">気軽に相談</p>
+            <div class="open_chat__area">
+              <div class="open_chat__icon"></div><p class="open_chat_title">気軽に相談</p>
             </div>
-            <div class="open_chat_area">
-              <div class="open_chat_icon"></div><p class="open_chat_title">Python質問</p>
+            <div class="open_chat__area">
+              <div class="open_chat__icon"></div><p class="open_chat_title">Python質問</p>
             </div>
-            <div class="open_chat_area">
-              <div class="open_chat_icon"></div><p class="open_chat_title">メンタル相談</p>
+            <div class="open_chat__area">
+              <div class="open_chat__icon"></div><p class="open_chat_title">メンタル相談</p>
             </div>
-            <div class="open_chat_area">
-              <div class="open_chat_icon"></div><p class="open_chat_title">生活の相談</p>
+            <div class="open_chat__area">
+              <div class="open_chat__icon"></div><p class="open_chat_title">生活の相談</p>
             </div>
-            <div class="open_chat_area">
-              <div class="open_chat_icon"></div><p class="open_chat_title">悩みの相談</p>
+            <div class="open_chat__area">
+              <div class="open_chat__icon"></div><p class="open_chat_title">悩みの相談</p>
             </div>
-            <div class="open_chat_area">
-              <div class="open_chat_icon"></div><p class="open_chat_title">気軽に相談</p>
-            </div>            
+            <div class="open_chat__area">
+              <div class="open_chat__icon"></div><p class="open_chat_title">気軽に相談</p>
+            </div>
           </div>
           <div class="click">もっと見る...Click here</div><br>
         </div>
@@ -139,3 +129,5 @@
     </div>
   </div>
   @endsection
+
+  

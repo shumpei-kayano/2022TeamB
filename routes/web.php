@@ -32,3 +32,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/event013', function () {
     return view('eventichirankojin');
 });
+
+//アカウント仮登録画面（タブ切り替え）
+Route::get('account', function () {
+    return view('account');
+});
