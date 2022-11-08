@@ -29,6 +29,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //イベント一覧（個人）画面
-Route::get('/event013', function () {
-    return view('eventichirankojin');
-});
+Route::get('/event013', 'EventController@index');
+
+// Route::get('/event013', function () {
+//     return view('eventichirankojin');
+// });
