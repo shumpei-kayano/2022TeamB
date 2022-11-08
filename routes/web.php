@@ -23,6 +23,7 @@ Route::get('welcome/top', function () {
 
 //アカウント登録
 
+Route::get('Proof', 'ProofController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -31,4 +32,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 //ログイン画面
 Route::get('/unko', function () {
     return view('a');
+});
+//イベント一覧（個人）画面
+Route::get('/event013', function () {
+    return view('eventichirankojin');
+});
+
+//アカウント仮登録画面（タブ切り替え）
+Route::get('account', function () {
+    return view('account');
 });

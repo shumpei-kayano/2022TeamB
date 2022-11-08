@@ -1,9 +1,33 @@
+//汎用性が高いところに使う
+body {
+    color: $black;
+    font-family: 'Noto Sans JP', sans-serif,"Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo";
+    font-size: 15px;
+    line-height: 1.5;
+}
 .c-bgcolor{
     background-color: black;
-    &--brown{
-        background-color: brown;
+    &--darkbrown{
+        background-color: $darkbrown;
+    }
+    &--beige{
+        background-color:$beige;
     }
     &--yellow{
-        background-color: yellow;
+        background-color:$yellow;
+    }
+    &--navy{
+        background-color:$navy;
+    }
+    &--brown{
+        background-color:$brown;
     }
 }
+
+// .c-btn {
+//     width: 100px;
+//     height: 100px;
+//     &--darkbrown {
+//         background-color: $darkbrown;
+//     }
+// }
