@@ -11,14 +11,28 @@
 |
 */
 
-//トップページ
+
+//ログイン画面
 Route::get('/', function () {
     return view('top');
 });
 
-//ログイン画面
 Route::get('welcome/top', function () {
     return view('welcome.top');
 });
-
 //アカウント登録
+Route::get('/ryukiunko' , function () {
+    return View('UserMypage1');
+});
+//ユーザから見た自治体ページ
+Route::get('/shinmaimaou' , function () {
+    return View('Userlookjititai');
+});
+
+Route::get('/ryukiuzaishinekasugomi' , function () {
+    return View('JititaiMypage1');
+});
+
+Route::get('/ryukinotikubi' , function () {
+    return View('Right_Button');
+});
