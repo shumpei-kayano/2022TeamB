@@ -33,6 +33,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+//ログイン画面
+Route::get('/unko', function () {
+    return view('a');
+});
 //イベント一覧（個人）画面
 Route::get('/event013', function () {
     return view('eventichirankojin');

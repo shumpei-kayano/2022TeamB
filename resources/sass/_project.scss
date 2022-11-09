@@ -21,6 +21,10 @@
     }
 }
 
+.container {
+    display: flex;
+    justify-content: flex-end;
+  }
 
 .p-searchbox{
     width:400px;
