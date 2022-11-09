@@ -7,52 +7,60 @@
 @section('main')
   <div class="container-fluid">
     <div class="row">
-      {{-- 左メニューバー --}}
 
+      {{-- 左メニュー(2)コンポーネント読み込み --}}
       @component('components.left')
       @endcomponent
 
-
-      {{-- 右側 --}}
+      {{-- 右全体(10) --}}
       <div class="col-10">
 
-        {{-- 右のコンテンツ --}}
-        <div class="row">
+        {{-- 右のコンテンツrow(12) --}}
+        <div class="row align-items-center">
+          {{--  ページタイトル(8)  --}}
           <div class="col-8">
-            {{--  ページタイトル  --}}
-            <p class="title">新着順 イベント募集投稿</p>
+              <div class="alert alert-warning" role="alert">
+                新着順 イベント募集投稿</div>
           </div>
+          {{--  新規募集投稿ボタン(4)  --}}
           <div class="col-4">
-            <button type="button" class="btn btn-outline-warning">イベントの募集をする</button>
+            <button type="button" class="btn btn-outline-warning">イベントの募集投稿をする</button>
           </div>
         </div>
 
+        {{--  カードを表示row  --}}
         <div class="row">
 
-        @foreach ($items as $item)
-          <div class="card" style="width: 13rem;">
-            <img src="img/noimage.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{$item->getTitle()}}</h5>
-              <p class="card-text">{{$item->getDate()}}</p>
-              <a href="#" class="btn btn-secondary">詳細</a>
+          @foreach ($items as $item)
+            <div class="card" style="width: 13rem;">
+              <a href="#">
+                <img src="img/noimage.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{$item->getTitle()}}</h5>
+                  <p class="card-text">{{$item->getDate()}}</p>
+                </div>
+              </a>
             </div>
-          </div>
-        @endforeach
-
+          @endforeach
 
         </div>
 
-        {{-- 右下のコンテンツ --}}
+        {{-- 右下のコンテンツrow(12) --}}
+
         <div class="row">
           <div class="col-8"></div>
           <div class="col-4">
-            <button type="button" class="btn btn-outline-warning">もっと見る click here</button>
+         {{ $items->links() }}
           </div>
         </div>
-        {{--  ページネーション{{ $items->links() }}  --}}
-      </div>
 
+        {{--  テキストエリア例  --}}
+        {{--  <div class="mb-3"> 
+          <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> 
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>       
+        </div>   --}}
+
+      </div>
     </div>
   </div>
 @endsection
@@ -60,29 +68,19 @@
 
 
 <style>
-  .col-2 {
-    background-color: #ddd;
-
-  }
-
-  .col-10 {
-    background-color: #ddd;
-    max-width: 850px;
-
-  }
-
   .row {
-    background-color: #f6f6f6;
+    background-color: #87785A;
     display: flex;
     justify-content: center;
   }
-
-  .title {
-    color: #333;
-    font-size: 1.5em;
+  .col-10 {
+    padding: 20px 20px;
   }
-
   .card {
     margin: 10px 10px;
+  }
+
+  a {
+    text-decoration:none; 
   }
 </style>

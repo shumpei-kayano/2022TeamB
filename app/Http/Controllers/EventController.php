@@ -11,7 +11,8 @@ class EventController extends Controller
     public function index(Request $request)
     {
         // $items = DB::table('events')->simplePaginate(8);
-        $items = Event::all();
+        $items = Event::Paginate(8);
+        // dd($items); //デバッグ用ddメソッド…変数の中身が見れる
         return view('eventichirankojin', ['items' => $items]);
     }
 }
