@@ -10,7 +10,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <!--------------------スライダー見た目-------------------------------------------------->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+  <!-------------------------------------------------------------------------------------> 
+
+  <!--------------------スライダーjQuery-----------------------------------------------------------> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <!------------------------------------------------------------------------------------->  
+
+  <!--------------------スライダー動かすやつ----------------------------------------------->  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <!------------------------------------------------------------------------------------->  
 </head>
+</head>
+
 <body>
   <header class="p-header">
       <div class="p-header__container">
@@ -26,8 +41,6 @@
         </div>
       </div>
   </header>
-
-
     <div class="main">
         @yield('main')
     </div>
@@ -35,3 +48,15 @@
 </html>
 
 
+{{-- トップページスライド写真JS読み込み --}}
+
+<script>
+  $('.slider').slick({
+  autoplay: true,       //自動再生
+  autoplaySpeed: 2000,  //自動再生のスピード
+  speed: 800,           //スライドするスピード
+  dots: true,           //スライド下のドット
+  arrows: true,         //左右の矢印
+  infinite: true,       //永久にループさせる
+  });
+</script>
