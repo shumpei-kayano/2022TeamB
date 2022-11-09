@@ -12,6 +12,9 @@
 */
 
 //トップページ
+
+
+
 Route::get('/', function () {
     return view('top');
 });
@@ -25,6 +28,8 @@ Route::get('welcome/top', function () {
 
 Route::get('Proof', 'ProofController@index');
 Auth::routes();
+//Route::post('register', 'ProofController@register');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
