@@ -1,4 +1,4 @@
-<div class="col-2 c-bgcolor--brown">
+<div class="col-2 c-bgcolor--brown left-bar">
     カテゴリから検索<br>
     <br>
     出会い<br>
