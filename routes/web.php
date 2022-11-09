@@ -13,6 +13,10 @@
 
 
 //ログイン画面
+//トップページ
+
+
+
 Route::get('/', function () {
     return view('top');
 });
@@ -35,4 +39,26 @@ Route::get('/ryukiuzaishinekasugomi' , function () {
 
 Route::get('/ryukinotikubi' , function () {
     return View('Right_Button');
+});
+
+Route::get('Proof', 'ProofController@index');
+Auth::routes();
+//Route::post('register', 'ProofController@register');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//ログイン画面
+Route::get('/unko', function () {
+    return view('a');
+});
+//イベント一覧（個人）画面
+Route::get('/event013', function () {
+    return view('eventichirankojin');
+});
+
+//アカウント仮登録画面（タブ切り替え）
+Route::get('account', function () {
+    return view('account');
 });
