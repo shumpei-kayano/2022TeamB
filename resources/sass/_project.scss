@@ -21,6 +21,9 @@
     }
 }
 
+.left-bar {
+    height: 100vh;
+}
 
 .p-searchbox{
     width:400px;
@@ -59,4 +62,9 @@
     background-color:$navy;
     color:white;
 }
+.row {
+    display: flex;
+}
+.eventadd_right {
 
+}
