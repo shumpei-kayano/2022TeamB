@@ -2,6 +2,19 @@
 
 @section('main')
 <br><br>
+<body>
+    <header class="p-header">
+        <nav class="navbar navbar-light">
+          <div class="container-fluid logo">
+            <a class="navbar-brand" href="#">
+              <img src="/img/logo_hane.png" alt="">
+              <img src="/img/logo_usagi.png" alt="">
+            </a>
+          </div>
+        </nav>
+    </header>
+</body>
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

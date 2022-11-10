@@ -1,10 +1,17 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
-@section('title')
-認証
-@endsection
 
-@section('main')
+<body>
+    <header class="p-header">
+        <nav class="navbar navbar-light">
+          <div class="container-fluid logo">
+            <a class="navbar-brand" href="#">
+              <img src="/img/logo_hane.png" alt="">
+              <img src="/img/logo_usagi.png" alt="">
+            </a>
+          </div>
+        </nav>
+    </header>
 
       <br><br>
       <div class="container">
@@ -75,3 +82,5 @@
 
 
 
+</div>
+</body>
