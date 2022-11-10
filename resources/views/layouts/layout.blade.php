@@ -24,7 +24,6 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <!------------------------------------------------------------------------------------->  
 </head>
-</head>
 
 <body>
   <header class="p-header">
@@ -33,11 +32,11 @@
           <img src="/img/logo.png" height="80px" width="380px" alt="" class="p-logo_img">
         </div>
         <div class="p-header__search">
-          <input class="p-searchbox" type="search" name="search" placeholder="キーワードを入力">
-          <input class="p-search-button" type="submit" name="submit" value="検索">
+          <input class="p-header__searchbox" type="search" name="search" placeholder="キーワードを入力">
+          <input class="p-header__search-button" type="submit" name="submit" value="検索">
         </div>
         <div class="p-header__login">
-          <input class="p-login-button" type="submit" name="submit" value="ログイン">
+          <input class="p-header__login-button" type="submit" name="submit" value="ログイン">
         </div>
       </div>
   </header>
