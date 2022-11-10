@@ -3,6 +3,59 @@
 .p-header{
     width:100%;
     height:90px;
+    background-color:#EAAB06;    margin: 0 0 0 auto;
+}
+.right {
+   margin-right: 0;
+   margin-left: auto;
+   width: 100%;
+}
+
+.form-container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+input {
+    min-width: 300px
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end;
+ }
+
+ .upper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__left {
+        width: 80%;
+    }
+    &__right {
+        width: 20%;
+    }
+}
+
+
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #000066;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #000066;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
     background-color:#EAAB06;
     &__container {
         height: 90px;
