@@ -100,39 +100,6 @@
   box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
   border        : 2px solid #000066;    /* 枠の指定 */
 }
-.button:hover {
-  box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #000066;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
-    background-color:#EAAB06;
-    &__container {
-        height: 90px;
-        display: flex;
-        justify-content: space-around;      // 水平方向を中央揃え
-        align-items: center;                // 垂直方向中央揃え
-    }
-    &__search {
-        padding-right: 70px;                //検索ボックスと検索ボタンを中央に寄せる
-    }
-    &__login{    
-        padding-right:80px;                 //ログインボタンの位置を調整
-    }
-    input {
-        border: none;                       //検索窓のトップページアクセス時に表示される外枠の線を消す
-    }
-    &__searchbox{
-        width:400px;
-        height:40px;
-        border-radius: 30px;
-        border:none;
-        padding-left:15px;
-        outline:none;                       //カーソルを置いた時の枠線を非表示
-    }
-    &__search-button{
-        width:90px;                         //検索ボタンの幅
-        height:40px;                        //検索ボタンの高さ
-    }
-}
 
                             /*ブログコーナータイトル中央寄せ*/
 .p-login-card {
@@ -164,17 +131,6 @@
     input {
         
     }
-}
-
-
-
-.p-searchbox{
-    width:400px;
-    height:40px;
-    border-radius: 30px;
-    border:none;
-    padding-left:15px;
-    outline:none;           //カーソルを置いた時の枠線を非表示
 }
 
 .p-account-button{                    /*ログインボタン設定*/
@@ -215,7 +171,6 @@
 
     }
 }
-
 
 .p-open{                                    /*オープンチャットコーナータイトル中央寄せ*/
     text-align: center;
@@ -305,8 +260,6 @@
 .slider .slick-arrow:before{
     font-size: 30px!important;
 }
-
-
 
 //アカウント仮登録画面
 .tab01 {
