@@ -11,6 +11,7 @@ body {
     // flex-direction: column;  //1109追加  変化なし
 }
 
+// 背景色の設定
 // main{                   //1109追加　変化なし
 //     width: 100%;        //1109追加  変化なし
 //     flex: 1;            //1109追加  変化なし
@@ -33,5 +34,24 @@ body {
     }
     &--brown{
         background-color:$brown;
+    }
+}
+
+// ボタン
+.c-btn {
+    width: 100px;
+    height: 100px;
+    &--darkbrown {
+        background-color: $darkbrown;
+    }
+    &--yellow {
+        background-color: $yellow;
+    }
+    &:hover {
+        opacity: 0.8;
+    }
+    &--bigger {
+        width: 150px;
+        height: 150px;
     }
 }

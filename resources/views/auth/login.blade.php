@@ -7,10 +7,8 @@
 @section('main')
 
       <br><br>
-      <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card  c-bgcolor--darkbrown"><br>
+      <div class="container" align="center">
+                <div class="card  c-bgcolor--darkbrown p-login-card"><br>
                     <h4 align="center">ログイン</h4>
     
                     <div class="card-body">
@@ -58,23 +56,18 @@
                         
                         
                           <div align ="center">
-                            <a>アカウントをお持ちではない方はこちら</a><br>
-                            @if (Route::has('register'))
-                              <input class="p-login-button" type="submit" href="{{ route('register') }}" value="アカウント新規作成">
-                      @endif
+                            <a class="p-login-card__bun">アカウントをお持ちではない方はこちら</a><br>
+
+                            <form method="GET" action="{{ route('register') }}">
+                              <input class="p-account-button" type="submit" value="アカウント新規作成">
                           </div>
 
                     </div>
                 </div>
-            </div>
-        </div>
     </div>
 
 
 
 
 @endsection
-
-
-
 
