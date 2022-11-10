@@ -62,3 +62,15 @@ Route::get('/event013', function () {
 Route::get('account', function () {
     return view('account');
 });
+
+Route::get('user1', function () {
+    return view('user_look');
+});
+
+Route::get('user2', function () {
+    return view('user_look2');
+});
+
+Route::get('user3', function () {
+    return view('user_look3');
+});
