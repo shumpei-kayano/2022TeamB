@@ -13,6 +13,6 @@ class EventController extends Controller
         // $items = DB::table('events')->simplePaginate(8);
         $items = Event::Paginate(8);
         // dd($items); //デバッグ用ddメソッド…変数の中身が見れる
-        return view('eventichirankojin', ['items' => $items]);
+        return view('event.eventichirankojin', ['items' => $items]);
     }
 }

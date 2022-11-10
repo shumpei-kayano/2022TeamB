@@ -25,19 +25,19 @@ Route::get('welcome/top', function () {
     return view('welcome.top');
 });
 //アカウント登録
-Route::get('/ryukiunko' , function () {
+Route::get('/ryukiunko', function () {
     return View('UserMypage1');
 });
 //ユーザから見た自治体ページ
-Route::get('/shinmaimaou' , function () {
+Route::get('/shinmaimaou', function () {
     return View('Userlookjititai');
 });
 
-Route::get('/ryukiuzaishinekasugomi' , function () {
+Route::get('/ryukiuzaishinekasugomi', function () {
     return View('JititaiMypage1');
 });
 
-Route::get('/ryukinotikubi' , function () {
+Route::get('/ryukinotikubi', function () {
     return View('Right_Button');
 });
 
@@ -54,10 +54,10 @@ Route::get('/unko', function () {
     return view('a');
 });
 //イベント一覧（個人）画面
-Route::get('/event013', 'EventController@index');
+Route::get('event013', 'EventController@index');
 
 Route::get('event014', function () {
-    return view('eventadd');
+    return view('event.eventadd');
 });
 
 //アカウント仮登録画面（タブ切り替え）
