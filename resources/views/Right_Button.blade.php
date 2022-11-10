@@ -5,6 +5,7 @@
 @section('main')
 
 
+<img src="noimage.png">
 
 
 
