@@ -16,14 +16,14 @@
     margin: 0 auto;
 }
 
-input {
-    min-width: 300px
-}
+// input {
+//     min-width: 300px;
+// }
 
-.container {
-    display: flex;
-    justify-content: flex-end;
- }
+// .container {
+//     display: flex;
+//     justify-content: flex-end;
+//  }
 
  .upper {
     display: flex;
@@ -74,10 +74,38 @@ input {
     }
 }
 
-.container {
-    display: flex;
-    justify-content: flex-end;
-  }
+.p-login-card {
+    text-align: center;
+    background-color:#87785A;
+    width: 550px;
+    border-radius : 5%;
+    input {
+        
+    }
+    &__bun {
+        color: #000066;
+    }
+}
+
+.p-register-card {
+    text-align: center;
+    background-color:#87785A;
+    width: 550px;
+    border-radius : 5%;
+    &__title {
+        
+    }
+    &__body {
+    }
+    &__form {
+
+    }
+    input {
+        
+    }
+}
+
+
 
 .p-searchbox{
     width:400px;
@@ -101,6 +129,15 @@ input {
 .p-login-button{                    /*ログインボタン設定*/
     width:130px;                    //ログインボタンの幅
     height:40px;                    //ログインボタンの高さ
+    border-radius: 30px;             //ボタンの角
+    background-color:$navy;          //ボタンの色指定
+    color:white;                   //ボタン内の文字色
+}
+
+.p-account-button{                    /*ログインボタン設定*/
+    width:130px;                    //ログインボタンの幅
+    height:40px;                    //ログインボタンの高さ
+    font-size: 12px;                //フォントサイズ
     border-radius: 30px;             //ボタンの角
     background-color:$navy;          //ボタンの色指定
     color:white;                   //ボタン内の文字色

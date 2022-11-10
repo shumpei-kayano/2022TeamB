@@ -5,6 +5,8 @@ body {
     font-size: 15px;
     line-height: 1.5;
 }
+
+// 背景色の設定
 .c-bgcolor{
     background-color: black;
     &--darkbrown{
@@ -24,10 +26,21 @@ body {
     }
 }
 
-// .c-btn {
-//     width: 100px;
-//     height: 100px;
-//     &--darkbrown {
-//         background-color: $darkbrown;
-//     }
-// }
+// ボタン
+.c-btn {
+    width: 100px;
+    height: 100px;
+    &--darkbrown {
+        background-color: $darkbrown;
+    }
+    &--yellow {
+        background-color: $yellow;
+    }
+    &:hover {
+        opacity: 0.8;
+    }
+    &--bigger {
+        width: 150px;
+        height: 150px;
+    }
+}
