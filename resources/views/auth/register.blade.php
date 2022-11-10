@@ -1,16 +1,27 @@
 @extends('layouts.layout')
 
+<!--<body>
+    <header class="p-header">
+        <nav class="navbar navbar-light">
+          <div class="container-fluid logo">
+            <a class="navbar-brand" href="#">
+              <img src="/img/logo_hane.png" alt="">
+              <img src="/img/logo_usagi.png" alt="">
+            </a>
+          </div>
+        </nav>
+    </header>
+</body>-->
 @section('main')
 <br><br>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card c-bgcolor--darkbrown">
+<div class="container" align="center">
+    
+            <div class="c-bgcolor--darkbrown p-register-card">
 
                 <br>
-                <h4 align="center">アカウント登録を完了させてください</h4>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                <h4  class="p-register-card__title">アカウント登録を完了させてください</h4>
+                <div class="card-body p-register-card__body">
+                    <form method="POST" action="{{ route('register') }}" class="p-register-card__form">
                         @csrf
 
                         <div class="form-group row">
@@ -74,6 +85,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection

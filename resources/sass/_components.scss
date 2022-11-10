@@ -4,7 +4,20 @@ body {
     font-family: 'Noto Sans JP', sans-serif,"Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo";
     font-size: 15px;
     line-height: 1.5;
+    background-color: $beige;   //1109追加
+    // min-width: 100vw;        //1109追加　変化なし
+    // min-height: 100vh;       //1109追加  変化なし
+    // display: flex;           //1109追加  変化なし
+    // flex-direction: column;  //1109追加  変化なし
 }
+
+// 背景色の設定
+// main{                   //1109追加　変化なし
+//     width: 100%;        //1109追加  変化なし
+//     flex: 1;            //1109追加  変化なし
+//     display: flex;      //1109追加  変化なし
+// }
+
 .c-bgcolor{
     background-color: black;
     &--darkbrown{
@@ -24,10 +37,21 @@ body {
     }
 }
 
-// .c-btn {
-//     width: 100px;
-//     height: 100px;
-//     &--darkbrown {
-//         background-color: $darkbrown;
-//     }
-// }
+// ボタン
+.c-btn {
+    width: 100px;
+    height: 100px;
+    &--darkbrown {
+        background-color: $darkbrown;
+    }
+    &--yellow {
+        background-color: $yellow;
+    }
+    &:hover {
+        opacity: 0.8;
+    }
+    &--bigger {
+        width: 150px;
+        height: 150px;
+    }
+}
