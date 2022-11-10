@@ -17,12 +17,11 @@
         <div class="row">
           {{-- おすすめ写真表示 --}}
           <div class="col-12 c-bgcolor--darkbrown">
-            <div class="slider">   
-              <div><img src="./img/beppuwan.jpg" width="400px" height="230px"></div>
-              <div><img src="./img/ramuneonsen.jpg" width="400px" height="230px"></div>   
-              <div><img src="./img/suginoi.jpg" width="400px" height="230px"></div>
-              <div><img src="./img/tsurumidake.jpg" width="400px" height="230px"></div>
-              <div><img src="./img/sekisaba.jpg" width="400px" height="230px"></div>
+            <div class="slider">  
+              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="230px"></div>
+              <div class="img"><img src="./img/bungotakada.jpg" width="100%" height="230px"></div>   
+              <div class="img"><img src="./img/ayu.jpg" width="100%" height="230px"></div>
+              <div class="img"><img src="./img/usajingu.jpg" width="100%" height="230px"></div>
           </div>
           </div>
         </div>
@@ -30,9 +29,9 @@
             {{-- エリアから探す テーブルで表示--}}
             <div class="col-8 c-bgcolor--beige">
               <br>
-              <div class="area_search">
-              <div class="circle">エリアから<br>さがす</div>
-              <table class="area_table">
+              <div class="p-area_search">
+              <div class="p-area_search__circle">エリアから<br>さがす</div>
+              <table class="p-area_search__area_table">
                 <tbody>
                   <tr>
                     <td>　　　大分市</td><td>　　日田市</td><td>　　　津久見市</td><td>　　杵築市</td><td>　　由布市</td><td>　　日出町</td>
@@ -51,78 +50,78 @@
 
           {{-- 新着ブログコーナー --}}
             <div class="col-4 c-bgcolor--brown">
-              <div class=blog>【新着ブログ】</div>
-              <div class="blog_area">
-                <div class="blog_user_icon"></div><p class="blog_title">　2022.10.22.〇〇〇に行ってきた</p>
+              <div class=p-blog>【新着ブログ】</div>
+              <div class="p-blog__blog_area">
+                <div class="p-blog__blog_user_icon"></div><p class="p-blog__blog_title">　2022.10.22.〇〇〇に行ってきた</p>
               </div>
-              <div class="blog_area">
-                <div class="blog_user_icon"></div><p class="blog_title">　2022.10.20.〇〇〇に行ってきた</p>
+              <div class="p-blog__blog_area">
+                <div class="p-blog__blog_user_icon"></div><p class="p-blog__blog_title">　2022.10.20.〇〇〇に行ってきた</p>
               </div>
-              <div class="click">もっと見る...Click here</div>
+              <div class="click"><a href="#">もっと見る...Click here</a></div>
             </div>
         </div>
 
         {{-- イベント掲示板 --}}
         <div class="row">
           <div class="col-4 c-bgcolor--darkbrown">
-            <div class=event>【イベント募集掲示板】</div><br>
-            <div class="event_area">
-              <p class="event_title">2022.10.29.<br>トリニータファン集まれ！オフ会開催</p>
+            <div class=p-event>【イベント募集掲示板】</div><br>
+            <div class="p-event__event_area">
+              <p class="p-event__event_title">2022.10.29.<br>トリニータファン集まれ！オフ会開催</p>
             </div>
-            <div class="event_area">
-              <p class="event_title">2022.10.22.<br>ゲーム大会開催</p>
+            <div class="p-event__event_area">
+              <p class="p-event__event_title">2022.10.22.<br>ゲーム大会開催</p>
             </div>
-            <div class="event_area">
-              <p class="event_title">2022.10.20.<br>一緒に焼き肉行きませんか</p>
+            <div class="p-event__event_area">
+              <p class="p-event__event_title">2022.10.20.<br>一緒に焼き肉行きませんか</p>
             </div>
-            <div class="event_area">
-              <p class="event_title">2022.10.15.<br>フットサルメンバー募集</p>
+            <div class="p-event__event_area">
+              <p class="p-event__event_title">2022.10.15.<br>フットサルメンバー募集</p>
             </div>
-            <div class="click">もっと見る...Click here</div>
+            <div class="click"><a href="#">もっと見る...Click here</a></div>
           </div>
 
         {{-- 自治体コーナー --}}
           <div class="col-4 c-bgcolor--brown">
-            <div class="gov">【県・市町村からの募集】</div><br>
-            <div class="gov_area">
-              <p class="gov_title">2022.10.29.<br>（竹田市）岡城跡散策</p>
+            <div class="p-gov">【県・市町村からの募集】</div><br>
+            <div class="p-gov__gov_area">
+              <p class="p-gov__gov_title">2022.10.29.<br>（竹田市）岡城跡散策</p>
             </div>
-            <div class="gov_area">
-              <p class="gov_title">2022.10.22.<br>（豊後高田市）国宝　富貴寺大堂ライトアップ</p>
+            <div class="p-gov__gov_area">
+              <p class="p-gov__gov_title">2022.10.22.<br>（豊後高田市）国宝　富貴寺大堂ライトアップ</p>
             </div>
-            <div class="gov_area">
-              <p class="gov_title">2022.10.20.<br>（杵築市）城下町散策ツアー</p>
+            <div class="p-gov__gov_area">
+              <p class="p-gov__gov_title">2022.10.20.<br>（杵築市）城下町散策ツアー</p>
             </div>
-            <div class="gov_area">
-              <p class="gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
+            <div class="p-gov__gov_area">
+              <p class="p-gov__gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
             </div>
-            <div class="click">もっと見る...Click here</div>
+            <div class="click"><a href="#">もっと見る...Click here</a></div>
           </div>
 
         {{-- オープンチャット --}}
           <div class="col-4 c-bgcolor--beige">
-            <div class="open">【オープンチャットコーナー】</div><br>
-            <div class="open_chat">
-            <div class="open_chat__area">
-              <div class="open_chat__icon"></div><p class="open_chat_title">気軽に相談</p>
+            <div class="p-open">【オープンチャットコーナー】</div><br>
+            <div class="row">
+              <div class="col-4">
+                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
+              </div>
+              <div class="col-4">
+                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">Python質問</p>
+              </div>
+              <div class="col-4">
+                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">メンタル相談</p>
+              </div>
+              <div class="col-4">
+                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">生活の相談</p>
+              </div>
+              <div class="col-4">
+                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">悩みの相談</p>
+              </div>
+              <div class="col-4">
+                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
+              </div>
+              <div class="click"><a href="#">もっと見る...Click here</a></div><br>
             </div>
-            <div class="open_chat__area">
-              <div class="open_chat__icon"></div><p class="open_chat_title">Python質問</p>
-            </div>
-            <div class="open_chat__area">
-              <div class="open_chat__icon"></div><p class="open_chat_title">メンタル相談</p>
-            </div>
-            <div class="open_chat__area">
-              <div class="open_chat__icon"></div><p class="open_chat_title">生活の相談</p>
-            </div>
-            <div class="open_chat__area">
-              <div class="open_chat__icon"></div><p class="open_chat_title">悩みの相談</p>
-            </div>
-            <div class="open_chat__area">
-              <div class="open_chat__icon"></div><p class="open_chat_title">気軽に相談</p>
-            </div>
-          </div>
-          <div class="click">もっと見る...Click here</div><br>
         </div>
         </div>
       </div>
