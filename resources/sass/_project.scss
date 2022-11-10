@@ -336,3 +336,35 @@
 // .odd {
 // 	background: #fefcf9;
 // }
+
+/* イベントカード */
+.p-eventcards {
+
+    display: flex;
+    justify-content: center;
+
+    &__card {
+        margin: 10px 10px;
+        padding-left: 0;
+        padding-right: 0;
+        a {
+            text-decoration: none;
+            color: $navy;
+        }
+    }
+}
+.p-event-right-content {
+    padding: 20px 40px;
+    background-color: $darkbrown;
+
+}
+.event-text-sm {
+    background-color: $navy;
+    color: #fff;
+    border: none;
+    font-size: 0.9em;
+}
+.event-text-lg {
+    font-size: 1.2em;
+}
+
