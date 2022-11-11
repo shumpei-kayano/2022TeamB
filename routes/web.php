@@ -31,6 +31,12 @@ Route::get('welcome/top', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
+
+//ログアウト完了画面に飛ぶ
+Route::get('/logout_kanryou', function () {
+    return view('auth.logout_kanryou');
+});
+
 //アカウント登録
 Route::get('/ryukiunko', function () {
     return View('UserMypage1');

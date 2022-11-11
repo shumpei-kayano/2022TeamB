@@ -29,7 +29,7 @@
   <header class="p-header">
       <div>
         <div>
-          <img src="/img/logo.png" height="80px" width="380px" alt="" class="p-logo">
+          <a href="{{URL::to('/')}}"><img src={{asset('/img/logo.png')}} alt="" height="80px" width="380px" class="p-logo"></a>
         </div>
 
       </div>
