@@ -1,4 +1,5 @@
-@extends('layouts.layout')
+{{-- トップページ --}}
+@extends('layouts.layout')   
 
 @section('title')
     トップ

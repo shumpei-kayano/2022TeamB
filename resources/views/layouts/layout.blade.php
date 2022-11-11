@@ -29,7 +29,8 @@
   <header class="p-header">
       <div class="p-header__container">
         <div class="p-header__logo">
-          <img src="/img/logo.png" height="80px" width="380px" alt="" class="p-logo_img">
+          {{-- ヘッダーロゴをクリックするトップページを表示 --}}
+          <a href="{{URL::to('/')}}"><img src={{asset('/img/logo.png')}} alt="" height="80px" width="380px" class="p-logo_img"></a>
         </div>
         <div class="p-header__search">
           <input class="p-header__searchbox" type="search" name="search" placeholder="キーワードを入力">
