@@ -1,22 +1,12 @@
-@extends('layouts.layout')
+@extends('layouts.uedake')
 
-<!--<body>
-    <header class="p-header">
-        <nav class="navbar navbar-light">
-          <div class="container-fluid logo">
-            <a class="navbar-brand" href="#">
-              <img src="/img/logo_hane.png" alt="">
-              <img src="/img/logo_usagi.png" alt="">
-            </a>
-          </div>
-        </nav>
-    </header>
-</body>-->
+@section('title')
+アカウント情報入力
+@endsection
 @section('main')
-<br><br>
-<div class="container" align="center">
+<div class="p-small_bg">
     
-            <div class="c-bgcolor--darkbrown p-register-card">
+            <div class="p-small_bg__card_bg">
 
                 <br>
                 <h4  class="p-register-card__title">アカウント登録を完了させてください</h4>
@@ -79,7 +69,7 @@
                         </div>
 
                         <div align="center">
-                            <input class="p-login-button" type="submit" value="登録">
+                            <input class="p-header__login-button" type="submit" value="登録">
                           </div>
                     </form>
                 </div>

@@ -27,37 +27,10 @@
 
 <body>
   <header class="p-header">
-      <div class="p-header__container">
-        <div class="p-header__logo">
-          <img src="/img/logo.png" height="80px" width="380px" alt="" class="p-logo_img">
+      <div>
+        <div>
+          <img src="/img/logo.png" height="80px" width="380px" alt="" class="p-logo">
         </div>
-        <div class="p-header__search">
-          <input class="p-header__searchbox" type="search" name="search" placeholder="キーワードを入力">
-          <input class="p-header__search-button" type="submit" name="submit" value="検索">
-        </div>
-
-        <div>         
-          @guest
-              @if (Route::has('register'))
-              <div class="p-header__login">
-                <form action="/login">
-                <input class="p-header__login-button" type="submit" name="submit" value="ログイン">
-              </form>
-              </div>
-              @endif
-
-          @else
-              
-              <div class="p-header__login">
-                <input class="p-header__login-button" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"
-                 type="submit" name="submit" value="ログアウト">
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-              </form>
-              </div>
-          @endguest
-      </div>
 
       </div>
   </header>
