@@ -65,6 +65,11 @@ Route::get('account_deactivate', function () {
     return view('account.account_deactivate');
 });
 
+//アカウント削除の確認画面
+Route::get('check_deactivate', function () {
+    return view('account.check_deactivate');
+});
+
 
 //イベント一覧（個人）画面
 Route::get('/event013', function () {
