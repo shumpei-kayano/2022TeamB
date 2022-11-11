@@ -324,20 +324,6 @@
     }
 }
 
-.button {
-  display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  font-size     : 18pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 12px 12px;   /* 余白       */
-  background    : #000066;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
-  border        : 2px solid #000066;    /* 枠の指定 */
-}
 
 
 
@@ -385,3 +371,51 @@
 // .odd {
 // 	background: #fefcf9;
 // }
+.p-user-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+    }
+    &__tenpo {
+        width: 50%;
+    }
+    &__hyouka {
+        width: 50%;
+    }
+    table, tr, tbody{
+        width: 100%;
+    }
+    table {
+        margin: 20px;
+    }
+    
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
+
+
+}
