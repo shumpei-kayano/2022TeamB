@@ -16,11 +16,21 @@ Route::get('welcome/top', function () {
     return view('welcome.top');
 });
 //トップページ
+
+//use Illuminate\Routing\Route;
+
 Route::get('/', function () {
     return view('top');
 });
 
+Route::get('welcome/top', function () {
+    return view('welcome.top');
+});
 
+//ログイン画面に飛ぶ
+Route::get('/login', function () {
+    return view('auth.login');
+});
 //アカウント登録
 Route::get('/ryukiunko', function () {
     return View('UserMypage1');

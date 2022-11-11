@@ -42,7 +42,13 @@
         border-radius: 30px;                //ボタンの角
         background-color:$navy;             //ボタンの色指定
         color:white;                      //ボタン内の文字色
+        border: none;
     }
+}
+
+.p-logo {
+    margin-top: 5px;
+    margin-left: 64px;
 }
 
 //トップページの写真スライドの設定
@@ -334,36 +340,6 @@
 }
 
                             /*ブログコーナータイトル中央寄せ*/
-.p-login-card {
-    text-align: center;
-    background-color:#87785A;
-    width: 550px;
-    border-radius : 5%;
-    input {
-        
-    }
-    &__bun {
-        color: #000066;
-    }
-}
-
-.p-register-card {
-    text-align: center;
-    background-color:#87785A;
-    width: 550px;
-    border-radius : 5%;
-    &__title {
-        
-    }
-    &__body {
-    }
-    &__form {
-
-    }
-    input {
-        
-    }
-}
 
 .p-account-button{                    /*ログインボタン設定*/
     width:130px;                    //ログインボタンの幅
@@ -372,8 +348,23 @@
     border-radius: 30px;             //ボタンの角
     background-color:$navy;          //ボタンの色指定
     color:white;                   //ボタン内の文字色
+    border: none;
 }
-
+//入力フォームなどの背景(小)
+.p-small_bg {
+    &__card_bg {
+    text-align: center;
+    background-color:#87785A;
+    width: 550px;
+    height: 350px;
+    border-radius : 5%;
+    border-bottom: 3px solid black;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 80px;
+    
+    }
+}
 
 
 //   松川追記
