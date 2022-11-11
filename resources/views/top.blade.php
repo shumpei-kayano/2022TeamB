@@ -18,10 +18,10 @@
           {{-- おすすめ写真表示 --}}
           <div class="col-12 c-bgcolor--darkbrown">
             <div class="slider">  
-              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="230px"></div>
-              <div class="img"><img src="./img/bungotakada.jpg" width="100%" height="230px"></div>   
-              <div class="img"><img src="./img/ayu.jpg" width="100%" height="230px"></div>
-              <div class="img"><img src="./img/usajingu.jpg" width="100%" height="230px"></div>
+              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/bungotakada.jpg" width="100%" height="330px"></div>   
+              <div class="img"><img src="./img/ayu.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/usajingu.jpg" width="100%" height="330px"></div>
           </div>
           </div>
         </div>
