@@ -42,7 +42,13 @@
         border-radius: 30px;                //ボタンの角
         background-color:$navy;             //ボタンの色指定
         color:white;                      //ボタン内の文字色
+        border: none;
     }
+}
+
+.p-logo {
+    margin-top: 5px;
+    margin-left: 61px;
 }
 
 //トップページの写真スライドの設定
@@ -172,9 +178,8 @@
 }
 
 //アカウント仮登録画面
-
-  .p-tab01 {
-    width: 500px;
+.p-tab01 {
+    width: 550px;
     margin: 0 auto 50px;
     margin-top:100px;
     &__tab_menu1 {
@@ -191,8 +196,9 @@
         text-align: center;
         font-weight: bold;
         transition: all 0.2s ease;
-      }
-      &__tab_menu2 {
+        border-radius: 30px;
+    }
+    &__tab_menu2 {
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
@@ -206,8 +212,9 @@
         text-align: center;
         font-weight: bold;
         transition: all 0.2s ease;
-      }
-      &__tab_menu3 {
+        border-radius: 30px;
+    }
+    &__tab_menu3 {
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
@@ -221,19 +228,23 @@
         text-align: center;
         font-weight: bold;
         transition: all 0.2s ease;
-      }
-      input[name="tab_menu"] {
+        border-radius: 30px;
+    }
+    input[name="tab_menu"] {
         display: none;
-      }
-       /*タブ切り替えの中身のスタイル*/
+    }
+    /*タブ切り替えの中身のスタイル*/
     &__tab_contents1 {
     display: none;
     padding: 40px;
     clear: both;
     overflow: hidden;
     transition: .5s opacity;
-    box-shadow: 0 0 3px rgba(0,0,0,.2);
+    border-bottom: 3px solid black;
+    width:550px;
     background-color: $yellow;
+    border-radius: 30px;
+    text-align: center;
     }
     &__tab_contents2 {
     display: none;
@@ -241,8 +252,11 @@
     clear: both;
     overflow: hidden;
     transition: .5s opacity;
-    box-shadow: 0 0 3px rgba(0,0,0,.2);
+    border-bottom: 3px solid black;
+    width:550px;
     background-color: $brown;
+    border-radius: 30px;
+    text-align: center;
     }
     &__tab_contents3 {
     display: none;
@@ -250,50 +264,40 @@
     clear: both;
     overflow: hidden;
     transition: .5s opacity;
-    box-shadow: 0 0 3px rgba(0,0,0,.2);
+    border-bottom: 3px solid black;
+    width:550px;
     background-color: $darkbrown;
-    }
-    &__tab_contents1_mail{
-
+    border-radius: 30px;
+    text-align: center;
     }
     &__tab_contents1_send{
-        
+        width:130px;                        //ログインボタンの幅
+        height:40px;                        //ログインボタンの高さ
+        border-radius: 30px;                //ボタンの角
+        background-color:$navy;             //ボタンの色指定
+        color:white;                      //ボタン内の文字色
+        border:none;                        //ボタンの外枠を消す
     }
     &__tab_contents2_mail{
 
     }
-    &__tab_contents2_send{
-        
-    }
+    
     &__tab_contents3_code{
 
     }
     &__tab_contents3_mail{
 
     }
-    &__tab_contents3_send{
-        
-    }
 
-  }
+}
 
-  
-  /*タブ切り替えの中身のスタイル*/
-  .tab_contents {
-    display: none;
-    padding: 40px;
-    clear: both;
-    overflow: hidden;
-    transition: .5s opacity;
-    box-shadow: 0 0 3px rgba(0,0,0,.2);
-  }
-  /*選択されているタブを表示*/
-  #menu01:checked ~ #menu01,
-  #menu02:checked ~ #menu02,
-  #menu03:checked ~ #menu03 {
+/*選択されているタブを表示*/
+#menu01:checked ~ #menu01,
+#menu02:checked ~ #menu02,
+#menu03:checked ~ #menu03 {
     display: block;
-  }
-  
+}
+
 
 
 
@@ -342,37 +346,7 @@
 }
 
 
-                            /*ブログコーナータイトル中央寄せ*/
-.p-login-card {
-    text-align: center;
-    background-color:#87785A;
-    width: 550px;
-    border-radius : 5%;
-    input {
-        
-    }
-    &__bun {
-        color: #000066;
-    }
-}
 
-.p-register-card {
-    text-align: center;
-    background-color:#87785A;
-    width: 550px;
-    border-radius : 5%;
-    &__title {
-        
-    }
-    &__body {
-    }
-    &__form {
-
-    }
-    input {
-        
-    }
-}
 
 .p-account-button{                    /*ログインボタン設定*/
     width:130px;                    //ログインボタンの幅
@@ -381,8 +355,22 @@
     border-radius: 30px;             //ボタンの角
     background-color:$navy;          //ボタンの色指定
     color:white;                   //ボタン内の文字色
+    border: none;
 }
-
+//入力フォームなどの背景(小)
+.p-small_bg {
+    &__card_bg {
+    text-align: center;
+    background-color:#87785A;
+    width: 550px;
+    height: 350px;
+    border-radius : 5%;
+    border-bottom: 3px solid black;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 80px;
+    }    
+}
 
 
 //   松川追記
@@ -404,4 +392,51 @@
 // .odd {
 // 	background: #fefcf9;
 // }
+.p-user-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+    }
+    &__tenpo {
+        width: 50%;
+    }
+    &__hyouka {
+        width: 50%;
+    }
+    table, tr, tbody{
+        width: 100%;
+    }
+    table {
+        margin: 20px;
+    }
+    
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
 
+
+}
