@@ -64,7 +64,7 @@ Route::get('/logout_kanryou', function () {
     return view('auth.logout_kanryou');
 });
 
-//アカウント登録
+//プロフィール登録
 Route::get('/ryukiunko', function () {
     return View('UserMypage1');
 });
