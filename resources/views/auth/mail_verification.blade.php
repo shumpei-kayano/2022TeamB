@@ -1,7 +1,6 @@
 {{-- アカウント仮登録画面(メール認証) --}}
 
-@extends('layouts.layout')   
-{{-- layouts.'(uedake.blade.php)をあとで読み込む --}}
+@extends('layouts.uedake')   
 @section('title')
     アカウント仮登録画面
 @endsection

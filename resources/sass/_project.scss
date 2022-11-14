@@ -48,7 +48,7 @@
 
 .p-logo {
     margin-top: 5px;
-    margin-left: 64px;
+    margin-left: 61px;
 }
 
 //トップページの写真スライドの設定
@@ -157,7 +157,7 @@
 
     }
     &__gov_title{
-
+        
     }
 }
 
@@ -165,7 +165,7 @@
 .p-open{                                    
     text-align: center;                     //オープンチャットコーナータイトル中央寄せ
     font-size: 20px;
-    &__open_chat__icon{
+    &__open_chat_icon{
         width: 50px;                        //円の横幅
         height: 50px;                       //円の縦幅
         border-radius: 50%;                 //円
@@ -173,9 +173,65 @@
         margin:0 auto;
     }
     &__open_chat_title{
-
+        text-align: center;
     }
 }
+
+//チャット関連の新規トークルーム作成ボタン
+.create_btn{
+    width: 1200px;
+    margin-top:20px;
+    margin: auto;
+}
+//チャット関連の背景色(大)
+.p-large_bg{
+    &__card_bg{
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1200px;
+        height: 700px;
+        border-radius : 2%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    &__create-button{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                   //ボタン内の文字色
+        border: none;
+        display: block;
+        margin: 0 0 0 auto;
+        margin-top: 20px;
+    }
+}
+
+//オープンチャット関連の背景色内の中央にテキスト類をブロックで配置
+.p-open_chat_area{
+    width: 1200px;
+    height: 700px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    &__open_chat_list_icon{
+        width: 100px;                        //円の横幅
+        height: 100px;                       //円の縦幅
+        border-radius: 50%;                  //円
+        background: $brown;                  //背景色
+        }
+    &__open_chat_list_title{
+        text-align: center;
+        // width:400px;
+        margin:0 auto;
+        color:black;
+        }
+}
+
+
+
+
 
 //アカウント仮登録画面
 .p-tab01 {
@@ -186,7 +242,7 @@
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
-        font-size: 16px;
+        font-size: 20px;
         text-align: center;
         color: #000;
         border-bottom: 3px solid black;
@@ -198,11 +254,15 @@
         transition: all 0.2s ease;
         border-radius: 30px;
     }
+    &__tab_menu1:hover{
+        opacity: 0.5 ;
+        cursor: pointer;
+    }
     &__tab_menu2 {
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
-        font-size: 16px;
+        font-size: 20px;
         text-align: center;
         color: #000;
         border-bottom: 3px solid black;
@@ -214,11 +274,15 @@
         transition: all 0.2s ease;
         border-radius: 30px;
     }
+    &__tab_menu2:hover{
+        opacity: 0.5 ;
+        cursor: pointer;
+    }
     &__tab_menu3 {
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
-        font-size: 16px;
+        font-size: 20px;
         text-align: center;
         color: #000;
         border-bottom: 3px solid black;
@@ -229,6 +293,10 @@
         font-weight: bold;
         transition: all 0.2s ease;
         border-radius: 30px;
+    }
+    &__tab_menu3:hover{
+        opacity: 0.5 ;
+        cursor: pointer;
     }
     input[name="tab_menu"] {
         display: none;
@@ -288,7 +356,6 @@
     &__tab_contents3_mail{
 
     }
-
 }
 
 /*選択されているタブを表示*/
@@ -297,7 +364,17 @@
 #menu03:checked ~ #menu03 {
     display: block;
 }
-  
+
+//ログイン画面などの背景色内の中央にテキスト類をブロックで配置
+.content_block{
+    width: 450px;
+    height: 450px;
+    position: relative; 
+    top: 50px; 
+    left: 50px; 
+}
+
+
 
 
 
@@ -325,7 +402,28 @@
 }
 
 
-                            /*ブログコーナータイトル中央寄せ*/
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #04047b;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #04047b;    /* 枠の指定 */
+  width: 12em;
+  height:2em;
+}
+.button:hover {
+  color         : #04047b;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+
+
 
 .p-account-button{                    /*ログインボタン設定*/
     width:130px;                    //ログインボタンの幅
@@ -348,9 +446,17 @@
     margin-right: auto;
     margin-left: auto;
     margin-top: 80px;
-    
+    }
+    &__logo_img{
+        margin-top: 8px;
+        margin-left: 485px;
+    }
+    &__simasita {
+        margin-top:80px;
     }
 }
+
+
 
 
 //   松川追記
@@ -424,6 +530,7 @@
 
 }
 
+<<<<<<< HEAD
 .p-user2-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -523,3 +630,14 @@
     }
 
 }
+=======
+.yes_or_no {
+    text-align: center;
+    &__yes {
+        transform: translate(-69px,20px);
+    }
+    &__no {
+        transform: translate(69px,-20px);
+    }
+}
+>>>>>>> e25682e7867a1f250712e653b257a78f19ae8e98
