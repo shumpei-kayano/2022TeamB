@@ -467,3 +467,13 @@
 
 
 }
+
+.yes_or_no {
+    text-align: center;
+    &__yes {
+        transform: translate(-69px,20px);
+    }
+    &__no {
+        transform: translate(69px,-20px);
+    }
+}

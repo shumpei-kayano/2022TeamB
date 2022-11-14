@@ -13,6 +13,7 @@
                 <div class="card-body p-register-card__body">
                     <form method="POST" action="{{ route('register') }}" class="p-register-card__form">
                         @csrf
+                        <input id="name" type="hidden" name="company_register" value=1 >
 
                         <div class="form-group row">
                             <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('  ') }}</label>
