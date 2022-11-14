@@ -144,10 +144,7 @@
 .row {
     display: flex;
 }
-.eventadd_right {
 
-
-}
 
 .click{                             /*もっと見る...Click hereを右寄せ*/
     text-align: right;
@@ -359,14 +356,10 @@
     background-color: $darkbrown;
 
 }
-.event-text-sm {
+.p-event-text {
     background-color: $navy;
-    color: #fff;
+    color: $white;
     border: none;
-    font-size: 0.9em;
-}
-.event-text-lg {
-    font-size: 1.2em;
 }
 
 .eventadd-container {
