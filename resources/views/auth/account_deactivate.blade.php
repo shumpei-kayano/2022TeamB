@@ -9,8 +9,9 @@
 <div class="p-small_bg">
     <div class="p-small_bg__card_bg">   {{-- ログイン画面などの背景色 --}}
         <br>
+        <div class="content_block">     {{-- 背景内の中央にテキスト類をブロックで配置 --}}
         <h4 class="p-register-card__title">アカウント削除</h4><br>
-
+        
     <div class="form-group row">
         <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('  ') }}</label>
 
@@ -25,6 +26,7 @@
             @enderror
         </div>
     </div>
+
 
     <div class="form-group row">
         <label for="password" class="col-md-3 col-form-label text-md-right">{{ __('  ') }}</label>
@@ -43,6 +45,8 @@
     <div align="center">
         <input class="p-header__login-button" type="submit" value="削除する">
       </div>
+    </div>
+</div>
 </div>
 </div>
 @endsection

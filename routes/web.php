@@ -15,22 +15,49 @@
 Route::get('welcome/top', function () {
     return view('welcome.top');
 });
+
 //トップページ
-
-//use Illuminate\Routing\Route;
-
 Route::get('/', function () {
     return view('top');
 });
 
-Route::get('welcome/top', function () {
-    return view('welcome.top');
-});
-
-//ログイン画面に飛ぶ
+//ログイン画面にとぶ
 Route::get('/login', function () {
     return view('auth.login');
 });
+
+//Authログインに使うよ
+Auth::routes();
+
+//アカウント仮登録画面（タブ切り替え）
+Route::get('mail_verification', function () {
+    return view('auth.mail_verification');
+});
+
+//アカウント登録完了画面
+Route::get('completed_registration', function () {
+    return view('auth.completed_registration');
+});
+
+//ログイン成功後のページ表示
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//アカウント削除画面
+Route::get('account_deactivate', function () {
+    return view('auth.account_deactivate');
+});
+
+//アカウント削除の確認画面
+Route::get('check_deactivate', function () {
+    return view('auth.check_deactivate');
+});
+
+//アカウント削除完了画面
+Route::get('account_deleted', function () {
+    return view('auth.account_deleted');
+});
+
 
 //ログアウト完了画面に飛ぶ
 Route::get('/logout_kanryou', function () {
@@ -54,27 +81,6 @@ Route::get('/ryukinotikubi', function () {
     return View('Right_Button');
 });
 
-//Authログインに使うよ
-Auth::routes();
-
-//アカウント仮登録画面（タブ切り替え）
-Route::get('mail_verification', function () {
-    return view('account.mail_verification');
-});
-
-//ログイン成功後のページ表示
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-//アカウント削除画面
-Route::get('account_deactivate', function () {
-    return view('account.account_deactivate');
-});
-
-//アカウント削除の確認画面
-Route::get('check_deactivate', function () {
-    return view('account.check_deactivate');
-});
 
 
 //イベント一覧（個人）画面

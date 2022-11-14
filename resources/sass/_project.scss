@@ -186,7 +186,7 @@
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
-        font-size: 16px;
+        font-size: 20px;
         text-align: center;
         color: #000;
         border-bottom: 3px solid black;
@@ -198,11 +198,15 @@
         transition: all 0.2s ease;
         border-radius: 30px;
     }
+    &__tab_menu1:hover{
+        opacity: 0.5 ;
+        cursor: pointer;
+    }
     &__tab_menu2 {
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
-        font-size: 16px;
+        font-size: 20px;
         text-align: center;
         color: #000;
         border-bottom: 3px solid black;
@@ -214,11 +218,15 @@
         transition: all 0.2s ease;
         border-radius: 30px;
     }
+    &__tab_menu2:hover{
+        opacity: 0.5 ;
+        cursor: pointer;
+    }
     &__tab_menu3 {
         width: calc(100%/3);
         height: 60px;
         line-height: 60px;
-        font-size: 16px;
+        font-size: 20px;
         text-align: center;
         color: #000;
         border-bottom: 3px solid black;
@@ -229,6 +237,10 @@
         font-weight: bold;
         transition: all 0.2s ease;
         border-radius: 30px;
+    }
+    &__tab_menu3:hover{
+        opacity: 0.5 ;
+        cursor: pointer;
     }
     input[name="tab_menu"] {
         display: none;
@@ -298,6 +310,14 @@
     display: block;
 }
 
+//ログイン画面などの背景色内の中央にテキスト類をブロックで配置
+.content_block{
+    width: 450px;
+    height: 450px;
+    position: relative; 
+    top: 50px; 
+    left: 50px; 
+}
 
 
 
