@@ -157,7 +157,7 @@
 
     }
     &__gov_title{
-
+        
     }
 }
 
@@ -165,7 +165,7 @@
 .p-open{                                    
     text-align: center;                     //オープンチャットコーナータイトル中央寄せ
     font-size: 20px;
-    &__open_chat__icon{
+    &__open_chat_icon{
         width: 50px;                        //円の横幅
         height: 50px;                       //円の縦幅
         border-radius: 50%;                 //円
@@ -173,9 +173,65 @@
         margin:0 auto;
     }
     &__open_chat_title{
-
+        text-align: center;
     }
 }
+
+//チャット関連の新規トークルーム作成ボタン
+.create_btn{
+    width: 1200px;
+    margin-top:20px;
+    margin: auto;
+}
+//チャット関連の背景色(大)
+.p-large_bg{
+    &__card_bg{
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1200px;
+        height: 700px;
+        border-radius : 2%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    &__create-button{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                   //ボタン内の文字色
+        border: none;
+        display: block;
+        margin: 0 0 0 auto;
+        margin-top: 20px;
+    }
+}
+
+//オープンチャット関連の背景色内の中央にテキスト類をブロックで配置
+.p-open_chat_area{
+    width: 1200px;
+    height: 700px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    &__open_chat_list_icon{
+        width: 100px;                        //円の横幅
+        height: 100px;                       //円の縦幅
+        border-radius: 50%;                  //円
+        background: $brown;                  //背景色
+        }
+    &__open_chat_list_title{
+        text-align: center;
+        // width:400px;
+        margin:0 auto;
+        color:black;
+        }
+}
+
+
+
+
 
 //アカウント仮登録画面
 .p-tab01 {
@@ -300,7 +356,6 @@
     &__tab_contents3_mail{
 
     }
-
 }
 
 /*選択されているタブを表示*/
@@ -318,6 +373,8 @@
     top: 50px; 
     left: 50px; 
 }
+
+
 
 
 
@@ -398,6 +455,8 @@
         margin-top:80px;
     }
 }
+
+
 
 
 //   松川追記

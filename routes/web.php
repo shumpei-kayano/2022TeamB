@@ -101,3 +101,9 @@ Route::get('user2', function () {
 Route::get('user3', function () {
     return view('user_look3');
 });
+
+
+//オープンチャット関連
+Route::get('open_chat_list', function () {
+    return view('open_chat.open_chat_list');
+});
