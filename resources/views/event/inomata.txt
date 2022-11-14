@@ -5,3 +5,9 @@
 
 ブロック要素を中央揃え
     幅（width）を設定してmargin: 0 auto;
+
+scssファイルを編集した時はコンパイルが必要
+    ターミナルでnpm run watchを実行(入力)
+
+flex-direction … 子要素の並ぶ向きcoloumn
+https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet#flexbox2
