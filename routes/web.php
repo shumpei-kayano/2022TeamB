@@ -84,3 +84,7 @@ Route::get('user2', function () {
 Route::get('user3', function () {
     return view('user_look3');
 });
+
+Route::get('setting', function () {
+    return view('mypage_setting');
+});

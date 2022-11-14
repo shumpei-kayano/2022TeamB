@@ -32,8 +32,9 @@
 			</tbody>
 		</table>
 		<tr>
-			<td colspan="p-user-mypage__introduction"><label for="text" class="form-label">紹介文</label>
-				<input type="text" class="form-control" id="text" placeholder="もも焼き"></td>
+
+			<td colspan="p-user-mypage__introduction"><label for="introduction" class="form-label">紹介文</label>
+				<input type="text" class="form-control" id="introduction" style="height: 150px;"></td>
 		</tr>
 		<table>
 				<tr>
@@ -50,11 +51,11 @@
 	</div>
 	<div class="p-user-mypage__right">
 		<img src="{{ asset('/img/noimage.png') }}" width="200px" height="200px">
-		<a href="＃"><button class="p-user-mypage__btn"> DM送信</button></a>
-		<a href="＃"><button class="p-user-mypage__btn"> フォローする</button></a>
-		<a href="＃"><button class="p-user-mypage__btn"> フォロワー</button></a>
-		<a href="＃"><button class="p-user-mypage__btn"> ブログを読む</button></a>
-		<a href="＃"><button class="p-user-mypage__btn--red"> 通報する</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
+		<a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>
 		{{-- <input type="submit" value="設定" class='button' style="text-align: right"><br>
 		<input type="submit" value="プロフィール登録・編集" class='button'><br>
 		<input type="submit" value="フォロワー"class='button' ><br>

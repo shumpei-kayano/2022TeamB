@@ -389,6 +389,9 @@
     &__hyouka {
         width: 50%;
     }
+    &__introduction{
+        padding: 30px;
+    }
     table, tr, tbody{
         width: 100%;
     }
@@ -418,5 +421,105 @@
         height: 60px;
     }
 
+
+}
+
+.p-user2-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__kojin {
+        width: 50%;
+    }
+
+    table, tr, tbody{
+        width: 100%;
+    }
+    // table {
+    //     margin: 20px;
+    // }
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+    &__hobby {
+        display: flex;
+        justify-content: space-between;
+        label {
+            width: 30%;
+        }
+    }
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
+
+}
+
+.p-user3-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__municipality{
+        width: 50%;
+    }
+
+    table, tr, tbody{
+        width: 100%;
+    }
+    // table {
+    //     margin: 20px;
+    // }
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
 
 }
