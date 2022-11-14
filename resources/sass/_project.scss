@@ -352,6 +352,7 @@
             color: $navy;
         }
     }
+/*イベント編集・追加*/
 }
 .p-event-right-content {
     padding: 20px 40px;
@@ -367,4 +368,31 @@
 .event-text-lg {
     font-size: 1.2em;
 }
+
+.eventadd-container {
+    display: flex; //子要素を横並びにする
+}
+
+.eventadd {
+    width: 1120px;
+    text-align: center; //h2を中央揃え
+    &__content {
+        width: 90%;
+        margin: 0 auto; //ブロック要素を中央揃え
+        display: flex; //leftとrightを横並び
+    }
+    &__left {
+        width: 30%;
+        background-color: gray;
+    }
+    &__right {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        //table 
+        
+            
+    
+        }
+    }
 
