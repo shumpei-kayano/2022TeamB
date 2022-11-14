@@ -102,13 +102,10 @@ Route::get('user3', function () {
     return view('user_look3');
 });
 
-<<<<<<< HEAD
 Route::get('setting', function () {
     return view('mypage_setting');
-=======
 
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
->>>>>>> e25682e7867a1f250712e653b257a78f19ae8e98
 });
