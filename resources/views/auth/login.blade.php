@@ -56,7 +56,7 @@
                           <div align ="center">
                             <p class="p-login-card__bun">アカウントをお持ちではない方はこちら</p>
 
-                            <form method="GET" action="{{ route('register') }}">
+                            <form action="/mail_verification">
                               <input class="p-account-button" type="submit" value="アカウント新規作成">
                           </div>
 

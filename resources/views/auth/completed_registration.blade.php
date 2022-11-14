@@ -10,7 +10,9 @@
         <div class="content_block">     {{-- 背景内の中央にテキスト類をブロックで配置 --}}
         <h4 class="p-register-card__title">アカウント登録が完了しました！</h4><br>
         <div align="center">
+            <form action="/">
             <input class="p-header__login-button" type="submit" value="戻る">
+            </form>
           </div>
     </div>
 </div>

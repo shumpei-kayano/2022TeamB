@@ -70,4 +70,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function redirectPath()
+    {
+
+        if ($_POST["company_register"] == 1) {
+            return '/completed_registration';
+        }
+        return '/';
+    }
 }
