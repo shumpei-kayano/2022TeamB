@@ -54,13 +54,17 @@
          {{ $items->links() }}
           </div>
         </div>
-
-        @component('components.confirmmodal')
+        
+        {{--  componentsから確認モーダルを挿入  --}}
+        @component('components.confirmmodal') 
+          @slot('btn_title')
+            削除
+          @endslot
           @slot('msg_title')
-          イベント投稿削除
+            イベント投稿削除
           @endslot
           @slot('modal_body')
-          本当に削除しますか？
+            本当に削除しますか？
           @endslot
         @endcomponent
 

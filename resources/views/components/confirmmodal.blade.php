@@ -1,6 +1,6 @@
 {{--   ボタンの設定   --}}
 <button type="button" class="btn btn-warning p-event-text" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    ココを押すと表示（テキスト）
+    {{$btn_title}}
 </button>
 
 {{--  モーダルの設定  --}}

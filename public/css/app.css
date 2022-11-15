@@ -20207,10 +20207,32 @@ input[name=tab_menu] {
 }
 .eventadd__left {
   width: 30%;
-  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .eventadd__right {
   width: 70%;
   display: flex;
   justify-content: center;
+  padding-left: 20px;
+}
+.eventadd table, .eventadd tr, .eventadd td {
+  width: 100%;
+}
+.eventadd__img-container input {
+  display: inline-block;
+  width: 4%;
+  margin-top: 5px;
+}
+.eventadd__img-container input:first-child {
+  margin-right: 10px;
+}
+.eventadd__btn-container input {
+  width: 250px;
+  padding: 13px 0;
+  margin-bottom: 7px;
+}
+.eventadd__btn-container input:first-child {
+  margin-bottom: 24px;
 }
