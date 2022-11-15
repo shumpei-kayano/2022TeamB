@@ -56,6 +56,9 @@
         </div>
 
         @component('components.confirmmodal')
+          @slot('btn_title')
+              削除
+          @endslot
           @slot('msg_title')
           イベント投稿削除
           @endslot

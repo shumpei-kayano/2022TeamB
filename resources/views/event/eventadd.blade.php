@@ -19,8 +19,8 @@
                         <input type="submit" value="削除" class='button'>
                     </div>
                     <div class="eventadd__btn-container">
-                        <input type="submit" value="編集" class='button'>
-                        <input type="submit" value="削除" class='button'>
+                        <input type="submit" value="保存" class='button'>
+                        <input type="submit" value="公開" class='button'>
                     </div>
                 </div>
                 <div class="eventadd__right">
