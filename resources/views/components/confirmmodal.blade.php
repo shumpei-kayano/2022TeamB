@@ -17,7 +17,11 @@
             <p>{{$modal_body}}</p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn c-bgcolor--navy c-color--white">はい</button>
+            <form action=".../del" method="post">
+                {{-- <input type="hidden" name="id" value="{{$form->id}}"> --}}
+                <input type="hidden" name="id" value="">
+                <button type="submit" class="btn c-bgcolor--navy c-color--white">はい</button>
+            </form>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">いいえ</button>
         </div><!-- /.modal-footer -->
     </div><!-- /.modal-content -->

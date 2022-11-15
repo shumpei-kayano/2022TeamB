@@ -56,7 +56,7 @@ Route::get('/unko', function () {
 //イベント一覧（個人）画面
 Route::get('event013', 'EventController@index');
 
-Route::get('event014', function () {
+Route::get('event015', function () {
     return view('event.eventadd');
 });
 
