@@ -57,7 +57,8 @@ Route::get('check_deactivate', function () {
 Route::get('account_deleted', function () {
     return view('auth.account_deleted');
 });
-
+//アカウント削除試す
+Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
 
 //ログアウト完了画面に飛ぶ
 Route::get('/logout_kanryou', function () {
@@ -104,8 +105,21 @@ Route::get('user3', function () {
 
 Route::get('setting', function () {
     return view('mypage_setting');
+});
 
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
+});
+
+
+
+//オープンチャット退室確認画面
+Route::get('check_leaving', function () {
+    return view('open_chat.check_leaving');
+});
+
+//オープンチャット退室確認画面
+Route::get('check_close', function () {
+    return view('open_chat.check_close');
 });

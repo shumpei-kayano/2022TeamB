@@ -22,4 +22,18 @@
     </div>
 </div>
 </div>
+
+<div>
+    <a href="{{ route('user.withdrawal') }}"
+                                           onclick="confirm('本当に退会しますか？');
+                                                   event.preventDefault();
+                                                   document.getElementById('withdrawal-form').submit();">
+                                           退会する
+                                       </a>
+
+                                       <form id="withdrawal-form" action="{{ route('user.withdrawal') }}" method="post" style="display: none;">
+                                                                                   {{ csrf_field() }}
+                                                                            </form>
+                                                                     </li>
+</div>
 @endsection
