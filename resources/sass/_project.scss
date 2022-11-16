@@ -638,3 +638,50 @@
         transform: translate(69px,-20px);
     }
 }
+
+.p-events-detail{
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__title{
+        width: 50%;
+        padding: 30%;
+    }
+
+    table, tr, tbody{
+        width: 100%;
+    }
+    // table {
+    //     margin: 20px;
+    // }
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
+}
