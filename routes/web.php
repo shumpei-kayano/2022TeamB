@@ -128,8 +128,8 @@ Route::get('user3', function () {
     return view('user_look3');
 });
 
-Route::get('setting', function () {
-    return view('mypage_setting');
+Route::get('events_detail', function () {
+    return view('events_d');
 });
 //オープンチャット関連
 Route::get('open_chat_list', function () {
