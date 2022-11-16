@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('icon')->nullable();
             $table->boolean('report_flag')->nullable();
             $table->integer('publish_flag')->nullable();
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });
