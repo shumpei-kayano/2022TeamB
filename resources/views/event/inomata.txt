@@ -1,0 +1,13 @@
+ブロック要素は下に表示されていく（div要素やh2要素section要素など）
+
+横並びにしたい場合
+    親要素にdisplay:flexを適用させる
+
+ブロック要素を中央揃え
+    幅（width）を設定してmargin: 0 auto;
+
+scssファイルを編集した時はコンパイルが必要
+    ターミナルでnpm run watchを実行(入力)
+
+flex-direction … 子要素の並ぶ向きcoloumn
+https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet#flexbox2

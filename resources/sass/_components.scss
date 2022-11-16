@@ -82,3 +82,48 @@ body {
   
   }
 
+// テキスト色
+.c-color{
+    color: black;
+    &--darkbrown{
+        color: $darkbrown;
+    }
+    &--beige{
+        color:$beige;
+    }
+    &--yellow{
+        color:$yellow;
+    }
+    &--navy{
+        color:$navy;
+    }
+    &--brown{
+        color:$brown;
+    }
+    &--gray_darker{
+        color: $gray_darker;
+    }
+    &--gray_darker {
+        color: $gray_darke;
+    }
+    &--gray {
+        color: $gray;
+    }
+    &--gray_light {
+        color: $gray_light;
+    }
+    &--gray_lighter {
+        color: $gray_lighter;
+    }
+    &--white {
+        color: $white;
+    }
+}
+
+.c-text-sm {
+    font-size: 0.9em;
+}
+
+.c-text-lg {
+    font-size: 1.2em;
+}

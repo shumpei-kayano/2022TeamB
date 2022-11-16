@@ -437,22 +437,49 @@
 //入力フォームなどの背景(小)
 .p-small_bg {
     &__card_bg {
+        text-align: center;
+        background-color:#87785A;
+        width: 550px;
+        height: 350px;
+        border-radius : 5%;
+        border-bottom: 3px solid black;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 80px;
+        }
+        &__logo_img{
+            margin-top: 8px;
+            margin-left: 485px;
+        }
+        &__simasita {
+            margin-top:80px;
+        }
+    }
+
+
+
+
+
+.row {
+    display: flex;
+}
+
+
+.click{
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.p-event{
     text-align: center;
-    background-color:#87785A;
-    width: 550px;
-    height: 350px;
-    border-radius : 5%;
-    border-bottom: 3px solid black;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 80px;
+    font-size: 20px;
+    &__event_area{
+
     }
-    &__logo_img{
-        margin-top: 8px;
-        margin-left: 485px;
-    }
-    &__simasita {
-        margin-top:80px;
+    &__event_title{
+        
     }
 }
 
@@ -636,5 +663,52 @@
     }
     &__no {
         transform: translate(69px,-20px);
+    }
+}
+
+.p-events-detail{
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__title{
+        width: 50%;
+        padding: 30%;
+    }
+
+    table, tr, tbody{
+        width: 100%;
+    }
+    // table {
+    //     margin: 20px;
+    // }
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
     }
 }
