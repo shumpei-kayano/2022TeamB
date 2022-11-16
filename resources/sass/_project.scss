@@ -437,6 +437,29 @@
 //入力フォームなどの背景(小)
 .p-small_bg {
     &__card_bg {
+        text-align: center;
+        background-color:#87785A;
+        width: 550px;
+        height: 350px;
+        border-radius : 5%;
+        border-bottom: 3px solid black;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 80px;
+        }
+        &__logo_img{
+            margin-top: 8px;
+            margin-left: 485px;
+        }
+        &__simasita {
+            margin-top:80px;
+        }
+    }
+
+
+
+
+
 .row {
     display: flex;
 }
@@ -451,21 +474,12 @@
 
 .p-event{                                   /*イベント募集掲示板コーナータイトル中央寄せ*/      
     text-align: center;
-    background-color:#87785A;
-    width: 550px;
-    height: 350px;
-    border-radius : 5%;
-    border-bottom: 3px solid black;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 80px;
+    font-size: 20px;
+    &__event_area{
+
     }
-    &__logo_img{
-        margin-top: 8px;
-        margin-left: 485px;
-    }
-    &__simasita {
-        margin-top:80px;
+    &__event_title{
+        
     }
 }
 
