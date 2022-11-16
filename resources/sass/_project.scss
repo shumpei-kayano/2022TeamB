@@ -437,6 +437,19 @@
 //入力フォームなどの背景(小)
 .p-small_bg {
     &__card_bg {
+.row {
+    display: flex;
+}
+
+
+.click{
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.p-event{
     text-align: center;
     background-color:#87785A;
     width: 550px;

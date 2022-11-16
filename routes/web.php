@@ -27,6 +27,27 @@ Route::get('/login', function () {
 });
 
 //Authログインに使うよ
+Route::get('welcome/top', function () {
+    return view('welcome.top');
+});
+//アカウント登録
+Route::get('/ryukiunko', function () {
+    return View('UserMypage1');
+});
+//ユーザから見た自治体ページ
+Route::get('/shinmaimaou', function () {
+    return View('Userlookjititai');
+});
+
+Route::get('/ryukiuzaishinekasugomi', function () {
+    return View('JititaiMypage1');
+});
+
+Route::get('/ryukinotikubi', function () {
+    return View('Right_Button');
+});
+
+Route::get('Proof', 'ProofController@index');
 Auth::routes();
 
 //アカウント仮登録画面（タブ切り替え）
@@ -66,7 +87,7 @@ Route::get('/logout_kanryou', function () {
 });
 
 //プロフィール登録
-Route::get('/ryukiunko', function () {
+Route::get('/UserMypage', function () {
     return View('UserMypage1');
 });
 //ユーザから見た自治体ページ
@@ -74,19 +95,23 @@ Route::get('/shinmaimaou', function () {
     return View('Userlookjititai');
 });
 
-Route::get('/ryukiuzaishinekasugomi', function () {
-    return View('JititaiMypage1');
+Route::get('/municipalitypage', function () {
+    return View('municipalitypage1');
 });
 
-Route::get('/ryukinotikubi', function () {
-    return View('Right_Button');
-});
+
 
 
 
 //イベント一覧（個人）画面
-Route::get('/event013', function () {
-    return view('eventichirankojin');
+Route::get('event013', 'EventController@index');
+
+Route::get('event015', function () {
+    return view('event.eventadd');
+});
+
+Route::get('event014', function () {
+    return view('event.eventadd2');
 });
 
 
@@ -106,7 +131,6 @@ Route::get('user3', function () {
 Route::get('events_detail', function () {
     return view('events_d');
 });
-
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
