@@ -65,7 +65,7 @@ Route::get('/logout_kanryou', function () {
 });
 
 //プロフィール登録
-Route::get('/ryukiunko', function () {
+Route::get('/UserMypage', function () {
     return View('UserMypage1');
 });
 //ユーザから見た自治体ページ
@@ -73,13 +73,11 @@ Route::get('/shinmaimaou', function () {
     return View('Userlookjititai');
 });
 
-Route::get('/ryukiuzaishinekasugomi', function () {
-    return View('JititaiMypage1');
+Route::get('/municipalitypage', function () {
+    return View('municipalitypage1');
 });
 
-Route::get('/ryukinotikubi', function () {
-    return View('Right_Button');
-});
+
 
 
 
@@ -104,7 +102,7 @@ Route::get('user3', function () {
 
 Route::get('setting', function () {
     return view('mypage_setting');
-
+});
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
