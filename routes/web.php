@@ -60,6 +60,10 @@ Route::get('event015', function () {
     return view('event.eventadd');
 });
 
+Route::get('event014', function () {
+    return view('event.eventadd2');
+});
+
 //アカウント仮登録画面（タブ切り替え）
 Route::get('account', function () {
     return view('account');
