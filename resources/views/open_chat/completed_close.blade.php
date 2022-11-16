@@ -1,3 +1,4 @@
+{{-- オープンチャット”閉鎖完了”画面 --}}
 @extends('layouts.layout')   
 @section('title')
     オープンチャット閉鎖完了画面

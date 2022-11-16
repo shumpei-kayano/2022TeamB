@@ -61,8 +61,8 @@ Route::get('account_deleted', function () {
 Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
 
 //ログアウト完了画面に飛ぶ
-Route::get('/logout_kanryou', function () {
-    return view('auth.logout_kanryou');
+Route::get('/completed_logout', function () {
+    return view('auth.completed_logout');
 });
 
 //プロフィール登録

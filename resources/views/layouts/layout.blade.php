@@ -48,7 +48,7 @@
               @endif
 
           @else
-              
+              {{-- ログイン後、ヘッダーにログアウトボタンが表示される --}}
               <div class="p-header__login">
                 <input class="p-header__login-button" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();"

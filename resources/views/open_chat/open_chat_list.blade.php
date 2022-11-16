@@ -1,3 +1,4 @@
+{{-- オープンチャット”チャット一覧表示”画面 --}}
 @extends('layouts.layout')   
 @section('title')
     オープンチャット一覧
@@ -13,7 +14,9 @@
         <div class="col-12">
             <div class="row">
               <div class="col-6">
-                <div class="p-open_chat_area__open_chat_list_icon"></div><div class="p-open_chat_area__open_chat_list_title">気軽に相談</div>
+                <div class="p-open_chat_area__open_chat_list_icon"></div>
+                {{-- <div class="p-open_chat_area__open_chat_list_title">気軽に相談</div> --}}
+                <p class="p-open_chat_area__title">気軽に相談</p>
               </div>
               <div class="col-6">
                 <div class="p-open_chat_area__open_chat_list_icon"></div><div class="p-open_chat_area__open_chat_list_title">Python質問</div>
