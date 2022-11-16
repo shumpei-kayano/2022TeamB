@@ -58,9 +58,9 @@
     {{-- --------- セクション下部 -------- --}}
     {{-- 予約管理 --}}
     <div class="myPcalendar">
-      ダミーテキスト
+       ダミーテキスト
       
-      <br>カレンダー</br>
+      <br></br>
     </div>
     {{-- イベント管理 --}}
     <div class="upper">
@@ -70,8 +70,24 @@
 
   <label for="exampleFormControlInput1" class="form-label"></label>
   <input type="email" class="form-control" id="exampleFormControlInput1" >
+
+  <label for="exampleFormControlInput1" class="form-label">イベント投稿履歴</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" >
+
+  <label for="exampleFormControlInput1" class="form-label"></label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" >
+</div>
+  {{-- button --}}
+      
+  <div class="p-user-mypage__right">
+		<img src="{{ asset('/img/noimage.png') }}" width="200px" height="200px">
+		<a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
+		<a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>
       
     </div>
-    </div>
+    
 </section>
 @endsection

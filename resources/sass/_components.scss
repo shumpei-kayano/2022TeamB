@@ -101,3 +101,29 @@ body {
 .c-text-lg {
     font-size: 1.2em;
 }
+
+.button {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #04047b;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    border        : 2px solid #04047b;    /* 枠の指定 */
+    width: 12em;
+    height:2em;
+  
+  }
+  
+  .button:hover {
+  
+    color         : #04047b;     /* 背景色     */
+  
+    background    : #ffffff;     /* 文字色     */
+  
+  }
+

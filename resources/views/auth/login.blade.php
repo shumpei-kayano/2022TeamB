@@ -1,14 +1,12 @@
-@extends('layouts.layout')
+@extends('layouts.uedake')
 
 @section('title')
-認証
+ログイン画面
 @endsection
 
 @section('main')
-
-      <br><br>
-      <div class="container" align="center">
-                <div class="card  c-bgcolor--darkbrown p-login-card"><br>
+      <div class="p-small_bg">
+                <div class="p-small_bg__card_bg"><br>
                     <h4 align="center">ログイン</h4>
     
                     <div class="card-body">
@@ -47,7 +45,7 @@
     
 
                                 <div align="center">
-                                  <input class="p-login-button" type="submit" value="ログインする" href="{{ route('register') }}">
+                                  <input class="p-header__login-button" type="submit" value="ログインする" href="{{ route('register') }}">
                                 </div>
                                 
                         </form>
@@ -56,9 +54,9 @@
                         
                         
                           <div align ="center">
-                            <a class="p-login-card__bun">アカウントをお持ちではない方はこちら</a><br>
+                            <p class="p-login-card__bun">アカウントをお持ちではない方はこちら</p>
 
-                            <form method="GET" action="{{ route('register') }}">
+                            <form action="/mail_verification">
                               <input class="p-account-button" type="submit" value="アカウント新規作成">
                           </div>
 

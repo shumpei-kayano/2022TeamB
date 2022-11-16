@@ -1,4 +1,5 @@
-@extends('layouts.layout')
+{{-- トップページ --}}
+@extends('layouts.layout')   
 
 @section('title')
     トップ
@@ -18,10 +19,10 @@
           {{-- おすすめ写真表示 --}}
           <div class="col-12 c-bgcolor--darkbrown">
             <div class="slider">  
-              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="230px"></div>
-              <div class="img"><img src="./img/bungotakada.jpg" width="100%" height="230px"></div>   
-              <div class="img"><img src="./img/ayu.jpg" width="100%" height="230px"></div>
-              <div class="img"><img src="./img/usajingu.jpg" width="100%" height="230px"></div>
+              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/bungotakada.jpg" width="100%" height="330px"></div>   
+              <div class="img"><img src="./img/ayu.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/usajingu.jpg" width="100%" height="330px"></div>
           </div>
           </div>
         </div>
@@ -103,22 +104,22 @@
             <div class="p-open">【オープンチャットコーナー】</div><br>
             <div class="row">
               <div class="col-4">
-                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
+                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
               </div>
               <div class="col-4">
-                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">Python質問</p>
+                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">Python質問</p>
               </div>
               <div class="col-4">
-                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">メンタル相談</p>
+                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">メンタル相談</p>
               </div>
               <div class="col-4">
-                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">生活の相談</p>
+                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">生活の相談</p>
               </div>
               <div class="col-4">
-                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">悩みの相談</p>
+                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">悩みの相談</p>
               </div>
               <div class="col-4">
-                <div class="p-open__open_chat__icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
+                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
               </div>
               <div class="click"><a href="#">もっと見る...Click here</a></div><br>
             </div>
