@@ -15,4 +15,8 @@ class EventController extends Controller
         // dd($items); //デバッグ用ddメソッド…変数の中身が見れる
         return view('event.eventichirankojin', ['items' => $items]);
     }
+    public function add(Request $request)
+    {
+        return view('event.eventadd');
+    }
 }

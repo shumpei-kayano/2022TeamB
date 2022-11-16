@@ -24,7 +24,7 @@
           </div>
           {{--  新規募集投稿ボタン(4)  --}}
           <div class="col-4">
-            <a class="btn btn-warning p-event-text c-text-sm" href="event014" role="button">イベントの募集投稿をする</a>
+            <a class="btn btn-warning p-event-text c-text-sm" href="event015" role="button">イベントの募集投稿をする</a>
             {{--  <button type="button" class="btn btn-warning p-event-text c-text-sm">イベントの募集投稿をする</button>  --}}
           </div>
         </div>
