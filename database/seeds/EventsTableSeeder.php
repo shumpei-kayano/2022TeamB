@@ -27,6 +27,7 @@ class EventsTableSeeder extends Seeder
                     'date_of_event' => now(),
                     'end_time' => now(),
                     'event_image' => 'img/noimage.jpg',
+                    'publish_flag' => 1,
 
                 ];
         }
