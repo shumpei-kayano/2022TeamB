@@ -120,21 +120,36 @@ Route::get('event014', function () {
 });
 
 
+//利用者から見たユーザーマイページ画面
 Route::get('user1', function () {
     return view('user_look');
 });
-
+//利用者から見た店鋪マイページ
 Route::get('user2', function () {
     return view('user_look2');
 });
-
+//利用者から見た自治体マイページ
 Route::get('user3', function () {
     return view('user_look3');
 });
-
+//イベント詳細画面
 Route::get('events_detail', function () {
     return view('events_d');
 });
+//マイページ設定画面
+Route::get('mypage_set', function () {
+    return view('mypage_setting');
+});
+//アカウント削除ボタン表示画面
+Route::get('mypage_del', function () {
+    return view('mypage_account_delete');
+});
+
+Route::get('mypage_unko', function () {
+    return view('unko');
+});
+
+
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
