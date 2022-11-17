@@ -5,8 +5,8 @@
 @endsection
 
 @section('main')
-      <div class="p-small_bg">
-                <div class="p-small_bg__card_bg"><br>
+      <div class="p-login_bg">
+                <div class="p-login_bg__card_bg"><br>
                     <h4 align="center">ログイン</h4>
     
                     <div class="card-body">

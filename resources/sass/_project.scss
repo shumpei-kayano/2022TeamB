@@ -656,6 +656,8 @@
     }
 
 }
+
+//はい・いいえのボタン
 .yes_or_no {
     text-align: center;
     &__yes {
@@ -712,3 +714,23 @@
         height: 60px;
     }
 }
+
+.p-login_bg {
+    &__card_bg {
+        text-align: center;
+        background-color:#87785A;
+        width: 550px;
+        border-radius : 5%;
+        border-bottom: 3px solid black;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 80px;
+        }
+        &__logo_img{
+            margin-top: 8px;
+            margin-left: 485px;
+        }
+        &__simasita {
+            margin-top:80px;
+        }
+    }

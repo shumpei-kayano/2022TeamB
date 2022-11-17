@@ -4,9 +4,9 @@
 アカウント情報入力
 @endsection
 @section('main')
-<div class="p-small_bg">
+<div class="p-login_bg">
     
-            <div class="p-small_bg__card_bg">
+            <div class="p-login_bg__card_bg">
 
                 <br>
                 <h4  class="p-register-card__title">アカウント登録を完了させてください</h4>

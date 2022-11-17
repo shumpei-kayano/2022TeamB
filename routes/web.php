@@ -70,9 +70,9 @@ Route::get('account_deactivate', function () {
 });
 
 //アカウント削除の確認画面
-Route::get('check_deactivate', function () {
-    return view('auth.check_deactivate');
-});
+// Route::get('check_deactivate', function () {
+//     return view('auth.check_deactivate');
+// });
 
 //アカウント削除完了画面
 Route::get('account_deleted', function () {
@@ -146,4 +146,20 @@ Route::get('check_leaving', function () {
 //オープンチャット退室確認画面
 Route::get('check_close', function () {
     return view('open_chat.check_close');
+});
+
+
+Route::middleware('auth')->group(function () {
+
+    // ここにログインが必要なページ
+
+    Route::middleware('password.confirm')->group(function () {
+
+        // ここにログイン + パスワード再確認が必要なページ
+
+        // 口座番号変更
+        Route::get('check_deactivate', function () {
+            return view('auth.check_deactivate');
+        });
+    });
 });
