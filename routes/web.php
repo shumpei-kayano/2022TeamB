@@ -48,6 +48,12 @@ Route::get('/ryukinotikubi', function () {
 });
 
 Route::get('Proof', 'ProofController@index');
+//ログイン画面にとぶ
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+//Authログインに使うよ
 Auth::routes();
 
 //アカウント仮登録画面（タブ切り替え）
@@ -99,21 +105,19 @@ Route::get('/municipalitypage', function () {
     return View('municipalitypage1');
 });
 
-
-
-
-
 //イベント一覧（個人）画面
 Route::get('event013', 'EventController@index');
 
-Route::get('event015', function () {
-    return view('event.eventadd');
-});
+Route::get('event015', 'EventController@add');
+Route::post('event015', 'EventController@create');
+
+
+
+
 
 Route::get('event014', function () {
     return view('event.eventadd2');
 });
-
 
 
 Route::get('user1', function () {
