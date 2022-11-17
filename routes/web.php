@@ -135,12 +135,13 @@ Route::get('user3', function () {
 Route::get('events_detail', function () {
     return view('events_d');
 });
+
+
+
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
 });
-
-
 
 //オープンチャット退室確認画面
 Route::get('check_leaving', function () {
@@ -166,4 +167,16 @@ Route::middleware('auth')->group(function () {
             return view('auth.check_deactivate');
         });
     });
+});
+//オープンチャット一覧ページで「新規作成ボタン」をクリックしたらと
+//オープンチャット新規作成画面で「CLOSEボタン」をクリックすると
+//オープンチャット利用規約ページを表示
+Route::get('terms_of_service', function () {
+    return view('open_chat.terms_of_service');
+});
+
+//オープンチャット利用規約の「確認しました」ボタンをクリック後、
+//新規作成画面を表示する
+Route::get('create_new_open', function () {
+    return view('open_chat.create_new_open');
 });
