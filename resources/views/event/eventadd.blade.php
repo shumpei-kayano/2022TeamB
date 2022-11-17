@@ -12,12 +12,12 @@
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
             <h2 class="eventadd__title">イベント募集新規作成</h2>
-            <form action="/event015" method="post">
+            <form action="/event013" method="post">
             <div class="eventadd__content">
                 <div class="eventadd__left ">
                     <div class="eventadd__img-container">
                         <img src="img/noimage.jpg" class="card-img-top" alt="...">
-                        <input type="file" id="image_uploads" name="image_uploads" accept="image/png, image/jpeg">
+                        {{--  <input type="file" id="image_uploads" name="image_uploads" accept="image/png, image/jpeg">  --}}
                         <input type="submit" value="登録" class='button'>
                         <input type="submit" value="削除" class='button'>
                     </div>
@@ -31,47 +31,68 @@
                         <tbody>
                             @csrf
                             <tr>
-                                <td colspan="3"><label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="text" name="event_title" class="form-control" id="exampleInputEmail1" placeholder="(必須)イベントタイトル">
-                                    <div id="emailHelp" class="form-text" ></div></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><label for="exampleInputEmail1" class="form-label"></label>
-                                    <select name="city" id=""></select>
-                                    <input type="text" name="city" class="form-control" id="exampleInputEmail1" placeholder="場所">
-                                    <div id="emailHelp" class="form-text" ></div></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="date" name="date_of_event" class="form-control" id="exampleInputEmail1">
-                                    <div id="emailHelp" class="form-text" ></div></td>
-                                <td><label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="time" name="date_of_event" class="form-control" id="exampleInputEmail1" placeholder="開始時間">
-                                    <div id="emailHelp" class="form-text" ></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="date" name="end_time" class="form-control" id="exampleInputEmail1" placeholder="（必須）終了　2022/02/22">
-                                    <div id="emailHelp" class="form-text" ></td>
-                                <td><label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="time" name="end_time" class="form-control" id="exampleInputEmail1" placeholder="終了時間">
-                                    <div id="emailHelp" class="form-text" ></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="url" name="url" class="form-control" id="exampleInputEmail1" placeholder="関連URL お申し込みはこちら">
-                                    <div id="emailHelp" class="form-text" ></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="イベント内容記述">
-                                    <div id="emailHelp" class="form-text" ></td>
+                                <td colspan="3">
+                                    <label for="exampleInputEmail1" class="form-label">イベントタイトル</label>
+                                    <input type="text" name="event_title" value="{{old('event_title')}}" class="form-control" placeholder="イベントタイトル">
+                                    <div class="form-text" ></div>
+                                </td>
                             </tr>
                             <tr>
                                 <td colspan="3">
+                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    <select name="city" class="form-select" aria-label="Default select example">
+                                        <option disabled selected>開催場所を選択</option>
+                                        @foreach ($items as $item)
+                                        <option value="{{$item->id}}">{{$item->city}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div id="emailHelp" class="form-text" ></div>
+                                    {{--  <input type="text" name="city" class="form-control" id="exampleInputEmail1" placeholder="場所">  --}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <label for="exampleInputEmail1" class="form-label">開催日</label>
+                                    <input type="date" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開催日">
+                                    <div id="emailHelp" class="form-text" ></div>
+                                </td>
+                                <td>
+                                    <label for="exampleInputEmail1" class="form-label">開始時間</label>
+                                    <input type="time" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開始時間">
+                                    <div id="emailHelp" class="form-text" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <label for="exampleInputEmail1" class="form-label">終了日</label>
+                                    <input type="date" name="end_time" value="{{old('end_time')}}" class="form-control" placeholder="終了日">
+                                    <div id="emailHelp" class="form-text" >
+                                </td>
+                                <td>
+                                    <label for="exampleInputEmail1" class="form-label">終了時間</label>
+                                    <input type="time" name="end_time" value="{{old('end_time')}}" class="form-control" id="exampleInputEmail1" placeholder="終了時間">
+                                    <div id="emailHelp" class="form-text" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <label for="exampleInputEmail1" class="form-label">URL</label>
+                                    <input type="url" name="url" value="{{old('url')}}" class="form-control" id="exampleInputEmail1" placeholder="URL">
+                                    <div id="emailHelp" class="form-text" >
+                                </td>
+                            </tr>
+                            {{--  <tr>
+                                <td colspan="3">
+                                    <label for="exampleInputEmail1" class="form-label"></label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="イベント内容記述">
+                                    <div id="emailHelp" class="form-text" >
+                                </td>
+                            </tr>  --}}
+                            <tr>
+                                <td colspan="3">
                                 <div class="mb-3"> 
-                                    <label for="exampleFormControlTextarea1" class="form-label"></label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> 
+                                    <label for="exampleFormControlTextarea1" class="form-label">イベント内容</label>
+                                    <textarea class="form-control" name="event_detail" value="{{old('event_detail')}}" placeholder="イベント内容" rows="3"></textarea> 
                                 </div> 
                                 </td>
                             </tr>

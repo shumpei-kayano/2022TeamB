@@ -9,12 +9,12 @@ class Event extends Model
     protected $guerded = array('id');
 
     public static $rules = array(
-        'user_id' => 'required|max:15|exists:users,id',
-        'facility_id' => 'required|max:15|exists:public_users,id',
-        'event_title' => 'required|max:100',
-        'event_detail' => 'required|max:1000',
+        'user_id' => 'max:15|exists:users,id',
+        'facility_id' => 'max:15|exists:public_users,id',
+        'event_title' => 'string|required|max:100',
+        'event_detail' => 'max:1000',
         'deadline' => 'required',
-        'city' => 'required|max:20',
+        'city' => 'required|exists:areas,id',
         'date_of_event' => 'required',
         'end_time' => 'required',
         'event_image' => 'image',

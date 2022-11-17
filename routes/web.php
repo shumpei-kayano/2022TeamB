@@ -99,21 +99,19 @@ Route::get('/municipalitypage', function () {
     return View('municipalitypage1');
 });
 
-
-
-
-
 //イベント一覧（個人）画面
 Route::get('event013', 'EventController@index');
 
-Route::get('event015', function () {
-    return view('event.eventadd');
-});
+Route::get('event015', 'EventController@add');
+Route::post('event015', 'EventController@create');
+
+
+
+
 
 Route::get('event014', function () {
     return view('event.eventadd2');
 });
-
 
 
 Route::get('user1', function () {
