@@ -101,7 +101,7 @@ Route::get('/municipalitypage', function () {
 
 //イベント一覧（個人）画面
 Route::get('event013', 'EventController@index');
-
+//イベント募集新規作成
 Route::get('event015', 'EventController@add');
 Route::post('event015', 'EventController@create');
 

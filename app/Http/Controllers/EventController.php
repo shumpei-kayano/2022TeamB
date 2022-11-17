@@ -30,6 +30,6 @@ class EventController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $event->fill($form)->save();
-        return redirect('/event/event013');
+        return redirect('/event013');
     }
 }

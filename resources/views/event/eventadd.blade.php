@@ -12,7 +12,7 @@
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
             <h2 class="eventadd__title">イベント募集新規作成</h2>
-            <form action="/event013" method="post">
+            <form action="/event015" method="post">
             <div class="eventadd__content">
                 <div class="eventadd__left ">
                     <div class="eventadd__img-container">
@@ -53,41 +53,35 @@
                             <tr>
                                 <td colspan="2">
                                     <label for="exampleInputEmail1" class="form-label">開催日</label>
-                                    <input type="date" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開催日">
+                                    <input type="datetime-local" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開催日">
                                     <div id="emailHelp" class="form-text" ></div>
                                 </td>
                                 <td>
-                                    <label for="exampleInputEmail1" class="form-label">開始時間</label>
+                                    {{--  <label for="exampleInputEmail1" class="form-label">開始時間</label>
                                     <input type="time" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開始時間">
-                                    <div id="emailHelp" class="form-text" >
+                                    <div id="emailHelp" class="form-text" >  --}}
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <label for="exampleInputEmail1" class="form-label">終了日</label>
-                                    <input type="date" name="end_time" value="{{old('end_time')}}" class="form-control" placeholder="終了日">
+                                    <input type="datetime-local" name="end_time" value="{{old('end_time')}}" class="form-control" placeholder="終了日">
                                     <div id="emailHelp" class="form-text" >
                                 </td>
                                 <td>
-                                    <label for="exampleInputEmail1" class="form-label">終了時間</label>
-                                    <input type="time" name="end_time" value="{{old('end_time')}}" class="form-control" id="exampleInputEmail1" placeholder="終了時間">
-                                    <div id="emailHelp" class="form-text" >
+                                    {{--  <label for="exampleInputEmail1" class="form-label">終了時間</label>
+                                    <input type="time" name="end_time" value="{{old('end_time')}}" class="form-control" placeholder="終了時間">
+                                    <div id="emailHelp" class="form-text" >  --}}
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">URL</label>
-                                    <input type="url" name="url" value="{{old('url')}}" class="form-control" id="exampleInputEmail1" placeholder="URL">
+                                    <input type="url" name="url" value="{{old('url')}}" class="form-control" placeholder="URL">
                                     <div id="emailHelp" class="form-text" >
                                 </td>
                             </tr>
-                            {{--  <tr>
-                                <td colspan="3">
-                                    <label for="exampleInputEmail1" class="form-label"></label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="イベント内容記述">
-                                    <div id="emailHelp" class="form-text" >
-                                </td>
-                            </tr>  --}}
+
                             <tr>
                                 <td colspan="3">
                                 <div class="mb-3"> 
