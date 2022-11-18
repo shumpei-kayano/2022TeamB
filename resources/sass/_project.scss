@@ -46,6 +46,7 @@
     }
 }
 
+//ヘッダーのロゴ位置指定
 .p-logo {
     margin-top: 5px;
     margin-left: 61px;
@@ -110,10 +111,11 @@
     }
 }
 
-//トップページの各コーナーごとの「もっと見る...Click here」の設定
+//トップページの各コーナーごとの「もっと見る...Click here」の設定(共通使用可能)
 .click{                             
     text-align: right;                      //右寄せ
     position: absolute;                     //親要素からの絶対位置指定
+    margin-right: 20px;
     bottom: 0;
     right: 0;
 }
@@ -177,13 +179,39 @@
     }
 }
 
-//チャット関連の新規トークルーム作成ボタン
+//チャット関連の新規トークルーム作成ボタンのエリア(下にボタンデザインの設定あり)
 .create_btn{
     width: 1200px;
-    margin-top:20px;
     margin: auto;
 }
-//チャット関連の背景色(大)
+
+//オープンチャット“リスト一覧”表示時の設定(右上に新規作成ボタンがあるため、ボタンあり状態で設定)
+.p-large_bg_btn{
+    &__card_bg{                         //背景色
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1200px;
+        height: 700px;
+        border-radius : 2%;
+        margin: auto;                   //左端から余白
+        margin-top: 10px;               //新規作成ボタンからの背景色までの空白
+    }
+    &__create-button{                   //右上の新規作成ボタンの設定
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        display: block;
+        margin: 0 0 0 auto;            //ボタンの位置指定
+        margin-top: 20px;              //ヘッダーからの新規作成ボタンまでの空白
+    }
+}
+
+//オープンチャット“利用規約”表示時の設定
+//オープンチャット関連の背景色
 .p-large_bg{
     &__card_bg{
         text-align: center;
@@ -191,28 +219,105 @@
         width: 1200px;
         height: 700px;
         border-radius : 2%;
-        margin: auto;
-        margin-top: 20px;
+        margin: auto;                       //左端から余白
+        margin-top: 50px;                   //ヘッダーからの景色までの空白(リスト一覧ページと違い新規作成ボタンなしなので別に設定)
     }
-    &__create-button{
-        background-color: $navy;
-        width:100px;
-        height:30px;
-        border-radius:30px;
-        font-size: 12px;                //フォントサイズ
-        color:white;                   //ボタン内の文字色
+    &__terms_of_service{                    //利用規約テキストエリアの背景色設定
+        background-color:$brown;
+        width:800px;
+        height:700px;
+        margin: auto;                       //左端から余白
+        margin-top: 50px;                   //ヘッダーからの景色までの空白
+    }
+    &__terms_of_service_logo_img{           //“利用規約表示”時のCLOSEボタン画像
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__check_btn{                           //確認しましたボタンの設定
+        width:130px;                        //確認しましたボタンの幅
+        height:40px;                        //確認しましたボタンの高さ
+        border-radius: 30px;                //ボタンの角
+        background-color:$navy;             //ボタンの色指定
+        color:white;                      //ボタン内の文字色
         border: none;
-        display: block;
-        margin: 0 0 0 auto;
-        margin-top: 20px;
+        font-size: 16px;
+    }
+    &__logo_img{
+        display: flex;
+        justify-content: flex-end;          //“新規作成画面”表示時のCLOSEボタン画像
     }
 }
 
+//利用規約のテキストエリア部分のエリア範囲設定
+.terms_of_service_block{
+    padding-top: 10px;         
+    margin-right: auto;
+    margin-left: auto;
+    width:750px;
+    height:700px;
+    color:#000;             //文字色設定
+}
+
+.p-new_create_block{
+    padding-top: 10px;         
+    margin-right: auto;
+    margin-left: auto;
+    width:1100px;
+    height:700px;
+    color:#000;             //文字色設定
+    &__camera{
+        padding-top:40px;
+        padding-bottom:20px;
+    }
+    &__container{
+        width:800px;
+        text-align: center;
+    }
+}
+
+//利用規約リスト表記のデザイン
+ol{
+    counter-reset:list;
+    list-style-type:none;
+    font: 14px/1.6 'arial narrow', sans-serif;
+}
+ol li{
+    position:relative;
+    line-height: 30px;
+    margin: 7px 0 7px 40px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size:15px;
+    text-align: left;
+    padding:10px 0;
+}   
+ol li:before{
+    counter-increment: list;
+    content: counter(list);
+    position: absolute;
+    left: -35px;
+    width: 30px;
+    height: 30px;
+    background: $navy;
+    text-align: center;
+    color: #fff;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
+
 //オープンチャット関連の背景色内の中央にテキスト類をブロックで配置
 .p-open_chat_area{
-    // width: 1200px;
-    // height: 700px;
-    padding-top: 50px;
+    width: 1200px;
+    height: 700px;
+    margin-top: 30px;
+    padding-top: 50px;;
     display: flex;
     justify-content: flex-start;
     &__open_chat_list_icon{
@@ -221,7 +326,7 @@
         border-radius: 50%;                  //円
         background: $brown;                  //背景色
         }
-    &__title{
+    &__open_chat_list_title{
         text-align: center;
         width:400px;
         margin:0 auto;
@@ -232,8 +337,7 @@
 
 
 
-
-//アカウント仮登録画面
+//アカウント“仮”登録画面
 .p-tab01 {
     width: 550px;
     margin: 0 auto 50px;
@@ -378,6 +482,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 .right {
    margin-right: 0;
    margin-left: auto;
@@ -455,15 +569,6 @@
             margin-top:80px;
         }
     }
-
-
-// .click{
-//     text-align: right;
-//     position: absolute;
-//     bottom: 0;
-//     right: 0;
-// }
-
 
 .p-event{  /*イベント募集掲示板コーナータイトル中央寄せ*/      
 //入力フォームなどの背景(小)
@@ -960,7 +1065,7 @@
         margin-top: 80px;
         }
         &__logo_img{
-            margin-top: 8px;
+            margin-top: 20px;
             margin-left: 485px;
         }
         &__simasita {
@@ -968,18 +1073,62 @@
         }
     }
 .p-open_range {
-        &__btn {
+        &__b {
             display       : inline-block;
             border-radius : 5%;          /* 角丸       */
-            font-size     : 18pt;        /* 文字サイズ */
+            font-size     : 15pt;        /* 文字サイズ */
             text-align    : center;      /* 文字位置   */
             cursor        : pointer;     /* カーソル   */
+            transform: translate(0px,10px);
             padding       : 12px 12px;   /* 余白       */
             background-color:#999999;     /* 背景色     */
             color         : #000000;     /* 文字色     */
             line-height   : 1em;         /* 1行の高さ  */
             transition    : .3s; 
-            width:  350px;               /* 幅指定 */
-            height: 70px;
+            width:  370px;               /* 幅指定 */
+            height: 90px;
     }
+
+    &__t {
+        display       : inline-block;
+        border-radius : 5%;          /* 角丸       */
+        font-size     : 18pt;        /* 文字サイズ */
+        text-align    : center;      /* 文字位置   */
+        cursor        : pointer;     /* カーソル   */
+        margin-top:30px;
+        padding       : 12px 12px;   /* 余白       */
+        background-color:#999999;     /* 背景色     */
+        color         : #000000;     /* 文字色     */
+        line-height   : 1em;         /* 1行の高さ  */
+        transition    : .3s; 
+        width:  370px;               /* 幅指定 */
+        height: 90px;
+}
+&__n {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    margin-top:25px;
+    padding       : 0px 30px;   /* 余白       */
+    background-color:#999999;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s; 
+    width:  370px;               /* 幅指定 */
+    height: 90px;
+    background: url("a.jpg") no-repeat;
+}
+
+    &__navybtn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 30px;
+        margin-top:30px;
+}
 }
