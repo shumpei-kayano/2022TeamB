@@ -81,12 +81,12 @@ Route::get('account_deactivate', function () {
 // });
 
 //アカウント削除完了画面
-Route::get('/account_deleted', function () {
-    return view('auth.account_deleted');
-});
+// Route::get('/account_deleted', function () {
+//     return view('auth.account_deleted');
+// });
 //アカウント削除試す
-Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
-
+// Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
+Route::post('/account_deleted', 'UsersController@withdrawal')->name('user.withdrawal');
 //ログアウト完了画面に飛ぶ
 Route::get('/completed_logout', function () {
     return view('auth.completed_logout');
@@ -161,14 +161,14 @@ Route::get('check_close', function () {
     return view('open_chat.check_close');
 });
 
-
+//アカウント削除前のパスワード確認画面
 Route::middleware('auth')->group(function () {
 
 
 
     Route::middleware('password.confirm')->group(function () {
 
-
+        //アカウント削除確認画面
         Route::get('check_deactivate', function () {
             return view('auth.check_deactivate');
         });

@@ -13,6 +13,6 @@ class UsersController extends Controller
         $user = Auth::user();
         $user->delete();
         Auth::logout();
-        return redirect(route('login'));
+        return view('auth.account_deleted');
     }
 }
