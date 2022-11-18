@@ -11,7 +11,7 @@
         <div class="content_block">     {{-- 背景内の中央にテキスト類をブロックで配置 --}}
         <h4 class="p-register-card__title">退室しました</h4><br>
         <div align="center">
-            <form action="/">
+            <form action="open_chat_list">
             <input class="p-header__login-button" type="submit" value="戻る">
             </form>
           </div>

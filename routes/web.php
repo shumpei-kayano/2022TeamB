@@ -189,3 +189,34 @@ Route::get('create_new_open', function () {
 Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
+//オープンチャット新規作成プレビュー画面
+Route::get('open_chat_preview', function () {
+    return view('open_chat.open_chat_preview');
+});
+
+//オープンチャット新規作成プレビュー画面表示
+
+//プレビュー画面から「新規作成ボタン」クリックでトークルーム開始
+Route::get('open_chat_room', function () {
+    return view('open_chat.open_chat_room');
+});
+
+//オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
+Route::get('check_close', function () {
+    return view('open_chat.check_close');
+});
+
+//オープンチャットを「退室する」ボタンで”閉鎖”確認画面へ
+Route::get('check_leaving', function () {
+    return view('open_chat.check_leaving');
+});
+
+//オープンチャットを閉鎖する「はい」ボタンで”閉鎖完了”画面へ
+Route::get('completed_close', function () {
+    return view('open_chat.completed_close');
+});
+
+//オープンチャットを退室する「はい」ボタンで”閉鎖完了”画面へ
+Route::get('completed_leaving', function () {
+    return view('open_chat.completed_leaving');
+});
