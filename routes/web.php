@@ -31,16 +31,16 @@ Route::get('welcome/top', function () {
     return view('welcome.top');
 });
 //アカウント登録
-Route::get('/ryukiunko', function () {
-    return View('UserMypage1');
+Route::get('/UserMypage', function () {
+    return View('MyPage.UserMypage1');
 });
 //ユーザから見た自治体ページ
-Route::get('/shinmaimaou', function () {
-    return View('Userlookjititai');
+Route::get('/userlookmunicipality', function () {
+    return View('MyPage.UserlookMunicipality');
 });
 
-Route::get('/ryukiuzaishinekasugomi', function () {
-    return View('JititaiMypage1');
+Route::get('/municipalityMyPage', function () {
+    return View('MyPage.MunicipalityMypage1');
 });
 
 Route::get('/ryukinotikubi', function () {
@@ -92,14 +92,8 @@ Route::get('/completed_logout', function () {
     return view('auth.completed_logout');
 });
 
-//プロフィール登録
-Route::get('/UserMypage', function () {
-    return View('UserMypage1');
-});
-//ユーザから見た自治体ページ
-Route::get('/shinmaimaou', function () {
-    return View('Userlookjititai');
-});
+
+
 
 Route::get('/municipalitypage', function () {
     return View('municipalitypage1');
@@ -122,15 +116,15 @@ Route::get('event014', function () {
 
 //利用者から見たユーザーマイページ画面
 Route::get('user1', function () {
-    return view('user_look');
+    return view('MyPage.user_look');
 });
 //利用者から見た店鋪マイページ
 Route::get('user2', function () {
-    return view('user_look2');
+    return view('MyPage.user_look2');
 });
 //利用者から見た自治体マイページ
 Route::get('user3', function () {
-    return view('user_look3');
+    return view('MyPage.user_look3');
 });
 //イベント詳細画面
 Route::get('events_detail', function () {
@@ -190,4 +184,8 @@ Route::get('terms_of_service', function () {
 //新規作成画面を表示する
 Route::get('create_new_open', function () {
     return view('open_chat.create_new_open');
+});
+//公開範囲の設定
+Route::get('open_range', function () {
+    return view('MyPage.open_range');
 });

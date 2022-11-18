@@ -4,14 +4,10 @@
 @endsection
 
 @section('main')
-<section>
   {{--  ----------セクション上部---------  --}}
-  <div class="upper">
-    <div class="upper__left">
-      <table class="upper__table">
-        <tbody>
-          <tr class="upper__tr">
-            <th class="upper__th">ユーザー名</th>
+      <div class="p-UserMypage">
+        <div class="p-UserMypage__left">
+            <th>ユーザー名</th>
             
             <th>趣味</th>
             <tr><td><label for="exampleInputEmail1" class="form-label"></label>
@@ -38,13 +34,9 @@
               <input type="email" class="form-control" id="exampleInputEmail1" >
               <div id="emailHelp" class="form-text"></td>
           </tr>
-          
-            
-           
-        
         </tbody>
       </table>
-    </div>
+  </div>
     {{--  マインドフルネス  --}}
     <div class="upper__right">
       マインドフルネス時計
@@ -57,25 +49,18 @@
     </div>
     {{-- --------- セクション下部 -------- --}}
     {{-- 予約管理 --}}
-    <div class="myPcalendar">
-       ダミーテキスト
-      
-      <br></br>
-    </div>
-    {{-- イベント管理 --}}
-    <div class="upper">
-    <div class="upper__right">
-      <label for="exampleFormControlInput1" class="form-label">イベント予定・参加表明・予定履歴一覧</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" >
-
-  <label for="exampleFormControlInput1" class="form-label"></label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" >
-
-  <label for="exampleFormControlInput1" class="form-label">イベント投稿履歴</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" >
-
-  <label for="exampleFormControlInput1" class="form-label"></label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" >
+    <table>
+      <tbody>
+        <tr>
+          <td>予約管理</td>
+          <td>イベント予定・参加表明・予定履歴一覧</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>イベント投稿履歴</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
   {{-- button --}}
       
