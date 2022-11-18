@@ -12,10 +12,12 @@
 <div class="p-mypage-setting">
   <div class="p-mypage-setting__left">
     <a href="#"><button class="p-user-mypage__btn"> 公開範囲の設定</button></a><br>
+    <form action="check_deactivate">
     <a href="#"><button class="p-user-mypage__btn"> アカウント削除</button></a>
+  </form>
   </div>
   <div class="p-user-mypage__right">
-    <img src="{{ asset('/img/noimage.png') }}" width="200px" height="200px">
+    <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
     <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> フォロワー登録・編集</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
