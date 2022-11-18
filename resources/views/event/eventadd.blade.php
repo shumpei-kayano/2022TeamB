@@ -30,6 +30,7 @@
                     <table class="eventadd__table">
                         <tbody>
                             @csrf
+                            {{--  イベントタイトル入力欄  --}}
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">イベントタイトル</label>
@@ -37,6 +38,7 @@
                                     <div class="form-text" ></div>
                                 </td>
                             </tr>
+                            {{--  開催場所を選択  --}}
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
@@ -46,14 +48,16 @@
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach
                                     </select>
+                                    {{--  <input type="text" name="city" class="form-control" placeholder="場所">  --}}
                                     <div id="emailHelp" class="form-text" ></div>
-                                    {{--  <input type="text" name="city" class="form-control" id="exampleInputEmail1" placeholder="場所">  --}}
+                                    
                                 </td>
                             </tr>
+                            {{--  開催日時を選択  --}}
                             <tr>
                                 <td colspan="2">
-                                    <label for="exampleInputEmail1" class="form-label">開催日</label>
-                                    <input type="datetime-local" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開催日">
+                                    <label for="exampleInputEmail1" class="form-label">開催日時</label>
+                                    <input type="datetime-local" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開催日時">
                                     <div id="emailHelp" class="form-text" ></div>
                                 </td>
                                 <td>
@@ -62,10 +66,11 @@
                                     <div id="emailHelp" class="form-text" >  --}}
                                 </td>
                             </tr>
+                            {{--  終了日時を選択  --}}
                             <tr>
                                 <td colspan="2">
-                                    <label for="exampleInputEmail1" class="form-label">終了日</label>
-                                    <input type="datetime-local" name="end_time" value="{{old('end_time')}}" class="form-control" placeholder="終了日">
+                                    <label for="exampleInputEmail1" class="form-label">終了日時</label>
+                                    <input type="datetime-local" name="end_time" value="{{old('end_time')}}" class="form-control" placeholder="終了日時">
                                     <div id="emailHelp" class="form-text" >
                                 </td>
                                 <td>
@@ -74,6 +79,7 @@
                                     <div id="emailHelp" class="form-text" >  --}}
                                 </td>
                             </tr>
+                            {{--  URL入力欄  --}}
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">URL</label>
@@ -81,7 +87,7 @@
                                     <div id="emailHelp" class="form-text" >
                                 </td>
                             </tr>
-
+                            {{--  イベント内容詳細入力欄  --}}
                             <tr>
                                 <td colspan="3">
                                 <div class="mb-3"> 
@@ -98,5 +104,5 @@
             </form>
         </section>
     </div>
-    </div>
+
 @endsection
