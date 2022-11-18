@@ -139,7 +139,7 @@ Route::get('mypage_del', function () {
     return view('mypage_account_delete');
 });
 
-Route::get('mypage_unko', function () {
+Route::get('unko', function () {
     return view('unko');
 });
 
