@@ -81,7 +81,7 @@ Route::get('account_deactivate', function () {
 // });
 
 //アカウント削除完了画面
-Route::get('account_deleted', function () {
+Route::get('/account_deleted', function () {
     return view('auth.account_deleted');
 });
 //アカウント削除試す
@@ -114,21 +114,36 @@ Route::get('event014', function () {
 });
 
 
+//利用者から見たユーザーマイページ画面
 Route::get('user1', function () {
     return view('MyPage.user_look');
 });
-
+//利用者から見た店鋪マイページ
 Route::get('user2', function () {
     return view('MyPage.user_look2');
 });
-
+//利用者から見た自治体マイページ
 Route::get('user3', function () {
     return view('MyPage.user_look3');
 });
-
+//イベント詳細画面
 Route::get('events_detail', function () {
     return view('events_d');
 });
+//マイページ設定画面
+Route::get('mypage_set', function () {
+    return view('mypage_setting');
+});
+//アカウント削除ボタン表示画面
+Route::get('mypage_del', function () {
+    return view('mypage_account_delete');
+});
+
+Route::get('mypage_unko', function () {
+    return view('unko');
+});
+
+
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
@@ -149,13 +164,11 @@ Route::get('check_close', function () {
 
 Route::middleware('auth')->group(function () {
 
-    // ここにログインが必要なページ
+
 
     Route::middleware('password.confirm')->group(function () {
 
-        // ここにログイン + パスワード再確認が必要なページ
 
-        // 口座番号変更
         Route::get('check_deactivate', function () {
             return view('auth.check_deactivate');
         });

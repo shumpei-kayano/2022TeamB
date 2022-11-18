@@ -583,6 +583,7 @@
     }
 }
 
+//利用者から見た店鋪マイページ
 .p-user-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -634,7 +635,7 @@
 
 
 }
-
+利用者から見た自治体マイページ画面
 .p-user2-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -687,7 +688,7 @@
     }
 
 }
-
+//利用者から見た自治体マイページ画面
 .p-user3-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -774,6 +775,84 @@
             height: 60px;
         }
 }
+
+//マイページ設定画面
+.p-mypage-setting {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
+  
+
+}
+//マイページ画面
+.p-mypage-store {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    &__input {
+        width: 50%;
+        padding: 10px;
+    }
+    &__hobby {
+        width: 30%;
+        padding: 10px;
+    }
+    &__mind {
+        width: 20%;
+        background-color: gray;
+        padding: 10px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+    &__middle {
+        padding: 10px;
+    }
+    &__left {
+        width: 80%;
+        padding: 20px;
+    }
+    &__right {
+        width: 20%;
+        box-sizing: border-box;
+    }
+    
+}
+
+
 
 //はい・いいえのボタン
 .yes_or_no {

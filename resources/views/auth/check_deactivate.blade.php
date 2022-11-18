@@ -12,14 +12,16 @@
         <div class="content_block">     {{-- 背景内の中央にテキスト類をブロックで配置 --}}
         <h4 class="p-register-card__title">本当に削除しますか？</h4><br>
       
-    
+        
     <div class="yes_or_no">
+        <form id="withdrawal-form" action="{{ route('user.withdrawal') }}" method="post">
         <input class="p-header__login-button yes_or_no__yes" type="submit" value="はい">
+        </form>
         <form action="/">
         <input class="p-header__login-button yes_or_no__no" type="submit" value="いいえ">
         </form>
       </div>
-    </div>
+    </div> 
 </div>
 </div>
 
@@ -37,24 +39,4 @@
                                                                      </li>
 </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Deactive') }}</div>
-
-                <div class="card-body text-center">
-                    <form method="POST" action="{{ route('deactive') }}">
-                        @csrf
-                        <h2>{{ __('This will deactivate your account.') }}</h2>
-                        <p>{{ __('Press the Deactive button to continue the process.') }}</p>
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Deactive') }}
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
