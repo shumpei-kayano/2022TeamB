@@ -145,6 +145,44 @@ Route::get('unko', function () {
 });
 
 
+
+
+
+Route::middleware('auth')->group(function () {
+
+
+
+    Route::middleware('password.confirm')->group(function () {
+
+
+        Route::get('check_deactivate', function () {
+            return view('auth.check_deactivate');
+        });
+    });
+});
+
+
+
+//公開範囲の設定
+Route::get('open_range', function () {
+    return view('MyPage.open_range');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
@@ -161,18 +199,6 @@ Route::get('check_close', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
-
-
-
-    Route::middleware('password.confirm')->group(function () {
-
-
-        Route::get('check_deactivate', function () {
-            return view('auth.check_deactivate');
-        });
-    });
-});
 //オープンチャット一覧ページで「新規作成ボタン」をクリックしたらと
 //オープンチャット新規作成画面で「CLOSEボタン」をクリックすると
 //オープンチャット利用規約ページを表示
@@ -185,10 +211,7 @@ Route::get('terms_of_service', function () {
 Route::get('create_new_open', function () {
     return view('open_chat.create_new_open');
 });
-//公開範囲の設定
-Route::get('open_range', function () {
-    return view('MyPage.open_range');
-});
+
 //オープンチャット新規作成プレビュー画面
 Route::get('open_chat_preview', function () {
     return view('open_chat.open_chat_preview');
@@ -196,7 +219,10 @@ Route::get('open_chat_preview', function () {
 
 //オープンチャット新規作成プレビュー画面表示
 
-//プレビュー画面から「新規作成ボタン」クリックでトークルーム開始
+
+
+
+//オープンチャットのプレビュー画面から「新規作成ボタン」クリックでトークルーム開始
 Route::get('open_chat_room', function () {
     return view('open_chat.open_chat_room');
 });
@@ -219,4 +245,36 @@ Route::get('completed_close', function () {
 //オープンチャットを退室する「はい」ボタンで”閉鎖完了”画面へ
 Route::get('completed_leaving', function () {
     return view('open_chat.completed_leaving');
+});
+
+
+//ブログ関連
+//ブログ記事の削除確認画面
+Route::get('blog_check_deactivate', function () {
+    return view('blog.blog_check_deactivate');
+});
+
+//ブログ記事の削除完了画面
+Route::get('blog_completed_deactivate', function () {
+    return view('blog.blog_completed_deactivate');
+});
+
+//ブログ記事一覧表示
+Route::get('blog_list', function () {
+    return view('blog.blog_list');
+});
+
+//ブログ記事詳細ページ表示
+Route::get('blog_show', function () {
+    return view('blog.blog_show');
+});
+
+//投稿済みブログ一覧
+Route::get('my_posted_blog_list', function () {
+    return view('blog.my_posted_blog_list');
+});
+
+//ブログ編集画面
+Route::get('my_blog_edit', function () {
+    return view('blog.my_blog_edit');
 });
