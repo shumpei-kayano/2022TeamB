@@ -15,6 +15,7 @@
         
     <div class="yes_or_no">
         <form id="withdrawal-form" action="{{ route('user.withdrawal') }}" method="post">
+            @csrf
         <input class="p-header__login-button yes_or_no__yes" type="submit" value="はい">
         </form>
         <form action="/">
@@ -26,15 +27,10 @@
 </div>
 
 <div>
-    <a href="{{ route('user.withdrawal') }}"
-                                           onclick="confirm('本当に退会しますか？');
-                                                   event.preventDefault();
-                                                   document.getElementById('withdrawal-form').submit();">
-                                           退会する
-                                       </a>
 
                                        <form id="withdrawal-form" action="{{ route('user.withdrawal') }}" method="post" style="display: none;">
                                                                                    {{ csrf_field() }}
+                                                                                   @csrf
                                                                             </form>
                                                                      </li>
 </div>

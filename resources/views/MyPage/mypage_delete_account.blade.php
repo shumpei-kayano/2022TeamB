@@ -1,3 +1,5 @@
+@extends('layouts.layout')
+
 @section('title')
 
     トップ
@@ -7,12 +9,16 @@
 
 
 @section('main')
-<div class="p-mypage-account-delete">
-  <div class="p-mypage-account-delete__left">
-    <a href="#"><button class="p-user-mypage__btn"> アカウント削除</button></a>
+<div class="p-mypage-delete-account">
+  <div class="p-mypage-delete-account__left">
+    <div class="p-mypage-delete-account__top">
+      <form action="check_deactivate">
+        <a href="#"><button class="p-user-mypage__btn"> アカウント削除</button></a>
+      </form>
+    </div>
   </div>
-  <div class="p-mypage-setting__right">
-    <img src="{{ asset('/img/noimage.png') }}" width="200px" height="200px">
+  <div class="p-mypage-delete-account__right">
+    <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
     <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> フォロワー登録・編集</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>

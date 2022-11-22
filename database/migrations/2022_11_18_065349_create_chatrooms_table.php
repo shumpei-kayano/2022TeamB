@@ -15,15 +15,15 @@ class CreateChatroomsTable extends Migration
     {
         Schema::create('chatrooms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->timestamps('created_at');
-            $table->timestamps('update_at');
-            $table->string('room_detail');
-            $table->integer('category_id');
-            $table->boolean('publish_flag');
-            $table->string('chat_image');
-            $table->integer('developer_id');
-            $table->integer('delet_flag');
+            $table->string('title')->nullable();
+            // $table->timestamps('created_at');
+            // $table->timestamps('update_at');
+            $table->string('room_detail', 1000)->nullable();
+            // $table->integer('category_id');
+            // $table->boolean('publish_flag'); これは一旦消してます。またあとで使います
+            $table->string('chat_image')->nullable();
+            $table->integer('developer_id')->nullable();
+            $table->integer('delet_flag')->nullable();
             $table->timestamps();
         });
     }
