@@ -19,10 +19,13 @@
                 <input type="email" class="form-control" id="mail" placeholder="example@aaa.com">
             </div>
             <div class="p-mypage-store__hobby">
+                <div class="p-mypage-store__hobby1">
                 <label for="hobby" class="form-label">趣味</label>
-                <input type="text" class="form-control" id="hobby" placeholder="趣味①">
-                <input type="text" class="form-control" id="hobby" placeholder="趣味②">
-                <input type="text" class="form-control" id="hobby" placeholder="趣味③">
+                <input type="text" class="form-control" id="hobby" placeholder="趣味①"></div>
+                <div class="p-mypage-store__hobby2">
+                <input type="text" class="form-control" id="hobby" placeholder="趣味②"></div>
+                <div class="p-mypage-store__hobby3">
+                <input type="text" class="form-control" id="hobby" placeholder="趣味③"></div>
             </div>
             <div class="p-mypage-store__mind">
                 <p>マインドフルネス</p>

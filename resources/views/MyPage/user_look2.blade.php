@@ -34,7 +34,7 @@
 		<tr>
 
 			<label for="self">紹介文</label>
-            <textarea class="form-control p-mypage-store__textarea" name="self" id="self" cols="30" rows="4"></textarea>
+            <textarea class="form-control p-user-mypage_introduction" name="self" id="self" cols="30" rows="4"></textarea>
 		</tr>
 		<table>
 				<tr>
