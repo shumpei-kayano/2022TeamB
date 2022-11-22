@@ -18,11 +18,11 @@ class CreateMessagesTable extends Migration
             $table->integer('room_id');
             $table->string('user_id');
             $table->string('facility_id');
-            $table->string('message');
+            $table->string('message')->nullable();
             $table->timestamps();
         });
     }
-    
+
 
     /**
      * Reverse the migrations.

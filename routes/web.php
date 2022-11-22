@@ -12,6 +12,11 @@
 */
 
 //Laravelのホーム表示
+
+use App\Chatroom;
+use App\Http\Controllers\Chatroomcontroller;
+// use Illuminate\Routing\Route;
+
 Route::get('welcome/top', function () {
     return view('welcome.top');
 });
@@ -185,6 +190,7 @@ Route::get('terms_of_service', function () {
 Route::get('create_new_open', function () {
     return view('open_chat.create_new_open');
 });
+Route::post('create_new_open', 'Chatroomcontroller@create');
 //公開範囲の設定
 Route::get('open_range', function () {
     return view('MyPage.open_range');
