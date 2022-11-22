@@ -149,11 +149,11 @@ Route::get('user_mypage', function () {
     return view('MyPage.user_mypage');
 });
 //店鋪マイページ画面
-Route::get('tenpo_mypage',function () {
+Route::get('tenpo_mypage', function () {
     return view('MyPage.tenpo_mypage');
 });
 //自治体マイページ画面
-Route::get('municipality_mypage',function () {
+Route::get('municipality_mypage', function () {
     return view('MyPage.municipality_mypage');
 });
 
@@ -301,7 +301,9 @@ Route::get('my_posted_blog_list', function () {
 //ブログ編集画面
 Route::get('my_blog_edit', function () {
     return view('blog.my_blog_edit');
+});
 Route::post('create_new_open', 'Chatroomcontroller@create');
+
 //公開範囲の設定
 Route::get('open_range', function () {
     return view('MyPage.open_range');
