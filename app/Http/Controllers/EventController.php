@@ -6,7 +6,10 @@ use App\Event;
 use App\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -21,16 +24,29 @@ class EventController extends Controller
     public function add(Request $request)
     {
         $items = Area::all();
-        return view('event.eventadd', ['items' => $items]);
+        $eitems = Event::first();
+        return view('event.eventadd', ['items' => $items, 'eitems' => $eitems]);
     }
 
     public function create(Request $request)
     {
-        $this->validate($request, Event::$rules);
-        $event = new Event;
-        $form = $request->all();
-        unset($form['_token']);
-        $event->fill($form)->save();
+        // $this->validate($request, Event::$rules);
+        // $event = new Event;
+        // $form = $request->all();
+        // unset($form['_token']);
+        // $event->fill($form)->save();
+        // return redirect('/event013');
+
+        //バリデーション all()は入力値を全て連想配列で取得
+        $validator = Validator::make($request->all(), Event::$rules);
+
+        //バリデーションエラー
+        if ($validator->fails()) {
+            return redirect('/event015')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        Event::eventInsert($request);
         return redirect('/event013');
     }
 }

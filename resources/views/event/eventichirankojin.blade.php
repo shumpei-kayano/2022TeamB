@@ -34,11 +34,11 @@
 
           @foreach ($items as $item)
             <div class="card p-eventcards__card" style="width: 13rem;">
-              <a href="#">
-                <img src="img/noimage.jpg" class="card-img-top" alt="...">
+              <a href="event/{{$item->id}}">
+                <img src="e-img/{{$item->event_image}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">{{$item->getTitle()}}</h5>
-                  <p class="card-text">{{$item->getDate()}}</p>
+                  <h5 class="card-title">{{$item->event_title}}</h5>
+                  <p class="card-text">{{$item->date_of_event->format('Y-m-d')}}</p>
                 </div>
               </a>
             </div>

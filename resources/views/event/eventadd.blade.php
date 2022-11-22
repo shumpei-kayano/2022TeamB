@@ -14,12 +14,30 @@
             <h2 class="eventadd__title">イベント募集新規作成</h2>
             <form action="/event015" method="post">
             <div class="eventadd__content">
-                <div class="eventadd__left ">
+                <div class="eventadd__left">
                     <div class="eventadd__img-container">
-                        <img src="img/noimage.jpg" class="card-img-top" alt="...">
-                        {{--  <input type="file" id="image_uploads" name="image_uploads" accept="image/png, image/jpeg">  --}}
-                        <input type="submit" value="登録" class='button'>
-                        <input type="submit" value="削除" class='button'>
+                        {{--  デフォルト画像noimage  --}}
+                        <div id="default_image">
+                            <img src="img/noimage.jpg" class="e-imagePreview" alt="default_image">
+                        </div>
+                        {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
+                        <div id="preview" class="e-imagePreview"></div>
+                        <div class="btn-wrap">
+                            <label>
+                                <span class="btn btn-warning p-event-text c-text-sm">登録
+                                <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
+                                </span>
+                                <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">
+                            </label>
+                        </div>
+{{--  <div class="e-imagePreview"><img src="e-img/{{$eitems->event_image}}" class="card-img-top" alt="..."></div>  --}}
+
+                        {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}
+                                               
+                        {{--  最初の状態  --}}
+                        {{--  <input type="submit" value="登録" class='button'>
+                        <input type="submit" value="削除" class='button'>  --}}
+                        
                     </div>
                     <div class="eventadd__btn-container">
                         <input type="submit" value="保存" class='button'>
@@ -48,7 +66,6 @@
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach
                                     </select>
-                                    {{--  <input type="text" name="city" class="form-control" placeholder="場所">  --}}
                                     <div id="emailHelp" class="form-text" ></div>
                                     
                                 </td>
@@ -104,5 +121,29 @@
             </form>
         </section>
     </div>
+{{--  https://www.kabanoki.net/1552/  --}}
+    <script>
+        function imgPreView(event){
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            var preview = document.getElementById("preview");
+            var previewImage = document.getElementById("previewImage");
+            
+            if(previewImage != null) //画像があれば
+              preview.removeChild(previewImage);
+              // default_image を非表示
+              var elem = document.getElementById("default_image");
+              elem.style.display = "none";
+              
+            reader.onload = function(event) {
+               var img = document.createElement("img");
+               img.setAttribute("src", reader.result);
+               img.setAttribute("id", "previewImage");
+               preview.appendChild(img);
+              
+            };
+            reader.readAsDataURL(file);
+        }    
+    </script>
 
 @endsection
