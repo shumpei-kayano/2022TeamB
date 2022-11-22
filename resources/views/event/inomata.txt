@@ -11,3 +11,19 @@ scssファイルを編集した時はコンパイルが必要
 
 flex-direction … 子要素の並ぶ向きcoloumn
 https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet#flexbox2
+
+P35〜　ルートパラメータ
+NOTIONのCRUDの例で一連の流れを学習する
+
+bookがevent
+
+editをdetail
+//更新画面　ルーティングが'book/{book}'でid値を渡す時
+		//そのid値に等しいBookインスタンスを渡してくれる
+    public function edit(Book $book)
+    {
+        //{books}id 値を取得 => Book $books id 値の1レコード取得
+        return view('booksedit', [
+            'book' => $book
+        ]);
+    }
