@@ -133,22 +133,29 @@ Route::get('user3', function () {
 });
 //イベント詳細画面
 Route::get('events_detail', function () {
-    return view('events_d');
+    return view('MyPage.events_d');
 });
 
 //マイページ設定画面
 Route::get('mypage_set', function () {
-    return view('mypage_setting');
+    return view('MyPage.mypage_setting');
 });
 //アカウント削除ボタン表示画面
 Route::get('mypage_del', function () {
-    return view('mypage_account_delete');
+    return view('MyPage.mypage_delete_account');
 });
-
-Route::get('unko', function () {
-    return view('unko');
+//ユーザーマイページ画面
+Route::get('user_mypage', function () {
+    return view('MyPage.user_mypage');
 });
-
+//店鋪マイページ画面
+Route::get('tenpo_mypage',function () {
+    return view('MyPage.tenpo_mypage');
+});
+//自治体マイページ画面
+Route::get('municipality_mypage',function () {
+    return view('MyPage.municipality_mypage');
+});
 
 //オープンチャット関連
 Route::get('open_chat_list', function () {

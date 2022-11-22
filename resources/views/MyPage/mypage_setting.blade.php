@@ -11,10 +11,12 @@
 @section('main')
 <div class="p-mypage-setting">
   <div class="p-mypage-setting__left">
-    <a href="#"><button class="p-user-mypage__btn"> 公開範囲の設定</button></a><br>
-    <form action="check_deactivate">
-    <a href="#"><button class="p-user-mypage__btn"> アカウント削除</button></a>
-  </form>
+    <div class="p-mypage-setting__top">
+      <a href="#"><button class="p-user-mypage__btn"> 公開範囲の設定</button></a><br>
+      <form action="check_deactivate">
+        <a href="#"><button class="p-user-mypage__btn"> アカウント削除</button></a>
+      </form>
+    </div>
   </div>
   <div class="p-user-mypage__right">
     <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">

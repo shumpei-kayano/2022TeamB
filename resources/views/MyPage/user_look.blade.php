@@ -32,7 +32,7 @@
           <input type="text" class="form-control" id="hobby3" placeholder=""></label>
         </div>
     </div>
-    <div class="p-user-mypage__right">
+    <div class="p-user-mypage2__right">
       <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
       <a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
       <a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
