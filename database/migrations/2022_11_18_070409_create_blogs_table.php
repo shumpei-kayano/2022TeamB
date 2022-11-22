@@ -18,8 +18,8 @@ class CreateBlogsTable extends Migration
             $table->string('user_id');
             $table->string('title');
             $table->string('text');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            //$table->timestamp('created_at');
+            //$table->timestamp('updated_at');
             $table->string('image');
             $table->timestamps();
         });

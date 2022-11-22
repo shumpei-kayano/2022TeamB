@@ -583,28 +583,6 @@ ol li:before{
 }
 
 
-
-
-//   松川追記
-// table , td, th {
-// 	border: 1px solid #595959;
-// 	border-collapse: collapse;
-// }
-// td, th {
-// 	padding: 3px;
-// 	width: 30px;
-// 	height: 25px;
-// }
-// th {
-// 	background: #f0e6cc;
-// }
-// .even {
-// 	background: #fbf8f0;
-// }
-// .odd {
-// 	background: #fefcf9;
-// }
-
 /* イベントカード */
 .p-eventcards {
 
@@ -740,7 +718,7 @@ ol li:before{
 
 
 }
-利用者から見た自治体マイページ画面
+利用者から見たユーザーマイページ画面
 .p-user2-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -763,16 +741,18 @@ ol li:before{
     // table {
     //     margin: 20px;
     // }
-    &__right {
-        padding-left: 20px;
-        width: 25%
-    }
+
     &__hobby {
         display: flex;
         justify-content: space-between;
         label {
             width: 30%;
         }
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 25%
     }
     &__btn {
         background-color: $navy;
@@ -839,47 +819,6 @@ ol li:before{
         height: 60px;
     }
 }
-    .p-UserMypage {
-        display: flex; //子要素を横並び
-        justify-content: center; //水平方向中央揃え
-        width: 1200px;
-        margin:  0 auto;
-        margin-top: 30px;
-        &__left {
-            color: $black;
-            background-color: $darkbrown;
-            width: 75%;
-            padding: 20px;
-        }
-        table, tr, tbody{
-            width: 100%;
-        }
-        // table {
-        //     margin: 20px;
-        // }
-        &__right {
-            padding-left: 20px;
-            width: 25%
-        }
-    
-        &__btn {
-            background-color: $navy;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            width: 200px;
-            height: 60px;
-            margin-bottom: 10px;
-        }
-        &__btn--red {
-            background-color: red;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            width: 200px;
-            height: 60px;
-        }
-}
 
 //マイページ設定画面
 .p-mypage-setting {
@@ -888,11 +827,18 @@ ol li:before{
     width: 1200px;
     margin:  0 auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     &__left {
         color: $black;
         background-color: $darkbrown;
         width: 75%;
         padding: 20px;
+    }
+    &__top {
+        text-align:center;
+        height:60px;
+        line-height:60px;
+        margin: 225px;
     }
 
     &__right {
@@ -909,23 +855,20 @@ ol li:before{
         height: 50px;
         margin-bottom: 10px;
     }
-
-    &__btn--red {
-        background-color: red;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        width: 200px;
-        height: 60px;
-    }
-  
-
 }
 //マイページ画面
 .p-mypage-store {
     display: flex;
     width: 1200px;
     margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;  
+    }
     &__input {
         width: 50%;
         padding: 10px;
@@ -933,6 +876,16 @@ ol li:before{
     &__hobby {
         width: 30%;
         padding: 10px;
+    }
+    &__hobby1 {
+        margin: 3px;
+    }
+    &__hobby2 {
+        margin: 3px;
+    }
+    &__hobby3 {
+        padding: 1px;
+        margin: 3px;
     }
     &__mind {
         width: 20%;
@@ -946,11 +899,8 @@ ol li:before{
     &__middle {
         padding: 10px;
     }
-    &__left {
-        width: 80%;
-        padding: 20px;
-    }
     &__right {
+        padding-left: 20px;
         width: 20%;
         box-sizing: border-box;
     }
@@ -1118,7 +1068,7 @@ ol li:before{
     transition    : .3s; 
     width:  370px;               /* 幅指定 */
     height: 90px;
-    background: url("a.jpg") no-repeat;
+    // background: url("a.jpg") no-repeat;
 }
 
     &__navybtn {
@@ -1131,4 +1081,80 @@ ol li:before{
         margin-bottom: 30px;
         margin-top:30px;
 }
+}
+//アカウント削除ボタン表示画面
+.p-mypage-delete-account {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%; 
+        padding: 20px;
+    }
+    &__top {
+        text-align:center;
+        height:60px;
+        line-height:60px;
+        margin: 250px;
+    }    
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+}
+//店鋪マイページ画面
+.p-tenpo-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+    
+}
+//自治体マイページ画面
+.p-municipality-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+    
 }
