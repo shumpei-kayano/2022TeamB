@@ -302,9 +302,13 @@ Route::get('my_posted_blog_list', function () {
 Route::get('my_blog_edit', function () {
     return view('blog.my_blog_edit');
 });
-Route::post('create_new_open', 'Chatroomcontroller@create');
 
 //公開範囲の設定
 Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
+
+//オープンチャットルーム作成
+Route::post('open_chat_preview', 'ChatroomController@preview_post');
+Route::post('create_new_open', 'ChatroomController@create');
+// Route::post('create_new_open', 'ChatroomController@create2');
