@@ -19,31 +19,66 @@
                     <div class="d-flex">
                 <div class="p-blog_edit_area__blog_icon"></div> 
                 <div class="p-blog_edit_area__blog_title_small">
-                    <h6>2022.10.22.〇〇〇に行ってきた</h6>
+                    <h6>2022.10.22.〇〇〇〇〇〇〇〇〇〇〇〇</h6>
                     <div class="p-blog_edit_area__blog_text_small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam expedita</div>
                 </div>            
             </div>
             </div>
         </div>
             <div class="p-blog_edit_area__blog_post">    {{-- ブログ記事リスト区切りエリア --}}
-
-            
+                <div class="col-12">
+                    <div class="d-flex">
+                <div class="p-blog_edit_area__blog_icon"></div> 
+                <div class="p-blog_edit_area__blog_title_small">
+                    <h6>2022.10.22.〇〇〇〇〇〇〇〇〇〇〇〇</h6>
+                    <div class="p-blog_edit_area__blog_text_small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam expedita</div>
+                </div>            
+            </div>
+            </div>
             </div>
             <div class="p-blog_edit_area__blog_post">    {{-- ブログ記事リスト区切りエリア --}}
-
-            
+                <div class="col-12">
+                    <div class="d-flex">
+                <div class="p-blog_edit_area__blog_icon"></div> 
+                <div class="p-blog_edit_area__blog_title_small">
+                    <h6>2022.10.22.〇〇〇〇〇〇〇〇〇〇〇〇</h6>
+                    <div class="p-blog_edit_area__blog_text_small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam expedita</div>
+                </div>            
+            </div>
+            </div>
             </div>
             <div class="p-blog_edit_area__blog_post">    {{-- ブログ記事リスト区切りエリア --}}
-
-            
+                <div class="col-12">
+                    <div class="d-flex">
+                <div class="p-blog_edit_area__blog_icon"></div> 
+                <div class="p-blog_edit_area__blog_title_small">
+                    <h6>2022.10.22.〇〇〇〇〇〇〇〇〇〇〇〇</h6>
+                    <div class="p-blog_edit_area__blog_text_small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam expedita</div>
+                </div>            
+            </div>
+            </div>            
             </div>
             <div class="p-blog_edit_area__blog_post">    {{-- ブログ記事リスト区切りエリア --}}
-
-            
+                <div class="col-12">
+                    <div class="d-flex">
+                <div class="p-blog_edit_area__blog_icon"></div> 
+                <div class="p-blog_edit_area__blog_title_small">
+                    <h6>2022.10.22.〇〇〇〇〇〇〇〇〇〇〇〇</h6>
+                    <div class="p-blog_edit_area__blog_text_small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam expedita</div>
+                </div>            
+            </div>
+            </div>
             </div>
             <div class="p-blog_edit_area__blog_post">    {{-- ブログ記事リスト区切りエリア --}}
-
-            
+                    <div class="col-12">
+                    <div class="d-flex">
+                <div class="p-blog_edit_area__blog_icon"></div> 
+                <div class="p-blog_edit_area__blog_title_small">
+                    <h6>2022.10.22.〇〇〇〇〇〇〇〇〇〇〇〇</h6>
+                    <div class="p-blog_edit_area__blog_text_small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam expedita</div>
+                </div>            
+            </div>
+            </div>
             </div>
         </div> 
     </div>

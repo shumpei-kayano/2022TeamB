@@ -284,8 +284,8 @@ Route::get('blog_completed_deactivate', function () {
 });
 
 //ブログ記事一覧表示
-Route::get('blog_list', function () {
-    return view('blog.blog_list');
+Route::get('new_blog_list', function () {
+    return view('blog.new_blog_list');
 });
 
 //ブログ記事詳細ページ表示
