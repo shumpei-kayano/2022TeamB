@@ -30,4 +30,23 @@
     </div>
 </div>
 </div>
+
+<form action="create_new_open" method="POST">  {{--  データベースに格納するよよ --}}
+    {{-- @csrf
+    @if ($msg !='')
+    <p  name="title">{{$msg}}</p>
+    @else 
+    @endif --}}
+@csrf
+    <input type="text" name="title">
+<input type="submit"></form>
+
+<form action="create_new_open" method="POST">  {{--  データベースに格納するよよ --}}
+    @csrf
+    @isset($msg)
+    <input type="text" name="title" value="{{$msg}}">
+    <input type="submit">
+    @endisset
+    
+</form>
 @endsection
