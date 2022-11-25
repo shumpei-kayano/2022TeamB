@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 
 // チャットのルームを作る
-class Chatroomcontroller extends Controller
+class ChatroomController extends Controller
 {
     public function index(Request $request)
     {
         $items = chatroom::all();
-        return view('');
+        return view('', ['msg' => '']);
     }
 
     public function add(Request $request)
@@ -28,8 +28,36 @@ class Chatroomcontroller extends Controller
         $this->validate($request, chatroom::$rules);
         $chatroom = new chatroom();
         $form = $request->all();
+        $chatroom->developer_id = $request->user()->id;
         unset($form['_token']);
         $chatroom->fill($form)->save();
-        return redirect('/');
+        return redirect('/open_chat_room');
     }
+
+    // public function preview()
+    // {
+    //     $data = [
+    //         'msg' => 'お名前を入力下さい。',
+    //     ];
+    //     return view('open_chat.open_chat_preview', $data);
+    // }
+
+    public function preview_post(Request $request)
+    {
+        $msg = $request->msg;
+        $data = [
+            'msg' => 'こんにちは、' . $msg . 'さん！',
+        ];
+        return view('open_chat.open_chat_preview', ['msg' => $request->msg]);
+    }
+
+    // public function create2(Request $request)
+    // {
+    //     $this->validate($request, chatroom::$rules);
+    //     $chatroom = new chatroom();
+    //     $form = $request->all();
+    //     unset($form['_token']);
+    //     $chatroom->fill($form)->save();
+    //     return redirect('/');
+    // }
 }
