@@ -12,13 +12,14 @@
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
             <h2 class="eventadd__title">イベント募集新規作成</h2>
-            <form action="/event015" method="post">
+            {{--  form ここから ファイルアップロードはenctype="multipart/form-data"が必要 --}}
+            <form action="/event015" method="post" enctype="multipart/form-data">
             <div class="eventadd__content">
                 <div class="eventadd__left">
                     <div class="eventadd__img-container">
                         {{--  デフォルト画像noimage  --}}
                         <div id="default_image">
-                            <img src="img/noimage.jpg" class="e-imagePreview" alt="default_image">
+                            <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
                         </div>
                         {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
                         <div id="preview" class="e-imagePreview"></div>
@@ -40,8 +41,8 @@
                         
                     </div>
                     <div class="eventadd__btn-container">
-                        <input type="submit" value="保存" class='button'>
-                        <input type="submit" value="公開" class='button'>
+                        <input type="submit" value="保存" name="save" class='button'>
+                        <input type="submit" value="公開" name="open" class='button'>
                     </div>
                 </div>
                 <div class="eventadd__right">

@@ -16,7 +16,7 @@ class EventController extends Controller
     public function index(Request $request)
     {
         // $items = DB::table('events')->simplePaginate(8);
-        $items = Event::Paginate(8);
+        $items = Event::orderBy('updated_at', 'desc')->where('publish_flag', '1')->Paginate(8);
         // dd($items); //デバッグ用ddメソッド…変数の中身が見れる
         return view('event.eventichirankojin', ['items' => $items]);
     }
@@ -42,11 +42,33 @@ class EventController extends Controller
 
         //バリデーションエラー
         if ($validator->fails()) {
-            return redirect('/event015')
+            return redirect('/')
                 ->withInput()
                 ->withErrors($validator);
         }
-        Event::eventInsert($request);
+
+        // https://migisanblog.com/laravel-image-upload-view/#index_id3
+        // $dir = 'eimg'; // imageディレクトリ名
+        // アップロードされたファイル名を取得
+        // $file_name = $request->file('event_image')->getClientOriginalName();
+        // 指定したディレクトリに画像を保存
+        // $request->file('event_image')->storeAs('public/' . $dir, $file_name);
+
+        // ファイル情報をDBに保存
+
+        // $file = $request->file('event_image');
+        // if (!empty($file)) {
+        //     $dir = 'eimg'; // imageディレクトリ名
+        //     $file_name = $file->getClientOriginalName();
+        //     $move = $file->storeAs('public/' . $dir, $file_name);
+        // } else {
+        //     $file_name = "";
+        // }
+        Event::imgStore($request);
+        // Event::eventInsert($request);
+
+
+
         return redirect('/event013');
     }
 }

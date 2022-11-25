@@ -35,7 +35,7 @@
           @foreach ($items as $item)
             <div class="card p-eventcards__card" style="width: 13rem;">
               <a href="event/{{$item->id}}">
-                <img src="e-img/{{$item->event_image}}" class="card-img-top" alt="...">
+                <img src="{{ asset($item->event_image) }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{$item->event_title}}</h5>
                   <p class="card-text">{{$item->date_of_event->format('Y-m-d')}}</p>
