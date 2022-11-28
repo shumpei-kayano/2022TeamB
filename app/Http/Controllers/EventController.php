@@ -47,28 +47,23 @@ class EventController extends Controller
                 ->withErrors($validator);
         }
 
-        // https://migisanblog.com/laravel-image-upload-view/#index_id3
-        // $dir = 'eimg'; // imageディレクトリ名
-        // アップロードされたファイル名を取得
-        // $file_name = $request->file('event_image')->getClientOriginalName();
-        // 指定したディレクトリに画像を保存
-        // $request->file('event_image')->storeAs('public/' . $dir, $file_name);
-
-        // ファイル情報をDBに保存
-
-        // $file = $request->file('event_image');
         // if (!empty($file)) {
         //     $dir = 'eimg'; // imageディレクトリ名
         //     $file_name = $file->getClientOriginalName();
         //     $move = $file->storeAs('public/' . $dir, $file_name);
         // } else {
-        //     $file_name = "";
+        //     $file_name = "noimage.png";
         // }
-        Event::imgStore($request);
-        // Event::eventInsert($request);
 
-
+        Event::eventInsert($request);
 
         return redirect('/event013');
+    }
+    //更新画面ルーティングが'book/{book}'でid値を渡す時
+    //そのid値に等しいBookインスタンスを渡してくれる
+    public function edit(Request $request)
+    {
+        $event = Event::find($request->id);
+        return view('event.eventedit', ['event' => $event]);
     }
 }

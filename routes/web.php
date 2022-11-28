@@ -126,8 +126,8 @@ Route::post('eventsedit/{event}', 'App\Http\Controllers\EventsController@edit');
 //更新処理
 Route::post('events/update', 'App\Http\Controllers\EventsController@update');
 */
-
-
+// イベント編集画面
+Route::get('event016', 'EventController@edit');
 
 
 

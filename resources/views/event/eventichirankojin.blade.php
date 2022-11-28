@@ -19,7 +19,7 @@
         <div class="row align-items-center">
           {{--  ページタイトル(8)  --}}
           <div class="col-8">
-              <div class="alert alert-warning c-text-lg" role="alert">
+              <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
                 新着順 イベント募集投稿</div>
           </div>
           {{--  新規募集投稿ボタン(4)  --}}
@@ -31,11 +31,11 @@
 
         {{--  カードを表示row  --}}
         <div class="row p-eventcards">
-
+        {{--  https://qiita.com/YasuhaF/items/9a897e83afe1819d97af 画像を表示 --}}
           @foreach ($items as $item)
             <div class="card p-eventcards__card" style="width: 13rem;">
               <a href="event/{{$item->id}}">
-                <img src="{{ asset($item->event_image) }}" class="card-img-top" alt="...">
+                <img src="{{asset('/storage/eimg/'.$item->event_image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{$item->event_title}}</h5>
                   <p class="card-text">{{$item->date_of_event->format('Y-m-d')}}</p>
