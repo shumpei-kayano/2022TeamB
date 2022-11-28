@@ -20,7 +20,7 @@ class Event extends Model
         'city' => 'required|exists:areas,id',
         'date_of_event' => 'required',
         'end_time' => 'required',
-        'event_image' => 'image',
+        // 'event_image' => 'image',
         'publish_flag' => 'integer'
     ];
 
@@ -36,17 +36,50 @@ class Event extends Model
     ];
 
     // 新規作成メソッド
-    public static function eventInsert(Request $request)
-    {
-        $event = new Event;
-        $event->event_title = $request->event_title;
-        $event->event_detail = $request->event_detail;
-        $event->city = $request->city;
-        $event->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
-        $event->end_time = $request->end_time = date('Y-m-d H:i:s');
-        $event->event_image = $request->event_image;
-        $event->publish_flag = $request->publish_flag;
+    // public static function eventInsert(Request $request)
+    // {
+    //     $events = new Event;
+    //     $events->event_title = $request->event_title;
+    //     $events->event_detail = $request->event_detail;
+    //     $events->city = $request->city;
+    //     $events->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
+    //     $events->end_time = $request->end_time = date('Y-m-d H:i:s');
+    //     $events->event_image = $request->event_image;
+    //     $events->publish_flag = $request->publish_flag;
 
-        $event->save();
+    //     $events->save();
+    // }
+    // 画像のfile,ファイル名をDBに保存する
+    public static function imgStore(Request $request)
+    {
+        // https://migisanblog.com/laravel-image-upload-view/#index_id3
+        // imageディレクトリ名
+        $dir = 'eimg';
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('event_image')->getClientOriginalName();
+        // dd($file_name);
+        // 指定したディレクトリに画像を保存
+        $path = $request->file('event_image')->storeAs('public/' . $dir, $file_name);
+
+        // パスから、最後の「ファイル名.拡張子」の部分だけ取得 例)sample.jpg
+        $filename = basename($path);
+
+        //  https://qiita.com/Charry/items/11d55ab7b1451f68d056
+        // 登録する項目に必要な値を代入
+        // $request->event_image = $file_name;
+
+        // データベースに保存
+        // $request->save();
+        // Event::where('id', $request->id)->update(['event_image' => $filename]);
+        $events = new Event;
+        $events->event_title = $request->event_title;
+        $events->event_detail = $request->event_detail;
+        $events->city = $request->city;
+        $events->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
+        $events->end_time = $request->end_time = date('Y-m-d H:i:s');
+        $events->event_image = $filename;
+        $events->publish_flag = $request->publish_flag;
+
+        $events->save();
     }
 }
