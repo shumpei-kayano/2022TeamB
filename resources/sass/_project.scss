@@ -134,33 +134,57 @@
         border-radius: 50%;                 //円
         background: $beige;                 //背景色
     }
-    // &__blog_title{
-        
-    // }
 }
+
+//ブログ記事詳細ページの記事欄
+.p-blog_area{
+    
+    &__gray_bg{
+        width:1200px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+   &__user_icon{
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    background-color: $beige;
+    margin-top:20px;
+    margin-bottom:20px;
+   }
+   &__user_name{
+    margin-top:50px;
+    margin-left:20px;
+    font-size: 20px;
+    width:350px;
+   }
+   &__user_data{
+    margin-top:50px;
+    font-size: large;
+    width:350px;
+   }
+   &__user_time{
+    margin-top:50px;
+    font-size: large;
+    width:350px;
+   }
+}
+
+
 
 //トップページのイベント掲示板コーナー
 .p-event{                                   //イベント募集掲示板コーナータイトル中央寄せ      
     text-align: center;
     font-size: 20px;
-    // &__event_area{
-
-    // }
-    // &__event_title{
-        
-    // }
 }
 
 //トップページの自治体コーナー
 .p-gov{                                     //自治体コーナータイトル中央寄せ
     text-align: center;
     font-size: 20px;
-    // &__gov_area{
-
-    // }
-    // &__gov_title{
-        
-    // }
 }
 
 //トップページのオープンチャットコーナー
@@ -179,14 +203,11 @@
     }
 }
 
-//チャット関連の新規トークルーム作成ボタンのエリア(下にボタンデザインの設定あり)
-.create_btn{
-    width: 1200px;
-    margin: auto;
-}
+
 
 //オープンチャット“リスト一覧”表示時の設定(右上に新規作成ボタンがあるため、ボタンあり状態で設定)
 .p-large_bg_btn{
+    
     &__card_bg{                         //背景色
         text-align: center;
         background-color:$darkbrown;
@@ -195,6 +216,8 @@
         border-radius : 2%;
         margin: auto;                   //左端から余白
         margin-top: 10px;               //新規作成ボタンからの背景色までの空白
+        display: flex;
+        justify-content: flex-end;
     }
     &__create-button{                   //右上の新規作成ボタンの設定
         background-color: $navy;
@@ -208,6 +231,30 @@
         margin: 0 0 0 auto;            //ボタンの位置指定
         margin-top: 20px;              //ヘッダーからの新規作成ボタンまでの空白
     }
+    &__create-close_button{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        display: block;
+        margin: 0 0 0 auto;            //ボタンの位置指定
+        margin-top: 20px;              
+    }
+    &__create-leave_button{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        display: block;
+        margin:0 0 0 auto;            //ボタンの位置指定
+    }
+   
 }
 
 //オープンチャット“利用規約”表示時の設定
@@ -246,7 +293,150 @@
         display: flex;
         justify-content: flex-end;          //“新規作成画面”表示時のCLOSEボタン画像
     }
+    &__preview_camera{                      //プレビュー画面の写真表示スペース
+        background-color: rgb(197, 196, 196);
+        width:1200;
+        height:250px;
+        border-radius : 2% 2% 0 0;
+        margin:0;
+    }
 }
+
+
+//オープンチャットリスト一覧表示の「新規作成」ボタンの位置指定
+.p-create_btn_block{
+    width:1200px;
+    height:50px;
+    display: flex;
+    justify-content: flex-end;
+    margin-left:auto;           //blockを左右から中央配置
+    margin-right:auto;          //blockを左右から中央配置
+    &__create-button{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        margin-top: 20px;           
+    }
+}
+
+//ブログ編(編集・投稿・削除ページ)のボタン表示設定
+.p-posted_blog_container{
+    margin-top:300px;
+    justify-content:flex-end;
+    &__btn {
+    background-color: $navy;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    display: block;
+    }
+    &__btn:hover{
+        opacity:0.5;
+    }
+}
+
+//ブログ(編集・投稿・削除ページ)の中央エリア表示設定
+.p-blog_edit_area{
+    &__container{
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 2%;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-left:200px;                  //ページ左端から何px離すか
+
+    }
+    &__button{
+        height: 700px;
+        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
+        margin-top:150px;
+    }
+    &__blog_title{
+        height:40px;
+        margin-top:10px;
+        text-align: center;
+        font-size:35px;
+    }
+    &__new_blog_post{               //新着ブログ一覧のリスト表示する際の白い背景とサイズ設定
+        height:100px;
+        width:100%;
+        background-color: white;
+        margin:auto;
+        border-radius: 10px;
+        margin-bottom:20px;
+    }
+    &__blog_post{
+        height:80px;
+        width:800px;
+        background-color: white;
+        margin:auto;
+        border-radius: 10px;
+        margin-bottom:20px;
+    }
+    &__blog_icon{
+        width:50px;
+        height:50px;
+        background-color: $beige;
+        border-radius: 50%;
+        margin-top:15px;
+        margin-bottom:auto;
+    }
+    &__blog_title_small{
+        width:700px;
+        height:20px;
+        margin-left:60px;
+    }
+    &__open_chat_list_icon{
+        width:60px;
+        height:60px;
+        border-radius: 50%;
+        background-color: $beige;
+        margin-top:15px;
+    }
+    &__open_chat_list_title{
+        margin-left:40px;
+    }
+    &__titlearea{               //ブログ編集ページ
+        margin-top:80px;
+        width:800px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    &__phpto_insert{
+        width:120px;
+        height:100px;
+        background-color: white;
+        margin-top:30px;
+        border-radius: 10px;
+        margin-left:90px;
+        border-bottom: 3px solid black;
+    }
+    &__img{                     
+       
+    }
+}
+
+
+//オープンチャットリスト一覧表示のアイコン設定
+.p-open_chat_area{
+    &__open_chat_list_icon{
+        width:100px;
+        height:100px;
+        border-radius: 50%;
+        background-color:$beige;
+    }
+}
+
+
+
 
 //利用規約のテキストエリア部分のエリア範囲設定
 .terms_of_service_block{
@@ -266,14 +456,17 @@
     height:700px;
     color:#000;             //文字色設定
     &__camera{
-        padding-top:40px;
-        padding-bottom:20px;
+        padding-top:70px;
     }
     &__container{
-        width:800px;
         text-align: center;
     }
+    &__display{
+        padding-top: 50px;
+    }
 }
+
+
 
 //利用規約リスト表記のデザイン
 ol{
@@ -307,31 +500,6 @@ ol li:before{
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-}
-
-
-
-
-//オープンチャット関連の背景色内の中央にテキスト類をブロックで配置
-.p-open_chat_area{
-    width: 1200px;
-    height: 700px;
-    margin-top: 30px;
-    padding-top: 50px;;
-    display: flex;
-    justify-content: flex-start;
-    &__open_chat_list_icon{
-        width: 100px;                        //円の横幅
-        height: 100px;                       //円の縦幅
-        border-radius: 50%;                  //円
-        background: $brown;                  //背景色
-        }
-    &__open_chat_list_title{
-        text-align: center;
-        width:400px;
-        margin:0 auto;
-        color:black;
-        }
 }
 
 
@@ -450,16 +618,6 @@ ol li:before{
         color:white;                      //ボタン内の文字色
         border:none;                        //ボタンの外枠を消す
     }
-    // &__tab_contents2_mail{
-
-    // }
-    
-    // &__tab_contents3_code{
-
-    // }
-    // &__tab_contents3_mail{
-
-    // }
 }
 
 /*選択されているタブを表示*/
@@ -570,8 +728,9 @@ ol li:before{
         }
     }
 
-.p-event{  /*イベント募集掲示板コーナータイトル中央寄せ*/      
+/*イベント募集掲示板コーナータイトル中央寄せ*/      
 //入力フォームなどの背景(小)
+.p-event{  
     text-align: center;
     font-size: 20px;
     &__event_area{
@@ -855,6 +1014,17 @@ ol li:before{
         height: 50px;
         margin-bottom: 10px;
     }
+
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
+
+
 }
 //マイページ画面
 .p-mypage-store {

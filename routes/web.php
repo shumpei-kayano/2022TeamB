@@ -12,6 +12,11 @@
 */
 
 //Laravelのホーム表示
+
+use App\Chatroom;
+use App\Http\Controllers\Chatroomcontroller;
+// use Illuminate\Routing\Route;
+
 Route::get('welcome/top', function () {
     return view('welcome.top');
 });
@@ -144,13 +149,51 @@ Route::get('user_mypage', function () {
     return view('MyPage.user_mypage');
 });
 //店鋪マイページ画面
-Route::get('tenpo_mypage',function () {
+Route::get('tenpo_mypage', function () {
     return view('MyPage.tenpo_mypage');
 });
 //自治体マイページ画面
-Route::get('municipality_mypage',function () {
+Route::get('municipality_mypage', function () {
     return view('MyPage.municipality_mypage');
 });
+
+
+
+
+Route::middleware('auth')->group(function () {
+
+
+
+    Route::middleware('password.confirm')->group(function () {
+
+
+        Route::get('check_deactivate', function () {
+            return view('auth.check_deactivate');
+        });
+    });
+});
+
+
+
+//公開範囲の設定
+Route::get('open_range', function () {
+    return view('MyPage.open_range');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //オープンチャット関連
 Route::get('open_chat_list', function () {
@@ -192,7 +235,80 @@ Route::get('terms_of_service', function () {
 Route::get('create_new_open', function () {
     return view('open_chat.create_new_open');
 });
+
+//オープンチャット新規作成プレビュー画面
+Route::get('open_chat_preview', function () {
+    return view('open_chat.open_chat_preview');
+});
+
+//オープンチャット新規作成プレビュー画面表示
+
+
+
+
+//オープンチャットのプレビュー画面から「新規作成ボタン」クリックでトークルーム開始
+Route::get('open_chat_room', function () {
+    return view('open_chat.open_chat_room');
+});
+
+//オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
+Route::get('check_close', function () {
+    return view('open_chat.check_close');
+});
+
+//オープンチャットを「退室する」ボタンで”閉鎖”確認画面へ
+Route::get('check_leaving', function () {
+    return view('open_chat.check_leaving');
+});
+
+//オープンチャットを閉鎖する「はい」ボタンで”閉鎖完了”画面へ
+Route::get('completed_close', function () {
+    return view('open_chat.completed_close');
+});
+
+//オープンチャットを退室する「はい」ボタンで”閉鎖完了”画面へ
+Route::get('completed_leaving', function () {
+    return view('open_chat.completed_leaving');
+});
+
+
+//ブログ関連
+//ブログ記事の削除確認画面
+Route::get('blog_check_deactivate', function () {
+    return view('blog.blog_check_deactivate');
+});
+
+//ブログ記事の削除完了画面
+Route::get('blog_completed_deactivate', function () {
+    return view('blog.blog_completed_deactivate');
+});
+
+//ブログ記事一覧表示
+Route::get('new_blog_list', function () {
+    return view('blog.new_blog_list');
+});
+
+//ブログ記事詳細ページ表示
+Route::get('blog_show', function () {
+    return view('blog.blog_show');
+});
+
+//投稿済みブログ一覧
+Route::get('my_posted_blog_list', function () {
+    return view('blog.my_posted_blog_list');
+});
+
+//ブログ編集画面
+Route::get('my_blog_edit', function () {
+    return view('blog.my_blog_edit');
+});
+
 //公開範囲の設定
 Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
+
+//オープンチャットルーム作成
+Route::post('open_chat_preview', 'ChatroomController@preview_post');
+Route::post('create_new_open', 'ChatroomController@create');
+// Route::post('create_new_open', 'ChatroomController@create2');

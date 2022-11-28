@@ -17,8 +17,8 @@ class CreateReservationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('facility_id');
-            $table->integer('people_number');
-            //$table->timestamp('createdate');
+            $table->integer('people_number')->nullable();
+            // $table->timestamp('createdate');
             $table->integer('event_id');
             $table->timestamps();
         });
