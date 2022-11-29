@@ -32,7 +32,7 @@
         <form action="create_new_open" method="POST">  {{--  データベースに格納するよよ --}}
             @csrf
         <div class="p-new_create_block__camera">
-        <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px">
+       {{--  <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px"> --}}
         </div>
         <div class="p-new_create_block__container" style="margin: 0 auto;">
         <div class="mb-3">

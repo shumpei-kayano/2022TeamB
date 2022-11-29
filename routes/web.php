@@ -200,16 +200,6 @@ Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
 });
 
-//オープンチャット退室確認画面
-Route::get('check_leaving', function () {
-    return view('open_chat.check_leaving');
-});
-
-//オープンチャット退室確認画面
-Route::get('check_close', function () {
-    return view('open_chat.check_close');
-});
-
 //アカウント削除前のパスワード確認画面
 Route::middleware('auth')->group(function () {
 
@@ -223,6 +213,12 @@ Route::middleware('auth')->group(function () {
         });
     });
 });
+
+
+
+
+
+
 //オープンチャット一覧ページで「新規作成ボタン」をクリックしたらと
 //オープンチャット新規作成画面で「CLOSEボタン」をクリックすると
 //オープンチャット利用規約ページを表示
@@ -240,11 +236,6 @@ Route::get('create_new_open', function () {
 Route::get('open_chat_preview', function () {
     return view('open_chat.open_chat_preview');
 });
-
-//オープンチャット新規作成プレビュー画面表示
-
-
-
 
 //オープンチャットのプレビュー画面から「新規作成ボタン」クリックでトークルーム開始
 Route::get('open_chat_room', function () {
@@ -271,6 +262,34 @@ Route::get('completed_leaving', function () {
     return view('open_chat.completed_leaving');
 });
 
+//既存のオープンチャットに参加する
+Route::get('join_open_chat', function () {
+    return view('open_chat.join_open_chat');
+});
+
+
+
+
+
+
+//オープンチャットルーム作成
+Route::post('open_chat_preview', 'ChatroomController@preview_post');
+Route::post('create_new_open', 'ChatroomController@create');
+// Route::post('create_new_open', 'ChatroomController@create2');
+
+
+
+
+
+//プライベートチャットのトークルーム
+Route::get('private_chat_room', function () {
+    return view('dm.private_chat_room');
+});
+
+//現在参加中のチャットトークルームが新着順で一覧表示
+Route::get('joining_chat', function () {
+    return view('joining_chat');
+});
 
 //ブログ関連
 //ブログ記事の削除確認画面
@@ -303,12 +322,44 @@ Route::get('my_blog_edit', function () {
     return view('blog.my_blog_edit');
 });
 
+//ユーザアイコンをクリックした時のマイページへの誘導画面(小ウィンドウ)表示 
+Route::get('user_icon_modal', function () {
+    return view('components.user_icon_modal');
+});
+
+//（顧客）飲食店ネット予約
+Route::get('select_reserve', function () {
+    return view('customer_reserve.select_reserve');
+});
+
+//（顧客）飲食店予約代表者情報入力ページ
+Route::get('customer_info', function () {
+    return view('customer_reserve.customer_info');
+});
+
+//（顧客）飲食店予約情報確認画面
+Route::get('check_reserve_info', function () {
+    return view('customer_reserve.check_reserve_info');
+});
+
+//（顧客）予約完了画面
+Route::get('completed_reserve', function () {
+    return view('customer_reserve.completed_reserve');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 //公開範囲の設定
 Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
-
-//オープンチャットルーム作成
-Route::post('open_chat_preview', 'ChatroomController@preview_post');
-Route::post('create_new_open', 'ChatroomController@create');
-// Route::post('create_new_open', 'ChatroomController@create2');

@@ -1,7 +1,7 @@
 {{-- オープンチャット利用規約表示画面 --}}
 @extends('layouts.layout')   
 @section('title')
-    オープンチャット利用規約
+    オープンチャット禁止事項
 @endsection
 
 @section('main')
