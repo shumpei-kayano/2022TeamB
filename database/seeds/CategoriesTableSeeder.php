@@ -128,8 +128,7 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert($param);
 
         $param = [
-            'category_name' => 'サ活
-            ',
+            'category_name' => 'サ活',
         ];
         DB::table('categories')->insert($param);
 

@@ -44,6 +44,16 @@
         color:white;                      //ボタン内の文字色
         border: none;
     }
+
+    &__search-button:hover{
+        opacity: 0.5;
+    }
+
+    &__login-button:hover{
+        opacity: 0.5;
+    }
+
+
 }
 
 //ヘッダーのロゴ位置指定
@@ -139,13 +149,14 @@
 //ブログ記事詳細ページの記事欄
 .p-blog_area{
     
-    &__gray_bg{
+    &__white_bg{
         width:1200px;
         background-color: white;
         display: flex;
         justify-content: center;
         margin-left:auto;
         margin-right:auto;
+        border-radius: 10px;
     }
    &__user_icon{
     width:100px;
@@ -212,7 +223,7 @@
         text-align: center;
         background-color:$darkbrown;
         width: 1200px;
-        height: 700px;
+        height: 650px;
         border-radius : 2%;
         margin: auto;                   //左端から余白
         margin-top: 10px;               //新規作成ボタンからの背景色までの空白
@@ -227,9 +238,9 @@
         font-size: 12px;                //フォントサイズ
         color:white;                  //ボタン内の文字色
         border: none;
-        display: block;
-        margin: 0 0 0 auto;            //ボタンの位置指定
-        margin-top: 20px;              //ヘッダーからの新規作成ボタンまでの空白
+        // display: block;
+        // margin: 0 0 0 auto;            //ボタンの位置指定
+        // margin-top: 20px;              //ヘッダーからの新規作成ボタンまでの空白
     }
     &__create-close_button{
         background-color: $navy;
@@ -240,8 +251,8 @@
         color:white;                  //ボタン内の文字色
         border: none;
         display: block;
-        margin: 0 0 0 auto;            //ボタンの位置指定
-        margin-top: 20px;              
+        // margin: 0 0 0 auto;            //ボタンの位置指定
+        // margin-top: 20px;              
     }
     &__create-leave_button{
         background-color: $navy;
@@ -251,10 +262,49 @@
         font-size: 12px;                //フォントサイズ
         color:white;                  //ボタン内の文字色
         border: none;
-        display: block;
-        margin:0 0 0 auto;            //ボタンの位置指定
+        // display: block;
+        // margin:0 0 0 auto;            //ボタンの位置指定
     }
-   
+    &__back{
+        margin-top:10px;
+    }
+    &__card_bg_half{                         //背景色
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1200px;
+        height: 600px;
+        border-radius : 5px 5px 0 0;
+        margin: auto;                   //左端から余白
+        margin-top: 10px;               //新規作成ボタンからの背景色までの空白
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__card_bg_message_half{
+        text-align: center;
+        background-color: $yellow;
+        width:1200px;
+        height:60px;
+        border-radius: 0 0 5px 5px;
+        margin: auto;                   //左端から余白
+        display: flex;
+        justify-content: center;
+    }
+    &__card_bg_message_send{
+        text-align: center;
+        width:900px;
+        margin: auto;                   //左端から余白
+    }
+    &__card_bg_message_send1{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        margin-top:15px;
+        margin-right:40px;
+    }
 }
 
 //オープンチャット“利用規約”表示時の設定
@@ -265,7 +315,7 @@
         background-color:$darkbrown;
         width: 1200px;
         height: 700px;
-        border-radius : 2%;
+        border-radius : 5px;
         margin: auto;                       //左端から余白
         margin-top: 50px;                   //ヘッダーからの景色までの空白(リスト一覧ページと違い新規作成ボタンなしなので別に設定)
     }
@@ -297,7 +347,7 @@
         background-color: rgb(197, 196, 196);
         width:1200;
         height:250px;
-        border-radius : 2% 2% 0 0;
+        border-radius : 5px 5px 0 0;
         margin:0;
     }
 }
@@ -342,14 +392,153 @@
     }
 }
 
+//飲食店ネット予約ページの右側ボタン
+.p-customer_reserve_container{
+        margin-top:50px;
+        justify-content:flex-end;
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    &__btn:hover{
+        opacity:0.5;
+    }
+    &__btn_camera{                  //写真アップロードのボタン設定
+        background-color: rgb(220, 213, 213);
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height:200px;
+        margin-bottom: 10px;
+        display: block;
+        margin-bottom:200px;
+    }
+    &__btn_camera:hover{
+        opacity: 0.7;
+    }
+    &__btn_red{                     //通報ボタンの設定
+        background-color: red;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    &__btn_red:hover{
+        opacity:0.5;
+    }
+}
+
+//飲食店ネット予約ページタイトル
+.p-reserve{
+    &__title{
+        height:50px;
+        width:700px;
+        background-color: white;
+        border-radius: 5px;
+        font-size:30px;
+        margin-top:50px;
+    }
+    &__form-select{
+        height:40px;
+        width:500px;
+        background-color: white;
+        border-radius:5px;
+        margin-top:10px;
+        text-indent: 1em;
+        font-size:15px;
+    }
+    &__container{
+        width:700px;
+        height:500px;
+        margin-top:10px;
+        margin-right:auto;
+        margin-left:auto;
+    }
+    &__text1{
+        margin-top:100px;
+        margin-bottom:30px;
+        color:black;
+    }
+    &__text2{
+        margin-bottom:30px;
+        color:black;
+    }
+    &__text3{
+        margin-bottom:50px;             //次へボタンまでのpx
+        color:black;
+    }
+    &__next_button{
+        background-color: $navy;
+        width:150px;
+        height:40px;
+        border-radius:30px;
+        font-size: 15px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        margin-left:400px;
+    }
+    &__next_button:hover{
+        opacity: 0.5;
+    }
+    &__text_input1{
+        margin-top:50px;
+    }
+    &__text_input2{
+        margin-top:50px;
+        
+    }
+    &__form-control_family_name{
+        width:300px;
+        height:50px;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 10px;
+        text-indent: 1em;
+    }
+    &__form-control_first_name{
+        width:300px;
+        height:50px;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 10px;
+        text-indent: 1em;
+    }
+    &__form-control{
+        width:660px;
+        height:50px;
+        margin-left:20px;
+        margin-bottom:30px;
+        border-radius: 10px;
+        text-indent: 1em;
+        font-size: 15px;
+    }
+    &__check_reserve_container{
+        height:600px;
+        width:700px;
+        margin-right:auto;
+        margin-left: auto;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
 //ブログ(編集・投稿・削除ページ)の中央エリア表示設定
+//参加中チャット一覧のコンテナ位置設定
 .p-blog_edit_area{
     &__container{
         text-align: center;
         background-color:$darkbrown;
         width: 1000px;
         height: 700px;
-        border-radius : 2%;
+        border-radius : 5px;
         margin-top: 50px;                   //ヘッダーからの背景色までの空白
         margin-left:200px;                  //ページ左端から何px離すか
 
@@ -395,8 +584,8 @@
         margin-left:60px;
     }
     &__open_chat_list_icon{
-        width:60px;
-        height:60px;
+        width:50px;
+        height:50px;
         border-radius: 50%;
         background-color: $beige;
         margin-top:15px;
@@ -410,7 +599,7 @@
         margin-left:auto;
         margin-right:auto;
     }
-    &__phpto_insert{
+    &__photo_insert{
         width:120px;
         height:100px;
         background-color: white;
@@ -420,7 +609,34 @@
         border-bottom: 3px solid black;
     }
     &__img{                     
-       
+       padding-top:22px;                    //ブログ編集ページの画像挿入ボタンの画像位置設定
+    }
+    &__textarea{
+        margin-top:10px;
+        width:800px;
+        height:500px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    &__container_joining_chat{              //現在参加中のトークルーム一覧のコンテナ位置指定
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 5px;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-right:auto;
+        margin-left:auto;
+    }
+    &__button_1{
+        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
+    }
+    &__close_img{
+        padding-top:10px;
+        padding-left:900px;
+    }
+    &__close_img:hover{
+        opacity:0.5;
     }
 }
 
@@ -463,6 +679,9 @@
     }
     &__display{
         padding-top: 50px;
+    }
+    &__space{
+        margin-top:50px;        //既存のオープンチャットに参加する際に表示する画面のテキストボックスの位置指定
     }
 }
 
@@ -618,6 +837,9 @@ ol li:before{
         color:white;                      //ボタン内の文字色
         border:none;                        //ボタンの外枠を消す
     }
+    &__tab_contents1_send:hover{            //ボタンの上にカーソルを置いたら色が薄くなる
+        opacity: 0.5;
+    }    
 }
 
 /*選択されているタブを表示*/
@@ -637,7 +859,20 @@ ol li:before{
 }
 
 
-
+//ユーザアイコンをクリックした時に
+//ユーザマイページへ誘導する小ウィンドウを表示
+.modal-title{
+    background-color: $beige;
+    border-radius: 50%;
+    height:30px;
+    height:30px;
+}
+.user_icon_go{
+    background-color: $beige;
+    border-radius: 50%;
+    height:30px;
+    height:30px;
+}
 
 
 
@@ -694,8 +929,9 @@ ol li:before{
   background    : #ffffff;     /* 文字色     */
 }
 
-
-
+.p-account-button:hover{         //ボタンの上にカーソルを置いたら色が薄くなる
+    opacity: 0.5;
+}
 
 .p-account-button{                    /*ログインボタン設定*/
     width:130px;                    //ログインボタンの幅
@@ -710,7 +946,7 @@ ol li:before{
 .p-small_bg {
     &__card_bg {
         text-align: center;
-        background-color:#87785A;
+        background-color:$darkbrown;
         width: 550px;
         height: 350px;
         border-radius : 5%;
@@ -1240,7 +1476,7 @@ ol li:before{
     height: 90px;
     // background: url("a.jpg") no-repeat;
 }
-}
+
     &__navybtn {
         background-color: $navy;
         color: white;
@@ -1250,6 +1486,15 @@ ol li:before{
         height: 60px;
         margin-bottom: 30px;
         margin-top:30px;
+}
+    &__range_close{
+    border: 1px solid #999;
+    padding: 10px;
+    background: #fff9cc;
+    margin-top:10px;
+    text-align    : right;  
+    
+}
 }
 }
 //アカウント削除ボタン表示画面
@@ -1427,3 +1672,26 @@ ol li:before{
         }
     }
   
+
+.Category_bar{
+    height: 796px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.tuuhoutext{                 //通報画面のテキストエリア
+    margin-top: 0px;
+    height: 110px;
+    width: 380px;
+}
+
+
+.tuuhou_bun {              //通報画面の文章
+    margin-left: auto;
+    margin-right: auto;
+        width: 550px;
+}
+
+.tuuhou_btn{                 //通報画面のボタンを中央にする
+    text-align: center;
+}
