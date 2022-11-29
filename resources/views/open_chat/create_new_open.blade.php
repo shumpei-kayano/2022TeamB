@@ -32,7 +32,7 @@
         <form action="create_new_open" method="POST">  {{--  データベースに格納するよよ --}}
             @csrf
         <div class="p-new_create_block__camera">
-        <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px">
+       {{--  <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px"> --}}
         </div>
         <div class="p-new_create_block__container" style="margin: 0 auto;">
         <div class="mb-3">
@@ -50,13 +50,20 @@
             <label for="floatingTextarea2" style="color: rgb(101, 100, 100);">説明</label>
           </div>
         <br>
-        <select class="form-select" aria-label="Default select example">
+        {{-- <select class="form-select" aria-label="Default select example">
         <option selected>【プルダウンでカテゴリを選択】</option>
         <option value="1">悩み相談</option>
         <option value="2">友達づくり</option>
         <option value="3">困りごとはありませんか？</option>
+        </select><br> --}}
+
+        <select class="form-select" aria-label="Default select example" name="category">
+            <option selected>【プルダウンでカテゴリを選択】</option>
+            @foreach ($items as $item)
+                <option value="{{ $item->category_name }}">{{ $item->category_name }}</option>
+            @endforeach
         </select><br>
-        </div>
+
         <form action="open_chat_preview">
             <input class="p-large_bg__check_btn" type="submit" value="プレビュー">
         </form>

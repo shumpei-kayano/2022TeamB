@@ -1,5 +1,11 @@
-<div class="col-2 c-bgcolor--brown left-bar">
+<div class="col-2 c-bgcolor--brown left-bar Category_bar">
     カテゴリから検索<br>
+{{-- @foreach ($items as $item)
+<p>{{$item->category_name}}</p>
+
+@endforeach --}}
+
+
     <br>
     出会い<br>
     <br>

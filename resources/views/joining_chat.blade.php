@@ -1,16 +1,13 @@
-{{-- 自分自身の投稿済みブログ一覧 --}}
+{{-- 現在参加中のトークルーム一覧 --}}
 @extends('layouts.layout')   
 @section('title')
-    投稿済みブログ一覧
+    現在参加中のトークルーム一覧
 @endsection
 
 @section('main')
 {{-- 左側 --}}
-<div class="d-flex"> 
-    <div class="row">
-        <div class="p-blog_edit_area__container">
+        <div class="p-blog_edit_area__container_joining_chat">
             <div class="p-blog_edit_area__blog_title">   {{-- 投稿済みブログ一覧（大）タイトルエリア --}}
-            <h2>【投稿済みブログ一覧】</h2>
             </div>
             <br>
             
@@ -101,16 +98,5 @@
         </div> 
     </div>
 
-    <div class="d-flex">
-    <div class="row">
-    <div class="p-blog_edit_area__button">
-      {{-- ブログ(編集・投稿・削除)ページの右側ボタンをcomponents使用 --}} 
-      @component('components.blog_right')
-      @endcomponent
-</div>
-</div>
-</div>
-</div>
-</div>
 @endsection
 
