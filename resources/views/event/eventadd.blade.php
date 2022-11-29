@@ -33,7 +33,6 @@
                                 <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">
                             </label>
                         </div>
-{{--  <div class="e-imagePreview"><img src="e-img/{{$eitems->event_image}}" class="card-img-top" alt="..."></div>  --}}
 
                         {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}
                                                

@@ -127,9 +127,9 @@ Route::post('eventsedit/{event}', 'App\Http\Controllers\EventsController@edit');
 Route::post('events/update', 'App\Http\Controllers\EventsController@update');
 */
 // イベント編集画面
-Route::get('event016', 'EventController@edit');
-
-
+Route::get('event016/{id}', 'EventController@edit');
+// イベント詳細画面
+Route::get('event014/{id}', 'EventController@detailView');
 
 Route::get('user1', function () {
     return view('user_look');

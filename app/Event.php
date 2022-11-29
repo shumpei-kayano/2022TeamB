@@ -24,9 +24,9 @@ class Event extends Model
         'publish_flag' => 'integer'
     ];
 
-    public function getDate()
+    public function area()
     {
-        return $this->date_of_event;
+        return $this->belongsTo(Area::class);
     }
 
     /** @var array Datetime型として扱うカラム */

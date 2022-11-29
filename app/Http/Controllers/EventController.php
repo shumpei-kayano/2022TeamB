@@ -24,19 +24,11 @@ class EventController extends Controller
     public function add(Request $request)
     {
         $items = Area::all();
-        $eitems = Event::first();
-        return view('event.eventadd', ['items' => $items, 'eitems' => $eitems]);
+        return view('event.eventadd', ['items' => $items]);
     }
 
     public function create(Request $request)
     {
-        // $this->validate($request, Event::$rules);
-        // $event = new Event;
-        // $form = $request->all();
-        // unset($form['_token']);
-        // $event->fill($form)->save();
-        // return redirect('/event013');
-
         //バリデーション all()は入力値を全て連想配列で取得
         $validator = Validator::make($request->all(), Event::$rules);
 
@@ -63,7 +55,14 @@ class EventController extends Controller
     //そのid値に等しいBookインスタンスを渡してくれる
     public function edit(Request $request)
     {
-        $event = Event::find($request->id);
+        $event = Event::where('id', $request->id)->first(); //find($request->id)
         return view('event.eventedit', ['event' => $event]);
+    }
+
+    // イベント詳細表示
+    public function detailView(Request $request)
+    {
+        $item = Event::where('id', $request->id)->first();
+        return view('event.eventdetailview', ['item' => $item]);
     }
 }

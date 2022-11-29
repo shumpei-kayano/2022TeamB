@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
   <title>@yield('title')</title>
   {{-- noto sansフォントの読み込み --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
