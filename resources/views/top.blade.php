@@ -10,8 +10,14 @@
     <div class="row">
 
       {{-- 左メニューバー --}}
-      @component('components.left')
-      @endcomponent
+      {{-- @component('components.left')
+      @endcomponent --}}
+      <div class="col-2 c-bgcolor--brown left-bar Category_bar">
+        <h4>カテゴリから検索</h4><br>
+    @foreach ($items as $item)
+    <p>{{$item->category_name}}</p>
+    
+    @endforeach</div>
 
       {{-- 右側 --}}
       <div class="col-10"> 

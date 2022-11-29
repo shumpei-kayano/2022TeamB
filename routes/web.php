@@ -15,6 +15,8 @@
 
 use App\Chatroom;
 use App\Http\Controllers\Chatroomcontroller;
+use Doctrine\DBAL\Schema\Index;
+
 // use Illuminate\Routing\Route;
 
 Route::get('welcome/top', function () {
@@ -22,9 +24,11 @@ Route::get('welcome/top', function () {
 });
 
 //トップページ
-Route::get('/', function () {
-    return view('top');
-});
+// Route::get('/', function () {
+//     return view('top');
+// });
+
+Route::get('/', 'HomeController@index');
 
 //ログイン画面にとぶ
 Route::get('/login', function () {
@@ -228,9 +232,7 @@ Route::get('terms_of_service', function () {
 
 //オープンチャット利用規約の「確認しました」ボタンをクリック後、
 //新規作成画面を表示する
-Route::get('create_new_open', function () {
-    return view('open_chat.create_new_open');
-});
+Route::get('create_new_open', 'Chatroomcontroller@index_2');
 
 //オープンチャット新規作成プレビュー画面
 Route::get('open_chat_preview', function () {
@@ -363,3 +365,13 @@ Route::get('completed_reserve', function () {
 Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
+
+//オープンチャットルーム作成
+Route::post('open_chat_preview', 'ChatroomController@preview_post');
+Route::post('create_new_open', 'ChatroomController@create');
+// Route::post('create_new_open', 'ChatroomController@create2');
+
+
+//通報画面
+Route::get('report', 'ReportController@index');
+Route::get('complete_report', 'ReportController@report');

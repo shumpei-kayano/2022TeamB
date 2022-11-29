@@ -20,6 +20,7 @@ class CreateChatroomsTable extends Migration
             // $table->timestamps('update_at');
             $table->string('room_detail', 1000)->nullable();
             // $table->integer('category_id');
+            $table->string('category');
             // $table->boolean('publish_flag'); これは一旦消してます。またあとで使います
             $table->string('chat_image')->nullable();
             $table->integer('developer_id')->nullable();

@@ -44,6 +44,16 @@
         color:white;                      //ボタン内の文字色
         border: none;
     }
+
+    &__search-button:hover{
+        opacity: 0.5;
+    }
+
+    &__login-button:hover{
+        opacity: 0.5;
+    }
+
+
 }
 
 //ヘッダーのロゴ位置指定
@@ -827,6 +837,9 @@ ol li:before{
         color:white;                      //ボタン内の文字色
         border:none;                        //ボタンの外枠を消す
     }
+    &__tab_contents1_send:hover{            //ボタンの上にカーソルを置いたら色が薄くなる
+        opacity: 0.5;
+    }    
 }
 
 /*選択されているタブを表示*/
@@ -916,8 +929,9 @@ ol li:before{
   background    : #ffffff;     /* 文字色     */
 }
 
-
-
+.p-account-button:hover{         //ボタンの上にカーソルを置いたら色が薄くなる
+    opacity: 0.5;
+}
 
 .p-account-button{                    /*ログインボタン設定*/
     width:130px;                    //ログインボタンの幅
@@ -1462,7 +1476,7 @@ ol li:before{
     height: 90px;
     // background: url("a.jpg") no-repeat;
 }
-}
+
     &__navybtn {
         background-color: $navy;
         color: white;
@@ -1472,6 +1486,15 @@ ol li:before{
         height: 60px;
         margin-bottom: 30px;
         margin-top:30px;
+}
+    &__range_close{
+    border: 1px solid #999;
+    padding: 10px;
+    background: #fff9cc;
+    margin-top:10px;
+    text-align    : right;  
+    
+}
 }
 }
 //アカウント削除ボタン表示画面
@@ -1549,4 +1572,27 @@ ol li:before{
         width: 20%;
     }
     
+}
+
+.Category_bar{
+    height: 796px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.tuuhoutext{                 //通報画面のテキストエリア
+    margin-top: 0px;
+    height: 110px;
+    width: 380px;
+}
+
+
+.tuuhou_bun {              //通報画面の文章
+    margin-left: auto;
+    margin-right: auto;
+        width: 550px;
+}
+
+.tuuhou_btn{                 //通報画面のボタンを中央にする
+    text-align: center;
 }
