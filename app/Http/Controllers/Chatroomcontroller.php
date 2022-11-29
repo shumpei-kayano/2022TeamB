@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Chatroom;
+use App\Category;
 use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,12 @@ class ChatroomController extends Controller
     {
         $items = chatroom::all();
         return view('', ['msg' => '']);
+    }
+
+    public function index_2(Request $request)
+    {
+        $items = Category::all();
+        return view('open_chat.create_new_open', ['items' => $items]);
     }
 
     public function add(Request $request)
