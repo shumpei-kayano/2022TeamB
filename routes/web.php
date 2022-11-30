@@ -130,6 +130,10 @@ Route::post('events/update', 'App\Http\Controllers\EventsController@update');
 Route::get('event016/{id}', 'EventController@edit');
 // イベント詳細画面
 Route::get('event014/{id}', 'EventController@detailView');
+//イベント/インプットのフレームのようなもの
+Route::get('event020', function () {
+    return view('components.framelikeinput');
+});
 
 Route::get('user1', function () {
     return view('user_look');

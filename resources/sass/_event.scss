@@ -90,3 +90,14 @@
     // -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
     display: inline-block;
 }
+
+.display-box {
+    &__content {
+        border-radius: 5px;
+        height: 2.5em;
+        line-height: 2.5em;
+        background-color: $beige;
+        font-size: 1em;
+        padding-left: 15px;
+    }
+}
