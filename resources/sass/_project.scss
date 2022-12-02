@@ -339,6 +339,11 @@
         border: none;
         font-size: 16px;
     }
+
+    &__check_btn:hover{
+        opacity: 0.5 ;
+    }
+
     &__logo_img{
         display: flex;
         justify-content: flex-end;          //“新規作成画面”表示時のCLOSEボタン画像
@@ -1488,6 +1493,8 @@ ol li:before{
         margin-top:30px;
 }
     &__range_close{
+    display: flex;
+    justify-content: flex-end;
     border: 1px solid #999;
     padding: 10px;
     background: #fff9cc;
@@ -1731,3 +1738,7 @@ ol li:before{
             width: 20%;
         }
     }
+
+.chatroom_error{
+    color: crimson;
+}
