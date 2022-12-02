@@ -199,6 +199,11 @@ Route::get('mindfulness_detail', function () {
     return view('mindfulness.mindfulness_detail');
 });
 
+//マインドフルネスタイマー表示画面
+Route::get('mindfulness_timer', function () {
+    return view('mindfulness.mindfulness_timer');
+});
+
 
 
 

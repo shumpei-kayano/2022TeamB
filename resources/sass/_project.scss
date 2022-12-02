@@ -1661,9 +1661,10 @@ ol li:before{
     &__middle {
         text-align: center;
         p {
+            text-align:start;
             line-height: 2.3;
-            // margin-left: 2.0em;
-            // text-indent: -1.4em;
+            margin-left: 16em;
+            margin-top: 25px;
           }
         }
         &__right {
@@ -1695,3 +1696,38 @@ ol li:before{
 .tuuhou_btn{                 //通報画面のボタンを中央にする
     text-align: center;
 }
+//マインドフルネスタイマー表示画面
+.p-mindfulness-timer {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+
+        // #start {
+        //     text-decoration: none;
+        //     display: block;
+        //     background: gray;
+        //     color: #fff;
+        //     height: 40px;
+        //     border-radius: 20px;
+        //     line-height: 40px;
+        //     text-align: center;
+        //     font-size: 18px;
+        //     margin-top: 15px;
+        //     box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+        //     width: 300px;
+        //   }
+    }
+        &__right {
+            padding-left: 20px;
+            width: 20%;
+        }
+    }
