@@ -1434,7 +1434,7 @@ ol li:before{
             border-radius : 5%;          /* 角丸       */
             font-size     : 15pt;        /* 文字サイズ */
             text-align    : center;      /* 文字位置   */
-            cursor        : pointer;     /* カーソル   */
+         /* カーソル   */
             transform: translate(0px,10px);
             padding       : 12px 12px;   /* 余白       */
             background-color:#999999;     /* 背景色     */
@@ -1450,7 +1450,7 @@ ol li:before{
         border-radius : 5%;          /* 角丸       */
         font-size     : 18pt;        /* 文字サイズ */
         text-align    : center;      /* 文字位置   */
-        cursor        : pointer;     /* カーソル   */
+   /* カーソル   */
         margin-top:30px;
         padding       : 12px 12px;   /* 余白       */
         background-color:#999999;     /* 背景色     */
@@ -1464,8 +1464,7 @@ ol li:before{
     display       : inline-block;
     border-radius : 5%;          /* 角丸       */
     font-size     : 18pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
+    text-align    : center;      /* 文字位置   *//* カーソル   */
     margin-top:25px;
     padding       : 0px 30px;   /* 余白       */
     background-color:#999999;     /* 背景色     */
@@ -1488,14 +1487,8 @@ ol li:before{
         margin-top:30px;
 }
     &__range_close{
-    display: flex;
-    justify-content: flex-end;
-    border: 1px solid #999;
-    padding: 10px;
-    background: #fff9cc;
-    margin-top:10px;
-    text-align    : right;  
-    
+        background-color:#87785A;
+        margin-left: 300px;
 }
 }
 }
@@ -1544,6 +1537,7 @@ ol li:before{
     }
 
     &__right {
+        background-color:#87785A;
         padding-left: 20px;
         width: 20%;
     }
