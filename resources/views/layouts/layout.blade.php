@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <title>@yield('title')</title>
   {{-- noto sansフォントの読み込み --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +50,7 @@
               @endif
 
           @else
-              
+              {{-- ログイン後、ヘッダーにログアウトボタンが表示される --}}
               <div class="p-header__login">
                 <input class="p-header__login-button" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();"

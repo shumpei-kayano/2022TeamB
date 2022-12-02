@@ -43,6 +43,6 @@ class LoginController extends Controller
      */
     protected function loggedOut(\Illuminate\Http\Request $request)
     {
-        return redirect('/logout_kanryou');
+        return redirect('/completed_logout');
     }
 }

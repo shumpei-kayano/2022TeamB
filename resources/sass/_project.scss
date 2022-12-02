@@ -44,8 +44,19 @@
         color:white;                      //ボタン内の文字色
         border: none;
     }
+
+    &__search-button:hover{
+        opacity: 0.5;
+    }
+
+    &__login-button:hover{
+        opacity: 0.5;
+    }
+
+
 }
 
+//ヘッダーのロゴ位置指定
 .p-logo {
     margin-top: 5px;
     margin-left: 61px;
@@ -110,10 +121,11 @@
     }
 }
 
-//トップページの各コーナーごとの「もっと見る...Click here」の設定
+//トップページの各コーナーごとの「もっと見る...Click here」の設定(共通使用可能)
 .click{                             
     text-align: right;                      //右寄せ
     position: absolute;                     //親要素からの絶対位置指定
+    margin-right: 20px;
     bottom: 0;
     right: 0;
 }
@@ -132,33 +144,154 @@
         border-radius: 50%;                 //円
         background: $beige;                 //背景色
     }
-    // &__blog_title{
-        
-    // }
 }
+
+
+//検索結果表示画面
+.p-search_results_container{                //結果表示エリア
+        width:1260px;
+        height:780px;
+        margin-top:10px;
+        margin-right:auto;
+        margin-left:auto;
+        background-color: white;
+        border-radius: 10px;
+        padding: 0.1px;
+    &__contact_info{                        //連絡先結果表示
+        width:1240px;
+        height:150px;
+        margin-top:10px;
+        margin-right:auto;
+        margin-left:auto;
+        background-color: rgb(179, 128, 128);
+        border-radius: 10px;;
+    }
+    &__event_info{                          //イベント結果表示
+        width:1240px;
+        height:300px;
+        margin-top:5px;
+        margin-right:auto;
+        margin-left:auto;
+        background-color: rgb(194, 208, 103);
+        border-radius: 10px;;
+    }
+    &__restaurant_info{                     //飲食店結果表示
+        width:1240px;
+        height:300px;
+        margin-top:5px;
+        margin-right:auto;
+        margin-left:auto;
+        background-color: rgb(155, 161, 214);
+        border-radius: 10px;;
+    }
+    &__contact_info_title{                  //ユーザ名の検索結果表示　左上のタイトル
+        padding-top:5px;
+        padding-left:10px;
+        padding-bottom:10px;
+        font-weight:bold;
+        font-size:20px;
+    }
+    &__event_info_title{                    //イベント情報の検索結果表示　左上のタイトル
+        padding-top:5px;
+        padding-left:10px;
+        padding-bottom:10px;
+        font-weight:bold;
+        font-size:20px;
+    }
+    &__restaurant_info_title{               //店舗情報の検索結果表示　左上のタイトル
+        padding-top:5px;
+        padding-left:10px;
+        padding-bottom:10px;
+        font-weight:bold;
+        font-size:20px;
+    }
+    &__user_info{                           //ユーザ名の検索結果を4つずつ表示
+        width:280px;
+        height:60px;
+        background-color: white;
+        border-radius: 10px;
+        text-align: center;
+    }
+    &__icon{                        //ユーザ名の検索結果のユーザアイコン設定
+        padding-top:5px;
+    }
+    &__user_name{                   //ユーザ名検索結果のユーザ名の位置設定
+        padding-top:15px;
+        padding-left:10px;
+    }
+    &__event_info_results{
+        width:1210px;
+        height:60px;
+        margin-bottom:5px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+
+    &__contact_info_other{          //その他のユーザー（クリックでさらに表示）の位置設定
+        padding-left:10px;
+        padding-top:15px;
+    }
+    &__event_info_other{            //その他のイベント情報（クリックでさらに表示）の位置設定
+        padding-left:10px;
+        margin-top:10px;
+    }
+    &__restaurant_info_other{       //その他の店舗情報（クリックでさらに表示）の位置設定
+        padding-left:10px;
+        margin-top:10px;
+    }
+}
+
+//ブログ記事詳細ページの記事欄
+.p-blog_area{
+    
+    &__white_bg{
+        width:1200px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 10px;
+            }
+   &__user_icon{
+        width:100px;
+        height:100px;
+        border-radius: 50%;
+        background-color: $beige;
+        margin-top:20px;
+        margin-bottom:20px;
+        }
+   &__user_name{
+        margin-top:50px;
+        margin-left:20px;
+        font-size: 20px;
+        width:350px;
+        }
+   &__user_data{
+        margin-top:50px;
+        font-size: large;
+        width:350px;
+        }
+   &__user_time{
+        margin-top:50px;
+        font-size: large;
+        width:350px;
+        }
+}
+
+
 
 //トップページのイベント掲示板コーナー
 .p-event{                                   //イベント募集掲示板コーナータイトル中央寄せ      
     text-align: center;
     font-size: 20px;
-    // &__event_area{
-
-    // }
-    // &__event_title{
-        
-    // }
 }
 
 //トップページの自治体コーナー
 .p-gov{                                     //自治体コーナータイトル中央寄せ
     text-align: center;
     font-size: 20px;
-    // &__gov_area{
-
-    // }
-    // &__gov_title{
-        
-    // }
 }
 
 //トップページのオープンチャットコーナー
@@ -177,63 +310,856 @@
     }
 }
 
-//チャット関連の新規トークルーム作成ボタン
-.create_btn{
-    width: 1200px;
-    margin-top:20px;
-    margin: auto;
+
+
+//オープンチャット“リスト一覧”表示時の設定(右上に新規作成ボタンがあるため、ボタンあり状態で設定)
+.p-large_bg_btn{
+    
+    &__card_bg{                         //背景色
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1200px;
+        height: 650px;
+        border-radius : 2%;
+        margin: auto;                   //左端から余白
+        margin-top: 10px;               //新規作成ボタンからの背景色までの空白
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__create-button{                   //右上の新規作成ボタンの設定
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        // display: block;
+        // margin: 0 0 0 auto;            //ボタンの位置指定
+        // margin-top: 20px;              //ヘッダーからの新規作成ボタンまでの空白
+    }
+    &__create-close_button{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        display: block;
+        // margin: 0 0 0 auto;            //ボタンの位置指定
+        // margin-top: 20px;              
+    }
+    &__create-leave_button{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        // display: block;
+        // margin:0 0 0 auto;            //ボタンの位置指定
+    }
+    &__back{
+        margin-top:10px;
+    }
+    &__card_bg_half{                         //背景色
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1200px;
+        height: 600px;
+        border-radius : 5px 5px 0 0;
+        margin: auto;                   //左端から余白
+        margin-top: 10px;               //新規作成ボタンからの背景色までの空白
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__card_bg_message_half{
+        text-align: center;
+        background-color: $yellow;
+        width:1200px;
+        height:60px;
+        border-radius: 0 0 5px 5px;
+        margin: auto;                   //左端から余白
+        display: flex;
+        justify-content: center;
+    }
+    &__card_bg_message_send{
+        text-align: center;
+        width:900px;
+        margin: auto;                   //左端から余白
+    }
+    &__card_bg_message_send1{
+        background-color: $navy;
+        width:100px;
+        height:30px;
+        border-radius:30px;
+        font-size: 12px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        margin-top:15px;
+        margin-right:40px;
+    }
 }
-//チャット関連の背景色(大)
+
+//オープンチャット“利用規約”表示時の設定
+//オープンチャット関連の背景色
 .p-large_bg{
     &__card_bg{
         text-align: center;
         background-color:$darkbrown;
         width: 1200px;
         height: 700px;
-        border-radius : 2%;
-        margin: auto;
-        margin-top: 20px;
+        border-radius : 5px;
+        margin: auto;                       //左端から余白
+        margin-top: 50px;                   //ヘッダーからの景色までの空白(リスト一覧ページと違い新規作成ボタンなしなので別に設定)
     }
+    &__terms_of_service{                    //利用規約テキストエリアの背景色設定
+        background-color:$brown;
+        width:800px;
+        height:700px;
+        margin: auto;                       //左端から余白
+        margin-top: 50px;                   //ヘッダーからの景色までの空白
+    }
+    &__terms_of_service_logo_img{           //“利用規約表示”時のCLOSEボタン画像
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__check_btn{                           //確認しましたボタンの設定
+        width:130px;                        //確認しましたボタンの幅
+        height:40px;                        //確認しましたボタンの高さ
+        border-radius: 30px;                //ボタンの角
+        background-color:$navy;             //ボタンの色指定
+        color:white;                      //ボタン内の文字色
+        border: none;
+        font-size: 16px;
+    }
+
+    &__check_btn:hover{
+        opacity: 0.5 ;
+    }
+
+    &__logo_img{
+        display: flex;
+        justify-content: flex-end;          //“新規作成画面”表示時のCLOSEボタン画像
+    }
+    &__preview_camera{                      //プレビュー画面の写真表示スペース
+        background-color: rgb(197, 196, 196);
+        width:1200;
+        height:250px;
+        border-radius : 5px 5px 0 0;
+        margin:0;
+    }
+}
+
+
+//オープンチャットリスト一覧表示の「新規作成」ボタンの位置指定
+.p-create_btn_block{
+    width:1200px;
+    height:50px;
+    display: flex;
+    justify-content: flex-end;
+    margin-left:auto;           //blockを左右から中央配置
+    margin-right:auto;          //blockを左右から中央配置
     &__create-button{
         background-color: $navy;
         width:100px;
         height:30px;
         border-radius:30px;
         font-size: 12px;                //フォントサイズ
-        color:white;                   //ボタン内の文字色
+        color:white;                  //ボタン内の文字色
         border: none;
-        display: block;
-        margin: 0 0 0 auto;
-        margin-top: 20px;
+        margin-top: 20px;           
     }
 }
 
-//オープンチャット関連の背景色内の中央にテキスト類をブロックで配置
-.p-open_chat_area{
-    width: 1200px;
-    height: 700px;
-    padding-top: 50px;
-    display: flex;
-    justify-content: flex-start;
-    &__open_chat_list_icon{
-        width: 100px;                        //円の横幅
-        height: 100px;                       //円の縦幅
-        border-radius: 50%;                  //円
-        background: $brown;                  //背景色
-        }
-    &__open_chat_list_title{
-        text-align: center;
-        // width:400px;
-        margin:0 auto;
+//ブログ編(編集・投稿・削除ページ)のボタン表示設定
+.p-posted_blog_container{
+    margin-top:300px;
+    justify-content:flex-end;
+    &__btn {
+    background-color: $navy;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    display: block;
+    }
+    &__btn:hover{
+        opacity:0.5;
+    }
+}
+
+
+//（飲食店側で表示）ネット予約確認ページの右側ボタン
+.p-restaurant_reserve_container{
+                margin-top:50px;
+                justify-content:flex-end;
+            &__btn {
+                background-color: $navy;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                width: 200px;
+                height: 50px;
+                margin-bottom: 10px;
+                display: block;
+            }
+            &__btn:hover{
+                opacity:0.5;
+            }
+            &__btn_camera{                  //写真アップロードのボタン設定
+                background-color: rgb(220, 213, 213);
+                border: none;
+                border-radius: 10px;
+                width: 200px;
+                height:200px;
+                margin-bottom: 10px;
+                display: block;
+                margin-bottom:80px;
+            }
+            &__btn_camera:hover{
+                opacity: 0.7;
+            }
+}
+
+
+
+
+//飲食店ネット予約ページの右側ボタン
+.p-customer_reserve_container{
+        margin-top:50px;
+        justify-content:flex-end;
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    &__btn:hover{
+        opacity:0.5;
+    }
+    &__btn_camera{                  //写真アップロードのボタン設定
+        background-color: rgb(220, 213, 213);
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height:200px;
+        margin-bottom: 10px;
+        display: block;
+        margin-bottom:148px;
+    }
+    &__btn_camera:hover{
+        opacity: 0.7;
+    }
+    &__btn_red{                     //通報ボタンの設定
+        background-color: red;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    &__btn_red:hover{
+        opacity:0.5;
+    }
+}
+
+//飲食店ネット予約ページタイトル
+.p-reserve{
+    &__title{
+        height:50px;
+        width:700px;
+        background-color: white;
+        border-radius: 5px;
+        font-size:30px;
+        margin-top:50px;
+    }
+    &__form-select{
+        height:40px;
+        width:500px;
+        background-color: white;
+        border-radius:5px;
+        margin-top:10px;
+        text-indent: 1em;
+        font-size:15px;
+    }
+    &__container{
+        width:700px;
+        height:500px;
+        margin-top:10px;
+        margin-right:auto;
+        margin-left:auto;
+    }
+    &__text1{
+        margin-top:100px;
+        margin-bottom:30px;
         color:black;
-        }
+    }
+    &__text2{
+        margin-bottom:30px;
+        color:black;
+    }
+    &__text3{
+        margin-bottom:50px;             //次へボタンまでのpx
+        color:black;
+    }
+    &__next_button{
+        background-color: $navy;
+        width:150px;
+        height:40px;
+        border-radius:30px;
+        font-size: 15px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        margin-left:400px;
+    }
+    &__next_button:hover{
+        opacity: 0.5;
+    }
+    &__text_input1{
+        margin-top:50px;
+    }
+    &__text_input2{
+        margin-top:50px;
+        
+    }
+    &__form-control_family_name{
+        width:300px;
+        height:50px;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 10px;
+        text-indent: 1em;
+    }
+    &__form-control_first_name{
+        width:300px;
+        height:50px;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 10px;
+        text-indent: 1em;
+    }
+    &__form-control{
+        width:660px;
+        height:50px;
+        margin-left:20px;
+        margin-bottom:30px;
+        border-radius: 10px;
+        text-indent: 1em;
+        font-size: 15px;
+    }
+    &__check_reserve_container{
+        height:680px;
+        width:700px;
+        margin-right:auto;
+        margin-left: auto;
+        background-color: white;
+        border-radius: 10px;
+    }
+    &__check_title{
+        padding-top:50px;
+    }
+    &__check_info{
+        width:300px;
+    }
+    &__check_person{
+        padding-top:50px;
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        padding-left:20px;
+    }
+    &__check_date{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        padding-left:20px;
+    }
+    &__check_time{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        padding-left:20px;
+    }
+    &__check_name{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        padding-left:20px;
+    }
+    &__check_phone{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        padding-left:20px;
+    }
+    &__check_email{
+        padding-bottom:30px;
+        font-size:20px;
+        width:240px;
+        padding-left:0px;
+    }
+
+    &__check_person_info{
+        padding-top:50px;
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        text-align: left;
+    }
+    &__check_date_info{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        text-align: left;
+    }
+    &__check_time_info{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        text-align: left;
+    }
+    &__check_name_info{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        text-align: left;
+    }
+    &__check_phone_info{
+        padding-bottom:30px;
+        font-size:20px;
+        width:300px;
+        text-align: left;
+    }
+    &__check_email_info{
+        padding-bottom:30px;
+        font-size:20px;
+        width:240px;
+        text-align: left;
+    }
+    &__close_img{
+        display: flex;
+        justify-content: flex-end;
+        padding-top:5px;
+        padding-right:5px;
+    }
+}
+
+//（顧客が評価する）店舗評価ページ
+.p-rate{
+    &__container{
+        width:990px;
+        height:600px;
+    }
+    &__upper_left{                      //評価とレビュー、総合スコアのエリア
+        width:330px;
+        height:200px;
+    }
+    &__upper_middle{                    //★★★★★エリア
+        width:250px;
+        height:200px;
+    }
+    &__upper_right{                     //評価バーエリア
+        width:410px;
+        height:200px;
+    }
+    &__rate_review{                     //評価とレビューの文字の設定
+        font-size:30px;
+        margin-bottom:10px;
+        color:white;
+    }
+    &__score{                           //総合スコアの文字の設定
+        font-size:40px;
+        margin-bottom:10px;
+        color:white;
+    }
+    &__max5{                            //5段階評価中の文字の設定
+        font-size:20px;
+        color:white;
+    }
+    &__button{                         //「送信」ボタンの設定
+        background-color: $navy;
+        width:150px;
+        height:40px;
+        border-radius:30px;
+        font-size: 15px;                //フォントサイズ
+        color:white;                  //ボタン内の文字色
+        border: none;
+        margin-left:700px;
+        margin-top:40px;
+    }
+    &__upper_middle_five{               //★★★★★
+        text-align:right;
+        margin-bottom:10px;
+        
+    }
+    &__upper_middle_four{               //★★★★
+        text-align:right;
+        margin-bottom:10px;
+    }
+    &__upper_middle_three{              //★★★
+        text-align:right;
+        margin-bottom:10px;
+    }
+    &__upper_middle_two{                //★★
+        text-align:right;
+        margin-bottom:10px;
+    }
+    &__upper_middle_one{                //★
+        text-align:right;
+        margin-bottom:10px;
+    }
+    &__upper_right_five_bar{            //右上の評価バーの設定（★５）
+        width:280px;
+        height:25px;
+        background-color: white;
+        border-radius: 30px;
+        margin-bottom:10px;
+        margin-top:4px;                 //★と評価バーの高さ位置調整
+    }
+    &__upper_right_four_bar{            //右上の評価バーの設定（★４）
+        width:280px;
+        height:25px;
+        background-color: white;
+        border-radius: 30px;
+        margin-bottom:10px;
+    }
+    &__upper_right_three_bar{           //右上の評価バーの設定（★３）
+        width:280px;
+        height:25px;
+        background-color: white;
+        border-radius: 30px;
+        margin-bottom:10px;
+    }
+    &__upper_right_two_bar{             //右上の評価バーの設定（★２）
+        width:280px;
+        height:25px;
+        background-color: white;
+        border-radius: 30px;
+        margin-bottom:10px;
+    }
+    &__upper_right_one_bar{             //右上の評価バーの設定（★１）
+        width:280px;
+        height:25px;
+        background-color: white;
+        border-radius: 30px;
+        margin-bottom:5px;
+    }
+    &__total_review_block{
+        width:850px;
+        height:25px;
+        color: white;
+        text-align: right;
+    }
+    &__customer_review_container{
+        width:900px;
+        padding-top:20px;
+        margin:auto;
+    }
+    &__customer_star_count{
+        width:450px;
+        height:55px;
+        color:white;
+        font-size: 40px;
+        display:flex;
+        justify-content: flex-end;
+    }
+    &__customer_star_click{
+        width:400px;
+        height:55px;
+        color:white;
+        font-size: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__write_review{
+        padding-top:20px;
+        padding-bottom:20px;
+        color:white;
+        text-align: center;
+        font-size:25px;
+    }
+    &__write_review_textbox{
+        border-radius: 30px;
+    }
+
+}
+
+
+
+//フォロー機能(フォローする・フォロワー・フォロー中)関連
+.p-follow_area{
+    &__container{                           
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 5px;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-left:200px;                  //ページ左端から何px離すか
+    }
+    &__total_count{                         //フォロー中orフォロワーのユーザ数を表示するエリア
+        width:800px;
+        height:50px;
+        background-color: $navy;
+        color:white;
+        border-radius: 10px 10px 0 0;
+        margin-right:auto;
+        margin-left:auto;
+    }
+    &__account_count{                       //フォロー中orフォロワーのユーザ数を表示
+        font-size:30px;
+        margin-top:15px;
+        margin-right:auto;
+        margin-left:auto;
+        text-align: center;
+    }
+    &__account_list_area{                   //アカウントのリストが表示されるエリア
+        width:800px;
+        height:480px;
+        margin-right:auto;
+        margin-left:auto;
+        background-color: white;
+        border-radius: 0 0 10px 10px;
+        border: 1px solid;
+        overflow: scroll;
+        overflow-x:hidden;
+        border:none;
+    }
+    &__account_icon{                        //アイコン表示設定
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        background-color: $beige;
+        margin-top:15px;
+        margin-left:40px;
+    }
+    &__account_name{                        //アイコンの右隣にユーザネーム表示設定
+        width:750px;
+        height:50px;
+        margin-top:15px;
+        margin-left:20px;
+        font-size:30px;
+        color:black;
+        text-align: left;
+    }
+    &__close_img{                           //閉じるボタンの設定
+        padding-top:10px;
+        padding-left:900px;
+    }
+    &__close_img:hover{
+        opacity:0.5;
+    }
 }
 
 
 
 
 
-//アカウント仮登録画面
+//ブログ(編集・投稿・削除ページ)の中央エリア表示設定
+//参加中チャット一覧のコンテナ位置設定
+.p-blog_edit_area{
+    &__container{
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 5px;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-left:200px;                  //ページ左端から何px離すか
+
+    }
+    &__button{
+        height: 700px;
+        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
+        margin-top:150px;
+    }
+    &__blog_title{
+        height:40px;
+        margin-top:10px;
+        text-align: center;
+        font-size:35px;
+    }
+    &__new_blog_post{               //新着ブログ一覧のリスト表示する際の白い背景とサイズ設定
+        height:100px;
+        width:100%;
+        background-color: white;
+        margin:auto;
+        border-radius: 10px;
+        margin-bottom:20px;
+    }
+    &__blog_post{
+        height:80px;
+        width:800px;
+        background-color: white;
+        margin:auto;
+        border-radius: 10px;
+        margin-bottom:20px;
+    }
+    &__blog_icon{
+        width:50px;
+        height:50px;
+        background-color: $beige;
+        border-radius: 50%;
+        margin-top:15px;
+        margin-bottom:auto;
+    }
+    &__blog_title_small{
+        width:700px;
+        height:20px;
+        margin-left:60px;
+    }
+    &__open_chat_list_icon{
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        background-color: $beige;
+        margin-top:15px;
+    }
+    &__open_chat_list_title{
+        margin-left:40px;
+    }
+    &__titlearea{               //ブログ編集ページ
+        margin-top:80px;
+        width:800px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    &__photo_insert{
+        width:120px;
+        height:100px;
+        background-color: white;
+        margin-top:30px;
+        border-radius: 10px;
+        margin-left:90px;
+        border-bottom: 3px solid black;
+    }
+    &__img{                     
+       padding-top:22px;                    //ブログ編集ページの画像挿入ボタンの画像位置設定
+    }
+    &__textarea{
+        margin-top:10px;
+        width:800px;
+        height:500px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    &__container_joining_chat{              //現在参加中のトークルーム一覧のコンテナ位置指定
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 5px;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-right:auto;
+        margin-left:auto;
+    }
+    &__button_1{
+        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
+    }
+    &__close_img{
+        padding-top:10px;
+        padding-left:900px;
+    }
+    &__close_img:hover{
+        opacity:0.5;
+    }
+}
+
+
+//オープンチャットリスト一覧表示のアイコン設定
+.p-open_chat_area{
+    &__open_chat_list_icon{
+        width:100px;
+        height:100px;
+        border-radius: 50%;
+        background-color:$beige;
+    }
+}
+
+
+
+
+//利用規約のテキストエリア部分のエリア範囲設定
+.terms_of_service_block{
+    padding-top: 10px;         
+    margin-right: auto;
+    margin-left: auto;
+    width:750px;
+    height:700px;
+    color:#000;             //文字色設定
+}
+
+.p-new_create_block{
+    padding-top: 10px;         
+    margin-right: auto;
+    margin-left: auto;
+    width:1100px;
+    height:700px;
+    color:#000;             //文字色設定
+    &__camera{
+        padding-top:70px;
+    }
+    &__container{
+        text-align: center;
+    }
+    &__display{
+        padding-top: 50px;
+    }
+    &__space{
+        margin-top:50px;        //既存のオープンチャットに参加する際に表示する画面のテキストボックスの位置指定
+    }
+}
+
+
+
+//利用規約リスト表記のデザイン
+ol{
+    counter-reset:list;
+    list-style-type:none;
+    font: 14px/1.6 'arial narrow', sans-serif;
+}
+ol li{
+    position:relative;
+    line-height: 30px;
+    margin: 7px 0 7px 40px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size:15px;
+    text-align: left;
+    padding:10px 0;
+}   
+ol li:before{
+    counter-increment: list;
+    content: counter(list);
+    position: absolute;
+    left: -35px;
+    width: 30px;
+    height: 30px;
+    background: $navy;
+    text-align: center;
+    color: #fff;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
+
+//アカウント“仮”登録画面
 .p-tab01 {
     width: 550px;
     margin: 0 auto 50px;
@@ -346,16 +1272,9 @@
         color:white;                      //ボタン内の文字色
         border:none;                        //ボタンの外枠を消す
     }
-    // &__tab_contents2_mail{
-
-    // }
-    
-    // &__tab_contents3_code{
-
-    // }
-    // &__tab_contents3_mail{
-
-    // }
+    &__tab_contents1_send:hover{            //ボタンの上にカーソルを置いたら色が薄くなる
+        opacity: 0.5;
+    }    
 }
 
 /*選択されているタブを表示*/
@@ -373,6 +1292,29 @@
     top: 50px; 
     left: 50px; 
 }
+
+
+//ユーザアイコンをクリックした時に
+//ユーザマイページへ誘導する小ウィンドウを表示
+.modal-title{
+    background-color: $beige;
+    border-radius: 50%;
+    height:30px;
+    height:30px;
+}
+.user_icon_go{
+    background-color: $beige;
+    border-radius: 50%;
+    height:30px;
+    height:30px;
+}
+
+
+
+
+
+
+
 
 
 
@@ -394,10 +1336,10 @@
     justify-content: center;
     align-items: center;
     &__left {
-        width: 80%;
+        width: 20%;
     }
     &__right {
-        width: 20%;
+        width: 80%;
     }
 }
 
@@ -422,8 +1364,9 @@
   background    : #ffffff;     /* 文字色     */
 }
 
-
-
+.p-account-button:hover{         //ボタンの上にカーソルを置いたら色が薄くなる
+    opacity: 0.5;
+}
 
 .p-account-button{                    /*ログインボタン設定*/
     width:130px;                    //ログインボタンの幅
@@ -434,63 +1377,41 @@
     color:white;                   //ボタン内の文字色
     border: none;
 }
-// .row {
-//     display: flex;
-// }
-
-
-.click{                             /*もっと見る...Click hereを右寄せ*/
-    text-align: right;
-    position: absolute;                     //親要素からの絶対位置指定
-    bottom: 0;
-    right: 0;
-}
-
-// .p-event{                                   /*イベント募集掲示板コーナータイトル中央寄せ*/      
 //入力フォームなどの背景(小)
 .p-small_bg {
     &__card_bg {
+        text-align: center;
+        background-color:$darkbrown;
+        width: 550px;
+        height: 350px;
+        border-radius : 5%;
+        border-bottom: 3px solid black;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 80px;
+        }
+        &__logo_img{
+            margin-top: 8px;
+            margin-left: 485px;
+        }
+        &__simasita {
+            margin-top:80px;
+        }
+    }
+
+/*イベント募集掲示板コーナータイトル中央寄せ*/      
+//入力フォームなどの背景(小)
+.p-event{  
     text-align: center;
-    background-color:#87785A;
-    width: 550px;
-    height: 350px;
-    border-radius : 5%;
-    border-bottom: 3px solid black;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 80px;
+    font-size: 20px;
+    &__event_area{
+
     }
-    &__logo_img{
-        margin-top: 8px;
-        margin-left: 485px;
-    }
-    &__simasita {
-        margin-top:80px;
+    &__event_title{
+        
     }
 }
 
-
-
-
-//   松川追記
-// table , td, th {
-// 	border: 1px solid #595959;
-// 	border-collapse: collapse;
-// }
-// td, th {
-// 	padding: 3px;
-// 	width: 30px;
-// 	height: 25px;
-// }
-// th {
-// 	background: #f0e6cc;
-// }
-// .even {
-// 	background: #fbf8f0;
-// }
-// .odd {
-// 	background: #fefcf9;
-// }
 
 /* イベントカード */
 // .p-eventcards {
@@ -575,8 +1496,7 @@
 //     }
 // }
 
-
-
+//利用者から見た店鋪マイページ
 .p-user-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -628,7 +1548,7 @@
 
 
 }
-
+//利用者から見たユーザーマイページ画面
 .p-user2-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -651,16 +1571,18 @@
     // table {
     //     margin: 20px;
     // }
-    &__right {
-        padding-left: 20px;
-        width: 25%
-    }
+
     &__hobby {
         display: flex;
         justify-content: space-between;
         label {
             width: 30%;
         }
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 25%
     }
     &__btn {
         background-color: $navy;
@@ -681,7 +1603,7 @@
     }
 
 }
-
+//利用者から見た自治体マイページ画面
 .p-user3-mypage {
     display: flex; //子要素を横並び
     justify-content: center; //水平方向中央揃え
@@ -726,8 +1648,109 @@
         width: 200px;
         height: 60px;
     }
+}
+
+//マイページ設定画面
+.p-mypage-setting {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__top {
+        text-align:center;
+        height:60px;
+        line-height:60px;
+        margin: 225px;
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
+
 
 }
+//マイページ画面
+.p-mypage-store {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;  
+    }
+    &__input {
+        width: 50%;
+        padding: 10px;
+    }
+    &__hobby {
+        width: 30%;
+        padding: 10px;
+    }
+    &__hobby1 {
+        margin: 3px;
+    }
+    &__hobby2 {
+        margin: 3px;
+    }
+    &__hobby3 {
+        padding: 1px;
+        margin: 3px;
+    }
+    &__mind {
+        width: 20%;
+        background-color: gray;
+        padding: 10px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+    &__middle {
+        padding: 10px;
+    }
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+        box-sizing: border-box;
+    }
+    
+}
+
+
+
+//はい・いいえのボタン
 .yes_or_no {
     text-align: center;
     &__yes {
@@ -736,4 +1759,416 @@
     &__no {
         transform: translate(69px,-20px);
     }
+}
+
+.p-events-detail{
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__title{
+        width: 50%;
+        padding: 30%;
+    }
+
+    table, tr, tbody{
+        width: 100%;
+    }
+    // table {
+    //     margin: 20px;
+    // }
+    &__right {
+        padding-left: 20px;
+        width: 25%
+    }
+
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__btn--red {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+    }
+}
+
+
+// .p-open_range {
+//     display:flex; //子要素を横並び
+//     justify-content: center; //水平方向中央揃え
+//     flex-direction: column;
+//     background-color: $darkbrown;
+//     width: 90%;
+//     padding: 40px;
+//     margin:  0 auto;
+//     margin-top: 150px;
+//     position: absolute;          /* 位置指定 */             /* 余白指定 */
+//    top:  0;                     /* 位置指定 */
+//    bottom:  0;                  /* 位置指定 */
+//    left:  0;                    /* 位置指定 */
+//    right:  0;
+//    margin: auto;               /* 中央寄せ */
+//    width:  500px;               /* 幅指定 */
+//    height: 500px;
+
+//    // &__btn {
+//         display       : inline-block;
+//         border-radius : 5%;          /* 角丸       */
+//         font-size     : 18pt;        /* 文字サイズ */
+//         text-align    : center;      /* 文字位置   */
+//         cursor        : pointer;     /* カーソル   */
+//         padding       : 12px 12px;   /* 余白       */
+//         background-color:#999999;     /* 背景色     */
+//         color         : #000000;     /* 文字色     */
+//         line-height   : 1em;         /* 1行の高さ  */
+//         transition    : .3s; 
+//         width:  350px;               /* 幅指定 */
+//         height: 70px;
+//                 /* なめらか変化 */
+//       }
+
+
+.p-login_bg {
+    &__card_bg {
+        text-align: center;
+        background-color:#87785A;
+        width: 550px;
+        border-radius : 5%;
+        border-bottom: 3px solid black;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 80px;
+        }
+        &__logo_img{
+            margin-top: 20px;
+            margin-left: 485px;
+        }
+        &__simasita {
+            margin-top:80px;
+        }
+    
+.p-open_range {
+        &__b {
+            display       : inline-block;
+            border-radius : 5%;          /* 角丸       */
+            font-size     : 15pt;        /* 文字サイズ */
+            text-align    : center;      /* 文字位置   */
+            cursor        : pointer;     /* カーソル   */
+            transform: translate(0px,10px);
+            padding       : 12px 12px;   /* 余白       */
+            background-color:#999999;     /* 背景色     */
+            color         : #000000;     /* 文字色     */
+            line-height   : 1em;         /* 1行の高さ  */
+            transition    : .3s; 
+            width:  370px;               /* 幅指定 */
+            height: 90px;
+    }
+
+    &__t {
+        display       : inline-block;
+        border-radius : 5%;          /* 角丸       */
+        font-size     : 18pt;        /* 文字サイズ */
+        text-align    : center;      /* 文字位置   */
+        cursor        : pointer;     /* カーソル   */
+        margin-top:30px;
+        padding       : 12px 12px;   /* 余白       */
+        background-color:#999999;     /* 背景色     */
+        color         : #000000;     /* 文字色     */
+        line-height   : 1em;         /* 1行の高さ  */
+        transition    : .3s; 
+        width:  370px;               /* 幅指定 */
+        height: 90px;
+}
+&__n {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    margin-top:25px;
+    padding       : 0px 30px;   /* 余白       */
+    background-color:#999999;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s; 
+    width:  370px;               /* 幅指定 */
+    height: 90px;
+    // background: url("a.jpg") no-repeat;
+}
+
+    &__navybtn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 30px;
+        margin-top:30px;
+}
+    &__range_close{
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid #999;
+    padding: 10px;
+    background: #fff9cc;
+    margin-top:10px;
+    text-align    : right;  
+    
+}
+}
+}
+//アカウント削除ボタン表示画面
+.p-mypage-delete-account {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%; 
+        padding: 20px;
+    }
+    &__top {
+        text-align:center;
+        height:60px;
+        line-height:60px;
+        margin: 250px;
+    }    
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+}
+//店鋪マイページ画面
+.p-tenpo-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+    
+}
+//自治体マイページ画面
+.p-municipality-mypage {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        padding: 20px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+    
+}
+//マインドフルネス、スタートボタン表示画面
+.p-mindfulness-start {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%; 
+        padding: 20px;
+    }
+    &__top {
+        text-align:center;
+        height:60px;
+        line-height:60px;
+        margin: 250px;
+    }    
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+}
+//マインドフルネス終了画面
+.p-mindfulness-end {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+    }
+    &__middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $yellow;
+        width: 100%;
+        height: 95%;
+        //margin: 0 auto;
+    }
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+}
+
+.p-mindfulness-detail {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+    }
+    &__top {
+        text-align: center;
+        color: $black;
+        background-color: $yellow;
+        width: 100%;
+        height: 95%;
+    }
+    &__middle {
+        text-align: center;
+        p {
+            text-align:start;
+            line-height: 2.3;
+            margin-left: 16em;
+            margin-top: 25px;
+          }
+        }
+        &__right {
+            padding-left: 20px;
+            width: 20%;
+        }
+    }
+  
+
+.Category_bar{
+    height: 796px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.tuuhoutext{                 //通報画面のテキストエリア
+    margin-top: 0px;
+    height: 110px;
+    width: 380px;
+}
+
+
+.tuuhou_bun {              //通報画面の文章
+    margin-left: auto;
+    margin-right: auto;
+        width: 550px;
+}
+
+.tuuhou_btn{                 //通報画面のボタンを中央にする
+    text-align: center;
+}
+//マインドフルネスタイマー表示画面
+.p-mindfulness-timer {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+
+        // #start {
+        //     text-decoration: none;
+        //     display: block;
+        //     background: gray;
+        //     color: #fff;
+        //     height: 40px;
+        //     border-radius: 20px;
+        //     line-height: 40px;
+        //     text-align: center;
+        //     font-size: 18px;
+        //     margin-top: 15px;
+        //     box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+        //     width: 300px;
+        //   }
+    }
+        &__right {
+            padding-left: 20px;
+            width: 20%;
+        }
+    }
+
+.chatroom_error{
+    color: crimson;
 }

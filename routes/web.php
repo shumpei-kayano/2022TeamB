@@ -12,29 +12,44 @@
 */
 
 //Laravelのホーム表示
+
+use App\Chatroom;
+use App\Http\Controllers\Chatroomcontroller;
+use Doctrine\DBAL\Schema\Index;
+
+// use Illuminate\Routing\Route;
+
 Route::get('welcome/top', function () {
     return view('welcome.top');
 });
 
 //トップページ
-Route::get('/', function () {
-    return view('top');
+// Route::get('/', function () {
+//     return view('top');
+// });
+
+Route::get('/', 'HomeController@index');
+
+//ログイン画面にとぶ
+Route::get('/login', function () {
+    return view('auth.login');
 });
 
+//Authログインに使うよ
 Route::get('welcome/top', function () {
     return view('welcome.top');
 });
 //アカウント登録
-Route::get('/ryukiunko', function () {
-    return View('UserMypage1');
+Route::get('/UserMypage', function () {
+    return View('MyPage.UserMypage1');
 });
 //ユーザから見た自治体ページ
-Route::get('/shinmaimaou', function () {
-    return View('Userlookjititai');
+Route::get('/userlookmunicipality', function () {
+    return View('MyPage.UserlookMunicipality');
 });
 
-Route::get('/ryukiuzaishinekasugomi', function () {
-    return View('JititaiMypage1');
+Route::get('/municipalityMyPage', function () {
+    return View('MyPage.MunicipalityMypage1');
 });
 
 Route::get('/ryukinotikubi', function () {
@@ -70,30 +85,24 @@ Route::get('account_deactivate', function () {
 });
 
 //アカウント削除の確認画面
-Route::get('check_deactivate', function () {
-    return view('auth.check_deactivate');
-});
+// Route::get('check_deactivate', function () {
+//     return view('auth.check_deactivate');
+// });
 
 //アカウント削除完了画面
-Route::get('account_deleted', function () {
-    return view('auth.account_deleted');
-});
+// Route::get('/account_deleted', function () {
+//     return view('auth.account_deleted');
+// });
 //アカウント削除試す
-Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
-
+// Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
+Route::post('/account_deleted', 'UsersController@withdrawal')->name('user.withdrawal');
 //ログアウト完了画面に飛ぶ
-Route::get('/logout_kanryou', function () {
-    return view('auth.logout_kanryou');
+Route::get('/completed_logout', function () {
+    return view('auth.completed_logout');
 });
 
-//プロフィール登録
-Route::get('/UserMypage', function () {
-    return View('UserMypage1');
-});
-//ユーザから見た自治体ページ
-Route::get('/shinmaimaou', function () {
-    return View('Userlookjititai');
-});
+
+
 
 Route::get('/municipalitypage', function () {
     return View('municipalitypage1');
@@ -135,34 +144,364 @@ Route::get('event020', function () {
     return view('components.framelikeinput');
 });
 
+//利用者から見たユーザーマイページ画面
 Route::get('user1', function () {
-    return view('user_look');
+    return view('MyPage.user_look');
 });
-
+//利用者から見た店鋪マイページ
 Route::get('user2', function () {
-    return view('user_look2');
+    return view('MyPage.user_look2');
 });
-
+//利用者から見た自治体マイページ
 Route::get('user3', function () {
-    return view('user_look3');
+    return view('MyPage.user_look3');
+});
+//イベント詳細画面
+Route::get('events_detail', function () {
+    return view('MyPage.events_d');
 });
 
-Route::get('setting', function () {
-    return view('mypage_setting');
+//マイページ設定画面
+Route::get('mypage_set', function () {
+    return view('MyPage.mypage_setting');
 });
+//アカウント削除ボタン表示画面
+Route::get('mypage_del', function () {
+    return view('MyPage.mypage_delete_account');
+});
+//ユーザーマイページ画面
+Route::get('user_mypage', function () {
+    return view('MyPage.user_mypage');
+});
+//店鋪マイページ画面
+Route::get('tenpo_mypage', function () {
+    return view('MyPage.tenpo_mypage');
+});
+//自治体マイページ画面
+Route::get('municipality_mypage', function () {
+    return view('MyPage.municipality_mypage');
+});
+
+
+
+
+Route::middleware('auth')->group(function () {
+
+
+
+    Route::middleware('password.confirm')->group(function () {
+
+
+        Route::get('check_deactivate', function () {
+            return view('auth.check_deactivate');
+        });
+    });
+});
+
+
+
+//公開範囲の設定
+Route::get('open_range', function () {
+    return view('MyPage.open_range');
+});
+
+//マインドフルネス、スタートボタン表示画面
+Route::get('mindfulness_start', function () {
+    return view('mindfulness.mindfulness_start');
+});
+
+//マインドフルネス終了画面
+Route::get('mindfulness_end', function () {
+    return view('mindfulness.mindfulness_end');
+});
+
+//マインドフルネス詳細表示画面
+Route::get('mindfulness_detail', function () {
+    return view('mindfulness.mindfulness_detail');
+});
+
+//マインドフルネスタイマー表示画面
+Route::get('mindfulness_timer', function () {
+    return view('mindfulness.mindfulness_timer');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //オープンチャット関連
 Route::get('open_chat_list', function () {
     return view('open_chat.open_chat_list');
 });
 
+//アカウント削除前のパスワード確認画面
+Route::middleware('auth')->group(function () {
 
 
-//オープンチャット退室確認画面
+
+    Route::middleware('password.confirm')->group(function () {
+
+        //アカウント削除確認画面
+        Route::get('check_deactivate', function () {
+            return view('auth.check_deactivate');
+        });
+    });
+});
+
+
+
+
+
+
+//オープンチャット一覧ページで「新規作成ボタン」をクリックしたらと
+//オープンチャット新規作成画面で「CLOSEボタン」をクリックすると
+//オープンチャット利用規約ページを表示
+Route::get('terms_of_service', function () {
+    return view('open_chat.terms_of_service');
+});
+
+//オープンチャット利用規約の「確認しました」ボタンをクリック後、
+//新規作成画面を表示する
+Route::get('create_new_open', 'Chatroomcontroller@index_2');
+
+//オープンチャット新規作成プレビュー画面
+Route::get('open_chat_preview', function () {
+    return view('open_chat.open_chat_preview');
+});
+
+//オープンチャットのプレビュー画面から「新規作成ボタン」クリックでトークルーム開始
+Route::get('open_chat_room', function () {
+    return view('open_chat.open_chat_room');
+});
+
+//オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
+Route::get('check_close', function () {
+    return view('open_chat.check_close');
+});
+
+//オープンチャットを「退室する」ボタンで”閉鎖”確認画面へ
 Route::get('check_leaving', function () {
     return view('open_chat.check_leaving');
 });
 
-//オープンチャット退室確認画面
-Route::get('check_close', function () {
-    return view('open_chat.check_close');
+//オープンチャットを閉鎖する「はい」ボタンで”閉鎖完了”画面へ
+Route::get('completed_close', function () {
+    return view('open_chat.completed_close');
 });
+
+//オープンチャットを退室する「はい」ボタンで”閉鎖完了”画面へ
+Route::get('completed_leaving', function () {
+    return view('open_chat.completed_leaving');
+});
+
+//既存のオープンチャットに参加する
+Route::get('join_open_chat', function () {
+    return view('open_chat.join_open_chat');
+});
+
+
+
+
+
+
+//オープンチャットルーム作成
+Route::post('open_chat_preview', 'ChatroomController@preview_post');
+Route::post('create_new_open', 'ChatroomController@create');
+// Route::post('create_new_open', 'ChatroomController@create2');
+
+
+
+
+
+//プライベートチャットのトークルーム
+Route::get('private_chat_room', function () {
+    return view('dm.private_chat_room');
+});
+
+//現在参加中のチャットトークルームが新着順で一覧表示
+Route::get('joining_chat', function () {
+    return view('joining_chat');
+});
+
+//ブログ関連
+//ブログ記事の削除確認画面
+Route::get('blog_check_deactivate', function () {
+    return view('blog.blog_check_deactivate');
+});
+
+//ブログ記事の削除完了画面
+Route::get('blog_completed_deactivate', function () {
+    return view('blog.blog_completed_deactivate');
+});
+
+//ブログ記事一覧表示
+Route::get('new_blog_list', function () {
+    return view('blog.new_blog_list');
+});
+
+//ブログ記事詳細ページ表示
+Route::get('blog_show', function () {
+    return view('blog.blog_show');
+});
+
+//投稿済みブログ一覧
+Route::get('my_posted_blog_list', function () {
+    return view('blog.my_posted_blog_list');
+});
+
+//ブログ編集画面
+Route::get('my_blog_edit', function () {
+    return view('blog.my_blog_edit');
+});
+
+//ユーザアイコンをクリックした時のマイページへの誘導画面(小ウィンドウ)表示 
+Route::get('user_icon_modal', function () {
+    return view('components.user_icon_modal');
+});
+
+//（顧客）飲食店ネット予約
+Route::get('select_reserve', function () {
+    return view('customer_reserve.select_reserve');
+});
+
+//（顧客）飲食店予約代表者情報入力ページ
+Route::get('customer_info', function () {
+    return view('customer_reserve.customer_info');
+});
+
+//（顧客）飲食店予約情報確認画面
+Route::get('check_reserve_info', function () {
+    return view('customer_reserve.check_reserve_info');
+});
+
+//（顧客）予約完了画面
+Route::get('completed_reserve', function () {
+    return view('customer_reserve.completed_reserve');
+});
+
+//（店側）予約詳細確認画面
+Route::get('booking_details', function () {
+    return view('restaurant.booking_details');
+});
+
+//(顧客が評価)店舗評価ページ
+Route::get('rate', function () {
+    return view('MyPage.rate');
+});
+
+
+//自治体（自分に見える側）フォロー中のユーザ表示画面　　　　　OK
+Route::get('gov_following_this_side', function () {
+    return view('follow.gov_following_this_side');
+});
+
+//自治体（他のユーザに見える側）フォロー中のユーザ表示画面　　　OK
+Route::get('gov_following_other_side', function () {
+    return view('follow.gov_following_other_side');
+});
+
+//自治体（自分に見える側）フォロワーの一覧表示画面　　          OK
+Route::get('gov_follower_this_side', function () {
+    return view('follow.gov_follower_this_side');
+});
+
+//自治体（他のユーザに見える側）フォロワーの一覧表示画面　　     OK
+Route::get('gov_follower_other_side', function () {
+    return view('follow.gov_follower_other_side');
+});
+
+
+
+
+
+
+
+
+//個人利用者（自分に見える側）フォロー中のユーザ表示画面            OK
+Route::get('personal_following_this_side', function () {
+    return view('follow.personal_following_this_side');
+});
+
+//個人利用者（他のユーザに見える側）フォロー中のユーザ表示画面      OK
+Route::get('personal_following_other_side', function () {
+    return view('follow.personal_following_other_side');
+});
+
+
+//個人利用者（自分に見える側）フォロワーの一覧表示画面              OK
+Route::get('personal_follower_this_side', function () {
+    return view('follow.personal_follower_this_side');
+});
+
+
+//個人利用者（他のユーザに見える側）フォロワーの一覧表示画面            OK
+Route::get('personal_follower_other_side', function () {
+    return view('follow.personal_follower_other_side');
+});
+
+
+
+
+
+
+
+//飲食店（自分に見える側）フォロー中のユーザ表示画面                OK
+Route::get('restaurant_following_this_side', function () {
+    return view('follow.restaurant_following_this_side');
+});
+
+
+//飲食店（他のユーザに見える側）フォロー中のユーザ表示画面          OK
+Route::get('restaurant_following_other_side', function () {
+    return view('follow.restaurant_following_other_side');
+});
+
+
+//飲食店（自分に見える側）フォロワーの一覧表示画面                  OK
+Route::get('restaurant_follower_this_side', function () {
+    return view('follow.restaurant_follower_this_side');
+});
+
+
+
+//飲食店（他のユーザに見える側）フォロワーの一覧表示画面            OK
+Route::get('restaurant_follower_other_side', function () {
+    return view('follow.restaurant_follower_other_side');
+});
+
+
+
+//検索結果表示ページ
+Route::get('search_results', function () {
+    return view('search_results');
+});
+
+
+
+
+
+
+//公開範囲の設定
+Route::get('open_range', function () {
+    return view('MyPage.open_range');
+});
+
+//オープンチャットルーム作成
+Route::post('open_chat_preview', 'ChatroomController@preview_post');
+Route::post('create_new_open', 'ChatroomController@create');
+// Route::post('create_new_open', 'ChatroomController@create2');
+
+
+//通報画面
+Route::get('report', 'ReportController@index');
+Route::get('complete_report', 'ReportController@report');
