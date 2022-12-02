@@ -11,8 +11,8 @@ class Chatroom extends Model
 
     public static $rules = array(
         'title' => 'required',
-        'room_detail' => 'required',
-        // 'category_id' => 'required',
+        'room_detail' => 'max:1000',
+        'category' => 'required',
         // 'chat_image' => 'required',
         // 'developer_id' => 'required',
         // 'delet_flag' => 'required',

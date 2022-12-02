@@ -435,6 +435,11 @@
         border: none;
         font-size: 16px;
     }
+
+    &__check_btn:hover{
+        opacity: 0.5 ;
+    }
+
     &__logo_img{
         display: flex;
         justify-content: flex-end;          //“新規作成画面”表示時のCLOSEボタン画像
@@ -2005,6 +2010,106 @@ ol li:before{
     }
     
 }
+//マインドフルネス、スタートボタン表示画面
+.p-mindfulness-start {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%; 
+        padding: 20px;
+    }
+    &__top {
+        text-align:center;
+        height:60px;
+        line-height:60px;
+        margin: 250px;
+    }    
+    &__btn {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+}
+//マインドフルネス終了画面
+.p-mindfulness-end {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+    }
+    &__middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $yellow;
+        width: 100%;
+        height: 95%;
+        //margin: 0 auto;
+    }
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+}
+
+.p-mindfulness-detail {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+    }
+    &__top {
+        text-align: center;
+        color: $black;
+        background-color: $yellow;
+        width: 100%;
+        height: 95%;
+    }
+    &__middle {
+        text-align: center;
+        p {
+            text-align:start;
+            line-height: 2.3;
+            margin-left: 16em;
+            margin-top: 25px;
+          }
+        }
+        &__right {
+            padding-left: 20px;
+            width: 20%;
+        }
+    }
+  
 
 .Category_bar{
     height: 796px;
@@ -2027,4 +2132,43 @@ ol li:before{
 
 .tuuhou_btn{                 //通報画面のボタンを中央にする
     text-align: center;
+}
+//マインドフルネスタイマー表示画面
+.p-mindfulness-timer {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+    &__left {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+
+        // #start {
+        //     text-decoration: none;
+        //     display: block;
+        //     background: gray;
+        //     color: #fff;
+        //     height: 40px;
+        //     border-radius: 20px;
+        //     line-height: 40px;
+        //     text-align: center;
+        //     font-size: 18px;
+        //     margin-top: 15px;
+        //     box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+        //     width: 300px;
+        //   }
+    }
+        &__right {
+            padding-left: 20px;
+            width: 20%;
+        }
+    }
+
+.chatroom_error{
+    color: crimson;
 }

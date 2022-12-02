@@ -184,6 +184,25 @@ Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
 
+//マインドフルネス、スタートボタン表示画面
+Route::get('mindfulness_start', function () {
+    return view('mindfulness.mindfulness_start');
+});
+
+//マインドフルネス終了画面
+Route::get('mindfulness_end', function () {
+    return view('mindfulness.mindfulness_end');
+});
+
+//マインドフルネス詳細表示画面
+Route::get('mindfulness_detail', function () {
+    return view('mindfulness.mindfulness_detail');
+});
+
+//マインドフルネスタイマー表示画面
+Route::get('mindfulness_timer', function () {
+    return view('mindfulness.mindfulness_timer');
+});
 
 
 
