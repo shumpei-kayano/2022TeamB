@@ -53,7 +53,7 @@
         justify-content: center;
         padding-left: 20px;
     }
-    table, tr, td {
+    table, tr {
         width: 100%; //__rightの幅にする
     }
     &__img-container {
@@ -72,12 +72,13 @@
     &__btn-container { 
         input {
             width: 100%;
-            padding: 13px 0;
-            margin-bottom: 7px;
+            padding: 0 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
-        input:first-child {
-            margin-bottom: 24px;
-        }
+        // input:first-child {
+        //     margin-bottom: 24px;
+        // }
     }
 
 }
@@ -99,5 +100,17 @@
         background-color: $beige;
         font-size: 1em;
         padding-left: 15px;
+        color: black;
+        overflow-wrap: break-word;
+    }
+    &__heightadjust {
+        border-radius: 5px;
+        line-height: 1.5em;
+        background-color: $beige;
+        font-size: 1em;
+        padding: 10px 15px;
+        color: black;
+        overflow-wrap: break-word;
+
     }
 }

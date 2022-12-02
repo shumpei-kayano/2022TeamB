@@ -38,7 +38,6 @@ class EventController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
-
         // if (!empty($file)) {
         //     $dir = 'eimg'; // imageディレクトリ名
         //     $file_name = $file->getClientOriginalName();
@@ -46,19 +45,40 @@ class EventController extends Controller
         // } else {
         //     $file_name = "noimage.png";
         // }
-
-        Event::eventInsert($request);
-
-        return redirect('/event013');
+        if ($request->has('save')) {
+            Event::eventInsert0($request);
+            return redirect('/event015');
+        } elseif ($request->has('open')) {
+            Event::eventInsert1($request);
+            return redirect('/event013');
+        } else {
+            $message = 'ボタンは押されませんでした';
+            dd($message);
+            return redirect('/event015');
+        }
     }
     //更新画面ルーティングが'book/{book}'でid値を渡す時
     //そのid値に等しいBookインスタンスを渡してくれる
     public function edit(Request $request)
     {
+        $items = Area::all();
         $event = Event::where('id', $request->id)->first(); //find($request->id)
-        return view('event.eventedit', ['event' => $event]);
+        return view('event.eventedit', ['event' => $event, 'items' => $items]);
     }
-
+    // 更新
+    public function update(Request $request)
+    {
+        //バリデーション
+        $validator = Validator::make($request->all(), Event::$rules);
+        //バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect('/')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        Event::eventUpdate($request);
+        return redirect('/event015');
+    }
     // イベント詳細表示
     public function detailView(Request $request)
     {

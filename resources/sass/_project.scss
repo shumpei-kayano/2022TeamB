@@ -493,87 +493,87 @@
 // }
 
 /* イベントカード */
-.p-eventcards {
+// .p-eventcards {
 
-    display: flex;
-    justify-content: center;
+//     display: flex;
+//     justify-content: center;
 
-    &__card {
-        margin: 10px 10px;
-        padding-left: 0;
-        padding-right: 0;
-        a {
-            text-decoration: none;
-            color: $navy;
-        }
-    }
-}
+//     &__card {
+//         margin: 10px 10px;
+//         padding-left: 0;
+//         padding-right: 0;
+//         a {
+//             text-decoration: none;
+//             color: $navy;
+//         }
+//     }
+// }
 /*イベント保存・公開*/
-.p-event-right-content {
-    padding: 30px 30px;
-    background-color: $darkbrown;
+// .p-event-right-content {
+//     padding: 30px 30px;
+//     background-color: $darkbrown;
 
 
 
-}
-.p-event-text {
-    background-color: $navy;
-    color: $white;
-    border: none;
-}
+// }
+// .p-event-text {
+//     background-color: $navy;
+//     color: $white;
+//     border: none;
+// }
 
-.eventadd-container {
-    display: flex; //子要素を横並びにする
-}
+// .eventadd-container {
+//     display: flex; //子要素を横並びにする
+// }
 
-.eventadd {
-    width: 1120px;
-    color: $white;
-    &__title {
-        text-align: center; //h2を中央揃え
-    }
-    &__content {
-        width: 90%;
-        margin: 0 auto; //ブロック要素を中央揃え
-        display: flex; //leftとrightを横並び
-    }
-    &__left {
-        width: 30%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    &__right {
-        width: 70%;
-        display: flex;
-        justify-content: center;
-        padding-left: 20px;
-    }
-    table, tr, td {
-        width: 100%; //__rightの幅にする
-    }
-    &__img-container {
-        input {
-            display: inline-block; //buttonを横並びにする
-            width: 45%;
-            margin-top: 5px; 
-        }
-        input:first-of-type { //first-child
-            margin-right: 10px;
-        }
-    }
-    &__btn-container { 
-        input {
-            width: 100%;
-            padding: 13px 0;
-            margin-bottom: 7px;
-        }
-        input:first-child {
-            margin-bottom: 24px;
-        }
+// .eventadd {
+//     width: 1120px;
+//     color: $white;
+//     &__title {
+//         text-align: center; //h2を中央揃え
+//     }
+//     &__content {
+//         width: 90%;
+//         margin: 0 auto; //ブロック要素を中央揃え
+//         display: flex; //leftとrightを横並び
+//     }
+//     &__left {
+//         width: 30%;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//     }
+//     &__right {
+//         width: 70%;
+//         display: flex;
+//         justify-content: center;
+//         padding-left: 20px;
+//     }
+//     table, tr, td {
+//         width: 100%; //__rightの幅にする
+//     }
+//     &__img-container {
+//         input {
+//             display: inline-block; //buttonを横並びにする
+//             width: 45%;
+//             margin-top: 5px; 
+//         }
+//         input:first-of-type { //first-child
+//             margin-right: 10px;
+//         }
+//     }
+//     &__btn-container { 
+//         input {
+//             width: 100%;
+//             padding: 13px 0;
+//             margin-bottom: 7px;
+//         }
+//         input:first-child {
+//             margin-bottom: 24px;
+//         }
 
-    }
-}
+//     }
+// }
 
 
 

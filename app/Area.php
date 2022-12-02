@@ -21,6 +21,6 @@ class Area extends Model
 
     public function event()
     {
-        return $this->hasMany(Event::class);
+        return $this->belongsTo('App\Event', 'id', 'city');
     }
 }

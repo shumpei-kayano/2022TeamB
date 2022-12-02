@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    イベント募集新規作成
+    イベント募集編集・削除
 @endsection
 
 @section('main')
@@ -15,8 +15,6 @@
             <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
             イベント募集編集・削除
             </div>
-
-            {{--  <h2 class="eventadd__title">イベント募集新規作成</h2>  --}}
             {{--  form ここから ファイルアップロードはenctype="multipart/form-data"が必要 --}}
             <form action="/event016" method="post" enctype="multipart/form-data">
             <div class="eventadd__content">
@@ -24,7 +22,7 @@
                     <div class="eventadd__img-container">
                         {{--  デフォルト画像noimage  --}}
                         <div id="default_image">
-                            <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
+                            <img src="{{asset('/storage/eimg/'.$event->event_image)}}" class="e-imagePreview" alt="event写真">
                         </div>
                         {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
                         {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}
@@ -43,8 +41,8 @@
                     {{--  左下のボタン  --}}
                     
                     <div class="eventadd__btn-container">
-                        <input type="submit" value="編集" name="edit" class='button'>
-                        <input type="submit" value="削除" name="delete" class='button'>
+                        <input type="submit" value="更新" name="edit" class='button'>
+                        {{--  <input type="submit" value="削除" name="delete" class='button'>  --}}
                     </div>
                     <div class="c-color--black">
                     {{--  componentsから確認モーダルを挿入  --}}
@@ -77,13 +75,13 @@
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
-                                    <input type="text" name="city" value="{{$event->city}}" class="form-control" placeholder="場所（市町村名）">
-                                    {{--  <select name="city" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>開催場所を選択</option>
+                                    {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
+                                    <select name="city" class="form-select" aria-label="Default select example">
+                                        <option disabled selected>{{$event->area->city}}</option>
                                         @foreach ($items as $item)
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach
-                                    </select>  --}}
+                                    </select>
                                     <div id="emailHelp" class="form-text" ></div>
                                     
                                 </td>
@@ -125,7 +123,7 @@
                                 </div> 
                                 </td>
                             </tr>
-
+                            <input type="hidden" name="id" value="{{$event->id}}">
                         </tbody>
                     </table>
                 </div>
