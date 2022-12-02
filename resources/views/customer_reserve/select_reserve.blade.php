@@ -45,7 +45,7 @@
     <div class="row">
     <div class="p-blog_edit_area__button_1">
       {{-- 飲食店予約ページの右側ボタンにcomponents使用 --}} 
-      @component('components.my_page_right_btn')
+      @component('components.my_page_other_side_right_btn')
       @endcomponent
 </div>
 </div>

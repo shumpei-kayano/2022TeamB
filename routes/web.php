@@ -184,6 +184,25 @@ Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
 
+//マインドフルネス、スタートボタン表示画面
+Route::get('mindfulness_start', function () {
+    return view('mindfulness.mindfulness_start');
+});
+
+//マインドフルネス終了画面
+Route::get('mindfulness_end', function () {
+    return view('mindfulness.mindfulness_end');
+});
+
+//マインドフルネス詳細表示画面
+Route::get('mindfulness_detail', function () {
+    return view('mindfulness.mindfulness_detail');
+});
+
+//マインドフルネスタイマー表示画面
+Route::get('mindfulness_timer', function () {
+    return view('mindfulness.mindfulness_timer');
+});
 
 
 
@@ -349,12 +368,102 @@ Route::get('completed_reserve', function () {
     return view('customer_reserve.completed_reserve');
 });
 
+//（店側）予約詳細確認画面
+Route::get('booking_details', function () {
+    return view('restaurant.booking_details');
+});
+
+//(顧客が評価)店舗評価ページ
+Route::get('rate', function () {
+    return view('MyPage.rate');
+});
+
+
+//自治体（自分に見える側）フォロー中のユーザ表示画面　　　　　OK
+Route::get('gov_following_this_side', function () {
+    return view('follow.gov_following_this_side');
+});
+
+//自治体（他のユーザに見える側）フォロー中のユーザ表示画面　　　OK
+Route::get('gov_following_other_side', function () {
+    return view('follow.gov_following_other_side');
+});
+
+//自治体（自分に見える側）フォロワーの一覧表示画面　　          OK
+Route::get('gov_follower_this_side', function () {
+    return view('follow.gov_follower_this_side');
+});
+
+//自治体（他のユーザに見える側）フォロワーの一覧表示画面　　     OK
+Route::get('gov_follower_other_side', function () {
+    return view('follow.gov_follower_other_side');
+});
 
 
 
 
 
 
+
+
+//個人利用者（自分に見える側）フォロー中のユーザ表示画面            OK
+Route::get('personal_following_this_side', function () {
+    return view('follow.personal_following_this_side');
+});
+
+//個人利用者（他のユーザに見える側）フォロー中のユーザ表示画面      OK
+Route::get('personal_following_other_side', function () {
+    return view('follow.personal_following_other_side');
+});
+
+
+//個人利用者（自分に見える側）フォロワーの一覧表示画面              OK
+Route::get('personal_follower_this_side', function () {
+    return view('follow.personal_follower_this_side');
+});
+
+
+//個人利用者（他のユーザに見える側）フォロワーの一覧表示画面            OK
+Route::get('personal_follower_other_side', function () {
+    return view('follow.personal_follower_other_side');
+});
+
+
+
+
+
+
+
+//飲食店（自分に見える側）フォロー中のユーザ表示画面                OK
+Route::get('restaurant_following_this_side', function () {
+    return view('follow.restaurant_following_this_side');
+});
+
+
+//飲食店（他のユーザに見える側）フォロー中のユーザ表示画面          OK
+Route::get('restaurant_following_other_side', function () {
+    return view('follow.restaurant_following_other_side');
+});
+
+
+//飲食店（自分に見える側）フォロワーの一覧表示画面                  OK
+Route::get('restaurant_follower_this_side', function () {
+    return view('follow.restaurant_follower_this_side');
+});
+
+
+
+//飲食店（他のユーザに見える側）フォロワーの一覧表示画面            OK
+Route::get('restaurant_follower_other_side', function () {
+    return view('follow.restaurant_follower_other_side');
+});
+
+
+
+//検索結果表示ページ
+Route::get('search_results', function () {
+    return view('search_results');
+});
 
 
 

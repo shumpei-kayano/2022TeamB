@@ -1,7 +1,7 @@
-{{-- 顧客　飲食店予約情報確認画面 --}}
+{{-- 顧客　飲食店予約代表者情報入力ページ --}}
 @extends('layouts.layout')   
 @section('title')
-    ご予約情報　確認画面
+    ご予約代表者様情報入力
 @endsection
 
 @section('main')
@@ -9,10 +9,12 @@
 <div class="d-flex"> 
     <div class="row">
         <div class="p-blog_edit_area__container">
+            
             <div class="p-reserve__container">
-                <div class="p-reserve__check_reserve_container">
+                <div class="p-reserve__check_reserve_container">            {{-- ↓↓↓　URLはマイページへとばす　※マイページアドレス確認 --}}
+                    <div class="p-reserve__close_img" href="{{URL::to('terms_of_service')}}"><img src={{asset('/img/close.png')}} onclick="location.href='create_new_open'" alt="" height="50px" width="40px"></div>
                     <div class="p-reserve__check_title">
-                        <h4>この内容で予約しますか？</h4>
+                        <h2>予約詳細情報</h2>
                     </div>
                     <div class="d-flex"> 
                         <div class="row">
@@ -34,14 +36,6 @@
                             </div>
                         </div>
                     </div>
-                <div class="yes_or_no">
-                    <form action="completed_reserve">
-                    <input class="p-header__login-button yes_or_no__yes" type="submit" value="はい">  {{-- DB未設定 --}}
-                    </form>
-                    <form action="select_reserve">
-                    <input class="p-header__login-button yes_or_no__no" type="submit" value="いいえ">
-                    </form>
-                  </div>
                 </div>
             </div>
         </div> 
@@ -51,13 +45,14 @@
     <div class="row">
     <div class="p-blog_edit_area__button_1">
       {{-- 飲食店予約ページの右側ボタンにcomponents使用 --}} 
-      @component('components.my_page_other_side_right_btn')
+      @component('components.my_page_this_side_right_btn')
       @endcomponent
 </div>
 </div>
 </div>
 </div>
-
+</div>
+</div>
 
 
 @endsection
