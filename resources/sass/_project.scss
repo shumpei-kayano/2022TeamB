@@ -339,6 +339,11 @@
         border: none;
         font-size: 16px;
     }
+
+    &__check_btn:hover{
+        opacity: 0.5 ;
+    }
+
     &__logo_img{
         display: flex;
         justify-content: flex-end;          //“新規作成画面”表示時のCLOSEボタン画像
@@ -1597,4 +1602,8 @@ ol li:before{
 
 .tuuhou_btn{                 //通報画面のボタンを中央にする
     text-align: center;
+}
+
+.chatroom_error{
+    color: crimson;
 }
