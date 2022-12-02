@@ -18,7 +18,17 @@
 .p-event-right-content {
     padding: 30px 30px;
     background-color: $darkbrown;
+    .page-link {
+        color: $black;
+    }
+
 }
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: $navy;
+    border-color:$navy;
+  } S
 .p-event-text {
     background-color: $navy;
     color: $white;
