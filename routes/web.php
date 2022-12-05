@@ -131,10 +131,10 @@ Route::delete('event/{event}', 'App\Http\Controllers\EventsController@destroy');
 //更新画面表示　ルートパラメータでidを渡すのがポイント
 Route::post('eventsedit/{event}', 'App\Http\Controllers\EventsController@edit');
 
-
-//更新処理
-Route::post('events/update', 'App\Http\Controllers\EventsController@update');
 */
+// 更新処理
+Route::post('event016/{id}', 'EventController@update');
+
 // イベント編集画面
 Route::get('event016/{id}', 'EventController@edit');
 // イベント詳細画面

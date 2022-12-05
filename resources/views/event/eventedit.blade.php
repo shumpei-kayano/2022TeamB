@@ -16,7 +16,7 @@
             イベント募集編集・削除
             </div>
             {{--  form ここから ファイルアップロードはenctype="multipart/form-data"が必要 --}}
-            <form action="/event016" method="post" enctype="multipart/form-data">
+            <form action="{{ url('event016/'.$event->id) }}" method="post" enctype="multipart/form-data">
             <div class="eventadd__content">
                 <div class="eventadd__left">
                     <div class="eventadd__img-container">
@@ -38,7 +38,7 @@
                         {{--  <div class="e-imagePreview"><img src="e-img/{{$eitems->event_image}}" class="card-img-top" alt="..."></div>  --}}
           
                     </div>
-                    {{--  左下のボタン  --}}
+                    {{--  左下の更新ボタン  --}}
                     
                     <div class="eventadd__btn-container">
                         <input type="submit" value="更新" name="edit" class='button'>
@@ -119,7 +119,8 @@
                                 <td colspan="3">
                                 <div class="mb-3"> 
                                     <label for="exampleFormControlTextarea1" class="form-label">イベント内容</label>
-                                    <textarea class="form-control" name="event_detail" value="{{$event->event_detail}}" placeholder="イベント内容" rows="3"></textarea> 
+                                    <textarea class="form-control" name="event_detail" placeholder="イベント内容" style="height: 10em">{{$event->event_detail}}</textarea>
+                                
                                 </div> 
                                 </td>
                             </tr>
@@ -127,7 +128,7 @@
                         </tbody>
                     </table>
                 </div>
-            <div>
+            </div>
             </form>
         </section>
     </div>

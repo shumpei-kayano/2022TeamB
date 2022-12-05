@@ -70,9 +70,10 @@ class EventController extends Controller
     {
         //バリデーション
         $validator = Validator::make($request->all(), Event::$rules);
+
         //バリデーション:エラー
         if ($validator->fails()) {
-            return redirect('/')
+            return back() //redirect('/')
                 ->withInput()
                 ->withErrors($validator);
         }

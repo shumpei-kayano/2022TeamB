@@ -92,6 +92,7 @@ class Event extends Model
     public static function eventUpdate(Request $request)
     {
         $events = Event::find($request->id);
+
         $dir = 'eimg';
         $file_name = $request->file('event_image')->getClientOriginalName();
         $path = $request->file('event_image')->storeAs('public/' . $dir, $file_name);
