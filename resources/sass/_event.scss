@@ -38,8 +38,17 @@
 .eventadd-container {
     display: flex; //子要素を横並びにする
 }
+.btn-warning {
+    background: navy; //ボタンの背景色
+    color: white; //ボタンのテキストの色
+}
+.btn-warning:hover {
+        background-color: white;
+        color: navy;
+}
 
-.eventadd {
+    
+  .eventadd {
     width: 100%;
     color: $white;
     &__title {
@@ -95,11 +104,15 @@
 
 .e-imagePreview {
     width: 100%;
-    // height: 100%;
+    // height: 100%;（これ非表示にしないと画像が表示できない）
     background-position: center center;
     background-size: cover;
     // -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
     display: inline-block;
+    img {
+        max-width: 340px; /* 最大幅 */
+        height: 226px;/* 高さ固定 */
+    }
 }
 
 .display-box {
