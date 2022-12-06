@@ -35,7 +35,7 @@
             <label for="self">自己紹介文</label>
             <textarea class="form-control p-mypage-store__textarea" name="self" id="self" cols="30" rows="4"></textarea>
         </div>
-        <div class="p-mypage-store__bottom">
+        <div class="p-mypage-store__middle">
             <table>
                 <tbody>
                     <tr>
@@ -49,6 +49,8 @@
                 </tbody>
             </table>
         </div>
+        <div class="p-mypage-store__click"><a href="#">もっと見る...Click here</a></div><br>
+        
     </div>
 
     {{-- 右側のボタン集 --}}

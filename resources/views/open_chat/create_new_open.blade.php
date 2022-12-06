@@ -39,8 +39,9 @@
         </div> --}}
 
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="room_detail">{{ old('room_detail') }}</textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="room_detail" limit="1000">{{ old('room_detail') }}</textarea>
             <label for="floatingTextarea2" style="color: rgb(101, 100, 100);">説明（１０００文字以内）</label>
+            現在の文字数：<span id="moji_suu">0</span>字
             @if($errors->has('room_detail'))
             <p style="color:rgb(187, 0, 0)">✤１０００文字以内で入力してください</p>
             @endif
@@ -80,6 +81,49 @@
     <input type="submit" value="あああ">
 
 </form>
+
+<script>
+    $(function(){
+     
+        //カウントするフィールドを監視
+        $("#floatingTextarea2").keyup(function(){
+     
+            //現在入力されている文字
+            var text = $(this).val();
+     
+            //正確にカウントするため改行コード削除
+            text = text.replace((new RegExp("\r\n","g")),"");
+            text = text.replace((new RegExp("\n","g")),"");
+     
+            //現在の文字数
+            var count = text.length;
+     
+            //管理者が設定した上限文字数
+            var moji_limit = $(this).attr("limit");
+     
+            //文字数をリアルタイムの表示
+            $("#moji_suu").text(count);
+     
+            //処理分け
+            if(count == 0){
+         
+                //字を消して0文字となった場合。
+                $("#moji_suu").text("0");
+         
+            } else if(count > moji_limit) {
+     
+                //上限文字数を超えたら赤色表示
+                $("#moji_suu").css("color", "red");
+         
+            } else {
+     
+                //文字数が範囲内なら色を戻す
+                $("#moji_suu").css("color", "");
+     
+            }
+        });
+    });
+    </script>
 
 @endsection
 

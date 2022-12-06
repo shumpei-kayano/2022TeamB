@@ -15,7 +15,7 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_id');
+            $table->string('user_id')->nullable();
             $table->string('title')->nullable();
             $table->string('text')->nullable();
             // $table->timestamp('created_at');

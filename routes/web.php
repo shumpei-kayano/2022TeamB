@@ -165,7 +165,7 @@ Route::get('municipality_mypage', function () {
 
 
 
-
+//アカウント削除するときのパスワード再確認
 Route::middleware('auth')->group(function () {
 
 
@@ -221,9 +221,7 @@ Route::get('mindfulness_timer', function () {
 
 
 //オープンチャット関連
-Route::get('open_chat_list', function () {
-    return view('open_chat.open_chat_list');
-});
+Route::get('open_chat_list', 'ChatroomController@index3');
 
 //アカウント削除前のパスワード確認画面
 Route::middleware('auth')->group(function () {

@@ -28,6 +28,6 @@
     <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
   </div>
-  //<style>xmsd</style>
+  <style>xmsd</style>
 </div>
 @endsection

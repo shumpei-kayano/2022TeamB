@@ -133,7 +133,7 @@
               <div class="col-4">
                 <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
               </div>
-              <div class="click"><a href="#">もっと見る...Click here</a></div><br>
+              <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
             </div>
         </div>
         </div>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Chatroom;
-use App\Category;
+use App\Models\Chatroom;
+use App\Models\Category;
 use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Http\Request;
 
@@ -41,14 +41,6 @@ class ChatroomController extends Controller
         return redirect('/open_chat_room');
     }
 
-    // public function preview()
-    // {
-    //     $data = [
-    //         'msg' => 'お名前を入力下さい。',
-    //     ];
-    //     return view('open_chat.open_chat_preview', $data);
-    // }
-
     public function preview_post(Request $request)
     {
         $msg = $request->msg;
@@ -58,13 +50,9 @@ class ChatroomController extends Controller
         return view('open_chat.open_chat_preview', ['msg' => $request->msg]);
     }
 
-    // public function create2(Request $request)
-    // {
-    //     $this->validate($request, chatroom::$rules);
-    //     $chatroom = new chatroom();
-    //     $form = $request->all();
-    //     unset($form['_token']);
-    //     $chatroom->fill($form)->save();
-    //     return redirect('/');
-    // }
+    public function index3(Request $request)
+    {
+        $items = chatroom::simplePaginate(8);
+        return view('open_chat.open_chat_list', ['items' => $items]);
+    }
 }
