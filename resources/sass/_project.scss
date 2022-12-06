@@ -325,6 +325,8 @@
         margin-top: 10px;               //新規作成ボタンからの背景色までの空白
         display: flex;
         justify-content: flex-end;
+        overflow: scroll;
+        overflow-x: hidden;
     }
     &__create-button{                   //右上の新規作成ボタンの設定
         background-color: $navy;
