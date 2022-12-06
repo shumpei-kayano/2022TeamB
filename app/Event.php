@@ -93,10 +93,15 @@ class Event extends Model
     {
         $events = Event::find($request->id);
 
-        $dir = 'eimg';
-        $file_name = $request->file('event_image')->getClientOriginalName();
-        $path = $request->file('event_image')->storeAs('public/' . $dir, $file_name);
-        $filename = basename($path);
+        $file = $request->file('event_image');
+        if (!empty($file)) {
+            $dir = 'eimg';
+            $file_name = $file->getClientOriginalName();
+            $path = $file->storeAs('public/' . $dir, $file_name);
+            $filename = basename($path);
+        } else {
+            $filename = "noimage.jpg";
+        }
         $events->event_title = $request->event_title;
         $events->event_detail = $request->event_detail;
         $events->city = $request->city;

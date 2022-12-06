@@ -15,7 +15,7 @@
             {{--  <h1 class="eventadd__title">イベント詳細</h1>  --}}
             <div class="eventadd__content">
                 <div class="eventadd__left ">
-                    <div class="eventadd__img-container">  
+                    <div class="eventadd__img-container e-imagePreview">  
                         <img src="{{asset('/storage/eimg/'.$item->event_image)}}" class="card-img-top" alt="...">
                         {{--  <input type="submit" value="登録" class='button'>
                         <input type="submit" value="削除" class='button'>  --}}
@@ -90,7 +90,7 @@
                                 <td colspan="1">
                                     @component('components.framelikeinput')
                                     @slot('title')
-                                    終了日
+                                    終了時間
                                     @endslot
                                     @slot('content')
                                     {{$item->end_time->format('H:i')}}

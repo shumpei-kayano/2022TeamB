@@ -23,8 +23,9 @@ class EventController extends Controller
 
     public function add(Request $request)
     {
+        $user = Auth::user();
         $items = Area::all();
-        return view('event.eventadd', ['items' => $items]);
+        return view('event.eventadd', ['items' => $items, 'user' => $user]);
     }
 
     public function create(Request $request)
@@ -34,17 +35,11 @@ class EventController extends Controller
 
         //バリデーションエラー
         if ($validator->fails()) {
-            return redirect('/')
+            return redirect('/event015')
                 ->withInput()
                 ->withErrors($validator);
         }
-        // if (!empty($file)) {
-        //     $dir = 'eimg'; // imageディレクトリ名
-        //     $file_name = $file->getClientOriginalName();
-        //     $move = $file->storeAs('public/' . $dir, $file_name);
-        // } else {
-        //     $file_name = "noimage.png";
-        // }
+
         if ($request->has('save')) {
             Event::eventInsert0($request);
             return redirect('/event015');
@@ -52,8 +47,8 @@ class EventController extends Controller
             Event::eventInsert1($request);
             return redirect('/event013');
         } else {
-            $message = 'ボタンは押されませんでした';
-            dd($message);
+            // $message = 'ボタンは押されませんでした';
+            // dd($message);
             return redirect('/event015');
         }
     }
@@ -73,12 +68,13 @@ class EventController extends Controller
 
         //バリデーション:エラー
         if ($validator->fails()) {
+            // dd($validator);
             return back() //redirect('/')
                 ->withInput()
                 ->withErrors($validator);
         }
         Event::eventUpdate($request);
-        return redirect('/event015');
+        return redirect('/event013');
     }
     // イベント詳細表示
     public function detailView(Request $request)

@@ -67,6 +67,7 @@
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">イベントタイトル</label>
+                                    @error('event_title')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     <input type="text" name="event_title" value="{{$event->event_title}}" class="form-control" placeholder="イベントタイトル">
                                     <div class="form-text" ></div>
                                 </td>
@@ -75,6 +76,7 @@
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    @error('city')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
                                     <select name="city" class="form-select" aria-label="Default select example">
                                         <option disabled selected>{{$event->area->city}}</option>
@@ -90,6 +92,7 @@
                             <tr>
                                 <td colspan="2">
                                     <label for="exampleInputEmail1" class="form-label">開催日時</label>
+                                    @error('date_of_event')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     <input type="datetime-local" name="date_of_event" value="{{$event->date_of_event}}" class="form-control" placeholder="開催日時">
                                     <div id="emailHelp" class="form-text" ></div>
                                 </td>
@@ -100,6 +103,7 @@
                             <tr>
                                 <td colspan="2">
                                     <label for="exampleInputEmail1" class="form-label">終了日時</label>
+                                    @error('end_time')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     <input type="datetime-local" name="end_time" value="{{$event->end_time}}" class="form-control" placeholder="終了日時">
                                     <div id="emailHelp" class="form-text" >
                                 </td>
@@ -119,6 +123,7 @@
                                 <td colspan="3">
                                 <div class="mb-3"> 
                                     <label for="exampleFormControlTextarea1" class="form-label">イベント内容</label>
+                                    @error('event_detail')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     <textarea class="form-control" name="event_detail" placeholder="イベント内容" style="height: 10em">{{$event->event_detail}}</textarea>
                                 
                                 </div> 
