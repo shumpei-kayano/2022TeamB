@@ -1093,7 +1093,6 @@ ol li:before{
     table {
         margin: 20px;
     }
-    
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1308,7 +1307,11 @@ ol li:before{
         width: 100%;
     }
     &__middle {
-        padding: 10px;
+        padding: 10px;       //背景色
+        }    
+    &__click {
+        text-align: right;                      //右寄せ                 //親要素からの絶対位置指定
+        }         
     }
     &__right {
         padding-left: 20px;
@@ -1316,7 +1319,6 @@ ol li:before{
         box-sizing: border-box;
     }
     
-}
 
 
 
