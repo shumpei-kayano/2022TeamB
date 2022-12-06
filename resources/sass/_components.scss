@@ -3,21 +3,15 @@ body {
     color: $black;
     font-family: 'Noto Sans JP', sans-serif,"Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo";
     font-size: 15px;
-    line-height: 1.5;
-    background-color: $beige;   //1109追加
-    // min-width: 100vw;        //1109追加　変化なし
-    // min-height: 100vh;       //1109追加  変化なし
-    // display: flex;           //1109追加  変化なし
-    // flex-direction: column;  //1109追加  変化なし
+    background-color: $beige;
+    // line-height: 1.5;            //行間（文字の大きさ+上下の余白）
 }
 
-// 背景色の設定
-// main{                   //1109追加　変化なし
-//     width: 100%;        //1109追加  変化なし
-//     flex: 1;            //1109追加  変化なし
-//     display: flex;      //1109追加  変化なし
-// }
 
+
+
+
+//全体に使う色の指定(5色)
 .c-bgcolor{
     background-color: black;
     &--darkbrown{

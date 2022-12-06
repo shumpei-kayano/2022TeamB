@@ -57,6 +57,7 @@ Route::get('/ryukinotikubi', function () {
 });
 
 Route::get('Proof', 'ProofController@index');
+
 //ログイン画面にとぶ
 Route::get('/login', function () {
     return view('auth.login');
@@ -96,6 +97,7 @@ Route::get('account_deactivate', function () {
 //アカウント削除試す
 // Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
 Route::post('/account_deleted', 'UsersController@withdrawal')->name('user.withdrawal');
+
 //ログアウト完了画面に飛ぶ
 Route::get('/completed_logout', function () {
     return view('auth.completed_logout');
@@ -323,10 +325,8 @@ Route::get('blog_completed_deactivate', function () {
     return view('blog.blog_completed_deactivate');
 });
 
-//ブログ記事一覧表示
-Route::get('new_blog_list', function () {
-    return view('blog.new_blog_list');
-});
+//トップページから「もっと見る」をクリックでブログ記事一覧表示
+Route::get('new_blog_list', 'BlogController@index');
 
 //ブログ記事詳細ページ表示
 Route::get('blog_show', function () {
@@ -342,6 +342,21 @@ Route::get('my_posted_blog_list', function () {
 Route::get('my_blog_edit', function () {
     return view('blog.my_blog_edit');
 });
+
+// 投稿ページを表示
+Route::get('/create', 'BlogController@postpage');
+
+// 投稿をコントローラーに送信
+Route::post('/newpostsend', 'BlogController@savenew');
+
+// 投稿一覧を表示する
+Route::get('/new_blog_list', 'BlogController@list');
+
+
+// ブログリッチテキストエディターページ
+Route::get('/create2', 'FormController@wys');
+
+
 
 //ユーザアイコンをクリックした時のマイページへの誘導画面(小ウィンドウ)表示 
 Route::get('user_icon_modal', function () {
@@ -379,22 +394,22 @@ Route::get('rate', function () {
 });
 
 
-//自治体（自分に見える側）フォロー中のユーザ表示画面　　　　　OK
+//自治体（自分に見える側）フォロー中のユーザ表示画面　　　　　
 Route::get('gov_following_this_side', function () {
     return view('follow.gov_following_this_side');
 });
 
-//自治体（他のユーザに見える側）フォロー中のユーザ表示画面　　　OK
+//自治体（他のユーザに見える側）フォロー中のユーザ表示画面　　　
 Route::get('gov_following_other_side', function () {
     return view('follow.gov_following_other_side');
 });
 
-//自治体（自分に見える側）フォロワーの一覧表示画面　　          OK
+//自治体（自分に見える側）フォロワーの一覧表示画面　　          
 Route::get('gov_follower_this_side', function () {
     return view('follow.gov_follower_this_side');
 });
 
-//自治体（他のユーザに見える側）フォロワーの一覧表示画面　　     OK
+//自治体（他のユーザに見える側）フォロワーの一覧表示画面　　     
 Route::get('gov_follower_other_side', function () {
     return view('follow.gov_follower_other_side');
 });
@@ -406,24 +421,24 @@ Route::get('gov_follower_other_side', function () {
 
 
 
-//個人利用者（自分に見える側）フォロー中のユーザ表示画面            OK
+//個人利用者（自分に見える側）フォロー中のユーザ表示画面            
 Route::get('personal_following_this_side', function () {
     return view('follow.personal_following_this_side');
 });
 
-//個人利用者（他のユーザに見える側）フォロー中のユーザ表示画面      OK
+//個人利用者（他のユーザに見える側）フォロー中のユーザ表示画面      
 Route::get('personal_following_other_side', function () {
     return view('follow.personal_following_other_side');
 });
 
 
-//個人利用者（自分に見える側）フォロワーの一覧表示画面              OK
+//個人利用者（自分に見える側）フォロワーの一覧表示画面              
 Route::get('personal_follower_this_side', function () {
     return view('follow.personal_follower_this_side');
 });
 
 
-//個人利用者（他のユーザに見える側）フォロワーの一覧表示画面            OK
+//個人利用者（他のユーザに見える側）フォロワーの一覧表示画面            
 Route::get('personal_follower_other_side', function () {
     return view('follow.personal_follower_other_side');
 });
@@ -434,26 +449,25 @@ Route::get('personal_follower_other_side', function () {
 
 
 
-//飲食店（自分に見える側）フォロー中のユーザ表示画面                OK
+//飲食店（自分に見える側）フォロー中のユーザ表示画面                
 Route::get('restaurant_following_this_side', function () {
     return view('follow.restaurant_following_this_side');
 });
 
-
-//飲食店（他のユーザに見える側）フォロー中のユーザ表示画面          OK
+//飲食店（他のユーザに見える側）フォロー中のユーザ表示画面          
 Route::get('restaurant_following_other_side', function () {
     return view('follow.restaurant_following_other_side');
 });
 
 
-//飲食店（自分に見える側）フォロワーの一覧表示画面                  OK
+//飲食店（自分に見える側）フォロワーの一覧表示画面                  
 Route::get('restaurant_follower_this_side', function () {
     return view('follow.restaurant_follower_this_side');
 });
 
 
 
-//飲食店（他のユーザに見える側）フォロワーの一覧表示画面            OK
+//飲食店（他のユーザに見える側）フォロワーの一覧表示画面            
 Route::get('restaurant_follower_other_side', function () {
     return view('follow.restaurant_follower_other_side');
 });

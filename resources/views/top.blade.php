@@ -1,4 +1,6 @@
 {{-- トップページ --}}
+{{-- F11を押すと全画面表示されるが、下の余白部分に背景色が表示される（画面サイズの問題？）--}}
+{{-- 修正必要  →　componentsのscssに記述あり --}}
 @extends('layouts.layout')   
 
 @section('title')
@@ -57,21 +59,23 @@
 
           {{-- 新着ブログコーナー --}}
             <div class="col-4 c-bgcolor--brown">
-              <div class=p-blog>【新着ブログ】</div>
+              {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
+              <div class="w-100 d-flex justify-content-center"><div class="p-blog">新着ブログ</div></div>
               <div class="p-blog__blog_area">
                 <div class="p-blog__blog_user_icon"></div><p class="p-blog__blog_title">　2022.10.22.〇〇〇に行ってきた</p>
               </div>
               <div class="p-blog__blog_area">
                 <div class="p-blog__blog_user_icon"></div><p class="p-blog__blog_title">　2022.10.20.〇〇〇に行ってきた</p>
               </div>
-              <div class="click"><a href="#">もっと見る...Click here</a></div>
+              <div class="click"><a href="new_blog_list">もっと見る...Click here</a></div>
             </div>
         </div>
 
         {{-- イベント掲示板 --}}
         <div class="row">
           <div class="col-4 c-bgcolor--darkbrown">
-            <div class=p-event>【イベント募集掲示板】</div><br>
+            {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
+            <div class="w-100 d-flex justify-content-center"><div class=p-event>イベント募集掲示板</div></div><br>
             <div class="p-event__event_area">
               <p class="p-event__event_title">2022.10.29.<br>トリニータファン集まれ！オフ会開催</p>
             </div>
@@ -89,7 +93,8 @@
 
         {{-- 自治体コーナー --}}
           <div class="col-4 c-bgcolor--brown">
-            <div class="p-gov">【県・市町村からの募集】</div><br>
+            {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
+            <div class="w-100 d-flex justify-content-center"><div class="p-gov">県・市町村からの募集</div></div><br>
             <div class="p-gov__gov_area">
               <p class="p-gov__gov_title">2022.10.29.<br>（竹田市）岡城跡散策</p>
             </div>
@@ -107,7 +112,8 @@
 
         {{-- オープンチャット --}}
           <div class="col-4 c-bgcolor--beige">
-            <div class="p-open">【オープンチャットコーナー】</div><br>
+            {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
+            <div class="w-100 d-flex justify-content-center"><div class="p-open">オープンチャット</div></div><br>
             <div class="row">
               <div class="col-4">
                 <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>

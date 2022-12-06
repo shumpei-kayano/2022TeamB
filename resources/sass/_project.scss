@@ -131,9 +131,13 @@
 }
 
 //トップページのブログコーナー
-.p-blog{                                    //ブログコーナータイトル中央寄せ
-    text-align: center;
-    font-size: 20px;
+.p-blog{                                  //ブログコーナータイトル中央寄せ
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
     &__blog_area{
         display: flex;                      //Flexboxを使って子要素を横並び
         justify-content: flex-start;        //水平方向揃え(flex-start:初期値)
@@ -147,6 +151,93 @@
 }
 
 
+
+//トップページの「ブログコーナー」タイトルの線のスタイル設定
+.p-blog:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                       //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-blog:after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-blog:before {
+    left:0;
+  }
+.p-blog:after {
+    right: 0;
+  }
+
+//ブログ編集ページ
+// .p-blog_edit{
+//     &__content_wrapper{
+//         width: 1000px;
+//         min-height:500px;
+//         text-align: center;
+//     }
+//     &__content2{
+//         display: inline-block;
+//         text-align: left;
+//         width:690px;
+//         min-height:500px;
+//         background-color: #ffffff;
+//         border: 5px solid  #707aff;
+//         border-radius: 10px;
+//         margin: 20px 0;
+//         padding: 10px;
+//     }
+//     &__wrapper{
+//         width: 1000px;
+//         background-color: #20f3f3;
+//         min-height:700px;
+//         /* border: 1px solid #ccc; */
+//         margin: 0 auto;
+//     }
+    
+//     &__header{
+//         background-color: #707aff;
+//         margin: 0 0 10 0px;
+//         height: 100px;
+//         padding: 20px;
+//     }
+//     &__sidebar{
+//         margin:20px;
+//         background-color: #ffffff;
+//         border: 2px solid #707aff;
+//         border-radius: 10px;
+//         width: 250px;
+//         min-height:500px;
+//         float: right;
+//         padding: 10px;
+//     }
+//     &__content{
+//         text-align: center;
+//         width:690px;
+//         min-height:500px;
+//         background-color: #ffffff;
+//         border: 5px solid  #707aff;
+//         border-radius: 10px;
+//         margin: 20px;
+//         padding: 10px;
+//     }
+    
+// }
+
+
+
+
 //検索結果表示画面
 .p-search_results_container{                //結果表示エリア
         width:1260px;
@@ -154,17 +245,18 @@
         margin-top:10px;
         margin-right:auto;
         margin-left:auto;
-        background-color: white;
-        border-radius: 10px;
+        // background-color: white;
+        // border-radius: 10px;
         padding: 0.1px;
+
     &__contact_info{                        //連絡先結果表示
         width:1240px;
         height:150px;
         margin-top:10px;
         margin-right:auto;
         margin-left:auto;
-        background-color: rgb(179, 128, 128);
-        border-radius: 10px;;
+        // background-color: rgb(179, 128, 128);
+        // border-radius: 10px;;
     }
     &__event_info{                          //イベント結果表示
         width:1240px;
@@ -172,8 +264,8 @@
         margin-top:5px;
         margin-right:auto;
         margin-left:auto;
-        background-color: rgb(194, 208, 103);
-        border-radius: 10px;;
+        // background-color: rgb(194, 208, 103);
+        // border-radius: 10px;;
     }
     &__restaurant_info{                     //飲食店結果表示
         width:1240px;
@@ -181,8 +273,8 @@
         margin-top:5px;
         margin-right:auto;
         margin-left:auto;
-        background-color: rgb(155, 161, 214);
-        border-radius: 10px;;
+        // background-color: rgb(155, 161, 214);
+        // border-radius: 10px;
     }
     &__contact_info_title{                  //ユーザ名の検索結果表示　左上のタイトル
         padding-top:5px;
@@ -219,15 +311,17 @@
         padding-top:15px;
         padding-left:10px;
     }
-    &__event_info_results{
+    &__event_info_results{          //イベント情報検索結果の表示設定
         width:1210px;
         height:60px;
         margin-bottom:5px;
         background-color: white;
         border-radius: 10px;
+        text-indent: 1em;
     }
-
-
+    &__event_title{
+        font-size:20px;
+    }
     &__contact_info_other{          //その他のユーザー（クリックでさらに表示）の位置設定
         padding-left:10px;
         padding-top:15px;
@@ -239,6 +333,17 @@
     &__restaurant_info_other{       //その他の店舗情報（クリックでさらに表示）の位置設定
         padding-left:10px;
         margin-top:10px;
+    }
+    &__restaurant_info_results{          //イベント情報検索結果の表示設定
+        width:1210px;
+        height:60px;
+        margin-bottom:5px;
+        background-color: white;
+        border-radius: 10px;
+        text-indent: 1em;
+    }
+    &__restaurant_title{
+        font-size:20px;
     }
 }
 
@@ -284,20 +389,89 @@
 
 //トップページのイベント掲示板コーナー
 .p-event{                                   //イベント募集掲示板コーナータイトル中央寄せ      
-    text-align: center;
-    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
 }
+
+//トップページの「イベント募集掲示板」タイトルの線のスタイル設定
+.p-event:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 60%;                      //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-event:after{
+    content: '';
+    position: absolute;
+    top: 60%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-event:before {
+    left:0;
+  }
+.p-event:after {
+    right: 0;
+  }
+
+
 
 //トップページの自治体コーナー
 .p-gov{                                     //自治体コーナータイトル中央寄せ
-    text-align: center;
-    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
 }
+
+.p-gov:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                      //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-gov:after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-gov:before {
+    left:0;
+  }
+.p-gov:after {
+    right: 0;
+  }
 
 //トップページのオープンチャットコーナー
 .p-open{                                    
-    text-align: center;                     //オープンチャットコーナータイトル中央寄せ
-    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
     &__open_chat_icon{
         width: 50px;                        //円の横幅
         height: 50px;                       //円の縦幅
@@ -309,6 +483,33 @@
         text-align: center;
     }
 }
+
+.p-open:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                       //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-open:after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-open:before {
+    left:0;
+  }
+.p-open:after {
+    right: 0;
+  }
 
 
 
