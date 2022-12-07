@@ -1945,13 +1945,13 @@ ol li:before{
     &__click {
         text-align: right;                      //右寄せ                 //親要素からの絶対位置指定
         }         
-    }
+    
     &__right {
         padding-left: 20px;
         width: 20%;
         box-sizing: border-box;
     }
-    
+}
 
 
 
@@ -2067,7 +2067,7 @@ ol li:before{
         &__simasita {
             margin-top:80px;
         }
-    
+    }
 .p-open_range {
         &__b {
             display       : inline-block;
@@ -2131,7 +2131,7 @@ ol li:before{
         margin-left: 300px;
 }
 }
-}
+
 //アカウント削除ボタン表示画面
 .p-mypage-delete-account {
     display: flex; //子要素を横並び
