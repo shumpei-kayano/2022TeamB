@@ -7,6 +7,7 @@
     &__card {
         margin: 10px 10px;
         padding-left: 0;
+        width: 22%;
         padding-right: 0;
         a {
             text-decoration: none;
@@ -38,17 +39,17 @@
 .eventadd-container {
     display: flex; //子要素を横並びにする
 }
-.btn-warning {
+.eventadd-btn-warning {
     background: navy; //ボタンの背景色
     color: white; //ボタンのテキストの色
     border-color: navy;
 }
-.btn-warning:hover {
+.eventadd-btn-warning:hover {
         background-color: white;
         color: navy;
         border-color: white;
 }
-
+  
     
   .eventadd {
     width: 100%;

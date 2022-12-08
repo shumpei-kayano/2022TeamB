@@ -27,10 +27,10 @@
                         <div id="preview" class="e-imagePreview"></div>
                         <div class="btn-wrap">
                             <label>
-                                <span class="btn btn-warning p-event-text c-text-sm">登録
+                                <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
                                 <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                                 </span>
-                                <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">
+                                <input type="submit" value="削除" class="btn eventadd-btn-warning p-event-text c-text-sm">
                             </label>
                         </div>
                         {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
