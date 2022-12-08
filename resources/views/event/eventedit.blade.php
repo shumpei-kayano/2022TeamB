@@ -16,13 +16,13 @@
             イベント募集編集・削除
             </div>
             {{--  form ここから ファイルアップロードはenctype="multipart/form-data"が必要 --}}
-            <form action="{{ url('event016/'.$event->id) }}" method="post" enctype="multipart/form-data">
+            <form action="?" method="post" enctype="multipart/form-data">
             <div class="eventadd__content">
                 <div class="eventadd__left">
                     <div class="eventadd__img-container">
-                        {{--  デフォルト画像noimage  --}}
+                        {{--  DBから画像を読み込み  --}}
                         <div id="default_image">
-                            <img src="{{asset('/storage/eimg/'.$event->event_image)}}" class="e-imagePreview" alt="event写真">
+                            <img src="{{asset('/storage/eimg/'.$event->event_image)}}" class="e-imagePreview" alt="イベント写真">
                         </div>
                         {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
                         {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}
@@ -32,18 +32,17 @@
                                 <span class="btn btn-warning p-event-text c-text-sm">登録
                                 <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                                 </span>
-                                <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">
+                                <button type="button" id="delete" class="btn btn-warning p-event-text c-text-sm">削除</button>
+                                {{--  <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">  --}}
                             </label>
                         </div>
-                        {{--  <div class="e-imagePreview"><img src="e-img/{{$eitems->event_image}}" class="card-img-top" alt="..."></div>  --}}
-          
                     </div>
+
                     {{--  左下の更新ボタン  --}}
-                    
                     <div class="eventadd__btn-container">
-                        <input type="submit" value="更新" name="edit" class='button'>
+                        <input type="submit" value="更新" name="edit" class='button' formaction="{{ url('event016/'.$event->id) }}">
                         {{--  <input type="submit" value="削除" name="delete" class='button'>  --}}
-                    </div>
+                    
                     <div class="c-color--black">
                     {{--  componentsから確認モーダルを挿入  --}}
                     @component('components.confirmmodal') 
@@ -56,7 +55,9 @@
                         @slot('modal_body')
                         本当に削除しますか？
                         @endslot
+
                     @endcomponent
+                    </div>
                     </div>
                 </div>
                 <div class="eventadd__right">
@@ -155,8 +156,7 @@
                var img = document.createElement("img");
                img.setAttribute("src", reader.result);
                img.setAttribute("id", "previewImage");
-               preview.appendChild(img);
-              
+               preview.appendChild(img); 
             };
             reader.readAsDataURL(file);
         }    

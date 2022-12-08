@@ -33,7 +33,7 @@
         <div class="row p-eventcards">
         {{--  https://qiita.com/YasuhaF/items/9a897e83afe1819d97af 画像を表示 --}}
           @foreach ($items as $item)
-            <div class="card p-eventcards__card" style="width: 13rem;">
+            <div class="card p-eventcards__card" style="width: 22%;">
               <a href="event014/{{$item->id}}">
                 <img src="{{asset('/storage/eimg/'.$item->event_image)}}" class="card-img-top" alt="...">
                 <div class="card-body">

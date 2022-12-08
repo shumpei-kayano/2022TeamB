@@ -82,4 +82,9 @@ class EventController extends Controller
         $item = Event::where('id', $request->id)->first();
         return view('event.eventdetailview', ['item' => $item]);
     }
+    public function destroy(Event $event)
+    {
+        $event->eventDelete($event);
+        return redirect('/event013');
+    }
 }

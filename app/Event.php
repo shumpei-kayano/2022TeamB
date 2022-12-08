@@ -112,4 +112,8 @@ class Event extends Model
 
         $events->save();
     }
+    public function eventDelete(Event $event)
+    {
+        $event->delete();
+    }
 }
