@@ -6,7 +6,7 @@
 
 @endsection
 
-$pdo = new PDO($dsn, $username, $password, $driver_options);
+
 
 @section('main')
 <div class="p-mypage-store">
