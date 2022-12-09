@@ -6,26 +6,28 @@
 
 @endsection
 
-
+$pdo = new PDO($dsn, $username, $password, $driver_options);
 
 @section('main')
 <div class="p-mypage-store">
     <div class="p-mypage-store__left">
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
+                <form action="{{'add'}}" method="post">
+                    @csrf
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" placeholder="大原　太郎">
+                <input type="text" class="form-control" name='name' id="user_name" placeholder="大原　太郎">
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" placeholder="example@aaa.com">
+                <input type="email" class="form-control" name = 'email'id="mail" placeholder="example@aaa.com">
             </div>
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
                 <label for="hobby" class="form-label">趣味</label>
-                <input type="text" class="form-control" id="hobby" placeholder="趣味①"></div>
+                <input type="text" class="form-control" name='hobby1' id="hobby" placeholder="趣味①"></div>
                 <div class="p-mypage-store__hobby2">
-                <input type="text" class="form-control" id="hobby" placeholder="趣味②"></div>
+                <input type="text" class="form-control" name='hobby2' id="hobby" placeholder="趣味②"></div>
                 <div class="p-mypage-store__hobby3">
-                <input type="text" class="form-control" id="hobby" placeholder="趣味③"></div>
+                <input type="text" class="form-control" name='hobby3' id="hobby" placeholder="趣味③"></div>
             </div>
             <div class="p-mypage-store__mind">
                 <p>マインドフルネス</p>
@@ -33,8 +35,11 @@
         </div>
         <div class="p-mypage-store__middle">
             <label for="self">自己紹介文</label>
-            <textarea class="form-control p-mypage-store__textarea" name="self" id="self" cols="30" rows="4"></textarea>
+            <textarea class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4"></textarea>
         </div>
+        {{--  編集完了ボタン  --}}
+        <button type="submit">編集</button>
+    </form>
         <div class="p-mypage-store__middle">
             <table>
                 <tbody>

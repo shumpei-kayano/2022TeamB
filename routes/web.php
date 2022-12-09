@@ -154,6 +154,8 @@ Route::get('mypage_del', function () {
 Route::get('user_mypage', function () {
     return view('MyPage.user_mypage');
 });
+// アカウント情報編集処理
+Route::post('/add','UsersController@add')->name('add');
 //店鋪マイページ画面
 Route::get('tenpo_mypage', function () {
     return view('MyPage.tenpo_mypage');
