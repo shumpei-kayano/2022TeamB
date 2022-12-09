@@ -28,7 +28,9 @@
                 <input type="text" class="form-control" id="hobby" placeholder="趣味③"></div>
             </div>
             <div class="p-mypage-store__mind">
-                <p>マインドフルネス</p>
+                <form action="mindfulness_start">
+                <a href="#"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="150" height="180"></a>
+                </form>    
             </div>
         </div>
         <div class="p-mypage-store__middle">
@@ -49,7 +51,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="p-mypage-store__click"><a href="#">もっと見る...Click here</a></div><br>
+        <div class="p-mypage-store__click">
+            <a href="#">もっと見る...Click here</a></div><br>
         
     </div>
 

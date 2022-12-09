@@ -47,6 +47,8 @@
         </tr>
       </tbody>
     </table>
+    <div class="p-mypage-store__click">
+			<a href="#">もっと見る...Click here</a></div><br>
   </div>
   <div class="p-user-mypage__right">
 		<img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">

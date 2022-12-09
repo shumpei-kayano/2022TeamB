@@ -38,6 +38,8 @@
             <label for="self">自己紹介文</label>
             <textarea class="form-control p-tenpo-mypage__textarea" name="self" id="self" cols="30" rows="4"></textarea>
         </div>
+        <div class="p-mypage-store__click">
+			<a href="#">もっと見る...Click here</a></div><br>
     </div>
     <div class="p-tenpo-mypage__right">
         {{-- <div class="p-mypage-store__btn-container">  --}}

@@ -1726,6 +1726,15 @@ ol li:before{
     table {
         margin: 20px;
     }
+    &__btn--navy {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 80px;
+        height: 30px;
+        margin-bottom: 10px;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1738,6 +1747,7 @@ ol li:before{
         width: 200px;
         height: 60px;
         margin-bottom: 10px;
+
     }
     &__btn--red {
         background-color: red;
@@ -1781,7 +1791,10 @@ ol li:before{
             width: 30%;
         }
     }
-
+    &__click {
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1828,6 +1841,10 @@ ol li:before{
     // table {
     //     margin: 20px;
     // }
+    &__click {
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1930,11 +1947,6 @@ ol li:before{
         padding: 1px;
         margin: 3px;
     }
-    &__mind {
-        width: 20%;
-        background-color: gray;
-        padding: 10px;
-    }
     &__top {
         display: flex;
         width: 100%;
@@ -1943,9 +1955,9 @@ ol li:before{
         padding: 10px;       //背景色
         }    
     &__click {
-        text-align: right;                      //右寄せ                 //親要素からの絶対位置指定
-        }         
-    
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 20%;
@@ -2175,14 +2187,18 @@ ol li:before{
         display: flex;
         width: 100%;
     }
+    &__click {
+        text-align: right;
+        margin-top: 150px;
+    }
 
     &__right {
-        background-color:#87785A;
+    
         padding-left: 20px;
         width: 20%;
     }
-    
-}
+}    
+
 //自治体マイページ画面
 .p-municipality-mypage {
     display: flex; //子要素を横並び
@@ -2201,6 +2217,11 @@ ol li:before{
     &__top {
         display: flex;
         width: 100%;
+        padding: 20px;
+    }
+    &__click {
+        text-align: right;
+        margin-top: 200px;
     }
 
     &__right {
