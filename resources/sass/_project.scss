@@ -516,8 +516,6 @@
         margin-top: 10px;               //新規作成ボタンからの背景色までの空白
         display: flex;
         justify-content: flex-end;
-        overflow: scroll;
-        overflow-x: hidden;
     }
     &__create-button{                   //右上の新規作成ボタンの設定
         background-color: $navy;
@@ -593,6 +591,18 @@
         border: none;
         margin-top:15px;
         margin-right:40px;
+    }
+    &__card_btn{
+        background-color: #ffffff;
+        border-radius : 8px;
+        width: 45%;
+        height: 100px;
+    }
+    &__card_btn2{
+        width: 2%;
+    }
+    &__card_btn3{
+        width: 3%;
     }
 }
 
@@ -1273,8 +1283,10 @@
 //オープンチャットリスト一覧表示のアイコン設定
 .p-open_chat_area{
     &__open_chat_list_icon{
-        width:100px;
-        height:100px;
+        width:80px;
+        height:80px;
+        margin-top: auto;
+        margin-bottom: auto;
         border-radius: 50%;
         background-color:$beige;
     }
@@ -1718,6 +1730,16 @@ ol li:before{
     table {
         margin: 20px;
     }
+    &__btn--navy {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 80px;
+        height: 30px;
+        margin-bottom: 10px;
+        
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1730,6 +1752,7 @@ ol li:before{
         width: 200px;
         height: 60px;
         margin-bottom: 10px;
+
     }
     &__btn--red {
         background-color: red;
@@ -1773,7 +1796,10 @@ ol li:before{
             width: 30%;
         }
     }
-
+    &__click {
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1820,6 +1846,10 @@ ol li:before{
     // table {
     //     margin: 20px;
     // }
+    &__click {
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1922,11 +1952,6 @@ ol li:before{
         padding: 1px;
         margin: 3px;
     }
-    &__mind {
-        width: 20%;
-        background-color: gray;
-        padding: 10px;
-    }
     &__top {
         display: flex;
         width: 100%;
@@ -1935,9 +1960,9 @@ ol li:before{
         padding: 10px;       //背景色
         }    
     &__click {
-        text-align: right;                      //右寄せ                 //親要素からの絶対位置指定
-        }         
-    
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 20%;
@@ -2170,9 +2195,13 @@ ol li:before{
         display: flex;
         width: 100%;
     }
+    &__click {
+        text-align: right;
+        margin-top: 150px;
+    }
 
     &__right {
-        background-color:#87785A;
+    
         padding-left: 20px;
         width: 20%;
     }
@@ -2198,6 +2227,11 @@ ol li:before{
     &__top {
         display: flex;
         width: 100%;
+        padding: 20px;
+    }
+    &__click {
+        text-align: right;
+        margin-top: 200px;
     }
 
     &__right {

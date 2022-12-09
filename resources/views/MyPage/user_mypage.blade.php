@@ -14,9 +14,9 @@
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" placeholder="大原　太郎">
+                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}">
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" placeholder="example@aaa.com">
+                <input type="email" class="form-control" id="mail" value="{{ $human->email }}">
             </div>
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
@@ -28,7 +28,9 @@
                 <input type="text" class="form-control" id="hobby" placeholder="趣味③"></div>
             </div>
             <div class="p-mypage-store__mind">
-                <p>マインドフルネス</p>
+                <form action="mindfulness_start">
+                <a href="#"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="150" height="180"></a>
+                </form>    
             </div>
         </div>
         <div class="p-mypage-store__middle">
@@ -49,7 +51,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="p-mypage-store__click"><a href="#">もっと見る...Click here</a></div><br>
+        <div class="p-mypage-store__click">
+            <a href="#">もっと見る...Click here</a></div><br>
         
     </div>
 
