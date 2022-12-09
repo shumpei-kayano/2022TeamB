@@ -526,8 +526,6 @@
         margin-top: 10px;               //新規作成ボタンからの背景色までの空白
         display: flex;
         justify-content: flex-end;
-        overflow: scroll;
-        overflow-x: hidden;
     }
     &__create-button{                   //右上の新規作成ボタンの設定
         background-color: $navy;
@@ -603,6 +601,18 @@
         border: none;
         margin-top:15px;
         margin-right:40px;
+    }
+    &__card_btn{
+        background-color: #ffffff;
+        border-radius : 8px;
+        width: 45%;
+        height: 100px;
+    }
+    &__card_btn2{
+        width: 2%;
+    }
+    &__card_btn3{
+        width: 3%;
     }
 }
 
@@ -1282,8 +1292,10 @@
 //オープンチャットリスト一覧表示のアイコン設定
 .p-open_chat_area{
     &__open_chat_list_icon{
-        width:100px;
-        height:100px;
+        width:80px;
+        height:80px;
+        margin-top: auto;
+        margin-bottom: auto;
         border-radius: 50%;
         background-color:$beige;
     }

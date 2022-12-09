@@ -14,9 +14,9 @@
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" placeholder="大原　太郎">
+                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}">
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" placeholder="example@aaa.com">
+                <input type="email" class="form-control" id="mail" value="{{ $human->email }}">
             </div>
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
