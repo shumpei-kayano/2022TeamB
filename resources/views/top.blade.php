@@ -15,7 +15,7 @@
       {{-- @component('components.left')
       @endcomponent --}}
       <div class="col-2 c-bgcolor--brown left-bar Category_bar">
-        <h4>カテゴリから検索</h4><br>
+        <div class="w-100 d-flex justify-content-center"><div class=p-left_menu_bar>カテゴリから検索</div></div><br>
     @foreach ($items as $item)
     <p>{{$item->category_name}}</p>
     
@@ -62,10 +62,12 @@
               {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
               <div class="w-100 d-flex justify-content-center"><div class="p-blog">新着ブログ</div></div>
               <div class="p-blog__blog_area">
-                <div class="p-blog__blog_user_icon"></div><p class="p-blog__blog_title">　2022.10.22.〇〇〇に行ってきた</p>
+                <div class="p-blog__blog_user_icon"></div>
+                <p class="p-blog__blog_title">　2022.10.20.〇〇〇に行ってきた</p>
               </div>
               <div class="p-blog__blog_area">
-                <div class="p-blog__blog_user_icon"></div><p class="p-blog__blog_title">　2022.10.20.〇〇〇に行ってきた</p>
+                <div class="p-blog__blog_user_icon"></div>
+                <p class="p-blog__blog_title">　2022.10.20.〇〇〇に行ってきた</p>
               </div>
               <div class="click"><a href="new_blog_list">もっと見る...Click here</a></div>
             </div>

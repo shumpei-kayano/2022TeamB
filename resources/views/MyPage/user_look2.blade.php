@@ -17,7 +17,8 @@
 					<td class="p-user-mypage__tenpo"><label for="tenpo" class="form-label">店舗名</label>
 						<input type="text" class="form-control" id="tenpo" placeholder="">
 					</td>
-					<td rowspan="3" class="p-user-mypage__hyouka">店鋪評価</td>
+					<td rowspan="3" class="p-user-mypage__hyouka">店鋪評価<br>
+					<a href="#"><button class="p-user-mypage__btn--navy"> DM送信</button></a></td>
 				</tr>
 				<tr>
 					<td class="p-user-mypage__tel"><label for="tel" class="form-label">電話番号</label>
@@ -48,6 +49,8 @@
 					<td>イベント情報３</td>
 				</tr>
 		</table>
+		<div class="p-mypage-store__click">
+			<a href="#">もっと見る...Click here</a></div><br>
 	</div>
 	<div class="p-user-mypage__right">
 		<img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">

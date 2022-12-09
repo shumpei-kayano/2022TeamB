@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
@@ -38,5 +39,12 @@ class UsersController extends Controller
         $users->fill($form)->save();
         // redirectでトップのルートを見る
         return redirect('/');
+    }
+    public function display()
+    {
+        // $human = Users::all();
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        return view('MyPage.user_mypage', ['human' => $human]);
     }
 }
