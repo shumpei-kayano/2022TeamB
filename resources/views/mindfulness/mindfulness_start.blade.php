@@ -7,7 +7,7 @@
 <div class="p-mindfulness-start">
     <div class="p-mindfulness-start__left">
       <div class="p-mindfulness-start__top">
-        <form action="check_deactivate">
+        <form action="mindfulness_timer">
           <a href="#"><button class="p-mindfulness-start__btn"> スタート</button></a>
         </form>
       </div>

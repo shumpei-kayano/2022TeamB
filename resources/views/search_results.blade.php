@@ -98,7 +98,8 @@
                     <div class="d-flex">
                         {{-- ユーザ名ごとに１行ずつ表示する --}}
                         <div class="p-search_results_container__event_info_results">
-                           
+                            <div class="p-search_results_container__event_title">【竹田市】たけた城下町散策ツアー参加者募集</div>
+                            <div class="p-search_results_container__event_details">2022年7月22日に城下町散策ツアーを実施します。。。。。ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</div>
                         </div>
                     </div>
                 </div>
@@ -107,7 +108,8 @@
                     <div class="d-flex">
                         {{-- ユーザ名ごとに１行ずつ表示する --}}
                         <div class="p-search_results_container__event_info_results">
-                           
+                            <div class="p-search_results_container__event_title">#別府エール飯　別府市内の・・・・・</div>
+                            <div class="p-search_results_container__event_details">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</div>
                         </div>
                     </div>
                 </div>
@@ -116,7 +118,8 @@
                     <div class="d-flex">
                         {{-- ユーザ名ごとに１行ずつ表示する --}}
                         <div class="p-search_results_container__event_info_results">
-                           
+                            <div class="p-search_results_container__event_title">【臼杵市】　うすき竹宵</div>
+                            <div class="p-search_results_container__event_details">2022年11月22日～〇日まで開催されます。。。。。ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</div>
                         </div>
                     </div>
                 </div>
@@ -129,6 +132,38 @@
     {{-- 店舗の検索結果表示 --}}
         <div class="p-search_results_container__restaurant_info">
             <div class="p-search_results_container__restaurant_info_title">店舗情報</div>
+            <div class="col-12">
+                <div class="row">
+                    
+                <div class="col-12">
+                    <div class="d-flex">
+                        {{-- ユーザ名ごとに１行ずつ表示する --}}
+                        <div class="p-search_results_container__restaurant_info_results">
+                            <div class="p-search_results_container__restaurant_title">〇〇食堂</div>
+                            <div class="p-search_results_container__restaurant_details">2022年7月22日に城下町散策ツアーを実施します。。。。。ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="d-flex">
+                        {{-- ユーザ名ごとに１行ずつ表示する --}}
+                        <div class="p-search_results_container__restaurant_info_results">
+                            <div class="p-search_results_container__restaurant_title">Cafe 〇〇〇〇〇〇〇〇〇</div>
+                            <div class="p-search_results_container__restaurant_details">2022年7月22日に城下町散策ツアーを実施します。。。。。ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="d-flex">
+                        {{-- ユーザ名ごとに１行ずつ表示する --}}
+                        <div class="p-search_results_container__restaurant_info_results">
+                            <div class="p-search_results_container__restaurant_title">フレンチレストラン蔦</div>
+                            <div class="p-search_results_container__restaurant_details">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</div>
+                        </div>
+                    </div>
+                </div>
 
             <a href="contact_results" target="_blank" class="p-search_results_container__restaurant_info_other">その他の店舗情報</a>
         </div>

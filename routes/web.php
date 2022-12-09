@@ -15,6 +15,7 @@
 
 use App\Chatroom;
 use App\Http\Controllers\Chatroomcontroller;
+use App\Http\Controllers\UsersController;
 use Doctrine\DBAL\Schema\Index;
 
 // use Illuminate\Routing\Route;
@@ -57,6 +58,7 @@ Route::get('/ryukinotikubi', function () {
 });
 
 Route::get('Proof', 'ProofController@index');
+
 //ログイン画面にとぶ
 Route::get('/login', function () {
     return view('auth.login');
@@ -96,6 +98,7 @@ Route::get('account_deactivate', function () {
 //アカウント削除試す
 // Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
 Route::post('/account_deleted', 'UsersController@withdrawal')->name('user.withdrawal');
+
 //ログアウト完了画面に飛ぶ
 Route::get('/completed_logout', function () {
     return view('auth.completed_logout');
@@ -173,6 +176,11 @@ Route::get('mypage_del', function () {
 Route::get('user_mypage', function () {
     return view('MyPage.user_mypage');
 });
+// アカウント情報編集処理
+Route::post('/add','UsersController@add')->name('add');
+// Route::get('user_mypage', function () {
+//     return view('MyPage.user_mypage');});
+Route::get('user_mypage', 'UsersController@display');
 //店鋪マイページ画面
 Route::get('tenpo_mypage', function () {
     return view('MyPage.tenpo_mypage');
@@ -184,7 +192,7 @@ Route::get('municipality_mypage', function () {
 
 
 
-
+//アカウント削除するときのパスワード再確認
 Route::middleware('auth')->group(function () {
 
 
@@ -240,9 +248,7 @@ Route::get('mindfulness_timer', function () {
 
 
 //オープンチャット関連
-Route::get('open_chat_list', function () {
-    return view('open_chat.open_chat_list');
-});
+Route::get('open_chat_list', 'ChatroomController@index3');
 
 //アカウント削除前のパスワード確認画面
 Route::middleware('auth')->group(function () {
@@ -344,15 +350,13 @@ Route::get('blog_completed_deactivate', function () {
     return view('blog.blog_completed_deactivate');
 });
 
-//ブログ記事一覧表示
-Route::get('new_blog_list', function () {
-    return view('blog.new_blog_list');
-});
+//トップページから「もっと見る」をクリックでブログ記事一覧表示
+Route::get('new_blog_list', 'BlogController@index');
 
 //ブログ記事詳細ページ表示
-Route::get('blog_show', function () {
-    return view('blog.blog_show');
-});
+// Route::get('blog_show', function () {
+//     return view('blog.blog_show');
+// });
 
 //投稿済みブログ一覧
 Route::get('my_posted_blog_list', function () {
@@ -363,6 +367,38 @@ Route::get('my_posted_blog_list', function () {
 Route::get('my_blog_edit', function () {
     return view('blog.my_blog_edit');
 });
+
+// 投稿ページを表示
+Route::get('/create', 'BlogController@postpage');
+
+// 投稿をコントローラーに送信
+Route::post('/newpostsend', 'BlogController@savenew');
+
+// 投稿一覧を表示する
+Route::get('/new_blog_list', 'BlogController@list');
+
+// 投稿一覧を表示する
+Route::get('/blog_show/{id}', 'BlogController@show');
+
+
+
+//「ブログを書く」ボタンクリックでページ遷移
+// Route::get('my_blog_edit', function () {
+//     return view('my_blog_edit');
+// });
+
+
+
+
+
+
+//あとで消す
+// ブログCDN読み込み　リッチテキストエディターページ
+// Route::get('/create2', 'BlogController@wys');
+Route::get('/create2', 'BlogController@savenew');
+
+
+
 
 //ユーザアイコンをクリックした時のマイページへの誘導画面(小ウィンドウ)表示 
 Route::get('user_icon_modal', function () {
@@ -400,22 +436,22 @@ Route::get('rate', function () {
 });
 
 
-//自治体（自分に見える側）フォロー中のユーザ表示画面　　　　　OK
+//自治体（自分に見える側）フォロー中のユーザ表示画面　　　　　
 Route::get('gov_following_this_side', function () {
     return view('follow.gov_following_this_side');
 });
 
-//自治体（他のユーザに見える側）フォロー中のユーザ表示画面　　　OK
+//自治体（他のユーザに見える側）フォロー中のユーザ表示画面　　　
 Route::get('gov_following_other_side', function () {
     return view('follow.gov_following_other_side');
 });
 
-//自治体（自分に見える側）フォロワーの一覧表示画面　　          OK
+//自治体（自分に見える側）フォロワーの一覧表示画面　　          
 Route::get('gov_follower_this_side', function () {
     return view('follow.gov_follower_this_side');
 });
 
-//自治体（他のユーザに見える側）フォロワーの一覧表示画面　　     OK
+//自治体（他のユーザに見える側）フォロワーの一覧表示画面　　     
 Route::get('gov_follower_other_side', function () {
     return view('follow.gov_follower_other_side');
 });
@@ -427,24 +463,24 @@ Route::get('gov_follower_other_side', function () {
 
 
 
-//個人利用者（自分に見える側）フォロー中のユーザ表示画面            OK
+//個人利用者（自分に見える側）フォロー中のユーザ表示画面            
 Route::get('personal_following_this_side', function () {
     return view('follow.personal_following_this_side');
 });
 
-//個人利用者（他のユーザに見える側）フォロー中のユーザ表示画面      OK
+//個人利用者（他のユーザに見える側）フォロー中のユーザ表示画面      
 Route::get('personal_following_other_side', function () {
     return view('follow.personal_following_other_side');
 });
 
 
-//個人利用者（自分に見える側）フォロワーの一覧表示画面              OK
+//個人利用者（自分に見える側）フォロワーの一覧表示画面              
 Route::get('personal_follower_this_side', function () {
     return view('follow.personal_follower_this_side');
 });
 
 
-//個人利用者（他のユーザに見える側）フォロワーの一覧表示画面            OK
+//個人利用者（他のユーザに見える側）フォロワーの一覧表示画面            
 Route::get('personal_follower_other_side', function () {
     return view('follow.personal_follower_other_side');
 });
@@ -455,26 +491,25 @@ Route::get('personal_follower_other_side', function () {
 
 
 
-//飲食店（自分に見える側）フォロー中のユーザ表示画面                OK
+//飲食店（自分に見える側）フォロー中のユーザ表示画面                
 Route::get('restaurant_following_this_side', function () {
     return view('follow.restaurant_following_this_side');
 });
 
-
-//飲食店（他のユーザに見える側）フォロー中のユーザ表示画面          OK
+//飲食店（他のユーザに見える側）フォロー中のユーザ表示画面          
 Route::get('restaurant_following_other_side', function () {
     return view('follow.restaurant_following_other_side');
 });
 
 
-//飲食店（自分に見える側）フォロワーの一覧表示画面                  OK
+//飲食店（自分に見える側）フォロワーの一覧表示画面                  
 Route::get('restaurant_follower_this_side', function () {
     return view('follow.restaurant_follower_this_side');
 });
 
 
 
-//飲食店（他のユーザに見える側）フォロワーの一覧表示画面            OK
+//飲食店（他のユーザに見える側）フォロワーの一覧表示画面            
 Route::get('restaurant_follower_other_side', function () {
     return view('follow.restaurant_follower_other_side');
 });

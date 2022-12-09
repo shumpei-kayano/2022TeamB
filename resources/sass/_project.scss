@@ -131,9 +131,13 @@
 }
 
 //トップページのブログコーナー
-.p-blog{                                    //ブログコーナータイトル中央寄せ
-    text-align: center;
-    font-size: 20px;
+.p-blog{                                  //ブログコーナータイトル中央寄せ
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
     &__blog_area{
         display: flex;                      //Flexboxを使って子要素を横並び
         justify-content: flex-start;        //水平方向揃え(flex-start:初期値)
@@ -147,6 +151,83 @@
 }
 
 
+
+//トップページの「ブログコーナー」タイトルの線のスタイル設定
+.p-blog:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                       //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-blog:after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-blog:before {
+    left:0;
+  }
+.p-blog:after {
+    right: 0;
+  }
+
+
+//トップ画面の左側カテゴリメニューバーのタイトル設定
+.p-left_menu_bar{
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:12px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
+  
+}
+.p-left_menu_bar:before {
+        content: '';
+        position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+        top: 55%;                       //トップからどのくらい離すか
+        display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+        width: 45px;
+        height: 1px;
+        background-color: black;
+    }
+    
+    .p-left_menu_bar:after{
+        content: '';
+        position: absolute;
+        top: 55%;
+        display: inline-block;
+        width: 45px;
+        height: 1px;
+        background-color: black;
+    }
+    
+    .p-left_menu_bar:before {
+        left:0;
+    }
+    .p-left_menu_bar:after {
+        right: 0;
+    }
+
+
+//トップ画面の左側カテゴリメニューバー
+.Category_bar{
+    height: 796px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+
 //検索結果表示画面
 .p-search_results_container{                //結果表示エリア
         width:1260px;
@@ -154,17 +235,18 @@
         margin-top:10px;
         margin-right:auto;
         margin-left:auto;
-        background-color: white;
-        border-radius: 10px;
+        // background-color: white;
+        // border-radius: 10px;
         padding: 0.1px;
+
     &__contact_info{                        //連絡先結果表示
         width:1240px;
         height:150px;
         margin-top:10px;
         margin-right:auto;
         margin-left:auto;
-        background-color: rgb(179, 128, 128);
-        border-radius: 10px;;
+        // background-color: rgb(179, 128, 128);
+        // border-radius: 10px;;
     }
     &__event_info{                          //イベント結果表示
         width:1240px;
@@ -172,8 +254,8 @@
         margin-top:5px;
         margin-right:auto;
         margin-left:auto;
-        background-color: rgb(194, 208, 103);
-        border-radius: 10px;;
+        // background-color: rgb(194, 208, 103);
+        // border-radius: 10px;;
     }
     &__restaurant_info{                     //飲食店結果表示
         width:1240px;
@@ -181,8 +263,8 @@
         margin-top:5px;
         margin-right:auto;
         margin-left:auto;
-        background-color: rgb(155, 161, 214);
-        border-radius: 10px;;
+        // background-color: rgb(155, 161, 214);
+        // border-radius: 10px;
     }
     &__contact_info_title{                  //ユーザ名の検索結果表示　左上のタイトル
         padding-top:5px;
@@ -219,15 +301,17 @@
         padding-top:15px;
         padding-left:10px;
     }
-    &__event_info_results{
+    &__event_info_results{          //イベント情報検索結果の表示設定
         width:1210px;
         height:60px;
         margin-bottom:5px;
         background-color: white;
         border-radius: 10px;
+        text-indent: 1em;
     }
-
-
+    &__event_title{
+        font-size:20px;
+    }
     &__contact_info_other{          //その他のユーザー（クリックでさらに表示）の位置設定
         padding-left:10px;
         padding-top:15px;
@@ -239,6 +323,17 @@
     &__restaurant_info_other{       //その他の店舗情報（クリックでさらに表示）の位置設定
         padding-left:10px;
         margin-top:10px;
+    }
+    &__restaurant_info_results{          //イベント情報検索結果の表示設定
+        width:1210px;
+        height:60px;
+        margin-bottom:5px;
+        background-color: white;
+        border-radius: 10px;
+        text-indent: 1em;
+    }
+    &__restaurant_title{
+        font-size:20px;
     }
 }
 
@@ -284,20 +379,89 @@
 
 //トップページのイベント掲示板コーナー
 .p-event{                                   //イベント募集掲示板コーナータイトル中央寄せ      
-    text-align: center;
-    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
 }
+
+//トップページの「イベント募集掲示板」タイトルの線のスタイル設定
+.p-event:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 60%;                      //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-event:after{
+    content: '';
+    position: absolute;
+    top: 60%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-event:before {
+    left:0;
+  }
+.p-event:after {
+    right: 0;
+  }
+
+
 
 //トップページの自治体コーナー
 .p-gov{                                     //自治体コーナータイトル中央寄せ
-    text-align: center;
-    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
 }
+
+.p-gov:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                      //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-gov:after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-gov:before {
+    left:0;
+  }
+.p-gov:after {
+    right: 0;
+  }
 
 //トップページのオープンチャットコーナー
 .p-open{                                    
-    text-align: center;                     //オープンチャットコーナータイトル中央寄せ
-    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:18px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
     &__open_chat_icon{
         width: 50px;                        //円の横幅
         height: 50px;                       //円の縦幅
@@ -309,6 +473,33 @@
         text-align: center;
     }
 }
+
+.p-open:before {
+    content: '';
+    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                       //トップからどのくらい離すか
+    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+
+.p-open:after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+}
+
+.p-open:before {
+    left:0;
+  }
+.p-open:after {
+    right: 0;
+  }
 
 
 
@@ -400,6 +591,18 @@
         border: none;
         margin-top:15px;
         margin-right:40px;
+    }
+    &__card_btn{
+        background-color: #ffffff;
+        border-radius : 8px;
+        width: 45%;
+        height: 100px;
+    }
+    &__card_btn2{
+        width: 2%;
+    }
+    &__card_btn3{
+        width: 3%;
     }
 }
 
@@ -996,6 +1199,14 @@
         margin:auto;
         border-radius: 10px;
         margin-bottom:20px;
+   
+    }
+    &__new_blog_post:hover{
+        opacity:0.5;
+    }
+    &__new_blog_post.a{
+        width:100%;
+        height:100px;
     }
     &__blog_post{
         height:80px;
@@ -1036,15 +1247,8 @@
     }
     &__photo_insert{
         width:120px;
-        height:100px;
-        background-color: white;
         margin-top:30px;
-        border-radius: 10px;
         margin-left:90px;
-        border-bottom: 3px solid black;
-    }
-    &__img{                     
-       padding-top:22px;                    //ブログ編集ページの画像挿入ボタンの画像位置設定
     }
     &__textarea{
         margin-top:10px;
@@ -1079,8 +1283,10 @@
 //オープンチャットリスト一覧表示のアイコン設定
 .p-open_chat_area{
     &__open_chat_list_icon{
-        width:100px;
-        height:100px;
+        width:80px;
+        height:80px;
+        margin-top: auto;
+        margin-bottom: auto;
         border-radius: 50%;
         background-color:$beige;
     }
@@ -1227,6 +1433,7 @@ ol li:before{
     input[name="tab_menu"] {
         display: none;
     }
+    
     /*タブ切り替えの中身のスタイル*/
     &__tab_contents1 {
     display: none;
@@ -1277,7 +1484,7 @@ ol li:before{
     }    
 }
 
-/*選択されているタブを表示*/
+/*アカウント登録ページ／選択されているタブを表示*/
 #menu01:checked ~ #menu01,
 #menu02:checked ~ #menu02,
 #menu03:checked ~ #menu03 {
@@ -1523,7 +1730,16 @@ ol li:before{
     table {
         margin: 20px;
     }
-    
+    &__btn--navy {
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 80px;
+        height: 30px;
+        margin-bottom: 10px;
+        
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1536,6 +1752,7 @@ ol li:before{
         width: 200px;
         height: 60px;
         margin-bottom: 10px;
+
     }
     &__btn--red {
         background-color: red;
@@ -1579,7 +1796,10 @@ ol li:before{
             width: 30%;
         }
     }
-
+    &__click {
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1626,6 +1846,10 @@ ol li:before{
     // table {
     //     margin: 20px;
     // }
+    &__click {
+        text-align: right;
+        margin-top: 130px;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
@@ -1728,24 +1952,22 @@ ol li:before{
         padding: 1px;
         margin: 3px;
     }
-    &__mind {
-        width: 20%;
-        background-color: gray;
-        padding: 10px;
-    }
     &__top {
         display: flex;
         width: 100%;
     }
     &__middle {
-        padding: 10px;
+        padding: 10px;       //背景色
+        }    
+    &__click {
+        text-align: right;
+        margin-top: 130px;
     }
     &__right {
         padding-left: 20px;
         width: 20%;
         box-sizing: border-box;
     }
-    
 }
 
 
@@ -1862,14 +2084,14 @@ ol li:before{
         &__simasita {
             margin-top:80px;
         }
-    
+    }
 .p-open_range {
         &__b {
             display       : inline-block;
             border-radius : 5%;          /* 角丸       */
             font-size     : 15pt;        /* 文字サイズ */
             text-align    : center;      /* 文字位置   */
-            cursor        : pointer;     /* カーソル   */
+         /* カーソル   */
             transform: translate(0px,10px);
             padding       : 12px 12px;   /* 余白       */
             background-color:#999999;     /* 背景色     */
@@ -1885,7 +2107,7 @@ ol li:before{
         border-radius : 5%;          /* 角丸       */
         font-size     : 18pt;        /* 文字サイズ */
         text-align    : center;      /* 文字位置   */
-        cursor        : pointer;     /* カーソル   */
+   /* カーソル   */
         margin-top:30px;
         padding       : 12px 12px;   /* 余白       */
         background-color:#999999;     /* 背景色     */
@@ -1899,8 +2121,7 @@ ol li:before{
     display       : inline-block;
     border-radius : 5%;          /* 角丸       */
     font-size     : 18pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
+    text-align    : center;      /* 文字位置   *//* カーソル   */
     margin-top:25px;
     padding       : 0px 30px;   /* 余白       */
     background-color:#999999;     /* 背景色     */
@@ -1921,19 +2142,14 @@ ol li:before{
         height: 60px;
         margin-bottom: 30px;
         margin-top:30px;
-}
+    }
     &__range_close{
-    display: flex;
-    justify-content: flex-end;
-    border: 1px solid #999;
-    padding: 10px;
-    background: #fff9cc;
-    margin-top:10px;
-    text-align    : right;  
-    
+        background-color:#87785A;
+        margin-left: 300px;
+    }
 }
-}
-}
+
+
 //アカウント削除ボタン表示画面
 .p-mypage-delete-account {
     display: flex; //子要素を横並び
@@ -1958,6 +2174,8 @@ ol li:before{
         width: 20%;
     }
 }
+
+
 //店鋪マイページ画面
 .p-tenpo-mypage {
     display: flex; //子要素を横並び
@@ -1977,13 +2195,20 @@ ol li:before{
         display: flex;
         width: 100%;
     }
+    &__click {
+        text-align: right;
+        margin-top: 150px;
+    }
 
     &__right {
+    
         padding-left: 20px;
         width: 20%;
     }
     
 }
+
+
 //自治体マイページ画面
 .p-municipality-mypage {
     display: flex; //子要素を横並び
@@ -2002,6 +2227,11 @@ ol li:before{
     &__top {
         display: flex;
         width: 100%;
+        padding: 20px;
+    }
+    &__click {
+        text-align: right;
+        margin-top: 200px;
     }
 
     &__right {
@@ -2010,6 +2240,9 @@ ol li:before{
     }
     
 }
+
+
+
 //マインドフルネス、スタートボタン表示画面
 .p-mindfulness-start {
     display: flex; //子要素を横並び
@@ -2043,6 +2276,9 @@ ol li:before{
         width: 20%;
     }
 }
+
+
+
 //マインドフルネス終了画面
 .p-mindfulness-end {
     display: flex; //子要素を横並び
@@ -2111,11 +2347,7 @@ ol li:before{
     }
   
 
-.Category_bar{
-    height: 796px;
-    overflow: scroll;
-    overflow-x: hidden;
-}
+
 
 .tuuhoutext{                 //通報画面のテキストエリア
     margin-top: 0px;
@@ -2172,3 +2404,8 @@ ol li:before{
 .chatroom_error{
     color: crimson;
 }
+
+//ブログCDN読み込みテキストエリアの背景色を白色に
+// .ql-container {
+//     background-color: white;
+//   }
