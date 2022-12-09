@@ -126,7 +126,7 @@ Route::get('event014', function () {
 Route::post('events', 'App\Http\Controllers\EventsController@store');
 */
 //イベントを削除 ルートパラメータでidを渡すのがポイント
-Route::delete('event016/{id}', 'EventController@destroy');
+Route::post('eventdel/{id}', 'EventController@destroy');
 /*
 //更新画面表示　ルートパラメータでidを渡すのがポイント
 Route::post('eventsedit/{event}', 'App\Http\Controllers\EventsController@edit');

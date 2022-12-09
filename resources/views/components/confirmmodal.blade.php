@@ -17,12 +17,11 @@
             <p>{{$modal_body}}</p>
         </div>
         <div class="modal-footer">
-            <form action="event016/{id}" method="post">
-                {{-- <input type="hidden" name="id" value="{{$form->id}}"> --}}
-                @csrf
-                <input type="hidden" name="id" value="">
-                <button type="submit" class="btn c-bgcolor--navy c-color--white">はい</button>
-            </form>
+            {{--  <form action="?" method="post">  --}}
+                {{--  コンポーネントだと削除POSTがうまくできない  --}}
+                {{--  <input type="hidden" name="id" value="">  --}}
+                <button type="submit" class="btn c-bgcolor--navy c-color--white" formaction="">はい</button>
+            {{--  </form>  --}}
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">いいえ</button>
         </div><!-- /.modal-footer -->
     </div><!-- /.modal-content -->

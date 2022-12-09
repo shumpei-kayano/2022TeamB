@@ -17,6 +17,7 @@
             </div>
             {{--  form ここから ファイルアップロードはenctype="multipart/form-data"が必要 --}}
             <form action="?" method="post" enctype="multipart/form-data">
+                @csrf
             <div class="eventadd__content">
                 <div class="eventadd__left">
                     <div class="eventadd__img-container">
@@ -44,19 +45,36 @@
                         {{--  <input type="submit" value="削除" name="delete" class='button'>  --}}
                     
                     <div class="c-color--black">
-                    {{--  componentsから確認モーダルを挿入  --}}
-                    @component('components.confirmmodal') 
-                        @slot('btn_title')
-                        削除
-                        @endslot
-                        @slot('msg_title')
-                        イベント投稿削除
-                        @endslot
-                        @slot('modal_body')
-                        本当に削除しますか？
-                        @endslot
+        {{--  確認モーダルを挿入  --}}
+            {{--   ボタンの設定   --}}
+            <button type="button" class="btn btn-warning p-event-text" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            削除
+            </button>
+            {{--  モーダルの設定  --}}
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog">
+                {{--  bgcolorはmodal-contentに設定する  --}}
+                <div class="modal-content"> 
+                    <div class="modal-header">
+                        {{--  タイトル  --}}
+                        <h1 class="fs-5" id="exampleModalLabel">イベント投稿削除</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>投稿を削除しますか？</p>
+                    </div>
+                    <div class="modal-footer">
+                        {{--  <form action="?" method="post">  --}}
+                            {{--  <input type="hidden" name="id" value="{{$event->id}}">  --}}
+                            {{--  <input type="hidden" name="id" value="">  --}}
+                            <button type="submit" class="btn c-bgcolor--navy c-color--white" formaction="{{ url('eventdel/'.$event->id) }}">はい</button>
+                        {{--  </form>  --}}
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">いいえ</button>
+                    </div><!-- /.modal-footer -->
+                </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
 
-                    @endcomponent
                     </div>
                     </div>
                 </div>
@@ -162,5 +180,8 @@
         }    
     </script>
 
+
+{{--  bootstrap.js をCDNから読み込む  --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
 @endsection

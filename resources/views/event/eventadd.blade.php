@@ -30,7 +30,7 @@
                                 <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
                                 <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                                 </span>
-                                <input type="submit" value="削除" class="btn eventadd-btn-warning p-event-text c-text-sm">
+                                <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
                             </label>
                         </div>
                         {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
