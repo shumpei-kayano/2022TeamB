@@ -180,61 +180,51 @@
     right: 0;
   }
 
-//ブログ編集ページ
-// .p-blog_edit{
-//     &__content_wrapper{
-//         width: 1000px;
-//         min-height:500px;
-//         text-align: center;
-//     }
-//     &__content2{
-//         display: inline-block;
-//         text-align: left;
-//         width:690px;
-//         min-height:500px;
-//         background-color: #ffffff;
-//         border: 5px solid  #707aff;
-//         border-radius: 10px;
-//         margin: 20px 0;
-//         padding: 10px;
-//     }
-//     &__wrapper{
-//         width: 1000px;
-//         background-color: #20f3f3;
-//         min-height:700px;
-//         /* border: 1px solid #ccc; */
-//         margin: 0 auto;
-//     }
-    
-//     &__header{
-//         background-color: #707aff;
-//         margin: 0 0 10 0px;
-//         height: 100px;
-//         padding: 20px;
-//     }
-//     &__sidebar{
-//         margin:20px;
-//         background-color: #ffffff;
-//         border: 2px solid #707aff;
-//         border-radius: 10px;
-//         width: 250px;
-//         min-height:500px;
-//         float: right;
-//         padding: 10px;
-//     }
-//     &__content{
-//         text-align: center;
-//         width:690px;
-//         min-height:500px;
-//         background-color: #ffffff;
-//         border: 5px solid  #707aff;
-//         border-radius: 10px;
-//         margin: 20px;
-//         padding: 10px;
-//     }
-    
-// }
 
+//トップ画面の左側カテゴリメニューバーのタイトル設定
+.p-left_menu_bar{
+    position: relative;
+    display: inline-block;
+    padding: 0 55px ;
+    font-size:12px;
+    padding-top:8px;                       //タイトル上の余白
+    padding-bottom:3px;                    //タイトル下の余白
+  
+}
+.p-left_menu_bar:before {
+        content: '';
+        position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+        top: 55%;                       //トップからどのくらい離すか
+        display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+        width: 45px;
+        height: 1px;
+        background-color: black;
+    }
+    
+    .p-left_menu_bar:after{
+        content: '';
+        position: absolute;
+        top: 55%;
+        display: inline-block;
+        width: 45px;
+        height: 1px;
+        background-color: black;
+    }
+    
+    .p-left_menu_bar:before {
+        left:0;
+    }
+    .p-left_menu_bar:after {
+        right: 0;
+    }
+
+
+//トップ画面の左側カテゴリメニューバー
+.Category_bar{
+    height: 796px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
 
 
 
@@ -1199,6 +1189,14 @@
         margin:auto;
         border-radius: 10px;
         margin-bottom:20px;
+   
+    }
+    &__new_blog_post:hover{
+        opacity:0.5;
+    }
+    &__new_blog_post.a{
+        width:100%;
+        height:100px;
     }
     &__blog_post{
         height:80px;
@@ -1239,15 +1237,8 @@
     }
     &__photo_insert{
         width:120px;
-        height:100px;
-        background-color: white;
         margin-top:30px;
-        border-radius: 10px;
         margin-left:90px;
-        border-bottom: 3px solid black;
-    }
-    &__img{                     
-       padding-top:22px;                    //ブログ編集ページの画像挿入ボタンの画像位置設定
     }
     &__textarea{
         margin-top:10px;
@@ -1430,6 +1421,7 @@ ol li:before{
     input[name="tab_menu"] {
         display: none;
     }
+    
     /*タブ切り替えの中身のスタイル*/
     &__tab_contents1 {
     display: none;
@@ -1480,7 +1472,7 @@ ol li:before{
     }    
 }
 
-/*選択されているタブを表示*/
+/*アカウント登録ページ／選択されているタブを表示*/
 #menu01:checked ~ #menu01,
 #menu02:checked ~ #menu02,
 #menu03:checked ~ #menu03 {
@@ -2125,12 +2117,13 @@ ol li:before{
         height: 60px;
         margin-bottom: 30px;
         margin-top:30px;
-}
+    }
     &__range_close{
         background-color:#87785A;
         margin-left: 300px;
+    }
 }
-}
+
 
 //アカウント削除ボタン表示画面
 .p-mypage-delete-account {
@@ -2156,6 +2149,8 @@ ol li:before{
         width: 20%;
     }
 }
+
+
 //店鋪マイページ画面
 .p-tenpo-mypage {
     display: flex; //子要素を横並び
@@ -2183,6 +2178,8 @@ ol li:before{
     }
     
 }
+
+
 //自治体マイページ画面
 .p-municipality-mypage {
     display: flex; //子要素を横並び
@@ -2209,6 +2206,9 @@ ol li:before{
     }
     
 }
+
+
+
 //マインドフルネス、スタートボタン表示画面
 .p-mindfulness-start {
     display: flex; //子要素を横並び
@@ -2242,6 +2242,9 @@ ol li:before{
         width: 20%;
     }
 }
+
+
+
 //マインドフルネス終了画面
 .p-mindfulness-end {
     display: flex; //子要素を横並び
@@ -2310,11 +2313,7 @@ ol li:before{
     }
   
 
-.Category_bar{
-    height: 796px;
-    overflow: scroll;
-    overflow-x: hidden;
-}
+
 
 .tuuhoutext{                 //通報画面のテキストエリア
     margin-top: 0px;
@@ -2371,3 +2370,8 @@ ol li:before{
 .chatroom_error{
     color: crimson;
 }
+
+//ブログCDN読み込みテキストエリアの背景色を白色に
+// .ql-container {
+//     background-color: white;
+//   }

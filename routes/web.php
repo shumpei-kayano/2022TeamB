@@ -327,9 +327,9 @@ Route::get('blog_completed_deactivate', function () {
 Route::get('new_blog_list', 'BlogController@index');
 
 //ブログ記事詳細ページ表示
-Route::get('blog_show', function () {
-    return view('blog.blog_show');
-});
+// Route::get('blog_show', function () {
+//     return view('blog.blog_show');
+// });
 
 //投稿済みブログ一覧
 Route::get('my_posted_blog_list', function () {
@@ -350,9 +350,26 @@ Route::post('/newpostsend', 'BlogController@savenew');
 // 投稿一覧を表示する
 Route::get('/new_blog_list', 'BlogController@list');
 
+// 投稿一覧を表示する
+Route::get('/blog_show/{id}', 'BlogController@show');
 
-// ブログリッチテキストエディターページ
-Route::get('/create2', 'FormController@wys');
+
+
+//「ブログを書く」ボタンクリックでページ遷移
+// Route::get('my_blog_edit', function () {
+//     return view('my_blog_edit');
+// });
+
+
+
+
+
+
+//あとで消す
+// ブログCDN読み込み　リッチテキストエディターページ
+// Route::get('/create2', 'BlogController@wys');
+Route::get('/create2', 'BlogController@savenew');
+
 
 
 

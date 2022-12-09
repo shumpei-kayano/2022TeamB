@@ -26,7 +26,17 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <!------------------------------------------------------------------------------------->  
 
+
+  
+  <!-- Quill ブログ機能読み込み-->
+  <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
 </head>
+
+
+
+
 
 <body>
   <header class="p-header">
@@ -55,11 +65,12 @@
               <div class="p-header__login">
                 <input class="p-header__login-button" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();"
-                 type="submit" name="submit" value="ログアウト">
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
+                type="submit" name="submit" value="ログアウト">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
               </form>
               </div>
+
           @endguest
       </div>
 
@@ -83,4 +94,30 @@
   arrows: true,         //左右の矢印
   infinite: true,       //永久にループさせる
   });
+
+
+
+//ブログCDN読み込み　後で消すかも
+var quill = new Quill('#editor', {
+  modules: {
+    toolbar: [
+       ['bold', 'italic', 'underline', 'strike'],
+       [{'color': []}, {'background': []}],
+       ['link', 'blockquote', 'image']
+     ]
+  },
+  placeholder: '文章を入力してください',
+  theme: 'snow'
+}); 
+
+
+// 回答フォームを送信
+document.ansform.subbtn.addEventListener('click', function() {
+// Quillのデータをinputに代入
+document.querySelector('input[name=text]').value = document.querySelector('.ql-editor').innerHTML;
+// 送信
+document.ansform.submit();
+});
+
+
 </script>
