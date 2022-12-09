@@ -60,6 +60,7 @@
                   @csrf
               </form>
               </div>
+              <form action="user_mypage"><button>myaccount</button></form>
           @endguest
       </div>
 

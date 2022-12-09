@@ -15,6 +15,7 @@
 
 use App\Chatroom;
 use App\Http\Controllers\Chatroomcontroller;
+use App\Http\Controllers\UsersController;
 use Doctrine\DBAL\Schema\Index;
 
 // use Illuminate\Routing\Route;
@@ -151,9 +152,9 @@ Route::get('mypage_del', function () {
     return view('MyPage.mypage_delete_account');
 });
 //ユーザーマイページ画面
-Route::get('user_mypage', function () {
-    return view('MyPage.user_mypage');
-});
+// Route::get('user_mypage', function () {
+//     return view('MyPage.user_mypage');});
+Route::get('user_mypage', 'UsersController@display');
 //店鋪マイページ画面
 Route::get('tenpo_mypage', function () {
     return view('MyPage.tenpo_mypage');

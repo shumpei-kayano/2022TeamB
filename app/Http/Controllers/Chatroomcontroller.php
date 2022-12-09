@@ -52,7 +52,7 @@ class ChatroomController extends Controller
 
     public function index3(Request $request)
     {
-        $items = chatroom::simplePaginate(8);
+        $items = chatroom::orderBy('created_at', 'desc')->paginate(8);
         return view('open_chat.open_chat_list', ['items' => $items]);
     }
 }
