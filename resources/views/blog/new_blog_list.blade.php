@@ -33,11 +33,15 @@
 
                       <div class="p-blog_edit_area__open_chat_list_title">      
                         {{-- 記事ごとのタイトル --}}
-                        {{-- DBからブログタイトル(idで単独ページ情報)を取得／ 30文字以上の場合は(...)で表示する --}}
-                        <h5><a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 30, '(…)' ) }}</a></h5>     
-                       
+                        {{-- DBからブログタイトル(idで単独ページ情報)を取得 --}}
+                        <h5>
+                          {{-- 投稿日時を表示/20文字だけ表示で時刻は非表示に --}}
+                          <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 20, '' ) }}】</a>
+                          {{-- ブログタイトルをDBから取得し表示する/日付も含めて50文字表示する/ 50文字以上の場合は(...)で表示する --}}
+                          <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 50, '…' ) }}</a>
+                        </h5>     
 
-                         {{-- DBから記事の投稿日を取得 --}}
+                        {{-- DBから記事の投稿日を取得 --}}
                         {{-- <div class="p-blog_area__user_data">
                           {{$datas->created_at}}                               
                         {{-- </div>  --}}
