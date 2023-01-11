@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    イベント募集新規作成
+    イベント募集編集・削除
 @endsection
 
 @section('main')
@@ -11,33 +11,71 @@
         @endcomponent
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
-        <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
-        イベント募集新規作成</div>
-            {{--  <h2 class="eventadd__title">イベント募集新規作成</h2>  --}}
+
+            <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
+            イベント募集編集・削除
+            </div>
             {{--  form ここから ファイルアップロードはenctype="multipart/form-data"が必要 --}}
-            <form action="/event015" method="post" enctype="multipart/form-data">
+            <form action="?" method="post" enctype="multipart/form-data">
+                @csrf
             <div class="eventadd__content">
                 <div class="eventadd__left">
                     <div class="eventadd__img-container">
-                        {{--  デフォルト画像noimage  --}}
+                        {{--  DBから画像を読み込み  --}}
                         <div id="default_image">
-                            <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
+                            <img src="{{asset('/storage/eimg/'.$event->event_image)}}" class="e-imagePreview" alt="イベント写真">
                         </div>
                         {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
+                        {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}
                         <div id="preview" class="e-imagePreview"></div>
                         <div class="btn-wrap">
                             <label>
-                                <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
+                                <span class="btn btn-warning p-event-text c-text-sm">登録
                                 <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                                 </span>
-                                <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
+                                <button type="button" id="delete" class="btn btn-warning p-event-text c-text-sm">削除</button>
+                                {{--  <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">  --}}
                             </label>
                         </div>
-                        {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
                     </div>
+
+                    {{--  左下の更新ボタン  --}}
                     <div class="eventadd__btn-container">
-                        <input type="submit" value="保存" name="save" class='button'>
-                        <input type="submit" value="公開" name="open" class='button'>
+                        <input type="submit" value="更新" name="edit" class='button' formaction="{{ url('event016/'.$event->id) }}">
+                        {{--  <input type="submit" value="削除" name="delete" class='button'>  --}}
+                    
+                    <div class="c-color--black">
+        {{--  確認モーダルを挿入  --}}
+            {{--   ボタンの設定   --}}
+            <button type="button" class="btn btn-warning p-event-text" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            削除
+            </button>
+            {{--  モーダルの設定  --}}
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog">
+                {{--  bgcolorはmodal-contentに設定する  --}}
+                <div class="modal-content"> 
+                    <div class="modal-header">
+                        {{--  タイトル  --}}
+                        <h1 class="fs-5" id="exampleModalLabel">イベント投稿削除</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>投稿を削除しますか？</p>
+                    </div>
+                    <div class="modal-footer">
+                        {{--  <form action="?" method="post">  --}}
+                            {{--  <input type="hidden" name="id" value="{{$event->id}}">  --}}
+                            {{--  <input type="hidden" name="id" value="">  --}}
+                            <button type="submit" class="btn c-bgcolor--navy c-color--white" formaction="{{ url('eventdel/'.$event->id) }}">はい</button>
+                        {{--  </form>  --}}
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">いいえ</button>
+                    </div><!-- /.modal-footer -->
+                </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+                    </div>
                     </div>
                 </div>
                 <div class="eventadd__right">
@@ -46,10 +84,10 @@
                             @csrf
                             {{--  イベントタイトル入力欄  --}}
                             <tr>
-                                <td colspan="3">          
+                                <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">イベントタイトル</label>
                                     @error('event_title')<span class="badge bg-danger">必須</span>{{$message}}@enderror
-                                    <input type="text" name="event_title" value="{{old('event_title')}}" class="form-control" placeholder="イベントタイトル">
+                                    <input type="text" name="event_title" value="{{$event->event_title}}" class="form-control" placeholder="イベントタイトル">
                                     <div class="form-text" ></div>
                                 </td>
                             </tr>
@@ -58,8 +96,9 @@
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
                                     @error('city')<span class="badge bg-danger">必須</span>{{$message}}@enderror
+                                    {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
                                     <select name="city" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>開催場所を選択</option>
+                                        <option disabled selected>{{$event->area->city}}</option>
                                         @foreach ($items as $item)
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach
@@ -73,7 +112,7 @@
                                 <td colspan="2">
                                     <label for="exampleInputEmail1" class="form-label">開催日時</label>
                                     @error('date_of_event')<span class="badge bg-danger">必須</span>{{$message}}@enderror
-                                    <input type="datetime-local" name="date_of_event" value="{{old('date_of_event')}}" class="form-control" placeholder="開催日時">
+                                    <input type="datetime-local" name="date_of_event" value="{{$event->date_of_event}}" class="form-control" placeholder="開催日時">
                                     <div id="emailHelp" class="form-text" ></div>
                                 </td>
                                 <td>
@@ -84,8 +123,8 @@
                                 <td colspan="2">
                                     <label for="exampleInputEmail1" class="form-label">終了日時</label>
                                     @error('end_time')<span class="badge bg-danger">必須</span>{{$message}}@enderror
-                                    <input type="datetime-local" name="end_time" value="{{old('end_time')}}" class="form-control" placeholder="終了日時">
-                                    <div id="emailHelp" class="form-text">
+                                    <input type="datetime-local" name="end_time" value="{{$event->end_time}}" class="form-control" placeholder="終了日時">
+                                    <div id="emailHelp" class="form-text" >
                                 </td>
                                 <td>
                                 </td>
@@ -94,8 +133,8 @@
                             <tr>
                                 <td colspan="3">
                                     <label for="exampleInputEmail1" class="form-label">URL</label>
-                                    <input type="url" name="url" value="{{old('url')}}" class="form-control" placeholder="URL">
-                                    <div id="emailHelp" class="form-text"></div>
+                                    <input type="url" name="url" value="{{$event->url}}" class="form-control" placeholder="URL">
+                                    <div id="emailHelp" class="form-text" >
                                 </td>
                             </tr>
                             {{--  イベント内容詳細入力欄  --}}
@@ -104,19 +143,20 @@
                                 <div class="mb-3"> 
                                     <label for="exampleFormControlTextarea1" class="form-label">イベント内容</label>
                                     @error('event_detail')<span class="badge bg-danger">必須</span>{{$message}}@enderror
-                                    <textarea class="form-control" name="event_detail" value="{{old('event_detail')}}" placeholder="イベント内容" rows="3"></textarea> 
+                                    <textarea class="form-control" name="event_detail" placeholder="イベント内容" style="height: 10em">{{$event->event_detail}}</textarea>
+                                
                                 </div> 
                                 </td>
                             </tr>
-
+                            <input type="hidden" name="id" value="{{$event->id}}">
                         </tbody>
                     </table>
                 </div>
-            <div>
+            </div>
             </form>
         </section>
     </div>
-{{--  https://www.kabanoki.net/1552/  --}}
+    {{--  https://www.kabanoki.net/1552/  --}}
     <script>
         function imgPreView(event){
             var file = event.target.files[0];
@@ -134,11 +174,14 @@
                var img = document.createElement("img");
                img.setAttribute("src", reader.result);
                img.setAttribute("id", "previewImage");
-               preview.appendChild(img);
-              
+               preview.appendChild(img); 
             };
             reader.readAsDataURL(file);
         }    
     </script>
+
+
+{{--  bootstrap.js をCDNから読み込む  --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
 @endsection

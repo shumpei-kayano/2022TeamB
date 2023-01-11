@@ -111,20 +111,41 @@ Route::get('/municipalitypage', function () {
     return View('municipalitypage1');
 });
 
+
+
+
 //イベント一覧（個人）画面
 Route::get('event013', 'EventController@index');
-
+//イベント募集新規作成
 Route::get('event015', 'EventController@add');
 Route::post('event015', 'EventController@create');
 
-
-
-
-
+//イベント詳細（編集、削除）
 Route::get('event014', function () {
-    return view('event.eventadd2');
+    return view('event.eventdetailview');
 });
+/*
+//新しい「イベント」を追加
+Route::post('events', 'App\Http\Controllers\EventsController@store');
+*/
+//イベントを削除 ルートパラメータでidを渡すのがポイント
+Route::post('eventdel/{id}', 'EventController@destroy');
+/*
+//更新画面表示　ルートパラメータでidを渡すのがポイント
+Route::post('eventsedit/{event}', 'App\Http\Controllers\EventsController@edit');
+*/
 
+// 更新処理
+Route::post('event016/{id}', 'EventController@update');
+
+// イベント編集画面
+Route::get('event016/{id}', 'EventController@edit');
+// イベント詳細画面
+Route::get('event014/{id}', 'EventController@detailView');
+//イベント/インプットのフレームのようなもの
+Route::get('event020', function () {
+    return view('components.framelikeinput');
+});
 
 //利用者から見たユーザーマイページ画面
 Route::get('user1', function () {

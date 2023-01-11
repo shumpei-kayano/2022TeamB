@@ -58,7 +58,9 @@
 		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>　
 		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> 保存</button></a>
 		<a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>
+		
 	</div>
 </div>
 @endsection
