@@ -595,8 +595,12 @@
     &__card_btn{
         background-color: #ffffff;
         border-radius : 8px;
-        width: 45%;
+        width: 80%;
         height: 100px;
+        margin-left: 10%;
+    }
+    &__card_btn:hover{
+        opacity: 0.5;
     }
     &__card_btn2{
         width: 2%;
