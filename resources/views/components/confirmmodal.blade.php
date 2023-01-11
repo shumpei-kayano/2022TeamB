@@ -10,18 +10,18 @@
     <div class="modal-content"> 
         <div class="modal-header">
             {{--  タイトル  --}}
-            <h1 class="modal-title fs-5" id="exampleModalLabel">{{$msg_title}}</h1>
+            <h1 class="fs-5" id="exampleModalLabel">{{$msg_title}}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
         </div>
         <div class="modal-body">
             <p>{{$modal_body}}</p>
         </div>
         <div class="modal-footer">
-            <form action=".../del" method="post">
-                {{-- <input type="hidden" name="id" value="{{$form->id}}"> --}}
-                <input type="hidden" name="id" value="">
-                <button type="submit" class="btn c-bgcolor--navy c-color--white">はい</button>
-            </form>
+            {{--  <form action="?" method="post">  --}}
+                {{--  コンポーネントだと削除POSTがうまくできない  --}}
+                {{--  <input type="hidden" name="id" value="">  --}}
+                <button type="submit" class="btn c-bgcolor--navy c-color--white" formaction="">はい</button>
+            {{--  </form>  --}}
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">いいえ</button>
         </div><!-- /.modal-footer -->
     </div><!-- /.modal-content -->
