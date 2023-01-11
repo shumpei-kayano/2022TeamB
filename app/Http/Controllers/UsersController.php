@@ -46,5 +46,7 @@ class UsersController extends Controller
         $id = Auth::id();
         $human = DB::table('users')->find($id);
         return view('MyPage.user_mypage', ['human' => $human]);
+
+       
     }
 }
