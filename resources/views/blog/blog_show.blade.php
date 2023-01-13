@@ -9,11 +9,12 @@
 <div class="container-fluid">
     <div class="row">
 
-      {{-- 左メニューバー --}}
-      @component('components.left')
-      @endcomponent
-      {{-- 右側 --}}
+    {{-- 左メニューバー --}}
+    @component('components.left')
+    @endcomponent
 
+
+{{-- 右側 --}}
 <div class="col-10"> 
 <div class="row">
             <div class="col-12 c-bgcolor--darkbrown">   {{-- 新着ブログ一覧表示スペースの背景色 --}}
@@ -43,9 +44,10 @@
                         <h2>{{$data->title}}</h2>           {{-- DBからタイトルを取得してくる --}}
                     </div>
                     <div class="p-blog_area__textarea">
+                        <div class="p-blog_area__textarea_scroll_bar">
                         <p>{!! nl2br($data->text)!!}        {{-- DBから本文を取得してくる --}}
                         </p>
-                        <div class="img"><img src="./img/food.png" width="100%" height="330px"></div>
+                       {{--  <div class="img"><img src="./img/food.png" width="100%" height="330px"></div> --}}
                         
 
                         {{-- file_exists というのが、「ファイルが存在する」という意味なので、--}} 
@@ -63,6 +65,7 @@
                         @endif --}}
 
 
+                    </div>
                     </div>
                     </div>
                 </div>

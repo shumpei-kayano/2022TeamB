@@ -62,7 +62,7 @@
                             <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません" width="200px" height="200px">
                         </div>
 		<a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
-		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>　
 		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> 保存</button></a>
