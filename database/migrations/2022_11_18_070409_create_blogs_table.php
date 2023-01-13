@@ -17,10 +17,10 @@ class CreateBlogsTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id')->nullable();
             $table->string('title')->nullable();
-            $table->string('text')->nullable();
+            $table->longtext('text')->nullable();
             // $table->timestamp('created_at');
             // $table->timestamp('updated_at');
-            $table->string('image')->nullable();
+            /* $table->string('image')->nullable(); */
             $table->timestamps();
         });
     }

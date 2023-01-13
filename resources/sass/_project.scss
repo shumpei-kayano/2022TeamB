@@ -2411,7 +2411,10 @@ ol li:before{
     color: crimson;
 }
 
-//ブログCDN読み込みテキストエリアの背景色を白色に
-// .ql-container {
-//     background-color: white;
-//   }
+//ブログCDN読み込みテキストエリアの背景色、横幅、位置などの設定
+ .ql-toolbar {
+   background-color: white;
+   width:800px;
+   margin-left:87px;
+   border-radius:5px 5px 0px 0px;
+   }

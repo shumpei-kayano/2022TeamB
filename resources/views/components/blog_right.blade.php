@@ -5,7 +5,7 @@
     <button class="p-posted_blog_container__btn" onclick="location.href='my_blog_edit'"> ブログを書く</button></a>
     <button class="p-posted_blog_container__btn" onclick="location.href='my_blog_edit'"> 編集する</button></a>
     <button class="p-posted_blog_container__btn" onclick="location.href='my_blog_edit'"> 保存</button></a>
-    <button class="p-posted_blog_container__btn" onclick="location.href='#'"> 公開する</button></a>
+    <button class="p-posted_blog_container__btn" onclick="location.href=''"> 公開する</button></a>
     <button class="p-posted_blog_container__btn" onclick="location.href='blog_check_deactivate'"> 削除する</button></a>
 {{-- </form> --}}
 </div>

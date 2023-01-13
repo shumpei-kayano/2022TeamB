@@ -5,6 +5,7 @@ namespace App\Http\Controllers;             /* フォルダ構成に沿って名
 use Illuminate\Http\Request;                        /* Illuminate\Httpパッケージ内に用意されている「Request」を使える状態に */
 use App\Blog;                                       /* Blogモデルを使う */
 
+
 class BlogController extends Controller             /* Controllerというクラスを継承して作成している */
 {
     public function index()
@@ -12,15 +13,18 @@ class BlogController extends Controller             /* Controllerというクラ
         return view('blog.new_blog_list');         /* トップページの「もっと見る」から新着ブログ一覧にとぶ */
     }
 
-    public function postpage(Request $request)
+    //ブログ機能CDN読み込み
+    public function wys()
     {
-        return view('blog.my_blog_edit');
+        return view('blog.wysiwyg');
     }
+
 
     public function savenew(Request $request)
     {
         $post = new Blog;                           //新規でblogsテーブル書き込み
         $this->validate($request, blog::$rules);    //ブログを登録する時に設定したルールにのっとっているかバリデートチェック
+        /* $post->user_id = $request->user()->id;  */     //
         $post->title = $request->title;             //title(タイトル)をtitleカラムに
         $post->text = $request->text;               //text(本文)をtextカラムに
         $post->save();                              //$post -> save();でDBに保存が実行される
@@ -34,11 +38,10 @@ class BlogController extends Controller             /* Controllerというクラ
                 || $request->image->extension() == 'jpg'
                 || $request->image->extension() == 'png'
             ) {
-                $request->file('img')
-                    ->storeAs('public/img', $post->id . '.' . $request->image->extension());     /* name="image"から送られたファイルをstore(保存)する storeAsメソッドで任意の名前をつける */
+                $request->file('img')->storeAs('public/img', $post->id . '.' . $request->image->extension());     /*  name="image"から送られたファイルをstore(保存)する storeAsメソッドで任意の名前をつける */
             }
         }
-        return redirect('/#');                      //その後、(/表示先:未定に)リダイレクト
+        return redirect('/#');                    //その後、(/表示先:未定に)リダイレクト
     }
 
 
