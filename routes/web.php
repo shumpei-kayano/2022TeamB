@@ -130,10 +130,10 @@ Route::post('events', 'App\Http\Controllers\EventsController@store');
 */
 //イベントを削除 ルートパラメータでidを渡すのがポイント
 Route::post('eventdel/{id}', 'EventController@destroy');
-/*
-//更新画面表示　ルートパラメータでidを渡すのがポイント
-Route::post('eventsedit/{event}', 'App\Http\Controllers\EventsController@edit');
-*/
+
+// componentsのleftを表示してみる
+Route::get('/left', 'HomeController@left');
+
 
 // 更新処理
 Route::post('event016/{id}', 'EventController@update');
@@ -177,7 +177,7 @@ Route::get('user_mypage', function () {
     return view('MyPage.user_mypage');
 });
 // アカウント情報編集処理
-Route::post('/add','UsersController@add')->name('add');
+Route::post('/add', 'UsersController@add')->name('add');
 // Route::get('user_mypage', function () {
 //     return view('MyPage.user_mypage');});
 Route::get('user_mypage', 'UsersController@display');

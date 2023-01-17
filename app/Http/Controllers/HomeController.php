@@ -29,4 +29,10 @@ class HomeController extends Controller
         $items = Category::all();
         return view('top', ['items' => $items]);
     }
+    public function left()
+    {
+        //トップページ左側カテゴリバー
+        $items = Category::all();
+        return view('components/left', ['items' => $items]);
+    }
 }

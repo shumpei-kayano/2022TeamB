@@ -14,13 +14,13 @@ class Area extends Model
 
     );
 
-    public function getData()
-    {
-        return $this->city;
-    }
+    // public function getData()
+    // {
+    //     return $this->city;
+    // }
 
-    public function event()
-    {
-        return $this->belongsTo('App\Event', 'id', 'city');
-    }
+    // public function event()
+    // {
+    //     return $this->belongsTo('App\Event', 'id', 'city');
+    // }
 }

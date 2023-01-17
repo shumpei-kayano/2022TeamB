@@ -21,12 +21,17 @@ class Event extends Model
         'date_of_event' => 'required',
         'end_time' => 'required',
         // 'event_image' => 'image',  //ファイルのパスなのでimageはダメ
-        'publish_flag' => 'integer'
+        'publish_flag' => 'integer',
+        'category_id' => 'required|exists:categories,id'
     ];
 
     public function area()
     {
         return $this->hasOne('App\Area', 'id', 'city');
+    }
+    public function category()
+    {
+        return $this->hasOne('App\Models\Category', 'id', 'category_id');
     }
 
     /** @var array Datetime型として扱うカラム */
@@ -60,6 +65,7 @@ class Event extends Model
         $events->end_time = $request->end_time = date('Y-m-d H:i:s');
         $events->event_image = $filename;  //filename
         $events->publish_flag = '0';  //公開しないフラグ
+        $events->category_id = $request->category_id;
 
         $events->save();
     }
@@ -85,6 +91,7 @@ class Event extends Model
         $events->end_time = $request->end_time = date('Y-m-d H:i:s');
         $events->event_image = $filename;
         $events->publish_flag = '1';  //公開するフラグ
+        $events->category_id = $request->category_id;
 
         $events->save();
     }
@@ -109,7 +116,7 @@ class Event extends Model
         $events->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
         $events->end_time = $request->end_time = date('Y-m-d H:i:s');
         $events->event_image = $filename;  //filename
-
+        $events->category_id = $request->category_id;
         $events->save();
     }
 }

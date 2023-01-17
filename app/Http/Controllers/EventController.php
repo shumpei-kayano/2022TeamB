@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Area;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -25,7 +26,8 @@ class EventController extends Controller
     {
         $user = Auth::user();
         $items = Area::all();
-        return view('event.eventadd', ['items' => $items, 'user' => $user]);
+        $categories = Category::all();
+        return view('event.eventadd', ['items' => $items, 'categories' => $categories, 'user' => $user]);
     }
 
     public function create(Request $request)
@@ -57,8 +59,9 @@ class EventController extends Controller
     public function edit(Request $request)
     {
         $items = Area::all();
+        $categories = Category::all();
         $event = Event::where('id', $request->id)->first(); //find($request->id)
-        return view('event.eventedit', ['event' => $event, 'items' => $items]);
+        return view('event.eventedit', ['event' => $event, 'categories' => $categories, 'items' => $items]);
     }
     // 更新
     public function update(Request $request)

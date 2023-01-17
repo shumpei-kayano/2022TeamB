@@ -56,7 +56,7 @@
         </div>
         
         {{--  componentsから確認モーダルを挿入  --}}
-        @component('components.confirmmodal') 
+        {{--  @component('components.confirmmodal') 
           @slot('btn_title')
             削除
           @endslot
@@ -66,8 +66,7 @@
           @slot('modal_body')
             本当に削除しますか？
           @endslot
-        @endcomponent
-
+        @endcomponent  --}}
 
       </div>
     </div>
