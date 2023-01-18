@@ -13,15 +13,15 @@
       @endcomponent  --}}
       <div class="col-2 c-bgcolor--brown left-bar Category_bar">
         <div class="w-100 d-flex justify-content-center">
-            <div class="p-left_menu_bar">
-                カテゴリから検索
-            </div>
-        </div>
-        <br>
+          <div class="p-left_menu_bar">
+            カテゴリから検索
+          </div>
+        </div><br>
         @foreach ($categories as $item)
         <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
         @endforeach
       </div>
+
       {{-- 右全体(10) --}}
       <div class="col-10 p-event-right-content">
 
@@ -30,7 +30,8 @@
           {{--  ページタイトル(8)  --}}
           <div class="col-8">
               <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
-                新着順 イベント募集投稿</div>
+                新着順 イベント募集投稿 {{$id}}
+              </div>
           </div>
           {{--  新規募集投稿ボタン(4)  --}}
           <div class="col-4">
@@ -44,7 +45,7 @@
         {{--  https://qiita.com/YasuhaF/items/9a897e83afe1819d97af 画像を表示 --}}
           @foreach ($items as $item)
             <div class="card p-eventcards__card" style="width: 22%;">
-              <a href="event014/{{$item->id}}">
+              <a href="{{asset('event014/'.$item->id)}}">
                 <img src="{{asset('/storage/eimg/'.$item->event_image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{$item->event_title}}</h5>

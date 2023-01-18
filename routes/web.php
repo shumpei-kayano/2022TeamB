@@ -130,10 +130,10 @@ Route::post('events', 'App\Http\Controllers\EventsController@store');
 */
 //イベントを削除 ルートパラメータでidを渡すのがポイント
 Route::post('eventdel/{id}', 'EventController@destroy');
-/*
-//更新画面表示　ルートパラメータでidを渡すのがポイント
-Route::post('eventsedit/{event}', 'App\Http\Controllers\EventsController@edit');
-*/
+
+// componentsのleftを表示してみる
+Route::get('/left', 'HomeController@left');
+Route::get('categorysearch/{id?}', 'EventController@categorySearch');
 
 // 更新処理
 Route::post('event016/{id}', 'EventController@update');
