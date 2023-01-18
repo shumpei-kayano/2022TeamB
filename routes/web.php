@@ -133,7 +133,7 @@ Route::post('eventdel/{id}', 'EventController@destroy');
 
 // componentsのleftを表示してみる
 Route::get('/left', 'HomeController@left');
-
+Route::get('categorysearch/{id?}', 'EventController@categorySearch');
 
 // 更新処理
 Route::post('event016/{id}', 'EventController@update');

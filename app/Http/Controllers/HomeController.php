@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function left()
     {
         //トップページ左側カテゴリバー
-        $items = Category::all();
-        return view('components/left', ['items' => $items]);
+        $categories = Category::all();
+        return view('components/left', ['categories' => $categories]);
     }
 }

@@ -16,12 +16,12 @@ class EventController extends Controller
 {
     public function index(Request $request)
     {
-        // $items = DB::table('events')->simplePaginate(8);
+        $categories = Category::all();
         $items = Event::orderBy('updated_at', 'desc')->where('publish_flag', '1')->Paginate(8);
-        // dd($items); //デバッグ用ddメソッド…変数の中身が見れる
-        return view('event.eventichirankojin', ['items' => $items]);
+        // dd($categories); //デバッグ用ddメソッド…変数の中身が見れる
+        return view('event.eventichirankojin', ['items' => $items, 'categories' => $categories]);
     }
-
+    // イベント新規作成
     public function add(Request $request)
     {
         $user = Auth::user();
@@ -41,7 +41,6 @@ class EventController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
-
         if ($request->has('save')) {
             Event::eventInsert0($request);
             return redirect('/event015');
@@ -50,12 +49,11 @@ class EventController extends Controller
             return redirect('/event013');
         } else {
             // $message = 'ボタンは押されませんでした';
-            // dd($message);
             return redirect('/event015');
         }
     }
-    //更新画面ルーティングが'book/{book}'でid値を渡す時
-    //そのid値に等しいBookインスタンスを渡してくれる
+
+    // イベント編集画面
     public function edit(Request $request)
     {
         $items = Area::all();
@@ -63,7 +61,7 @@ class EventController extends Controller
         $event = Event::where('id', $request->id)->first(); //find($request->id)
         return view('event.eventedit', ['event' => $event, 'categories' => $categories, 'items' => $items]);
     }
-    // 更新
+    // 更新処理
     public function update(Request $request)
     {
         //バリデーション
@@ -89,5 +87,16 @@ class EventController extends Controller
     {
         Event::find($request->id)->delete();
         return redirect('/event013');
+    }
+
+    // イベントカテゴリ検索
+    public function categorySearch($id)
+    {
+        $categories = Category::all();
+        $items = Event::orderBy('updated_at', 'desc')
+            ->where('publish_flag', '1')
+            ->where('category_id', $id)
+            ->Paginate(8);
+        return view('event.eventcategorysearch', ['items' => $items, 'categories' => $categories, 'id' => $id]);
     }
 }
