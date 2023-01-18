@@ -1746,6 +1746,44 @@ ol li:before{
         margin-bottom: 10px;
         
     }
+
+.rate {
+    position: relative;
+    display: inline-block;
+    width: 150px; //星5個の幅
+    height: 30px; //星1個の幅
+    font-size: 30px;
+    background-color: white;
+    &::before,
+    &::after {
+    position: absolute;
+    display: inline-block;
+    height: 30px;
+    content: '★★★★★';
+    line-height: 30px;
+    }
+    
+    &::before {
+    color: #c4c4c4; //背景の星、色はグレー
+    }
+    
+    &::after {
+    overflow: hidden;
+    width: 105px; //星3.5個の幅、3.5 * 30px
+    color: #ffb906; //評価の星、色はゴールド
+    }
+    }
+    
+    .rate-wrap {
+    display: flex;
+    width: 330px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1.5px solid #e8d8b0;
+    margin: 20px auto 0;
+    font-weight: bold;
+    }
     &__right {
         padding-left: 20px;
         width: 25%
