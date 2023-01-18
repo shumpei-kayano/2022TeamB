@@ -76,12 +76,12 @@
               {{-- <form action="user_mypage"><button>myaccount</button></form> --}}
           @endguest
       </div>
-
       </div>
   </header>
-    <div class="main">
-        @yield('main')
-    </div>
+
+<div class="main">
+  @yield('main')
+</div>
 </body>
 </html>
 

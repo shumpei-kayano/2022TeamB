@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Blog extends Model
 {
     // protected $guarded = array('id');        //ブラックリスト方式:書き込みを禁止したいカラム名を設定
