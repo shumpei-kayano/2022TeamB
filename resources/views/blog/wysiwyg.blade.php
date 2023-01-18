@@ -1,6 +1,4 @@
-{{-- ※試作途中【ブログCDN読み込み】ブログ編集ページ --}}
-{{-- layouts.blade.phpの//ブログテキストエディタCDN読込に追記 --}}
-
+{{-- ブログ編集ページ QuillのWYSIWYGエディタをCDNで読み込み --}}
 @extends('layouts.layout')   
 @section('title')
     ブログ編集ページ
@@ -32,7 +30,7 @@
                             </div> --}}
                             <input type="text" name="title" class="formtitle" style="margin-top:100px; width:800px; margin-bottom:20px; height:40px; placeholder=ブログタイトル（32文字以内）;">
 
-                            {{-- id="editor"がQuillエディタを表示するタグ ／layout.blade.phpに記述--}}
+                            {{-- id="editor"がQuillエディタを表示するタグ ／下の <script> タグ内記述--}}
                             <div id="editor" name="text" style="height: 400px; width:800px; margin-left:87px; border-radius:0px 0px 5px 5px; background-color:white;">
                             </div>
                             <input type="hidden" name="text">
@@ -44,7 +42,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
     <div class="d-flex">
         <div class="row">
@@ -55,53 +53,52 @@
             </div>
         </div>
     </div>
-</div>
 
-    <script>
 
-        //入力文字数カウントscript
-        $(function(){
-        //カウントするフィールドを監視
-        $("#floatingTextarea2").keyup(function(){
-             //現在入力されている文字
-            var text = $(this).val();
-             //正確にカウントするため改行コード削除
-            text = text.replace((new RegExp("\r\n","g")),"");
-            text = text.replace((new RegExp("\n","g")),"");
-            //現在の文字数
-            var count = text.length;
-            //管理者が設定した上限文字数
-            var moji_limit = $(this).attr("limit");
-            //文字数をリアルタイムの表示
-            $("#moji_suu").text(count);
-            //処理分け
-            if(count == 0){
-                //字を消して0文字となった場合。
-                $("#moji_suu").text("0");
-            } else if(count > moji_limit) {
-                //上限文字数を超えたら赤色表示
-                $("#moji_suu").css("color", "red");
-            } else {
-                //文字数が範囲内なら色を戻す
-                $("#moji_suu").css("color", "");
-            }
-        });
+<script>
+
+//入力文字数カウントscript
+$(function(){
+//カウントするフィールドを監視
+$("#floatingTextarea2").keyup(function(){
+//現在入力されている文字
+var text = $(this).val();
+//正確にカウントするため改行コード削除
+text = text.replace((new RegExp("\r\n","g")),"");
+text = text.replace((new RegExp("\n","g")),"");
+//現在の文字数
+var count = text.length;
+//管理者が設定した上限文字数
+var moji_limit = $(this).attr("limit");
+//文字数をリアルタイムの表示
+$("#moji_suu").text(count);
+        //処理分け
+        if(count == 0){
+            //字を消して0文字となった場合。
+            $("#moji_suu").text("0");
+        } else if(count > moji_limit) {
+             //上限文字数を超えたら赤色表示
+            $("#moji_suu").css("color", "red");
+        } else {
+             //文字数が範囲内なら色を戻す
+            $("#moji_suu").css("color", "");
+        }
     });
+});
 
-    //ブログテキストエディタCDN読込
-  //#editorの所に新しいQuillを設置して、テーマはsnowを使ってください
-  var quill = new Quill('#editor', {
-  modules: {
-    toolbar: [
-       ['bold', 'italic', 'underline', 'strike'],
-       [{'color': []}, {'background': []}],
-       ['link', 'blockquote', 'image', 'video'],
-       [{ list: 'ordered' }, { list: 'bullet' }]
-     
-     ]
-  },
-  placeholder: '文章を入力してください（15,000文字以内）',
-  theme: 'snow'
+//ブログテキストエディタCDN読込
+//#editorの所に新しいQuillを設置して、テーマはsnowを使ってください
+    var quill = new Quill('#editor', {
+    modules: {
+        toolbar: [
+        ['bold', 'italic', 'underline', 'strike'],
+        [{'color': []}, {'background': []}],
+        ['link', 'blockquote', 'image', 'video'],
+        [{ list: 'ordered' }, { list: 'bullet' }]
+        ]
+    },
+    placeholder: '文章を入力してください（15,000文字以内）',
+    theme: 'snow'
 }); 
 
 

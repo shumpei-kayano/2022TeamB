@@ -377,7 +377,7 @@ Route::post('/newpostsend', 'BlogController@savenew');
 // 投稿一覧を表示する
 Route::get('/new_blog_list', 'BlogController@list');
 
-// 投稿一覧を表示する
+// 記事を表示する
 Route::get('/blog_show/{id}', 'BlogController@show');
 
 
