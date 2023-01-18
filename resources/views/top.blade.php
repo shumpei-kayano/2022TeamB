@@ -98,7 +98,7 @@
             <div class="p-event__event_area">
               <p class="p-event__event_title">2022.10.15.<br>フットサルメンバー募集</p>
             </div>
-            <div class="click"><a href="#">もっと見る...Click here</a></div>
+            <div class="click"><a href="event013">もっと見る...Click here</a></div>
           </div>
 
         {{-- 自治体コーナー --}}
