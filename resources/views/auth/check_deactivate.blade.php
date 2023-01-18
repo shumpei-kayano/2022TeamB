@@ -18,7 +18,7 @@
             @csrf
         <input class="p-header__login-button yes_or_no__yes" type="submit" value="はい">
         </form>
-        <form action="/">
+        <form action="mypage_set">
         <input class="p-header__login-button yes_or_no__no" type="submit" value="いいえ">
         </form>
       </div>

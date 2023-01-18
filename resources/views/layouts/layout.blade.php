@@ -30,8 +30,10 @@
 
   
   <!-- Quill ブログ機能読み込み-->
-  <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-  <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+  <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
+
+
 
 </head>
 
@@ -71,15 +73,15 @@
                 @csrf
               </form>
               </div>
-              <form action="user_mypage"><button>myaccount</button></form>
+              {{-- <form action="user_mypage"><button>myaccount</button></form> --}}
           @endguest
       </div>
-
       </div>
   </header>
-    <div class="main">
-        @yield('main')
-    </div>
+
+<div class="main">
+  @yield('main')
+</div>
 </body>
 </html>
 
@@ -95,30 +97,5 @@
   arrows: true,         //左右の矢印
   infinite: true,       //永久にループさせる
   });
-
-
-
-//ブログCDN読み込み　後で消すかも
-var quill = new Quill('#editor', {
-  modules: {
-    toolbar: [
-       ['bold', 'italic', 'underline', 'strike'],
-       [{'color': []}, {'background': []}],
-       ['link', 'blockquote', 'image']
-     ]
-  },
-  placeholder: '文章を入力してください',
-  theme: 'snow'
-}); 
-
-
-// 回答フォームを送信
-document.ansform.subbtn.addEventListener('click', function() {
-// Quillのデータをinputに代入
-document.querySelector('input[name=text]').value = document.querySelector('.ql-editor').innerHTML;
-// 送信
-document.ansform.submit();
-});
-
 
 </script>

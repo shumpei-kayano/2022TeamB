@@ -27,7 +27,9 @@ class HomeController extends Controller
     {
         //トップページ左側カテゴリバー
         $items = Category::all();
-        return view('top', ['items' => $items]);
+        //ブログコーナーにタイトルを新着順で3件抽出して表示
+        $data = Blog::orderBy('created_at', 'desc')->paginate(3);
+        return view('top', ['items' => $items, 'data' => $data]);
     }
     public function left()
     {

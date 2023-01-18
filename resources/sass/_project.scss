@@ -138,16 +138,12 @@
     font-size:18px;
     padding-top:8px;                       //タイトル上の余白
     padding-bottom:3px;                    //タイトル下の余白
-    &__blog_area{
-        display: flex;                      //Flexboxを使って子要素を横並び
-        justify-content: flex-start;        //水平方向揃え(flex-start:初期値)
-    }
-    &__blog_user_icon{
-        width: 25px;                        //円の横幅
-        height: 25px;                       //円の縦幅
-        border-radius: 50%;                 //円
-        background: $beige;                 //背景色
-    }
+    &__blog_title.a{
+            text-decoration: none;
+        }
+    &__blog_title:hover{
+            text-decoration: underline;
+            }
 }
 
 
@@ -374,6 +370,14 @@
         font-size: large;
         width:350px;
         }
+    &__textarea{
+        height:500px;
+    }
+    &__textarea_scroll_bar{
+        height: 500px;
+        overflow: scroll;
+        overflow-x: hidden;
+        }
 }
 
 
@@ -596,8 +600,12 @@
     &__card_btn{
         background-color: #ffffff;
         border-radius : 8px;
-        width: 45%;
+        width: 80%;
         height: 100px;
+        margin-left: 10%;
+    }
+    &__card_btn:hover{
+        opacity: 0.5;
     }
     &__card_btn2{
         width: 2%;
@@ -1180,7 +1188,6 @@
         border-radius : 5px;
         margin-top: 50px;                   //ヘッダーからの背景色までの空白
         margin-left:200px;                  //ページ左端から何px離すか
-
     }
     &__button{
         height: 700px;
@@ -1200,7 +1207,6 @@
         margin:auto;
         border-radius: 10px;
         margin-bottom:20px;
-   
     }
     &__new_blog_post:hover{
         opacity:0.5;
@@ -1251,10 +1257,10 @@
         margin-top:30px;
         margin-left:90px;
     }
-    &__textarea{
+    &__textarea{                //テキストエリア
         margin-top:10px;
         width:800px;
-        height:500px;
+        height:350px;
         margin-left:auto;
         margin-right:auto;
     }
@@ -1740,6 +1746,44 @@ ol li:before{
         height: 30px;
         margin-bottom: 10px;
         
+    }
+
+.rate {
+    position: relative;
+    display: inline-block;
+    width: 150px; //星5個の幅
+    height: 30px; //星1個の幅
+    font-size: 30px;
+    background-color: white;
+    &::before,
+    &::after {
+    position: absolute;
+    display: inline-block;
+    height: 30px;
+    content: '★★★★★';
+    line-height: 30px;
+    }
+    
+    &::before {
+    color: #c4c4c4; //背景の星、色はグレー
+    }
+    
+    &::after {
+    overflow: hidden;
+    width: 105px; //星3.5個の幅、3.5 * 30px
+    color: #ffb906; //評価の星、色はゴールド
+    }
+    }
+    
+    .rate-wrap {
+    display: flex;
+    width: 330px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1.5px solid #e8d8b0;
+    margin: 20px auto 0;
+    font-weight: bold;
     }
     &__right {
         padding-left: 20px;
@@ -2406,7 +2450,10 @@ ol li:before{
     color: crimson;
 }
 
-//ブログCDN読み込みテキストエリアの背景色を白色に
-// .ql-container {
-//     background-color: white;
-//   }
+//ブログCDN読み込みテキストエリアの背景色、横幅、位置などの設定
+ .ql-toolbar {
+   background-color: white;
+   width:800px;
+   margin-left:87px;
+   border-radius:5px 5px 0px 0px;
+   }

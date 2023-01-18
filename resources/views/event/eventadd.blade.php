@@ -29,7 +29,7 @@
                             <label>
                                 <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
                                 <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
-                                </span>
+                                </span
                                 <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
                             </label>
                         </div>

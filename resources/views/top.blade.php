@@ -57,21 +57,29 @@
             <br>
           </div>
 
+
           {{-- 新着ブログコーナー --}}
             <div class="col-4 c-bgcolor--brown">
               {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
               <div class="w-100 d-flex justify-content-center"><div class="p-blog">新着ブログ</div></div>
               <div class="p-blog__blog_area">
-                <div class="p-blog__blog_user_icon"></div>
-                <p class="p-blog__blog_title">　2022.10.20.〇〇〇に行ってきた</p>
-              </div>
-              <div class="p-blog__blog_area">
-                <div class="p-blog__blog_user_icon"></div>
-                <p class="p-blog__blog_title">　2022.10.20.〇〇〇に行ってきた</p>
-              </div>
+                @foreach ($data as $datas)
+                <a class="p-blog__blog_title">
+                  
+                  {{-- 投稿日時を表示/10文字だけ表示で時刻は非表示に --}}
+                  <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 10, '' ) }}】</a>
+                  {{-- ブログタイトルをDBから取得し表示する/日付も含めて40文字表示する/ 40文字以上の場合は(...)で表示する --}}
+                  <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 30, '…' ) }}</a><br>
+                  @endforeach
+              </a>
               <div class="click"><a href="new_blog_list">もっと見る...Click here</a></div>
             </div>
-        </div>
+            </div>
+          </div>
+
+
+          
+
 
         {{-- イベント掲示板 --}}
         <div class="row">
@@ -90,7 +98,7 @@
             <div class="p-event__event_area">
               <p class="p-event__event_title">2022.10.15.<br>フットサルメンバー募集</p>
             </div>
-            <div class="click"><a href="#">もっと見る...Click here</a></div>
+            <div class="click"><a href="event013">もっと見る...Click here</a></div>
           </div>
 
         {{-- 自治体コーナー --}}
@@ -142,6 +150,5 @@
       </div>
     </div>
   </div>
-  @endsection
 
-  
+@endsection

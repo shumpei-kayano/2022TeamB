@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\User;
 
 class UsersController extends Controller
 {
@@ -18,11 +17,12 @@ class UsersController extends Controller
         Auth::logout();
         return view('auth.account_deleted');
     }
-    public function add(Request $request){
+    public function add(Request $request)
+    {
         // user情報をAuthで取得する
         $user = Auth::user();
         // useridが一致するものをテーブルから取り出す
-        $users = User::whereid($user->id) -> first();
+        $users = User::whereid($user->id)->first();
         // 入力した情報を$formにいれる
         $form = $request->all();
         // カラムごとにデータをテーブルに入れる。
@@ -46,5 +46,7 @@ class UsersController extends Controller
         $id = Auth::id();
         $human = DB::table('users')->find($id);
         return view('MyPage.user_mypage', ['human' => $human]);
+
+       
     }
 }
