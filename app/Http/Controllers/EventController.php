@@ -80,8 +80,9 @@ class EventController extends Controller
     // イベント詳細表示
     public function detailView(Request $request)
     {
+        $categories = Category::all();
         $item = Event::where('id', $request->id)->first();
-        return view('event.eventdetailview', ['item' => $item]);
+        return view('event.eventdetailview', ['item' => $item, 'categories' => $categories]);
     }
     public function destroy(Request $request)
     {

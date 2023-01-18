@@ -7,8 +7,18 @@
 @section('main')
     <div class="eventadd-container">
         {{-- 左側のメニューバー --}}
-        @component('components.left')
-        @endcomponent
+        {{--  @component('components.left')
+        @endcomponent  --}}
+        <div class="col-2 c-bgcolor--brown left-bar Category_bar">
+            <div class="w-100 d-flex justify-content-center">
+              <div class="p-left_menu_bar">
+                カテゴリから検索
+              </div>
+            </div><br>
+            @foreach ($categories as $item)
+            <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
+            @endforeach
+        </div>        
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
         <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
@@ -71,10 +81,10 @@
                             {{--  開催場所を選択  --}}
                             <tr>
                                 <td colspan="3">
-                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    <label for="exampleInputEmail1" class="form-label">イベント開催地</label>
                                     @error('city')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     <select name="city" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>開催場所を選択</option>
+                                        <option disabled selected>開催地を選択</option>
                                         @foreach ($items as $item)
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach

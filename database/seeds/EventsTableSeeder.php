@@ -15,7 +15,7 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->delete();
 
-        for ($i = 1; $i < 21; $i++) {
+        for ($i = 1; $i < 26; $i++) {
             $data[] =
                 [
                     'user_id' => $i,
@@ -23,12 +23,12 @@ class EventsTableSeeder extends Seeder
                     'event_title' => 'イベントタイトル' . $i,
                     'event_detail' => 'イベント詳細文章' . $i,
                     'deadline' => now(),
-                    'city' => '市町村名',
+                    'city' => $i,
                     'date_of_event' => now(),
                     'end_time' => now(),
                     'event_image' => 'noimage.jpg',
                     'publish_flag' => 1,
-
+                    'category_id' => $i
                 ];
         }
 
