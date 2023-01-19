@@ -8,20 +8,10 @@
   <div class="container-fluid">
     <div class="row">
 
-      {{-- 左メニュー(2)コンポーネント読み込み --}}
-      {{--  @component('components.left')
-      @endcomponent  --}}
-      <div class="col-2 c-bgcolor--brown left-bar Category_bar">
-        <div class="w-100 d-flex justify-content-center">
-            <div class="p-left_menu_bar">
-                カテゴリから検索
-            </div>
-        </div>
-        <br>
-        @foreach ($categories as $item)
-        <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
-        @endforeach
-      </div>
+      {{-- 左メニュー(2)コンポーネント読み込み、第２引数に使う変数を入れないと動かない --}}
+      @component('components.left', ['categories' => $categories])
+      @endcomponent
+
       {{-- 右全体(10) --}}
       <div class="col-10 p-event-right-content">
 
@@ -64,19 +54,6 @@
          {{ $items->links() }}
           </div>
         </div>
-        
-        {{--  componentsから確認モーダルを挿入  --}}
-        {{--  @component('components.confirmmodal') 
-          @slot('btn_title')
-            削除
-          @endslot
-          @slot('msg_title')
-            イベント投稿削除
-          @endslot
-          @slot('modal_body')
-            本当に削除しますか？
-          @endslot
-        @endcomponent  --}}
 
       </div>
     </div>

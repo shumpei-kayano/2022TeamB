@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Area;
 use App\Models\Category;
+use App\Public_user;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -18,8 +20,8 @@ class EventController extends Controller
     {
         $categories = Category::all();
         $items = Event::orderBy('updated_at', 'desc')->where('publish_flag', '1')->Paginate(8);
-        // dd($categories); //デバッグ用ddメソッド…変数の中身が見れる
-        return view('event.eventichirankojin', ['items' => $items, 'categories' => $categories]);
+        // $users = User::where('publish_flag','0');
+        return view('event.eventichirankojin', ['items' => $items, 'categories' => $categories, 'users' => $users]);
     }
     // イベント新規作成
     public function add(Request $request)
@@ -90,7 +92,7 @@ class EventController extends Controller
         return redirect('/event013');
     }
 
-    // イベントカテゴリ検索
+    // イベントカテゴリ検索 idはルートパラメータで渡される
     public function categorySearch($id)
     {
         $categories = Category::all();

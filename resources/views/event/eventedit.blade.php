@@ -7,7 +7,7 @@
 @section('main')
     <div class="eventadd-container">
         {{-- 左側のメニューバー --}}
-        @component('components.left')
+        @component('components.left', ['categories' => $categories])
         @endcomponent
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">

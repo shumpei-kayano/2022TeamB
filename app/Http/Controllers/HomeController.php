@@ -26,10 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         //トップページ左側カテゴリバー
-        $items = Category::all();
+        $categories = Category::all();
         //ブログコーナーにタイトルを新着順で3件抽出して表示
         $data = Blog::orderBy('created_at', 'desc')->paginate(3);
-        return view('top', ['items' => $items, 'data' => $data]);
+        return view('top', ['categories' => $categories, 'data' => $data]);
     }
     public function left()
     {

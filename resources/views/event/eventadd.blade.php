@@ -7,18 +7,9 @@
 @section('main')
     <div class="eventadd-container">
         {{-- 左側のメニューバー --}}
-        {{--  @component('components.left')
-        @endcomponent  --}}
-        <div class="col-2 c-bgcolor--brown left-bar Category_bar">
-            <div class="w-100 d-flex justify-content-center">
-              <div class="p-left_menu_bar">
-                カテゴリから検索
-              </div>
-            </div><br>
-            @foreach ($categories as $item)
-            <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
-            @endforeach
-        </div>        
+        @component('components.left', ['categories' => $categories])
+        @endcomponent
+
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
         <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">

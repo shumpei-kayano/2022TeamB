@@ -9,18 +9,8 @@
     <div class="row">
 
       {{-- 左メニュー(2)コンポーネント読み込み --}}
-      {{--  @component('components.left')
-      @endcomponent  --}}
-      <div class="col-2 c-bgcolor--brown left-bar Category_bar">
-        <div class="w-100 d-flex justify-content-center">
-          <div class="p-left_menu_bar">
-            カテゴリから検索
-          </div>
-        </div><br>
-        @foreach ($categories as $item)
-        <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
-        @endforeach
-      </div>
+      @component('components.left', ['categories' => $categories])
+      @endcomponent
 
       {{-- 右全体(10) --}}
       <div class="col-10 p-event-right-content">
@@ -35,7 +25,7 @@
           </div>
           {{--  新規募集投稿ボタン(4)  --}}
           <div class="col-4">
-            <a class="btn btn-warning p-event-text c-text-sm" href="{{asset('event015')}}" role="button">イベントの募集投稿をする</a>
+            <a class="btn btn-warning p-event-text c-text-sm eventichirankojin-btn-warning" href="{{asset('event015')}}" role="button">イベントの募集投稿をする</a>
             {{--  <button type="button" class="btn btn-warning p-event-text c-text-sm">イベントの募集投稿をする</button>  --}}
           </div>
         </div>

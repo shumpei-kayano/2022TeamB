@@ -30,3 +30,16 @@
 
 {{--  bootstrap.js をCDNから読み込む  --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+{{--  componentsから確認モーダルを挿入、以下のコードを使う側に入れる  --}}
+        {{--  @component('components.confirmmodal') 
+          @slot('btn_title')
+            削除
+          @endslot
+          @slot('msg_title')
+            イベント投稿削除
+          @endslot
+          @slot('modal_body')
+            本当に削除しますか？
+          @endslot
+        @endcomponent  --}}
