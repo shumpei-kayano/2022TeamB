@@ -39,9 +39,9 @@ class BlogController extends Controller             /* Controllerというクラ
                 || $request->image->extension() == 'png'
             ) {
                 $request->file('img')->storeAs('public/img', $post->id . '.' . $request->image->extension());  */    /*  name="image"から送られたファイルをstore(保存)する storeAsメソッドで任意の名前をつける */
-        /*    }
-        }
-        return redirect('/#');  */                   //その後、(/表示先:未定に)リダイレクト
+        /*     }
+        } */
+        return redirect('/#');                   //その後、(/表示先:未定に)リダイレクト
     }
 
 
