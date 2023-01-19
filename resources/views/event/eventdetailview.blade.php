@@ -44,6 +44,18 @@
                                 <td colspan="3">
                                 @component('components.framelikeinput')
                                 @slot('title')
+                                カテゴリ
+                                @endslot
+                                @slot('content')
+                                {{$item->category->category_name}}
+                                @endslot
+                                @endcomponent
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                @component('components.framelikeinput')
+                                @slot('title')
                                 場所（市町村名）
                                 @endslot
                                 @slot('content')
@@ -123,7 +135,7 @@
                                     <div class="display-box">
                                         <label for="exampleInputEmail1" class="form-label display-box__label">イベント内容</label>
                                         <div class="display-box__heightadjust">
-                                        {{$item->event_detail}}</div>
+                                        {{$item->event_detail}}
                                         </div>
                                     </div>
                                 </td>

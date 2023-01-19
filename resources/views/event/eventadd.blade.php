@@ -53,6 +53,21 @@
                                     <div class="form-text" ></div>
                                 </td>
                             </tr>
+                            {{--  カテゴリを選択  --}}
+                            <tr>
+                                <td colspan="3">
+                                    <label for="exampleInputEmail1" class="form-label">カテゴリ</label>
+                                    @error('category_id')<span class="badge bg-danger">必須</span>{{$message}}@enderror
+                                    <select name="category_id" class="form-select" aria-label="Default select example">
+                                        <option disabled selected>カテゴリを選択</option>
+                                        @foreach ($categories as $item)
+                                        <option value="{{$item->id}}">{{$item->category_name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div id="emailHelp" class="form-text" ></div>
+                                    
+                                </td>
+                            </tr>
                             {{--  開催場所を選択  --}}
                             <tr>
                                 <td colspan="3">

@@ -1,35 +1,11 @@
 <div class="col-2 c-bgcolor--brown left-bar Category_bar">
-    カテゴリから検索<br>
-{{-- @foreach ($items as $item)
-<p>{{$item->category_name}}</p>
-
-@endforeach --}}
-
-
+    <div class="w-100 d-flex justify-content-center">
+        <div class="p-left_menu_bar">
+            カテゴリから検索
+        </div>
+    </div>
     <br>
-    出会い<br>
-    <br>
-    趣味<br>
-    <br>
-    相談<br>
-    <br>
-    飲食<br>
-    <br>
-    食べに行く<br>
-    <br>
-    観光・地域<br>
-    <br>
-    体験<br>
-    <br>
-    カテゴリ<br>
-    <br>
-    カテゴリ<br>
-    <br>
-    カテゴリ<br>
-    <br>
-    カテゴリ<br>
-    <br>
-    カテゴリ<br>
-    <br>
-    
+    @foreach ($categories as $item)
+    <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
+    @endforeach
 </div>

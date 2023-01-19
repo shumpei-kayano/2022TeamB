@@ -91,6 +91,21 @@
                                     <div class="form-text" ></div>
                                 </td>
                             </tr>
+                            {{--  カテゴリを選択  --}}
+                            <tr>
+                                <td colspan="3">
+                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    @error('category_id')<span class="badge bg-danger">必須</span>{{$message}}@enderror
+                                    {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
+                                    <select name="category_id" class="form-select" aria-label="Default select example">
+                                        <option disabled selected>{{$event->category->category_name}}</option>
+                                        @foreach ($categories as $item)
+                                        <option value="{{$item->id}}">{{$item->category_name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div id="emailHelp" class="form-text" ></div> 
+                                </td>
+                            </tr>
                             {{--  開催場所を選択  --}}
                             <tr>
                                 <td colspan="3">
@@ -104,7 +119,6 @@
                                         @endforeach
                                     </select>
                                     <div id="emailHelp" class="form-text" ></div>
-                                    
                                 </td>
                             </tr>
                             {{--  開催日時を選択  --}}
