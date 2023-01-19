@@ -31,4 +31,10 @@ class HomeController extends Controller
         $data = Blog::orderBy('created_at', 'desc')->paginate(3);
         return view('top', ['items' => $items, 'data' => $data]);
     }
+    public function left()
+    {
+        //トップページ左側カテゴリバー
+        $categories = Category::all();
+        return view('components/left', ['categories' => $categories]);
+    }
 }

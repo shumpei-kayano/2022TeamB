@@ -141,5 +141,12 @@ class AreasTableSeeder extends Seeder
                 'created_at' => now(),
             ];
         DB::table('areas')->insert($data);
+
+        $data =
+            [
+                'city' => 'オンライン',
+                'created_at' => now(),
+            ];
+        DB::table('areas')->insert($data);
     }
 }

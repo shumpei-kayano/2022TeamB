@@ -15,22 +15,22 @@
       <tbody>
         <tr>
           <td class="p-user3-mypage__municipality"><label for="municipality" class="form-label">団体名</label>
-						<input type="text" class="form-control" id="municipality" placeholder="">
+						<disabled  type="text" class="form-control" id="municipality" placeholder=""></disabled>
 					</td>
         </tr>
         <tr>
           <td class="p-user3-mypage__tel"><label for="municipality" class="form-label">電話番号</label>
-						<input type="text" class="form-control" id="tel" placeholder="">
+						<disabled  type="text" class="form-control" id="tel" placeholder=""></disabled>
           </td>
         </tr>
         <tr>
           <td class="p-user3-mypage__address"><label for="municipality" class="form-label">団体名</label>
-						<input type="text" class="form-control" id="address" placeholder="">
+						<disabled  type="text" class="form-control" id="address" placeholder=""></disabled>
           </td>
         </tr>
         <tr>
           <td class="p-user3-mypage__introduction"><label for="introduction" class="form-label">店舗名</label>
-						<input type="text" class="form-control" id="introduction" placeholder="">
+						<disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
 					</td>
         </tr>
         <tr>
