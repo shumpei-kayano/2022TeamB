@@ -14,6 +14,8 @@ class Public_usersController extends Controller
       public function requestSample(Request $request){
   
         $user_name = $request->input('user_name');
+        $tenpo = $request->input('facility_name');
+        $tel = $request->input('comment');
         $comment = $request->input('comment');
   
         return view('samples.request_sample', [
