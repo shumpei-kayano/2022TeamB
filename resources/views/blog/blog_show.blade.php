@@ -47,22 +47,6 @@
                         <div class="p-blog_area__textarea_scroll_bar">
                         <p>{!! nl2br($data->text)!!}        {{-- DBから本文を取得してくる --}}
                         </p>
-                       {{--  <div class="img"><img src="./img/food.png" width="100%" height="330px"></div> --}}
-                        
-
-                        {{-- file_exists というのが、「ファイルが存在する」という意味なので、--}} 
-                        {{--「もしpublic path(画像の一般公開用URL)に この記事のid番号.jpg が存在するなら、--}}
-                        {{--  それを表示してください」というのを、拡張子ごとにelseif で記述している  --}}
-
-                        {{-- @if(file_exists(public_path().'/storage/image/'. $datas->id .'.jpg'))
-                            <img src="/storage/img/{{ $datas->id }}.jpg">
-                        @elseif(file_exists(public_path().'/storage/image/'. $datas->id .'.jpeg'))
-                            <img src="/storage/img/{{ $datas->id }}.jpeg">
-                        @elseif(file_exists(public_path().'/storage/image/'. $datas->id .'.png'))
-                            <img src="/storage/img/{{ $datas->id }}.png">
-                        @elseif(file_exists(public_path().'/storage/image/'. $datas->id .'.gif'))
-                            <img src="/storage/img/{{ $datas->id }}.gif">
-                        @endif --}}
 
 
                     </div>
