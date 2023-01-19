@@ -12,8 +12,9 @@ class PublicUsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('public_users')->delete();
-        for ($i = 1; $i < 101; $i++) {
+
+
+        for ($i = 1; $i < 51; $i++) {
             $data[] =
                 [
 
@@ -25,15 +26,18 @@ class PublicUsersTableSeeder extends Seeder
                     'postalcode' => '8700001',
                     'city' => '大分市',
                     'address1' => '大分市',
-                    'address2' => '府内町' . $i,
+                    'address2' => '大手町' . $i,
                     'auth_code' => $i,
                     'createdate' => now(),
-                    'self_introduction' => '自己紹介文' . $i,
+                    'self_introduction' => '自治体紹介文' . $i,
                     'icon' => 'default.jpg',
                     'evaluation' => 1,
 
                 ];
         }
+
+        DB::table('public_users')->insert($data);
+
 
         for ($i = 1; $i < 21; $i++) {
             $data[] =
