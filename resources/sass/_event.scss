@@ -7,7 +7,7 @@
     &__card {
         margin: 10px 10px;
         padding-left: 0;
-        width: 22%;
+        // width: 22%;
         padding-right: 0;
         width: 22%;
         a {
@@ -50,7 +50,11 @@
         color: navy;
         border-color: white;
 }
-  
+.eventichirankojin-btn-warning {
+    background: navy; //ボタンの背景色
+    color: white; //ボタンのテキストの色
+    border-color: navy;
+}
     
 .eventadd {
 width: 100%;
@@ -75,10 +79,11 @@ color: $white;
     display: flex;
     justify-content: center;
     padding-left: 20px;
+    table, tr {
+        width: 100%; //__rightの幅にする
+    }
 }
-table, tr {
-    width: 100%; //__rightの幅にする
-}
+
 &__img-container {
     input {
         display: inline-block; //buttonを横並びにする

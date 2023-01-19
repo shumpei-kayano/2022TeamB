@@ -116,9 +116,6 @@
         border-radius: 50%;                 //円
         background: $brown;                 //背景色
     }
-    &__area_table{
-
-    }
 }
 
 //トップページの各コーナーごとの「もっと見る...Click here」の設定(共通使用可能)
@@ -220,10 +217,11 @@
     height: 796px;
     overflow: scroll;
     overflow-x: hidden;
+    a {
+        color: $black;
+        text-decoration: none;
+    }
 }
-
-
-
 //検索結果表示画面
 .p-search_results_container{                //結果表示エリア
         width:1260px;
@@ -1617,12 +1615,6 @@ ol li:before{
 .p-event{  
     text-align: center;
     font-size: 20px;
-    &__event_area{
-
-    }
-    &__event_title{
-        
-    }
 }
 
 
@@ -1729,6 +1721,7 @@ ol li:before{
     }
     &__introduction{
         padding: 30px;
+        
     }
     table, tr, tbody{
         width: 100%;

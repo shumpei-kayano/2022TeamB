@@ -20,6 +20,6 @@ class Blog extends Model
 
     public static $rules = array(
         'title' => 'required|max:32',
-        'text' => 'required|max:15000',
+        'text' => 'required',
     );
 }

@@ -30,7 +30,7 @@
                             </div> --}}
                             <input type="text" name="title" class="formtitle" style="margin-top:100px; width:800px; margin-bottom:20px; height:40px; placeholder=ブログタイトル（32文字以内）;">
 
-                            {{-- id="editor"がQuillエディタを表示するタグ ／下の <script> タグ内記述--}}
+                            {{-- id="editor"がQuillエディタを表示するタグ ／layout.blade.phpに記述--}}
                             <div id="editor" name="text" style="height: 400px; width:800px; margin-left:87px; border-radius:0px 0px 5px 5px; background-color:white;">
                             </div>
                             <input type="hidden" name="text">
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
     <div class="d-flex">
         <div class="row">
@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
 <script>
 

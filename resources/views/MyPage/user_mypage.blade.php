@@ -31,7 +31,7 @@
             </div>
             <div class="p-mypage-store__mind">
                 <form action="mindfulness_start">
-                <a href="#"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="150" height="180"></a>
+                <a href="mindfulness_detail"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="150" height="180"></a>
                 </form>    
             </div>
         </div>
@@ -68,10 +68,10 @@
             <form action="mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>
-            <a href="#"><button class="p-mypage-setting__btn"> フォロワー登録・編集</button></a>
+            <a href="#"><button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
-            <a href="#"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
+            <a href="create2"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
         </div>
