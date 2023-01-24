@@ -121,9 +121,9 @@ Route::get('event015', 'EventController@add');
 Route::post('event015', 'EventController@create');
 
 //イベント詳細（編集、削除）
-Route::get('event014', function () {
-    return view('event.eventdetailview');
-});
+// Route::get('event014', function () {
+//     return view('event.eventdetailview');
+// });
 /*
 //新しい「イベント」を追加
 Route::post('events', 'App\Http\Controllers\EventsController@store');
@@ -141,7 +141,7 @@ Route::post('event016/{id}', 'EventController@update');
 // イベント編集画面
 Route::get('event016/{id}', 'EventController@edit');
 // イベント詳細画面
-Route::get('event014/{id}', 'EventController@detailView');
+// Route::get('event014/{id}', 'EventController@detailView');
 //イベント/インプットのフレームのようなもの
 Route::get('event020', function () {
     return view('components.framelikeinput');
@@ -195,7 +195,7 @@ Route::get('municipality_mypage', function () {
 //アカウント削除するときのパスワード再確認
 Route::middleware('auth')->group(function () {
 
-
+    Route::get('event014/{id}', 'EventController@detailView');
 
     Route::middleware('password.confirm')->group(function () {
 

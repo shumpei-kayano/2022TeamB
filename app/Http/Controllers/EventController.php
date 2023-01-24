@@ -7,6 +7,7 @@ use App\Area;
 use App\Models\Category;
 use App\Public_user;
 use App\Models\User;
+use App\Models\Guest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -19,9 +20,12 @@ class EventController extends Controller
     public function index(Request $request)
     {
         $categories = Category::all();
-        $items = Event::orderBy('updated_at', 'desc')->where('publish_flag', '1')->Paginate(8);
-        // $users = User::where('publish_flag','0');
-        return view('event.eventichirankojin', ['items' => $items, 'categories' => $categories, 'users' => $users]);
+        $items = Event::orderBy('updated_at', 'desc')
+            ->where('publish_flag', '1')
+            ->whereNotNull('user_id')
+            ->Paginate(8);
+        // $users = User::where('publish_flag','0');, 'users' => $users
+        return view('event.eventichirankojin', ['items' => $items, 'categories' => $categories]);
     }
     // イベント新規作成
     public function add(Request $request)
@@ -43,6 +47,7 @@ class EventController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
+
         if ($request->has('save')) {
             Event::eventInsert0($request);
             return redirect('/event015');
@@ -82,9 +87,17 @@ class EventController extends Controller
     // イベント詳細表示
     public function detailView(Request $request)
     {
+        $user = Auth::user();
         $categories = Category::all();
         $item = Event::where('id', $request->id)->first();
-        return view('event.eventdetailview', ['item' => $item, 'categories' => $categories]);
+        $guests = Guest::where('event_id', $request->id)->first();
+        // dd($request->id);
+        return view('event.eventdetailview', [
+            'item' => $item,
+            'categories' => $categories,
+            'guests' => $guests,
+            'user' => $user
+        ]);
     }
     public function destroy(Request $request)
     {

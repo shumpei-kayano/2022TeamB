@@ -14,17 +14,22 @@
             <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">イベント詳細</div>
             {{--  <h1 class="eventadd__title">イベント詳細</h1>  --}}
             <div class="eventadd__content">
+                {{--  イベント画像表示  --}}
                 <div class="eventadd__left ">
                     <div class="eventadd__img-container e-imagePreview">  
                         <img src="{{asset('/storage/eimg/'.$item->event_image)}}" class="card-img-top" alt="...">
-                        {{--  <input type="submit" value="登録" class='button'>
-                        <input type="submit" value="削除" class='button'>  --}}
                     </div>
+                    {{--  左下の参加ボタン  --}}
                     <div class="eventadd__btn-container">
+                        @if ($user->id != $item->user_id && $user->id != $guests->user_id)
                         <input type="submit" value="参加する" class='button'>
+                        @elseif ($user->id != $item->user_id && $user->id == $guests->user_id)
                         <input type="submit" value="参加辞退する" class='button'>
+                        {{--  @elseif ($user->id != $guests->user_id)  --}}
+                        @endif
                     </div>
                 </div>
+                {{--  右の詳細表示  --}}
                 <div class="eventadd__right">
                     <table class="eventadd__table">
                         <tbody>
@@ -124,14 +129,6 @@
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    {{--  @component('components.framelikeinput')
-                                    @slot('title')
-                                    イベント内容
-                                    @endslot
-                                    @slot('content')
-                                    {{$item->event_detail}}
-                                    @endslot
-                                    @endcomponent  --}}
                                     <div class="display-box">
                                         <label for="exampleInputEmail1" class="form-label display-box__label">イベント内容</label>
                                         <div class="display-box__heightadjust">
