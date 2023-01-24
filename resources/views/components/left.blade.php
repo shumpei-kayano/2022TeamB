@@ -1,7 +1,8 @@
 <div class="col-2 c-bgcolor--brown left-bar Category_bar">
     <div class="w-100 d-flex justify-content-center">
         <div class="p-left_menu_bar">
-            カテゴリから検索
+            <p>カテゴリから検索</p>
+            <p>全てを検索</p>
         </div>
     </div>
     <br>
