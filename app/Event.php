@@ -35,10 +35,10 @@ class Event extends Model
     }
 
     /** @var array Datetime型として扱うカラム */
-    // protected $dates = [
-    //     'date_of_event',
-    //     'end_time',
-    // ];
+    protected $dates = [
+        'date_of_event',
+        'end_time',
+    ];
 
     // 新規作成メソッド（保存）
     public static function eventInsert0(Request $request)

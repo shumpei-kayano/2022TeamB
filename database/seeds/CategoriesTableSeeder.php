@@ -12,6 +12,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+
         $param = [
             'category_name' => 'ゲーム',
         ];
