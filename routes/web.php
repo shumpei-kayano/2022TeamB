@@ -131,8 +131,8 @@ Route::post('events', 'App\Http\Controllers\EventsController@store');
 //イベントを削除 ルートパラメータでidを渡すのがポイント
 Route::post('eventdel/{id}', 'EventController@destroy');
 
-// componentsのleftを表示してみる
-Route::get('/left', 'HomeController@left');
+// イベント検索（開催地・カテゴリ）
+Route::get('locationsearch/{id?}', 'EventController@locationSearch');
 Route::get('categorysearch/{id?}', 'EventController@categorySearch');
 
 // 更新処理
@@ -140,7 +140,7 @@ Route::post('event016/{id}', 'EventController@update');
 
 // イベント編集画面
 Route::get('event016/{id}', 'EventController@edit');
-// イベント詳細画面
+
 // Route::get('event014/{id}', 'EventController@detailView');
 //イベント/インプットのフレームのようなもの
 Route::get('event020', function () {
@@ -194,7 +194,7 @@ Route::get('municipality_mypage', function () {
 
 //アカウント削除するときのパスワード再確認
 Route::middleware('auth')->group(function () {
-
+    // イベント詳細画面
     Route::get('event014/{id}', 'EventController@detailView');
 
     Route::middleware('password.confirm')->group(function () {

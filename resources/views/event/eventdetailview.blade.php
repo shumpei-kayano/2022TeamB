@@ -61,7 +61,7 @@
                                 <td colspan="3">
                                 @component('components.framelikeinput')
                                 @slot('title')
-                                場所（市町村名）
+                                イベント開催地
                                 @endslot
                                 @slot('content')
                                 {{$item->area->city}}
@@ -76,7 +76,7 @@
                                 開始日
                                 @endslot
                                 @slot('content')
-                                {{$item->date_of_event->format('Y-m-d')}}
+                                {{ substr($item->date_of_event,0,10)}}
                                 @endslot
                                 @endcomponent
                                 </td>
@@ -87,7 +87,7 @@
                                 開始時間
                                 @endslot
                                 @slot('content')
-                                {{$item->date_of_event->format('H:i')}}
+                                {{ substr($item->date_of_event,11,5) }}
                                 @endslot
                                 @endcomponent
                                 </td>
@@ -99,7 +99,7 @@
                                 終了日
                                 @endslot
                                 @slot('content')
-                                {{$item->end_time->format('Y-m-d')}}
+                                {{ substr($item->end_time,0,10) }}
                                 @endslot
                                 @endcomponent
                                 </td>
@@ -110,7 +110,7 @@
                                     終了時間
                                     @endslot
                                     @slot('content')
-                                    {{$item->end_time->format('H:i')}}
+                                    {{ substr($item->end_time,11,5) }}
                                     @endslot
                                     @endcomponent
                                 </td>

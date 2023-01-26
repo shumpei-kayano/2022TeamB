@@ -105,7 +105,7 @@ class EventController extends Controller
         return redirect('/event013');
     }
 
-    // イベントカテゴリ検索 idはルートパラメータで渡される
+    // イベントカテゴリ検索渡される
     public function categorySearch($id)
     {
         $categories = Category::all();
@@ -113,6 +113,26 @@ class EventController extends Controller
             ->where('publish_flag', '1')
             ->where('category_id', $id)
             ->Paginate(8);
-        return view('event.eventcategorysearch', ['items' => $items, 'categories' => $categories, 'id' => $id]);
+        return view('event.eventcategorysearch', [
+            'items' => $items,
+            'categories' => $categories,
+            'id' => $id,
+        ]);
+    }
+    // イベント開催地検索 idはルートパラメータで
+    public function locationSearch($id)
+    {
+        $categories = Category::all();
+        $city = Area::all()->where('id', $id);
+        $items = Event::orderBy('updated_at', 'desc')
+            ->where('publish_flag', '1')
+            ->where('city', $id)
+            ->Paginate(8);
+        return view('event.eventlocationsearch', [
+            'items' => $items,
+            'categories' => $categories,
+            'id' => $id,
+            'city' => $city
+        ]);
     }
 }

@@ -117,7 +117,7 @@
         background: $brown;                 //背景色
     }
     &__area_table{
-
+        a { text-decoration: none; color: $black;}
     }
 }
 

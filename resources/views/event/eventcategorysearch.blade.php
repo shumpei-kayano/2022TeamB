@@ -20,7 +20,7 @@
           {{--  ページタイトル(8)  --}}
           <div class="col-8">
               <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
-                新着順 イベント募集投稿 {{$id}}
+                新着順 イベント募集投稿 / {{$categories[$id-1]->category_name}}
               </div>
           </div>
           {{--  新規募集投稿ボタン(4)  --}}
@@ -39,35 +39,20 @@
                 <img src="{{asset('/storage/eimg/'.$item->event_image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{$item->event_title}}</h5>
-                  <p class="card-text">{{$item->date_of_event->format('Y-m-d')}}</p>
+                  <p class="card-text">{{ substr($item->date_of_event,0,10) }}</p>
                 </div>
               </a>
             </div>
           @endforeach
-
         </div>
 
         {{-- 右下のコンテンツrow(12) --}}
-
         <div class="row p-event-right-content">
           <div class="col-8"></div>
           <div class="col-4">
          {{ $items->links() }}
           </div>
         </div>
-        
-        {{--  componentsから確認モーダルを挿入  --}}
-        {{--  @component('components.confirmmodal') 
-          @slot('btn_title')
-            削除
-          @endslot
-          @slot('msg_title')
-            イベント投稿削除
-          @endslot
-          @slot('modal_body')
-            本当に削除しますか？
-          @endslot
-        @endcomponent  --}}
 
       </div>
     </div>

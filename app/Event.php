@@ -39,6 +39,7 @@ class Event extends Model
     //     'date_of_event',
     //     'end_time',
     // ];
+    // https://inouelog.com/laravel-time-display/ ↑substr($,0,10)で表示
 
     // 新規作成メソッド（保存）
     public static function eventInsert0(Request $request)
@@ -61,8 +62,8 @@ class Event extends Model
         $events->event_detail = $request->event_detail;
         $events->city = $request->city;
         $events->url = $request->url;
-        $events->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
-        $events->end_time = $request->end_time = date('Y-m-d H:i:s');
+        $events->date_of_event = $request->date_of_event;
+        $events->end_time = $request->end_time;
         $events->event_image = $filename;  //filename
         $events->publish_flag = '0';  //公開しないフラグ
         $events->category_id = $request->category_id;

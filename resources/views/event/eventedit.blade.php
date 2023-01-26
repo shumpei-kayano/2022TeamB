@@ -42,7 +42,7 @@
                     {{--  左下の更新ボタン  --}}
                     <div class="eventadd__btn-container">
                         <input type="submit" value="更新" name="edit" class='button' formaction="{{ url('event016/'.$event->id) }}">
-                        {{--  <input type="submit" value="削除" name="delete" class='button'>  --}}
+
                     
                     <div class="c-color--black">
         {{--  確認モーダルを挿入  --}}
@@ -109,7 +109,7 @@
                             {{--  開催場所を選択  --}}
                             <tr>
                                 <td colspan="3">
-                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    <label for="exampleInputEmail1" class="form-label">イベント開催地</label>
                                     @error('city')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
                                     <select name="city" class="form-select" aria-label="Default select example">
