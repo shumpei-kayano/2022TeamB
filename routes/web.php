@@ -286,9 +286,7 @@ Route::get('open_chat_preview', function () {
 });
 
 //オープンチャットのプレビュー画面から「新規作成ボタン」クリックでトークルーム開始
-Route::get('open_chat_room', function () {
-    return view('open_chat.open_chat_room');
-});
+Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
 
 //オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
 Route::get('check_close', function () {
@@ -522,3 +520,7 @@ Route::post('create_new_open', 'ChatroomController@create');
 //通報画面
 Route::get('report', 'ReportController@index');
 Route::get('complete_report', 'ReportController@report');
+
+// Route::post('message_send', 'Chatroomcontroller@send');
+Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
+Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');

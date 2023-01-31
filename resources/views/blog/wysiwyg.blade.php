@@ -93,7 +93,7 @@ $("#moji_suu").text(count);
         toolbar: [
         ['bold', 'italic', 'underline', 'strike'],
         [{'color': []}, {'background': []}],
-        ['link', 'blockquote', 'image', 'video'],
+        ['link', 'blockquote', 'image'],
         [{ list: 'ordered' }, { list: 'bullet' }]
         ]
     },
