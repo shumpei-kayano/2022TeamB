@@ -15,35 +15,38 @@
       <tbody>
         <tr>
           <td class="p-user3-mypage__municipality"><label for="municipality" class="form-label">団体名</label>
-						<input type="text" class="form-control" id="municipality" placeholder="">
+						<disabled  type="text" class="form-control" id="municipality" placeholder=""></disabled>
 					</td>
         </tr>
         <tr>
           <td class="p-user3-mypage__tel"><label for="municipality" class="form-label">電話番号</label>
-						<input type="text" class="form-control" id="tel" placeholder="">
+						<disabled  type="text" class="form-control" id="tel" placeholder=""></disabled>
           </td>
         </tr>
         <tr>
           <td class="p-user3-mypage__address"><label for="municipality" class="form-label">団体名</label>
-						<input type="text" class="form-control" id="address" placeholder="">
+						<disabled  type="text" class="form-control" id="address" placeholder=""></disabled>
           </td>
         </tr>
         <tr>
-          <td class="p-user3-mypage__introduction"><label for="introduction" class="form-label">店舗名</label>
-						<input type="text" class="form-control" id="introduction" placeholder="">
+          <td class="p-user3-mypage__introduction"><label for="introduction" class="form-label">紹介文</label>
+						<disabled  type="text" class="form-control" id="introduction" placeholder="" style="height: 100px"></disabled>
 					</td>
         </tr>
         <tr>
-          <td>イベント募集（新着順）</td>
+          <td class="p-user3-mypage__events1"><label for="introduction" class="form-label">イベント募集（新着順）</label>
+						<disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+					</td>
         </tr>
         <tr>
-          <td>イベント情報１</td>
+          <td class="p-user3-mypage__events2"><label for="introduction" class="form-label"></label>
+						<disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+					</td>
         </tr>
         <tr>
-          <td>イベント情報２</td>
-        </tr>
-        <tr>
-          <td>イベント情報３</td>
+          <td class="p-user3-mypage__events3"><label for="introduction" class="form-label"></label>
+						<disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+					</td>
         </tr>
       </tbody>
     </table>

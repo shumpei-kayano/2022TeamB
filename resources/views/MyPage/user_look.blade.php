@@ -15,9 +15,9 @@
       <tbody>
         <tr>
           <td class="p-user2-mypage__kojin"><label for="kojin" class="form-label">ユーザー名</label>
-						<input type="text" class="form-control" id="kojin" placeholder="">
+						<disabled   type="text" class="form-control" id="kojin" placeholder=""></disabled>
             <label for="self">自己紹介文</label>
-            <textarea class="form-control p-mypage-store__textarea" name="self" id="self" cols="30" rows="4"></textarea>
+            <disabled  class="form-control p-mypage-store__textarea" name="self" id="self" cols="30" rows="4" style="height: 200px"></disabled>
 					</td>
         </tr>
         </tbody>
@@ -25,11 +25,11 @@
 
         <div class="p-user2-mypage__hobby">
           <label for="hobby1" class="form-label">趣味①
-          <input type="text" class="form-control" id="hobby1" placeholder=""></label>
+          <disabled  type="text" class="form-control" id="hobby1" placeholder=""></disabled></label>
           <label for="hobby2" class="form-label">趣味②
-          <input type="text" class="form-control" id="hobby2" placeholder=""></label>
+          <disabled  type="text" class="form-control" id="hobby2" placeholder=""></disabled></label>
           <label for="hobby3" class="form-label">趣味③
-          <input type="text" class="form-control" id="hobby3" placeholder=""></label>
+          <disabled  type="text" class="form-control" id="hobby3" placeholder=""></disabled></label>
         </div>
     </div>
     <div class="p-user2-mypage__right">

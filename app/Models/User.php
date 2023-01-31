@@ -67,4 +67,11 @@ class User extends Authenticatable
     // }
 
 
+
+    //https://qiita.com/yukibe/items/b7186f05d1c266076a35
+    //ユーザ(ブログ投稿者)は複数のブログ記事を投稿できるので、Userは複数のBlogを持つことができる
+    public function blogs()
+    {
+        return $this->hasMany('App\Blog');
+    }
 }

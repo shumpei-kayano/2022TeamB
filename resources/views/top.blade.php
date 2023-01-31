@@ -12,6 +12,7 @@
     <div class="row">
 
       {{-- 左メニューバー --}}
+<<<<<<< HEAD
       @component('components.left', ['categories' => $categories])
       @endcomponent
       {{--  <div class="col-2 c-bgcolor--brown left-bar Category_bar">
@@ -20,6 +21,14 @@
     <p>{{$item->category_name}}</p>
     
     @endforeach</div>  --}}
+=======
+      <div class="col-2 c-bgcolor--brown left-bar Category_bar">
+        <div class="w-100 d-flex justify-content-center"><div class=p-left_menu_bar>カテゴリから検索</div></div><br>
+            @foreach ($items as $item)
+            <p>{{$item->category_name}}</p>
+            @endforeach
+      </div>
+>>>>>>> origin/develop
 
       {{-- 右側 --}}
       <div class="col-10"> 
@@ -27,11 +36,24 @@
           {{-- おすすめ写真表示 --}}
           <div class="col-12 c-bgcolor--darkbrown">
             <div class="slider">  
-              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/bungotakada.jpg" width="100%" height="330px"></div>   
-              <div class="img"><img src="./img/ayu.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/yufuin.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/chikuraku.jpg" width="100%" height="330px"></div>   
+              <div class="img"><img src="./img/reimen.jpg" width="100%" height="330px"></div>   
+              <div class="img"><img src="./img/hyugadon.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/kitsuki_kimono.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/ishibashi.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/funai_pacchin.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/futagoji.jpg" width="100%" height="330px"></div>
               <div class="img"><img src="./img/usajingu.jpg" width="100%" height="330px"></div>
-            </div>
+              <div class="img"><img src="./img/yujakukoen.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/suyanosaka.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/miyamakirishima.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/asagiri.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/kyusuikei.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/okajyo.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></div>
+              <div class="img"><img src="./img/kinrinko.jpg" width="100%" height="330px"></div>
+          </div>
           </div>
         </div>
           <div class="row">
@@ -67,7 +89,6 @@
               <div class="p-blog__blog_area">
                 @foreach ($data as $datas)
                 <a class="p-blog__blog_title">
-                  
                   {{-- 投稿日時を表示/10文字だけ表示で時刻は非表示に --}}
                   <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 10, '' ) }}】</a>
                   {{-- ブログタイトルをDBから取得し表示する/日付も含めて40文字表示する/ 40文字以上の場合は(...)で表示する --}}
@@ -149,5 +170,7 @@
       </div>
     </div>
   </div>
-
+  <form method="POST" action="route('user_mypage')" accept-charset="UTF-8">
+    <input class="xxxxx" type="submit" value="Click Me!">
+</form>
 @endsection

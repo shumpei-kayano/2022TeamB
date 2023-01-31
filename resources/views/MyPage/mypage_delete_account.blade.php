@@ -20,7 +20,7 @@
   <div class="p-mypage-delete-account__right">
     <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
     <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
-    <a href="#"><button class="p-mypage-setting__btn"> フォロワー登録・編集</button></a>
+    <a href="#"><button class="p-mypage-setting__btn"> プロフィール登録・編集</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
     <a href="#"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>

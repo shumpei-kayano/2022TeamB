@@ -6,7 +6,9 @@ use App\Models\Chatroom;
 use App\Models\Category;
 use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Http\Request;
-
+use App\Models\Message;
+// use Illuminate\Mail\Message;
+use App\Post;
 
 // チャットのルームを作る
 class ChatroomController extends Controller
@@ -38,7 +40,7 @@ class ChatroomController extends Controller
         $chatroom->developer_id = $request->user()->id;
         unset($form['_token']);
         $chatroom->fill($form)->save();
-        return redirect('/open_chat_room');
+        return redirect('/open_chat_list');
     }
 
     public function preview_post(Request $request)
@@ -50,9 +52,44 @@ class ChatroomController extends Controller
         return view('open_chat.open_chat_preview', ['msg' => $request->msg]);
     }
 
+    //オープンチャット一覧表示
     public function index3(Request $request)
     {
         $items = chatroom::orderBy('created_at', 'desc')->paginate(4);
         return view('open_chat.open_chat_list', ['items' => $items]);
+    }
+
+    //オープンチャットができるページへ
+    public function show($id)
+    {
+        // $data = Post::with('message')->where('id', $id)->first();
+        $data = Chatroom::where('id', $id)->first();
+        $messages = Message::where('room_id', $id)->orderBy("created_at")->get();
+        $room_id = $id;
+        return view('open_chat.open_chat_room', ['room_id' => $room_id, 'messages' => $messages, 'data' => $data]);
+    }
+
+
+
+
+    //メッセージを送信
+    public function send(Request $request)
+    {
+        //送信messageの登録処理
+        // $this->validate($request, messages:::$rules);
+        $message = new Message();
+        $form = $request->all();
+        // $message->room_id = $request->chatroom()->id;
+        $message->user_id = $request->user()->id;
+        unset($form['_token']);
+        $message->fill($form)->save();
+        return redirect('open_chat_room/' . $request->room_id);
+    }
+
+    public function index4($id)
+    {
+        // $data = Post::with('message')->where('id', $id)->first();
+        $data = Chatroom::where('id', $id)->first();
+        return view('open_chat.open_chat_room')->with(['data' => $data]);
     }
 }

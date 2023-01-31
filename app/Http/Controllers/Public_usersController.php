@@ -10,16 +10,12 @@ class Public_usersController extends Controller
         return view('samples.request_form', [
           'title' => 'フォームサンプル',
         ]);
+    
+
+        // メッセージのデータを取得する
+        $sql = "SELECT facility_name, FROM public_users";
+        $tenpo = $->query($sql);
       }
-      public function requestSample(Request $request){
+    }
   
-        $user_name = $request->input('user_name');
-        $comment = $request->input('comment');
-  
-        return view('samples.request_sample', [
-          'title' => 'リクエストの受け取り',
-          'user_name' => $user_name,
-          'comment' => $comment,
-        ]);
-      }
-}
+

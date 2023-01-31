@@ -7,9 +7,12 @@
 <div class="p-mindfulness-start">
     <div class="p-mindfulness-start__left">
       <div class="p-mindfulness-start__top">
-        <form action="mindfulness_timer">
-          <a href="#"><button class="p-mindfulness-start__btn"> スタート</button></a>
-        </form>
+      <div class="p-mindfulness__timer">
+          <div style="font-size:100px" id="timer">5</div>
+          
+      </div>
+          <a href="" id="start" class="inactive"><font size="7">スタート</font></a>
+          </div>
       </div>
     </div>
     <div class="p-mindfulness-start__right">
@@ -23,4 +26,18 @@
       <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
     </div>
   </div>
+  <script>
+    window.onload=function(){
+  document.querySelector('#start').addEventListener('click',function(e){
+    e.preventDefault();
+    var count = 5;
+    var id = setInterval(function(){
+      count--;
+      document.querySelector('#timer').textContent=count;
+      if(count <= 0) clearInterval(id);
+    },1000);
+  });
+  
+}
+</script>
   @endsection
