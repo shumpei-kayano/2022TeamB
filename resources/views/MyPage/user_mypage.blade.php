@@ -14,25 +14,38 @@
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
                 <form action="{{'add'}}" method="post">
-                    @csrf
-                <label for="user_name" class="form-label" disabled>ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}" disabled>
+                <label for="user_name" class="form-label">ユーザー名</label>
+                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}">
                 <label for="mail" class="form-label">メールアドレス</label>
                 <input type="email" class="form-control" id="mail" value="{{ $human->email }}" disabled>
             </div>
+            {{--  カテゴリを選択  --}}
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
-                <label for="hobby" class="form-label">趣味</label>
-                <input type="text" class="form-control" name='hobby1' id="hobby" value="{{ $human->hobby1 }}" placeholder="趣味①"></div>
+                    <label for="hobby" class="form-label">趣味</label>
+                    <select name="category_id" class="form-select" aria-label="Default select example">
+                        <option disabled="" selected="">選択</option>
+                    </select>
+                </div> 
                 <div class="p-mypage-store__hobby2">
-                <input type="text" class="form-control" name='hobby2' id="hobby" value="{{ $human->hobby2 }}" placeholder="趣味②"></div>
+                    <select name="category_id" class="form-select" aria-label="Default select example">
+                        <option disabled="" selected="">選択</option>
+                    </select>
+                </div> 
                 <div class="p-mypage-store__hobby3">
-                <input type="text" class="form-control" name='hobby3' id="hobby" value="{{ $human->hobby3 }}" placeholder="趣味③"></div>
+                    <select name="category_id" class="form-select" aria-label="Default select example">
+                        <option disabled="" selected="">選択</option>
+                        {{-- @foreach ($items as $item)
+                            <option value="{{ $item->category_name }}">{{ $item->category_name }}</option>
+                        @endforeach --}}
+                    </select>
+                </div> 
             </div>
+
             <div class="p-mypage-store__mind">
-                <form action="mindfulness_start">
-                <a href="mindfulness_detail"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="150" height="180"></a>
-                </form>    
+                    {{-- <a href="mindfulness_detail"><button class="p-mypage-setting__btn">マインドフルネス</button></a> --}}
+                <a href="mindfulness_detail"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="120" height="165"></a>
+                      
             </div>
         </div>
         <div class="p-mypage-store__middle">
@@ -42,22 +55,40 @@
         {{--  編集完了ボタン  --}}
         <button type="submit">保存</button>
     </form>
-        <div class="p-mypage-store__middle">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>予約管理</td>
-                        <td>イベント予約・参加表明・予約履歴一覧</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>ベント投稿履歴</td>
-                    </tr>
-                </tbody>
-            </table>
+    <tr>
+		<td>予約管理</td>
+	</tr>
+
+    <div class="p-mypage-store__beneath">
+        <div id="calendar" style="width: 600px; padding-right: 30px; padding-left: 10px;" >
+              <iframe src="https://calendar.google.com/calendar/embed?src=287c89bb6ebc5188bb0488b9e9e8a34c2451cf5ce97f1664ce2d8cac5ff76b4f%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" width="500" height="320" frameborder="0" scrolling="no" ></iframe>
         </div>
-        <div class="p-mypage-store__click">
-            <a href="#">もっと見る...Click here</a></div><br>
+        
+            <div class="p-mypage-store__events" >
+                <tr>
+                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予約・参加表明・予約履歴一覧</label>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="p-mypage-store__events2"><label for="introduction" class="form-label"></label>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p-mypage-store__events3"><label for="introduction" class="form-label">イベント投稿履歴</label>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p-mypage-store__events4"><label for="introduction" class="form-label"></label>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                <div class="p-mypage-store__click">
+                    <a href="#">もっと見る...Click here</a></div>
+            </div>
+                </td>
+            </tr>
+      </div>
         
     </div>
 
@@ -87,7 +118,7 @@
             <a href="useredit"><button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
-            <a href="create2"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
+            <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
         </div>
