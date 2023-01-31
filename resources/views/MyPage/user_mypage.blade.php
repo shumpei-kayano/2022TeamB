@@ -17,7 +17,7 @@
                 <label for="user_name" class="form-label">ユーザー名</label>
                 <input type="text" class="form-control" id="user_name" value="{{ $human->name }}">
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" value="{{ $human->email }}">
+                <input type="email" class="form-control" id="mail" value="{{ $human->email }}" disabled>
             </div>
             {{--  カテゴリを選択  --}}
             <div class="p-mypage-store__hobby">
@@ -50,8 +50,10 @@
         </div>
         <div class="p-mypage-store__middle">
             <label for="self">自己紹介文</label>
-            <textarea class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4"></textarea>
+            <textarea class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" disabled></textarea>
         </div>
+        {{--  編集完了ボタン  --}}
+        <button type="submit">保存</button>
     </form>
     <tr>
 		<td>予約管理</td>
@@ -93,11 +95,27 @@
     {{-- 右側のボタン集 --}}
     <div class="p-mypage-store__right">
         <div class="p-mypage-store__btn-container">     
-            <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
+            <div class="eventadd__img-container">
+                {{--  デフォルト画像noimage  --}}
+                <div id="default_image">
+                    <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
+                </div>
+                {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
+                <div id="preview" class="e-imagePreview"></div>
+                <div class="btn-wrap">
+                    <label>
+                        <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
+                        <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
+                        </span
+                        <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
+                    </label>
+                </div>
+                {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
+            </div>
             <form action="mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>
-            <a href="#"><button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
+            <a href="useredit"><button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
             <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
@@ -106,4 +124,28 @@
         </div>
     </div>
 </div>
+
+<script>
+    function imgPreView(event){
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        var preview = document.getElementById("preview");
+        var previewImage = document.getElementById("previewImage");
+        
+        if(previewImage != null) //画像があれば
+          preview.removeChild(previewImage);
+          // default_image を非表示
+          var elem = document.getElementById("default_image");
+          elem.style.display = "none";
+          
+        reader.onload = function(event) {
+           var img = document.createElement("img");
+           img.setAttribute("src", reader.result);
+           img.setAttribute("id", "previewImage");
+           preview.appendChild(img);
+          
+        };
+        reader.readAsDataURL(file);
+    }    
+</script>
 @endsection

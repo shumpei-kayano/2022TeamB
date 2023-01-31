@@ -126,7 +126,7 @@ Route::get('/municipalitypage', function () {
 
 //イベント一覧（個人）画面
 Route::get('event013', 'EventController@index');
-//イベント募集新規作成
+
 Route::get('event015', 'EventController@add');
 Route::post('event015', 'EventController@create');
 
@@ -355,6 +355,39 @@ Route::get('joining_chat', function () {
 
 //ブログ関連
 
+//ブログ記事の削除完了画面
+Route::get('blog_completed_deactivate', function () {
+    return view('blog.blog_completed_deactivate');
+});
+
+//トップページから「もっと見る」をクリックでブログ記事一覧表示
+Route::get('new_blog_list', 'BlogController@index');
+
+//ブログ記事詳細ページ表示
+// Route::get('blog_show', function () {
+//     return view('blog.blog_show');
+// });
+
+//投稿済みブログ一覧
+Route::get('my_posted_blog_list', function () {
+    return view('blog.my_posted_blog_list');
+});
+
+//ブログ編集画面
+Route::get('my_blog_edit', function () {
+    return view('blog.my_blog_edit');
+});
+
+// 投稿ページを表示
+Route::get('/create', 'BlogController@postpage');
+
+// 投稿をコントローラーに送信
+Route::post('/newpostsend', 'BlogController@savenew');
+
+// 投稿一覧を表示する
+Route::get('/new_blog_list', 'BlogController@list');
+
+// 投稿一覧を表示する
 // ブログリッチテキストエディターページ
 Route::get('/create2', 'BlogController@wys');
 
@@ -392,6 +425,24 @@ Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
 
 
 
+
+
+
+
+//「ブログを書く」ボタンクリックでページ遷移
+// Route::get('my_blog_edit', function () {
+//     return view('my_blog_edit');
+// });
+
+
+
+
+
+
+//あとで消す
+// ブログCDN読み込み　リッチテキストエディターページ
+// Route::get('/create2', 'BlogController@wys');
+Route::get('/create2', 'BlogController@savenew');
 
 
 
