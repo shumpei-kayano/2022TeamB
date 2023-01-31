@@ -13,34 +13,34 @@
     <div class="p-mypage-store__left">
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
-                <form action="{{'add'}}" method="post">
+                <form action="{{route('add')}}" method="post">
                     @csrf
-                <label for="user_name" class="form-label" disabled>ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}" disabled>
+                <label for="user_name" class="form-label">ユーザー名</label>
+                <input type="text" class="form-control" name='user_name' id="user_name" value="{{ $human->name }}">
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" value="{{ $human->email }}" disabled>
+                <input type="email" class="form-control" name='mail' id="mail"  value="{{ $human->email }}">
             </div>
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
                 <label for="hobby" class="form-label">趣味</label>
-                <input type="text" class="form-control" name='hobby1' id="hobby" value="{{ $human->hobby1 }}" placeholder="趣味①"></div>
+                <input type="text" class="form-control" name='hobby1' id="hobby" placeholder="趣味①"></div>
                 <div class="p-mypage-store__hobby2">
-                <input type="text" class="form-control" name='hobby2' id="hobby" value="{{ $human->hobby2 }}" placeholder="趣味②"></div>
+                <input type="text" class="form-control" name='hobby2' id="hobby" placeholder="趣味②"></div>
                 <div class="p-mypage-store__hobby3">
-                <input type="text" class="form-control" name='hobby3' id="hobby" value="{{ $human->hobby3 }}" placeholder="趣味③"></div>
+                <input type="text" class="form-control" name='hobby3' id="hobby" placeholder="趣味③"></div>
             </div>
             <div class="p-mypage-store__mind">
-                <form action="mindfulness_start">
+                {{--  <form action="mindfulness_start">  --}}
                 <a href="mindfulness_detail"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="150" height="180"></a>
-                </form>    
+                {{--  </form>      --}}
             </div>
         </div>
         <div class="p-mypage-store__middle">
             <label for="self">自己紹介文</label>
-            <textarea class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" disabled></textarea>
+            <input type="text" class="form-control" name="self_introduction" id="self" cols="30" rows="4" height="500" value="{{ $human->self_introduction }}"></name=>
         </div>
         {{--  編集完了ボタン  --}}
-        <button type="submit">保存</button>
+        <button type="submit">編集</button>
     </form>
         <div class="p-mypage-store__middle">
             <table>
@@ -84,7 +84,7 @@
             <form action="mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>
-            <a href="useredit"><button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
+            <a href="#"><button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
             <a href="create2"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>

@@ -13,7 +13,7 @@ class UsersController extends Controller
     public function withdrawal()
     {
         $user = Auth::user();
-        $user->delete();
+        // $user->delete();
         Auth::logout();
         return view('auth.account_deleted');
     }
@@ -25,20 +25,25 @@ class UsersController extends Controller
         $users = User::whereid($user->id)->first();
         // 入力した情報を$formにいれる
         $form = $request->all();
+        // dd($form,$request);
         // カラムごとにデータをテーブルに入れる。
         $users["hobby1"] = $form["hobby1"];
         $users["hobby2"] = $form["hobby2"];
         $users["hobby3"] = $form["hobby3"];
-        $users["name"] = $form["name"];
-        $users["email"] = $form["email"];
+        $users["name"] = $form["user_name"];
+        $users["email"] = $form["mail"];
         $users["self_introduction"] = $form["self_introduction"];
         // dd($form,$users);
         // トークンイラン券外す
         unset($form['_token']);
 
         $users->fill($form)->save();
+        // dd($form);
         // redirectでトップのルートを見る
-        return redirect('/');
+        // return redirect('/');
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        return view('MyPage.user_mypage', ['human' => $human]);
     }
     public function display()
     {
@@ -49,4 +54,14 @@ class UsersController extends Controller
 
        
     }
+
+    public function useredit()
+    {
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        return view('MyPage.useredit',['human' =>$human]);
+    }
+
+
 }
+

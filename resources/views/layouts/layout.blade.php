@@ -71,7 +71,8 @@
                 type="submit" name="submit" value="ログアウト">
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
-              </form>
+                </form>
+              <a href="/user_mypage">mypage遷移</a>
               </div>
               {{-- <form action="user_mypage"><button>myaccount</button></form> --}}
           @endguest
