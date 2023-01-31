@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Guest extends Model
 {
@@ -13,4 +14,14 @@ class Guest extends Model
         'event_id' => 'required',
 
     );
+
+    // データベースに保存
+    public static function guestInsert(Request $request)
+    {
+        $guests = new Guest;
+        $guests->user_id = $request->user()->id;
+        $guests->event_id = $request->event_id;
+
+        $guests->save();
+    }
 }

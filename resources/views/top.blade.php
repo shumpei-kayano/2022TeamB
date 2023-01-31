@@ -116,7 +116,7 @@
             <div class="p-gov__gov_area">
               <p class="p-gov__gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
             </div>
-            <div class="click"><a href="#">もっと見る...Click here</a></div>
+            <div class="click"><a href="event001">もっと見る...Click here</a></div>
           </div>
 
         {{-- オープンチャット --}}

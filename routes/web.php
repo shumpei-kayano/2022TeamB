@@ -120,15 +120,15 @@ Route::get('event013', 'EventController@index');
 Route::get('event015', 'EventController@add');
 Route::post('event015', 'EventController@create');
 
-//イベント詳細（編集、削除）
-// Route::get('event014', function () {
-//     return view('event.eventdetailview');
-// });
-/*
-//新しい「イベント」を追加
-Route::post('events', 'App\Http\Controllers\EventsController@store');
-*/
-//イベントを削除 ルートパラメータでidを渡すのがポイント
+//イベント一覧（自治体）
+Route::get('event001', 'EventController@publicIndex');
+
+
+
+// イベントに参加する
+Route::post('event014/{id}', 'EventController@attendEvent');
+
+//イベントを削除 ルートパラメータでidを渡す
 Route::post('eventdel/{id}', 'EventController@destroy');
 
 // イベント検索（開催地・カテゴリ）
@@ -196,7 +196,7 @@ Route::get('municipality_mypage', function () {
 Route::middleware('auth')->group(function () {
     // イベント詳細画面
     Route::get('event014/{id}', 'EventController@detailView');
-
+    // Route::post('event014/{id}', 'EventController@attendEvent');
     Route::middleware('password.confirm')->group(function () {
 
 

@@ -120,4 +120,13 @@ class Event extends Model
         $events->category_id = $request->category_id;
         $events->save();
     }
+    // users user_id(Event)=id(User) 
+    public function publicUser()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+    public function getpublicUsers()
+    {
+        return $this->publicUser->where('publish_flag', '1');
+    }
 }

@@ -35,6 +35,8 @@ class HomeController extends Controller
             ->where('publish_flag', '1')
             ->whereNotNull('user_id')
             ->paginate(3);
+        // トップページ県・市町村からの募集event001
+
         return view('top', [
             'categories' => $categories,
             'data' => $data,
