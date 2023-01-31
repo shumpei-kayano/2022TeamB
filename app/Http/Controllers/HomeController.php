@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Event;
 
 class HomeController extends Controller
 {
@@ -26,14 +27,25 @@ class HomeController extends Controller
     public function index()
     {
         //トップページ左側カテゴリバー
-        $items = Category::all();
+        $categories = Category::all();
         //ブログコーナーにタイトルを新着順で3件抽出して表示
         $data = Blog::orderBy('created_at', 'desc')->paginate(3);
-        return view('top', ['items' => $items, 'data' => $data]);
+        // トップページ左下event013
+        $items = Event::orderBy('updated_at', 'desc')
+            ->where('publish_flag', '1')
+            ->whereNotNull('user_id')
+            ->paginate(3);
+        // トップページ県・市町村からの募集event001
+
+        return view('top', [
+            'categories' => $categories,
+            'data' => $data,
+            'items' => $items,
+        ]);
     }
-    public function left()
+    public function eventkojin()
     {
-        //トップページ左側カテゴリバー
+        //トップページ左下
         $categories = Category::all();
         return view('components/left', ['categories' => $categories]);
     }

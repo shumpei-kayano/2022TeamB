@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Area;
 use App\Models\Category;
+use App\Models\User;
+use App\Models\Guest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -17,11 +19,14 @@ class EventController extends Controller
     public function index(Request $request)
     {
         $categories = Category::all();
-        $items = Event::orderBy('updated_at', 'desc')->where('publish_flag', '1')->Paginate(8);
-        // dd($categories); //デバッグ用ddメソッド…変数の中身が見れる
+        $items = Event::orderBy('updated_at', 'desc')
+            ->where('publish_flag', '1')
+            ->whereNotNull('user_id')
+            ->Paginate(8);
+        // $users = User::where('publish_flag','0');, 'users' => $users
         return view('event.eventichirankojin', ['items' => $items, 'categories' => $categories]);
     }
-    // イベント新規作成
+    // イベント新規作成画面へ
     public function add(Request $request)
     {
         $user = Auth::user();
@@ -29,7 +34,7 @@ class EventController extends Controller
         $categories = Category::all();
         return view('event.eventadd', ['items' => $items, 'categories' => $categories, 'user' => $user]);
     }
-
+    // DBへイベント内容書き込み
     public function create(Request $request)
     {
         //バリデーション all()は入力値を全て連想配列で取得
@@ -41,6 +46,7 @@ class EventController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
+        // 保存か公開か
         if ($request->has('save')) {
             Event::eventInsert0($request);
             return redirect('/event015');
@@ -80,16 +86,53 @@ class EventController extends Controller
     // イベント詳細表示
     public function detailView(Request $request)
     {
+        $user = Auth::user();
+        $categories = Category::all();
         $item = Event::where('id', $request->id)->first();
-        return view('event.eventdetailview', ['item' => $item]);
+        $guests = Guest::where('event_id', $request->id)->first();
+        // dd($request->id);
+        return view('event.eventdetailview', [
+            'item' => $item,
+            'categories' => $categories,
+            'guests' => $guests,
+            'user' => $user
+        ]);
     }
+    // イベント参加、ゲストテーブルに書き込み
+    public function attendEvent(Request $request)
+    {
+        // $user = Auth::user();
+        // $categories = Category::all();
+        // $item = Event::where('id', $request->id)->first();
+        // $guests = Guest::where('event_id', $request->id)->first();
+        // dd($request->event_id);←null
+        if ($request->has('join')) {
+            Guest::guestInsert($request);
+            return redirect('/event015');
+        } elseif ($request->has('cancel')) {
+            Guest::find($request->id)->delete();
+            return redirect('/event013');
+        } else {
+            return redirect('/event013');
+        }
+        // return view('event.eventdetailview', [
+        //     'item' => $item,
+        //     'categories' => $categories,
+        //     'guests' => $guests,
+        //     'user' => $user
+        // ]);
+    }
+
+
+
+    // イベント削除
     public function destroy(Request $request)
     {
         Event::find($request->id)->delete();
         return redirect('/event013');
     }
 
-    // イベントカテゴリ検索
+    // イベントカテゴリ検索 id渡される
     public function categorySearch($id)
     {
         $categories = Category::all();
@@ -97,6 +140,41 @@ class EventController extends Controller
             ->where('publish_flag', '1')
             ->where('category_id', $id)
             ->Paginate(8);
-        return view('event.eventcategorysearch', ['items' => $items, 'categories' => $categories, 'id' => $id]);
+        return view('event.eventcategorysearch', [
+            'items' => $items,
+            'categories' => $categories,
+            'id' => $id,
+        ]);
+    }
+    // イベント開催地検索 idはルートパラメータで
+    public function locationSearch($id)
+    {
+        $categories = Category::all();
+        $city = Area::all()->where('id', $id);
+        $items = Event::orderBy('updated_at', 'desc')
+            ->where('publish_flag', '1')
+            ->where('city', $id)
+            ->Paginate(8);
+        return view('event.eventlocationsearch', [
+            'items' => $items,
+            'categories' => $categories,
+            'id' => $id,
+            'city' => $city
+        ]);
+    }
+    // 自治体のイベントだけ表示させる userのpublish_flagが1だけ
+    public function publicIndex()
+    {
+        $categories = Category::all();
+        $publicusers = User::with('events')->where('publish_flag', '1')->get();
+        // dd($publicusers);
+        $items = Event::orderBy('updated_at', 'desc')  // 更新が新しい順
+            ->where('publish_flag', '1')         // 公開フラグ1だけ表示
+            ->where('user_id', $publicusers->first()->id)
+            ->orWhere('user_id', $publicusers[1]->id)
+            // ->orWhere('user_id', $publicusers[2]->id)
+            ->Paginate(8);
+
+        return view('event.eventichiranpublic', ['items' => $items, 'categories' => $categories,]);
     }
 }

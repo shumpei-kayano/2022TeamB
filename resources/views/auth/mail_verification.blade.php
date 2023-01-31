@@ -8,8 +8,8 @@
 @section('main')
 <div class="p-tab01">
   <input id="menu01" type="radio" name="tab_menu" checked><label class="p-tab01__tab_menu1" for="menu01">個人</label>
-  <input id="menu02" type="radio" name="tab_menu"><label class="p-tab01__tab_menu2" for="menu02">店舗</label>
-  <input id="menu03" type="radio" name="tab_menu"><label class="p-tab01__tab_menu3" for="menu03">自治体</label>
+  <input id="menu02" type="radio" name="municipality_flag"><label class="p-tab01__tab_menu2" for="menu02">店舗</label>
+  <input id="menu03" type="radio" name="municipality_flag"><label class="p-tab01__tab_menu3" for="menu03">自治体</label>
   <div class="p-tab01__tab_contents1" id="menu01">
     <h4>アカウント仮登録</h4><br>
     <div class="mb-3">

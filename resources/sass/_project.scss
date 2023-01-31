@@ -120,6 +120,9 @@
         border-radius: 50%;                 //円
         background: $brown;                 //背景色
     }
+    &__area_table{
+        a { text-decoration: none; color: $black;}
+    }
 }
 
 //トップページの各コーナーごとの「もっと見る...Click here」の設定(共通使用可能)

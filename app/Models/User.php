@@ -54,4 +54,24 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Blog');
     }
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
+
+
+
+
+    /* フォロー機能 */
+    // public function follows()
+    // {
+    //     return $this->belongsToMany(User::class, 'follower_user', 'follower_id', 'user_id');
+    // }
+
+    // public function followers()
+    // {
+    //     return $this->belongsToMany(User::class, 'follower_user', 'user_id', 'follower_id');
+    // }
+
+
 }

@@ -77,10 +77,7 @@ class CategoriesTableSeeder extends Seeder
         ];
         DB::table('categories')->insert($param);
 
-        $param = [
-            'category_name' => 'ゲーム',
-        ];
-        DB::table('categories')->insert($param);
+
 
         $param = [
             'category_name' => 'イラスト',

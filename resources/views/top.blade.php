@@ -12,12 +12,14 @@
     <div class="row">
 
       {{-- 左メニューバー --}}
-      <div class="col-2 c-bgcolor--brown left-bar Category_bar">
+      @component('components.left', ['categories' => $categories])
+      @endcomponent
+      {{--  <div class="col-2 c-bgcolor--brown left-bar Category_bar">
         <div class="w-100 d-flex justify-content-center"><div class=p-left_menu_bar>カテゴリから検索</div></div><br>
-            @foreach ($items as $item)
-            <p>{{$item->category_name}}</p>
-            @endforeach
-      </div>
+    @foreach ($items as $item)
+    <p>{{$item->category_name}}</p>
+    
+    @endforeach</div>  --}}
 
       {{-- 右側 --}}
       <div class="col-10"> 
@@ -34,6 +36,7 @@
               <div class="img"><img src="./img/funai_pacchin.jpg" width="100%" height="330px"></div>
               <div class="img"><img src="./img/futagoji.jpg" width="100%" height="330px"></div>
               <div class="img"><img src="./img/usajingu.jpg" width="100%" height="330px"></div>
+<<<<<<< HEAD
               <div class="img"><img src="./img/yujakukoen.jpg" width="100%" height="330px"></div>
               <div class="img"><img src="./img/suyanosaka.jpg" width="100%" height="330px"></div>
               <div class="img"><img src="./img/miyamakirishima.jpg" width="100%" height="330px"></div>
@@ -43,6 +46,9 @@
               <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></div>
               <div class="img"><img src="./img/kinrinko.jpg" width="100%" height="330px"></div>
           </div>
+=======
+            </div>
+>>>>>>> origin/events
           </div>
         </div>
           <div class="row">
@@ -54,14 +60,16 @@
               <table class="p-area_search__area_table">
                 <tbody>
                   <tr>
-                    <td>　　　大分市</td><td>　　日田市</td><td>　　　津久見市</td><td>　　杵築市</td><td>　　由布市</td><td>　　日出町</td>
+                    <td>　　　<a href="locationsearch/1">大分市</a></td><td>　　<a href="locationsearch/3">日田市</a></td><td>　　　<a href="locationsearch/4">津久見市</a></td><td>　　<a href="locationsearch/5">杵築市</a></td><td>　　<a href="locationsearch/6">由布市</a></td><td>　　<a href="locationsearch/7">日出町</a></td>
                   </tr>
                   <tr>
-                    <td>　　　別府市</td><td>　　佐伯市</td><td>　　　 竹田市</td><td>　　 宇佐市</td><td>　　国東市</td><td>　　九重町</td>
+                    <td>　　　<a href="locationsearch/2">別府市</a></td><td>　　<a href="locationsearch/8">佐伯市</a></td><td>　　　 <a href="locationsearch/9">竹田市</a></td><td>　　 <a href="locationsearch/10">宇佐市</a></td><td>　　<a href="locationsearch/11">国東市</a></td><td>　　<a href="locationsearch/12">九重町</a></td>
                   </tr>
                   <tr>
-                    <td>　　　中津市　</td><td>　　臼杵市　</td><td>　　 豊後高田市　</td><td>　 豊後大野市　</td><td>　　姫島村　</td><td>　　玖珠町　</td>
+                    <td>　　　<a href="locationsearch/13">中津市</a>　</td><td>　　<a href="locationsearch/14">臼杵市</a>　</td><td>　　 <a href="locationsearch/15">豊後高田市</a>　</td><td>　 <a href="locationsearch/16">豊後大野市</a>　</td><td>　　<a href="locationsearch/17">姫島村</a>　</td><td>　　<a href="locationsearch/18">玖珠町</a>　</td>
                   </tr>
+                  <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td><a href="locationsearch/19">オンライン</a></td></tr>
                 </tbody>
               </table>
             </div>
@@ -95,18 +103,15 @@
         <div class="row">
           <div class="col-4 c-bgcolor--darkbrown">
             {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
-            <div class="w-100 d-flex justify-content-center"><div class=p-event>イベント募集掲示板</div></div><br>
-            <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.29.<br>トリニータファン集まれ！オフ会開催</p>
+            <div class="w-100 d-flex justify-content-center">
+              <div class="p-event">イベント募集掲示板</div>
             </div>
             <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.22.<br>ゲーム大会開催</p>
-            </div>
-            <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.20.<br>一緒に焼き肉行きませんか</p>
-            </div>
-            <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.15.<br>フットサルメンバー募集</p>
+              <p class="p-event__event_title">
+              @foreach ($items as $item)
+              <p class="p-event__event_title">{{ substr($item->date_of_event,0,10) }} <br> {{ $item->event_title }} </p>
+              @endforeach
+              </p>
             </div>
             <div class="click"><a href="event013">もっと見る...Click here</a></div>
           </div>
@@ -127,7 +132,7 @@
             <div class="p-gov__gov_area">
               <p class="p-gov__gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
             </div>
-            <div class="click"><a href="#">もっと見る...Click here</a></div>
+            <div class="click"><a href="event001">もっと見る...Click here</a></div>
           </div>
 
         {{-- オープンチャット --}}
