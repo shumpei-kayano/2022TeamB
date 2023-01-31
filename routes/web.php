@@ -165,17 +165,18 @@ Route::get('events_detail', function () {
 });
 
 //マイページ設定画面
-Route::get('mypage_set', function () {
-    return view('MyPage.mypage_setting');
-});
+// Route::get('mypage_set', function () {
+//     return view('MyPage.mypage_setting');
+// });
+// Route::get('/user_mypage', [App\Http\Controllers\UsersController::class, 'index'])->name('user_mypage');
 //アカウント削除ボタン表示画面
 Route::get('mypage_del', function () {
     return view('MyPage.mypage_delete_account');
 });
 //ユーザーマイページ画面
-Route::get('user_mypage', function () {
-    return view('MyPage.user_mypage');
-});
+// Route::get('user_mypage', function () {
+//     return view('MyPage.user_mypage');
+// });
 // アカウント情報編集処理
 Route::post('/add', 'UsersController@add')->name('add');
 // Route::get('user_mypage', function () {

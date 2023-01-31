@@ -33,7 +33,11 @@
   <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
   <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
 
-
+{{-- Googleカレンダー用 --}}
+<link type='text/css' rel='stylesheet' href='/css/main.css' />
+<script type='text/javascript' src='/js/fullcalendar/main.js'></script>
+<script type='text/javascript' src='/js/fullcalendar/ja.js'></script>
+<script type='text/javascript' src='/js/calendar.js'></script>
 
 </head>
 

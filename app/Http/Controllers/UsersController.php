@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Google_Client;
+use Google_Service_Calendar;
+use Google_Service_Calendar_Event;
 
 
 class UsersController extends Controller
@@ -43,9 +46,18 @@ class UsersController extends Controller
     public function display()
     {
         // $human = Users::all();
+        $client = new Google_Client();
+
+        //アプリケーション名
+        $client->setApplicationName('GoogleCalendarAPIのテスト');
+        //権限の指定
+        $client->setScopes(Google_Service_Calendar::CALENDAR_EVENTS);
+        //JSONファイルの指定
+        $client->setAuthConfig(storage_path('app/api-key/calender-api-test-376003-53e5486ef712.json'));
+
         $id = Auth::id();
         $human = DB::table('users')->find($id);
-        return view('MyPage.user_mypage', ['human' => $human]);
+        return view('MyPage.user_mypage', ['human' => $human,'client' => $client]);
 
        
     }

@@ -33,10 +33,27 @@
             <label for="self">自己紹介文</label>
             <textarea class="form-control p-municipality-mypage__textarea" name="self" id="self" cols="30" rows="4"></textarea>
         </div>
-            <label for="self">現在募集中のイベント一覧</label>
-        <div class="p-mypage-store__click">
-            <a href="#">もっと見る...Click here</a></div>
-    </div>
+        <div class="p-municipality-mypage__events" >
+                <tr>
+                    <td class="p-municipality-mypage__events1"><label for="introduction" class="form-label">現在募集中のイベント一覧</label>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="p-municipality-mypage__events2"><label for="introduction" class="form-label"></label>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p-municipality-mypage__events3"><label for="introduction" class="form-label"></label>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                      <div class="p-municipality-mypage__click">
+                        <a href="#">もっと見る...Click here</a></div>
+                    </div>
+                    </td>
+                </tr>
+        
+        </div>
     <div class="p-municipality-mypage__right">
             <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
             <form action="mypage_del">
