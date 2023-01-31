@@ -44,16 +44,20 @@
         color:white;                      //ボタン内の文字色
         border: none;
     }
-
     &__search-button:hover{
         opacity: 0.5;
     }
-
     &__login-button:hover{
         opacity: 0.5;
     }
-
-
+    &__user_name{
+        color:#04047b;
+        text-decoration: none;
+    }
+    &__user_name:hover{
+        opacity:0.5;
+        text-decoration: underline;
+    }
 }
 
 //ヘッダーのロゴ位置指定
@@ -333,7 +337,6 @@
 
 //ブログ記事詳細ページの記事欄
 .p-blog_area{
-    
     &__white_bg{
         width:1200px;
         background-color: white;
@@ -368,14 +371,167 @@
         width:350px;
         }
     &__textarea{
-        height:500px;
+        height:570px;
     }
-    &__textarea_scroll_bar{
-        height: 500px;
+    &__textarea_scroll_bar{   //ブログ本文エリアのscrollバー設定
+        height: 570px;
+        font-size:1.2em;      //ブログ本文のフォントサイズ設定
         overflow: scroll;
         overflow-x: hidden;
         }
 }
+
+//ブログ(編集ページ／投稿済みブログ一覧の"ブログを書く"と"削除ボタン")の中央エリア表示設定
+//参加中チャット一覧のコンテナ位置設定
+.p-blog_edit_area{
+    &__container{
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 5px;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-left:200px;                  //ページ左端から何px離すか
+    }
+    &__button{
+        margin-left:50px;                   //左側のベージュの枠からボタンを何px離すか
+        margin-top:700px;
+    }
+    &__blog_title{
+        height:40px;
+        margin-top:10px;
+        text-align: center;
+        font-size:35px;
+    }
+    &__new_blog_post{                       //新着ブログ一覧のリスト表示する際の白い背景とサイズ設定
+        height:100px;
+        width:100%;
+        background-color: white;
+        margin:auto;
+        border-radius: 10px;
+        margin-bottom:20px;
+    }
+    &__new_blog_post:hover{
+        opacity:0.5;
+    }
+    &__new_blog_post.a{
+        width:100%;
+        height:100px;
+    }
+    &__blog_post{
+        height:80px;
+        width:800px;
+        background-color: white;
+        margin:auto;
+        border-radius: 10px;
+        margin-bottom:20px;
+    }
+    &__blog_icon{
+        width:50px;
+        height:50px;
+        background-color: $beige;
+        border-radius: 50%;
+        margin-top:15px;
+        margin-bottom:auto;
+    }
+    &__blog_title_small{
+        width:700px;
+        height:20px;
+        margin-left:60px;
+    }
+    &__titlearea{                           //ブログ編集ページ
+        margin-top:80px;
+        width:800px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    &__paginate_container{                  //ブログ関連ページネーション配置
+        margin-left:450px;
+    }
+    //オープンチャット・DM
+    &__container_joining_chat{              //現在参加中のトークルーム一覧のコンテナ位置指定
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 5px;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-right:auto;
+        margin-left:auto;
+    }
+    &__button_1{
+        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
+    }
+    &__close_img{
+        padding-top:10px;
+        padding-left:900px;
+    }
+    &__close_img:hover{
+        opacity:0.5;
+    }
+    &__open_chat_list_icon{
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        background-color: $beige;
+        margin-top:15px;
+    }
+    &__open_chat_list_title{
+        margin-left:40px;
+    }
+}
+
+//ブログ編(編集・投稿・削除ページ)のボタン表示設定
+.p-posted_blog_container{
+    margin-top:480px;
+    justify-content:flex-end;
+    &__btn {
+    background-color: $navy;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    display: block;
+    }
+    &__btn:hover{
+        opacity:0.5;
+    }
+    &__btn1 {
+        margin-top:3px;
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-bottom: 10px;
+        display: block;
+        }
+        &__btn1:hover{
+            opacity:0.5;
+        }
+    &__blog_btn{
+    background-color: $navy;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin-top:10px;
+    margin-left:400px;
+    display: block;
+    }
+}
+
+//ブログCDN読み込みテキストエリアの背景色、横幅、位置などの設定
+.ql-toolbar {
+    background-color: white;
+    width:800px;
+    margin-left:87px;
+    border-radius:5px 5px 0px 0px;
+    }
 
 
 
@@ -683,24 +839,7 @@
     }
 }
 
-//ブログ編(編集・投稿・削除ページ)のボタン表示設定
-.p-posted_blog_container{
-    margin-top:300px;
-    justify-content:flex-end;
-    &__btn {
-    background-color: $navy;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    width: 200px;
-    height: 50px;
-    margin-bottom: 10px;
-    display: block;
-    }
-    &__btn:hover{
-        opacity:0.5;
-    }
-}
+
 
 
 //（飲食店側で表示）ネット予約確認ページの右側ボタン
@@ -1174,114 +1313,7 @@
 
 
 
-//ブログ(編集・投稿・削除ページ)の中央エリア表示設定
-//参加中チャット一覧のコンテナ位置設定
-.p-blog_edit_area{
-    &__container{
-        text-align: center;
-        background-color:$darkbrown;
-        width: 1000px;
-        height: 700px;
-        border-radius : 5px;
-        margin-top: 50px;                   //ヘッダーからの背景色までの空白
-        margin-left:200px;                  //ページ左端から何px離すか
-    }
-    &__button{
-        height: 700px;
-        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
-        margin-top:150px;
-    }
-    &__blog_title{
-        height:40px;
-        margin-top:10px;
-        text-align: center;
-        font-size:35px;
-    }
-    &__new_blog_post{               //新着ブログ一覧のリスト表示する際の白い背景とサイズ設定
-        height:100px;
-        width:100%;
-        background-color: white;
-        margin:auto;
-        border-radius: 10px;
-        margin-bottom:20px;
-    }
-    &__new_blog_post:hover{
-        opacity:0.5;
-    }
-    &__new_blog_post.a{
-        width:100%;
-        height:100px;
-    }
-    &__blog_post{
-        height:80px;
-        width:800px;
-        background-color: white;
-        margin:auto;
-        border-radius: 10px;
-        margin-bottom:20px;
-    }
-    &__blog_icon{
-        width:50px;
-        height:50px;
-        background-color: $beige;
-        border-radius: 50%;
-        margin-top:15px;
-        margin-bottom:auto;
-    }
-    &__blog_title_small{
-        width:700px;
-        height:20px;
-        margin-left:60px;
-    }
-    &__open_chat_list_icon{
-        width:50px;
-        height:50px;
-        border-radius: 50%;
-        background-color: $beige;
-        margin-top:15px;
-    }
-    &__open_chat_list_title{
-        margin-left:40px;
-    }
-    &__titlearea{               //ブログ編集ページ
-        margin-top:80px;
-        width:800px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    &__photo_insert{
-        width:120px;
-        margin-top:30px;
-        margin-left:90px;
-    }
-    &__textarea{                //テキストエリア
-        margin-top:10px;
-        width:800px;
-        height:350px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    &__container_joining_chat{              //現在参加中のトークルーム一覧のコンテナ位置指定
-        text-align: center;
-        background-color:$darkbrown;
-        width: 1000px;
-        height: 700px;
-        border-radius : 5px;
-        margin-top: 50px;                   //ヘッダーからの背景色までの空白
-        margin-right:auto;
-        margin-left:auto;
-    }
-    &__button_1{
-        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
-    }
-    &__close_img{
-        padding-top:10px;
-        padding-left:900px;
-    }
-    &__close_img:hover{
-        opacity:0.5;
-    }
-}
+
 
 
 //オープンチャットリスト一覧表示のアイコン設定
@@ -2513,4 +2545,11 @@ ol li:before{
    width:800px;
    margin-left:87px;
    border-radius:5px 5px 0px 0px;
+   }
+   .p-message{
+    background-color: #ffffff;
+        border-radius : 8px;
+        width: 80%;
+        height: 100px;
+        margin-left: 10%;
    }

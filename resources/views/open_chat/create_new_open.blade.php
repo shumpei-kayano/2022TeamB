@@ -18,6 +18,23 @@
         <a href="Javascript:document.getElementById('fopen').click();">
             <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px">
         </a>
+        <div class="eventadd__img-container">
+            {{--  デフォルト画像noimage  --}}
+            <div id="default_image">
+                <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
+            </div>
+            {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
+            <div id="preview" class="e-imagePreview"></div>
+            <div class="btn-wrap">
+                <label>
+                    <span class="btn eventadd-btn-warning p-event-text c-text-sm">
+                    <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
+                    </span>
+                    <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
+                </label>
+            </div>
+            {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
+        </div>
 
         <form action="create_new_open" method="POST">  {{--  データベースに格納するよよ --}}
             @csrf
@@ -123,6 +140,28 @@
             }
         });
     });
+        function imgPreView(event){
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            var preview = document.getElementById("preview");
+            var previewImage = document.getElementById("previewImage");
+            
+            if(previewImage != null) //画像があれば
+              preview.removeChild(previewImage);
+              // default_image を非表示
+              var elem = document.getElementById("default_image");
+              elem.style.display = "none";
+              
+            reader.onload = function(event) {
+               var img = document.createElement("img");
+               img.setAttribute("src", reader.result);
+               img.setAttribute("id", "previewImage");
+               preview.appendChild(img);
+              
+            };
+            reader.readAsDataURL(file);
+        }    
+    
     </script>
 
 @endsection

@@ -22,4 +22,12 @@ class Blog extends Model
         'title' => 'required|max:32',
         'text' => 'required',
     );
+
+
+    //https://qiita.com/yukibe/items/b7186f05d1c266076a35
+    //ブログの1つの記事の投稿者は1人しか存在しないので、Blogは1つのUserしか持つことができない。
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

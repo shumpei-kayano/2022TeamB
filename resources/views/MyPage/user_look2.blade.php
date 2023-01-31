@@ -71,6 +71,9 @@
 		
 
 
+		</table>
+		<div class="p-mypage-store__click">
+			<a href="#">もっと見る...Click here</a></div><br>
 	</div>
 	<div class="p-user-mypage__right">
 		<form action="/event015" method="post" enctype="multipart/form-data">
@@ -82,7 +85,7 @@
                             <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません" width="200px" height="200px">
                         </div>
 		<a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
-		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
+		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>　
 		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
 		<a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>

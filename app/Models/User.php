@@ -48,20 +48,10 @@ class User extends Authenticatable
     }
 
 
-
-
-
-
-    /* フォロー機能 */
-    // public function follows()
-    // {
-    //     return $this->belongsToMany(User::class, 'follower_user', 'follower_id', 'user_id');
-    // }
-
-    // public function followers()
-    // {
-    //     return $this->belongsToMany(User::class, 'follower_user', 'user_id', 'follower_id');
-    // }
-
-
+    //https://qiita.com/yukibe/items/b7186f05d1c266076a35
+    //ユーザ(ブログ投稿者)は複数のブログ記事を投稿できるので、Userは複数のBlogを持つことができる
+    public function blogs()
+    {
+        return $this->hasMany('App\Blog');
+    }
 }
