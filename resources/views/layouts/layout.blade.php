@@ -26,14 +26,10 @@
   <!--------------------スライダー動かすやつ----------------------------------------------->  
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <!------------------------------------------------------------------------------------->  
-
-
   
   <!-- Quill ブログ機能読み込み-->
   <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
   <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
-
-
 
 </head>
 
@@ -44,26 +40,30 @@
 <body>
   <header class="p-header">
       <div class="p-header__container">
+
+        {{-- ヘッダーロゴをクリックするトップページを表示 --}}
         <div class="p-header__logo">
-          {{-- ヘッダーロゴをクリックするトップページを表示 --}}
           <a href="{{URL::to('/')}}"><img src={{asset('/img/logo.png')}} alt="" height="80px" width="380px" class="p-logo_img"></a>
         </div>
+
+        {{-- ヘッダーのキーワード検索ボックス表示 --}}
         <div class="p-header__search">
-          <input class="p-header__searchbox" type="search" name="search" placeholder="キーワードを入力">
+          <input class="p-header__searchbox" type="search" name="search" value="{{request('search')}}" placeholder="キーワードを入力">
           <input class="p-header__search-button" type="submit" name="submit" value="検索">
         </div>
 
-        <div>         
+        {{-- ゲストログイン --}} 
+        <div>        
           @guest
-              @if (Route::has('register'))
+            @if (Route::has('register'))
               <div class="p-header__login">
                 <form action="/login">
                 <input class="p-header__login-button" type="submit" name="submit" value="ログイン">
-              </form>
+                </form>
               </div>
-              @endif
+            @endif
 
-          @else
+            @else
               {{-- ログイン後、ヘッダーにログアウトボタンが表示される --}}
               <div class="p-header__login">
                 <input class="p-header__login-button" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -71,10 +71,13 @@
                 type="submit" name="submit" value="ログアウト">
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
-              </form>
+                </form>
               </div>
-              {{-- <form action="user_mypage"><button>myaccount</button></form> --}}
-          @endguest
+              {{-- ログイン後、ログアウトボタンの下に "ようこそ〇〇(ユーザ名)さん" と表示する --}}
+              <div class="p-header__user_name">
+                <p type="button" style="font-size:1em" onclick="location.href='user_mypage'">ようこそ、{{ Auth::user()->name }}さん</p>
+              </div>
+            @endguest
       </div>
       </div>
   </header>
@@ -82,12 +85,12 @@
 <div class="main">
   @yield('main')
 </div>
+
 </body>
+
 </html>
 
-
 {{-- トップページスライド写真JS読み込み --}}
-
 <script>
   $('.slider').slick({
   autoplay: true,       //自動再生
@@ -97,5 +100,4 @@
   arrows: true,         //左右の矢印
   infinite: true,       //永久にループさせる
   });
-
 </script>

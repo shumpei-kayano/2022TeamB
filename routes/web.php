@@ -104,12 +104,22 @@ Route::get('/completed_logout', function () {
     return view('auth.completed_logout');
 });
 
+//アカウント削除するときのパスワード再確認
+Route::middleware('auth')->group(function () {
+    Route::middleware('password.confirm')->group(function () {
+        Route::get('check_deactivate', function () {
+            return view('auth.check_deactivate');
+        });
+    });
+});
 
 
 
+//自治体
 Route::get('/municipalitypage', function () {
     return View('municipalitypage1');
 });
+
 
 
 
@@ -192,19 +202,7 @@ Route::get('municipality_mypage', function () {
 
 
 
-//アカウント削除するときのパスワード再確認
-Route::middleware('auth')->group(function () {
 
-
-
-    Route::middleware('password.confirm')->group(function () {
-
-
-        Route::get('check_deactivate', function () {
-            return view('auth.check_deactivate');
-        });
-    });
-});
 
 
 
@@ -339,46 +337,49 @@ Route::get('joining_chat', function () {
     return view('joining_chat');
 });
 
+
+
+
 //ブログ関連
-//ブログ記事の削除確認画面
-Route::get('blog_check_deactivate', function () {
-    return view('blog.blog_check_deactivate');
-});
 
-//ブログ記事の削除完了画面
-Route::get('blog_completed_deactivate', function () {
-    return view('blog.blog_completed_deactivate');
-});
-
-//トップページから「もっと見る」をクリックでブログ記事一覧表示
-Route::get('new_blog_list', 'BlogController@index');
-
-
-//投稿済みブログ一覧
-Route::get('my_posted_blog_list', function () {
-    return view('blog.my_posted_blog_list');
-});
-
-//ブログ編集画面
-Route::get('my_blog_edit', function () {
-    return view('blog.my_blog_edit');
-});
-
-
-// リッチテキストエディターページ
+// ブログリッチテキストエディターページ
 Route::get('/create2', 'BlogController@wys');
-// 投稿をコントローラーに送信
+
+// ブログ新規投稿投稿をコントローラーに送信
 Route::post('/newpostsend', 'BlogController@savenew');
 
-
-
-
-
-// 投稿一覧を表示する
+//トップページからブログコーナーの「もっと見る」をクリックでブログ記事一覧表示
 Route::get('/new_blog_list', 'BlogController@list');
 
-// 記事を表示する
+// ブログ(単独ページ)記事を表示する
 Route::get('/blog_show/{id}', 'BlogController@show');
+
+//投稿済みブログ一覧
+Route::get('/my_posted_blog_list', 'BlogController@posted');
+
+//投稿済みブログの編集用画面を表示
+Route::get('/my_blog_edit/{id}', 'BlogController@edit');
+
+//ブログ編集後、送信ボタンをクリックで、blogsテーブルに編集(更新)されたデータを格納する
+Route::post('/update', 'BlogController@update');
+
+//ブログ編集ページの右側1つのFormで複数ボタンを実装する
+Route::post('/blog_delete', 'BlogController@buttons');
+
+//ブログ記事の削除確認画面　　
+Route::get('/blog_completed_deactivate/{id}', 'BlogController@delete');
+
+//ブログ記事の削除完了画面　　　
+Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
+
+
+
+
+
+
+
+
+
 
 
 
