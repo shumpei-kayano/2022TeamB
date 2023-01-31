@@ -2474,3 +2474,17 @@ ol li:before{
     color: crimson;
 }
 
+//ブログCDN読み込みテキストエリアの背景色、横幅、位置などの設定
+ .ql-toolbar {
+   background-color: white;
+   width:800px;
+   margin-left:87px;
+   border-radius:5px 5px 0px 0px;
+   }
+   .p-message{
+    background-color: #ffffff;
+        border-radius : 8px;
+        width: 80%;
+        height: 100px;
+        margin-left: 10%;
+   }
