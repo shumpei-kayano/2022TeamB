@@ -99,22 +99,24 @@ class EventController extends Controller
         ]);
     }
     // イベント参加、ゲストテーブルに書き込み
-    public function attendEvent(Request $request)
+    public function attendEvent(Request $request, $id)
     {
+        if ($request->has('join')) {
+            Guest::guestInsert($request, $id);
+        } elseif ($request->has('cancel')) {
+            Guest::where('event_id', $request->id)
+                ->where('user_id', $request->user_id)
+                ->delete();
+            dd($request->user_id);
+        } elseif ($request->has('edit')) {
+            return redirect('/event016/{id}');
+        }
+        return redirect('/event013');
         // $user = Auth::user();
         // $categories = Category::all();
         // $item = Event::where('id', $request->id)->first();
         // $guests = Guest::where('event_id', $request->id)->first();
-        // dd($request->event_id);←null
-        if ($request->has('join')) {
-            Guest::guestInsert($request);
-            return redirect('/event015');
-        } elseif ($request->has('cancel')) {
-            Guest::find($request->id)->delete();
-            return redirect('/event013');
-        } else {
-            return redirect('/event013');
-        }
+
         // return view('event.eventdetailview', [
         //     'item' => $item,
         //     'categories' => $categories,

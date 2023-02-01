@@ -35,7 +35,8 @@
                         <input type="submit" value="参加する" class='button' name="join">
                         @elseif ($user->id != $item->user_id && $user->id == $guests->user_id)
                         <input type="submit" value="参加辞退する" class='button' name="cancel">
-                        {{--  @elseif ($user->id != $guests->user_id)  --}}
+                        @elseif ($user->id == $item->user_id)
+                        <input type="submit" value="編集する" class='button' name="edit">
                         @endif
                     </div>
                     </form>
@@ -143,7 +144,9 @@
                                     <div class="display-box">
                                         <label for="exampleInputEmail1" class="form-label display-box__label">イベント内容</label>
                                         <div class="display-box__heightadjust">
-                                        {{$item->event_detail}}
+                                            <span style="overflow-wrap:break-word">
+                                            {{$item->event_detail}}
+                                            </span>
                                         </div>
                                     </div>
                                 </td>
