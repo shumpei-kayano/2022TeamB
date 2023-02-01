@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Google_Client;
@@ -62,7 +63,8 @@ class UsersController extends Controller
 
         $id = Auth::id();
         $human = DB::table('users')->find($id);
-        return view('MyPage.user_mypage', ['human' => $human,'client' => $client]);
+        $categories = Category::all();
+        return view('MyPage.user_mypage', ['human' => $human,'client' => $client,'categories' => $categories]);
 
        
     }
@@ -71,7 +73,8 @@ class UsersController extends Controller
     {
         $id = Auth::id();
         $human = DB::table('users')->find($id);
-        return view('MyPage.useredit',['human' =>$human]);
+        $categories = Category::all();
+        return view('./Mypage/user_edit',['human' =>$human],compact('categories'));
     }
 
 

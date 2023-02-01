@@ -719,16 +719,16 @@
     &__back{
         margin-top:10px;
     }
-    &__card_bg_half{                         //背景色
+    &__card_bg_half{                        
         text-align: center;
-        background-color:$darkbrown;
+        background-color:$darkbrown;        //背景色
         width: 1200px;
         height: 600px;
         border-radius : 5px 5px 0 0;
-        margin: auto;                   //左端から余白
-        margin-top: 10px;               //新規作成ボタンからの背景色までの空白
-        display: flex;
-        justify-content: flex-end;
+        margin: auto;                       //左端から余白
+        margin-top: 10px;                   //新規作成ボタンからの背景色までの空白
+        overflow: scroll;                   //トークルーム内スクロールバー表示
+        overflow-x: hidden;
     }
     &__card_bg_message_half{
         text-align: center;
@@ -2022,7 +2022,7 @@ display: block;
     width: 1200px;
     margin: 0 auto;
     margin-top: 30px;
-    margin-left: 50px;
+    // margin-left: 50px;
     &__left {
         color: $black;
         background-color: $darkbrown;
@@ -2060,6 +2060,7 @@ display: block;
         margin-right: 0px;
         margin-top: 5px;
     }
+
     &__events {
         padding-right: 20px;
         float:right;
@@ -2284,7 +2285,6 @@ display: block;
         width: 20%;
     }
 }
-
 
 //店鋪マイページ画面
 .p-tenpo-mypage {
@@ -2561,6 +2561,57 @@ display: block;
     background-color: #ffffff;
         border-radius : 8px;
         width: 80%;
-        height: 100px;
-        margin-left: 10%;
+        margin-left: 20%;
+        text-indent: 1.0em;         //文字の開始位置を設定
+        p {
+            margin-bottom: 0px;
+        }
    }
+   /* .p-message:after {               //チャット吹き出し風設定
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px; 
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #edf1ee;
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+   }
+   p-message p{
+    margin: 0;
+    padding: 0;
+   } */
+   .p-message2{
+    background-color: #92fb9d;
+        border-radius : 8px;
+        width: 50%;
+        margin-left: 40%;
+        text-indent: 1.0em;        //文字の開始位置を設定
+        p {
+            margin-bottom: 0px;
+        }
+   }
+   .p-messagetime2{
+        text-align: right;
+        margin-right: 120px;
+   }
+
+   .p-messagetime1{
+    text-align: left;
+    margin-left: 20%;
+}
+
+.message_user_icon{
+    float: left;
+    margin-left: 5%;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #000000;
+    margin-top: 0px;
+}
+
+.message_card1{
+    width: 55%;
+}

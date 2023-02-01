@@ -16,11 +16,11 @@ class Guest extends Model
     );
 
     // データベースに保存
-    public static function guestInsert(Request $request)
+    public static function guestInsert(Request $request, $id)
     {
         $guests = new Guest;
         $guests->user_id = $request->user()->id;
-        $guests->event_id = $request->event_id;
+        $guests->event_id = $id;
 
         $guests->save();
     }

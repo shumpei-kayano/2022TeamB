@@ -168,7 +168,5 @@
     </div>
   </div>
 </div>
-  <form method="POST" action="route('user_mypage')" accept-charset="UTF-8">
-    <input class="xxxxx" type="submit" value="Click Me!">
-</form>
+
 @endsection
