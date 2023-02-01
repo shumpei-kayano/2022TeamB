@@ -13,10 +13,35 @@ class BlogController extends Controller                                 //Contro
         $this->middleware('auth')->except(['list', 'show']);            //except(['index']); などを記載すれば、アクセス制限の対象にindexアクションを除いてくれる
     }
 
+    //トップページからもっと見る...Click hereで投稿されているブログ一覧を表示
+    public function list(Request $request)
+    {
+        // 新着順で並び替えて表示 →　並び順(orderBy)を投稿日(created_at)の 「降順(desc)」にして全て取得(get)する
+        //  5件ずつ表示し、5件以上になるとページネーションが表示される(new_blog_list.blade.phpに記述)
+        $data = Blog::orderBy('created_at', 'desc')->paginate(5);           // orderBy('title', 'asc') にすると、今度はタイトルで昇順で並べ替えて表示もできる
+        return view('blog.new_blog_list')->with(['data' => $data]);         // DBから取得したデータを$dataに代入($dataの中に投稿データが入る)
+    }
+
     //ブログ機能CDN読み込み
     public function wys()
     {
         return view('blog.wysiwyg');
+    }
+
+    //複数のボタンを1つのFormで実装する
+    public function buttons(Request $request)
+    {
+        //もし、buttonのname="create"がクリックされたら
+        if ($request->has('create')) {
+            // create押下時の処理
+            return redirect('/create2');
+            //もし、buttonのname="delete"がクリックされたら
+        } elseif ($request->has('delete')) {
+            // deleteボタン押下時の処理
+            $id = $request->blog_id;                                                    //リクエストで送られてきたブログidを受け取り、$idに代入する
+            $data = Blog::find($id);                                                    //findメソッドで、指定されたidに該当するレコードを取得し、$dataへ代入
+            return view('blog.blog_check_deactivate', ['data' => $data, 'id' => $id]);  //確認画面'data.delete'ビューで、'data'をキーとしてデータが使用できるように、$dataを渡す
+        }
     }
 
     //ブログ新規作成
@@ -29,15 +54,6 @@ class BlogController extends Controller                                 //Contro
         $post->text = $request->text;                   //text(本文)をtextカラムに
         $post->save();                                  //$post -> save();でDBに保存が実行される
         return redirect('/my_posted_blog_list');        //その後、'/（投稿済みブログ一覧）'へリダイレクト
-    }
-
-    //トップページからもっと見る...Click hereで投稿されているブログ一覧を表示
-    public function list(Request $request)
-    {
-        // 新着順で並び替えて表示 →　並び順(orderBy)を投稿日(created_at)の 「降順(desc)」にして全て取得(get)する
-        //  5件ずつ表示し、5件以上になるとページネーションが表示される(new_blog_list.blade.phpに記述)
-        $data = Blog::orderBy('created_at', 'desc')->paginate(5);           // orderBy('title', 'asc') にすると、今度はタイトルで昇順で並べ替えて表示もできる
-        return view('blog.new_blog_list')->with(['data' => $data]);         // DBから取得したデータを$dataに代入($dataの中に投稿データが入る)
     }
 
     //ブログ投稿ページで(単独ページ)1ページずつ表示
@@ -73,21 +89,7 @@ class BlogController extends Controller                                 //Contro
         return redirect('/my_posted_blog_list');        //その後、'/（投稿済みブログ一覧）'へリダイレクト
     }
 
-    //components(blog_right.blade.php)で作成した複数のボタンを1つのFormで実装する
-    public function buttons(Request $request)
-    {
-        //もし、componetsのbuttonのname="create"がクリックされたら
-        if ($request->has('create')) {
-            // create押下時の処理
-            return redirect('/create2');
-            //もし、componetsのbuttonのname="delete"がクリックされたら
-        } elseif ($request->has('delete')) {
-            // deleteボタン押下時の処理
-            $id = $request->blog_id;                                                    //リクエストで送られてきたブログidを受け取り、$idに代入する
-            $data = Blog::find($id);                                                    //findメソッドで、指定されたidに該当するレコードを取得し、$dataへ代入
-            return view('blog.blog_check_deactivate', ['data' => $data, 'id' => $id]);  //確認画面'data.delete'ビューで、'data'をキーとしてデータが使用できるように、$dataを渡す
-        }
-    }
+
 
     //ブログ記事を完全に削除する(ブログ記事の内容を確認後、
     //削除ボタンをクリックしその内容を送信した後にBlogテーブルに格納されたデータを削除する)

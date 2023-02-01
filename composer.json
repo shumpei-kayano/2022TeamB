@@ -15,7 +15,8 @@
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
         "laravel/ui": "*",
-        "nesbot/carbon": "^2.65"
+        "nesbot/carbon": "^2.65",
+        "spatie/laravel-google-calendar": "^3.5"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",

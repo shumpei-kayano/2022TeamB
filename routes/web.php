@@ -354,51 +354,20 @@ Route::get('joining_chat', function () {
 
 
 //ブログ関連
-
-//ブログ記事の削除完了画面
-Route::get('blog_completed_deactivate', function () {
-    return view('blog.blog_completed_deactivate');
-});
-
-//トップページから「もっと見る」をクリックでブログ記事一覧表示
-Route::get('new_blog_list', 'BlogController@index');
-
-//ブログ記事詳細ページ表示
-// Route::get('blog_show', function () {
-//     return view('blog.blog_show');
-// });
-
-//投稿済みブログ一覧
-Route::get('my_posted_blog_list', function () {
-    return view('blog.my_posted_blog_list');
-});
-
-//ブログ編集画面
-Route::get('my_blog_edit', function () {
-    return view('blog.my_blog_edit');
-});
-
-// 投稿ページを表示
-Route::get('/create', 'BlogController@postpage');
-
-// 投稿をコントローラーに送信
-Route::post('/newpostsend', 'BlogController@savenew');
-
-// 投稿一覧を表示する
-Route::get('/new_blog_list', 'BlogController@list');
-
-// 投稿一覧を表示する
-// ブログリッチテキストエディターページ
-Route::get('/create2', 'BlogController@wys');
-
-// ブログ新規投稿投稿をコントローラーに送信
-Route::post('/newpostsend', 'BlogController@savenew');
-
 //トップページからブログコーナーの「もっと見る」をクリックでブログ記事一覧表示
 Route::get('/new_blog_list', 'BlogController@list');
 
 // ブログ(単独ページ)記事を表示する
 Route::get('/blog_show/{id}', 'BlogController@show');
+
+//ブログ編集ページの右側ボタン・1つのFormで複数ボタン(ブログを書く・削除する)を実装する
+Route::post('/blog_delete', 'BlogController@buttons');
+
+// ブログリッチテキストエディターページ
+Route::get('/create2', 'BlogController@wys');
+
+// ブログ新規投稿投稿をコントローラーに送信
+Route::post('/newpostsend', 'BlogController@savenew');
 
 //投稿済みブログ一覧
 Route::get('/my_posted_blog_list', 'BlogController@posted');
@@ -409,8 +378,7 @@ Route::get('/my_blog_edit/{id}', 'BlogController@edit');
 //ブログ編集後、送信ボタンをクリックで、blogsテーブルに編集(更新)されたデータを格納する
 Route::post('/update', 'BlogController@update');
 
-//ブログ編集ページの右側1つのFormで複数ボタンを実装する
-Route::post('/blog_delete', 'BlogController@buttons');
+
 
 //ブログ記事の削除確認画面　　
 Route::get('/blog_completed_deactivate/{id}', 'BlogController@delete');
@@ -423,26 +391,6 @@ Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
 
 
 
-
-
-
-
-
-
-//「ブログを書く」ボタンクリックでページ遷移
-// Route::get('my_blog_edit', function () {
-//     return view('my_blog_edit');
-// });
-
-
-
-
-
-
-//あとで消す
-// ブログCDN読み込み　リッチテキストエディターページ
-// Route::get('/create2', 'BlogController@wys');
-Route::get('/create2', 'BlogController@savenew');
 
 
 

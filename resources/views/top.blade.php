@@ -70,8 +70,8 @@
                   <tr>
                     <td>　　　<a href="locationsearch/13">中津市</a>　</td><td>　　<a href="locationsearch/14">臼杵市</a>　</td><td>　　 <a href="locationsearch/15">豊後高田市</a>　</td><td>　 <a href="locationsearch/16">豊後大野市</a>　</td><td>　　<a href="locationsearch/17">姫島村</a>　</td><td>　　<a href="locationsearch/18">玖珠町</a>　</td>
                   </tr>
-                  <tr>
-                    <td></td><td></td><td></td><td></td><td></td><td><a href="locationsearch/19">オンライン</a></td></tr>
+                {{--  <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td><a href="locationsearch/19">オンライン</a></td></tr> --}}
                 </tbody>
               </table>
             </div>

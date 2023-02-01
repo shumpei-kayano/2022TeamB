@@ -133,7 +133,9 @@
                                     関連URL
                                     @endslot
                                     @slot('content')
-                                    {{$item->url}}
+                                    {{-- DBから取得した関連URLにハイパーリンクを貼る --}}
+                                    <a href="{{$item->url}}" target="_blank">{{Str::limit($item->url, 50, '…' ) }}</a> 
+                                    
                                     @endslot
                                     @endcomponent
                                 </td>
