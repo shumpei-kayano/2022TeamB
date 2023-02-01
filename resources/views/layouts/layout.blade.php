@@ -55,6 +55,7 @@
         {{-- ゲストログイン --}} 
         <div>        
           @guest
+          {{-- アカウントない人は新規登録へ --}}
             @if (Route::has('register'))
               <div class="p-header__login">
                 <form action="/login">

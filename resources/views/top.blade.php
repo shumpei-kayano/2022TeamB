@@ -25,23 +25,27 @@
           {{-- おすすめ写真表示 --}}
           <div class="col-12 c-bgcolor--darkbrown">
             <div class="slider">  
-              <div class="img"><img src="./img/yufuin.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/chikuraku.jpg" width="100%" height="330px"></div>   
-              <div class="img"><img src="./img/reimen.jpg" width="100%" height="330px"></div>   
-              <div class="img"><img src="./img/hyugadon.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/kitsuki_kimono.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/ishibashi.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/funai_pacchin.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/futagoji.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/usajingu.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/yujakukoen.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/suyanosaka.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/miyamakirishima.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/asagiri.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/kyusuikei.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/okajyo.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/kinrinko.jpg" width="100%" height="330px"></div>
+              {{-- https://mgmgblog.com/post-464/ --}}
+              {{-- 画像クリックで関連リンクに遷移／新しいタブで開く --}}
+              <div class="img"><a href="http://www.yufuin.gr.jp/" target="_blank"><img src="./img/yufuin.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://tsukumiryoku.com/" target="_blank"><img src="./img/hyugadon.jpg" width="100%" height="330px"></a></div>   
+              <div class="img"><a href="http://www.futagoji.jp/" target="_blank"><img src="./img/futagoji.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="http://www.oita-yeg.gr.jp/patchin/" target="_blank"><img src="./img/funai_pacchin.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.city.usa.oita.jp/tourist/touristspot/touristspot2/touristspot3/10178.html" target="_blank"><img src="./img/ishibashi.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://taketa.guide/" target="_blank"><img src="./img/okajyo.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.kit-suki.com/" target="_blank"><img src="./img/suyanosaka.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.usa-kanko.jp/" target="_blank"><img src="./img/asagiri.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://sato-no-tabi.jp/" target="_blank"><img src="./img/yujakukoen.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://k-miyachan.com/" target="_blank"><img src="./img/miyamakirishima.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://k-miyachan.com/" target="_blank"><img src="./img/kyusuikei.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://taketa.guide/" target="_blank"><img src="./img/chikuraku.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.kit-suki.com/" target="_blank"><img src="./img/kitsuki_kimono.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.usa-kanko.jp/" target="_blank"><img src="./img/usajingu.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="http://www.yufuin.gr.jp/" target="_blank"><img src="./img/tsujibasha.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://kyokai.beppu-navi.jp/" target="_blank"><img src="./img/reimen.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://sato-no-tabi.jp/" target="_blank"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="http://www.yufuin.gr.jp/" target="_blank"><img src="./img/kinrinko.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://kyokai.beppu-navi.jp/" target="_blank"><img src="./img/takegawara.jpg" width="100%" height="330px"></a></div>
           </div>
           </div>
         </div>
@@ -78,7 +82,7 @@
                 <a class="p-blog__blog_title">
                   {{-- 投稿日時を表示/10文字だけ表示で時刻は非表示に --}}
                   <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 10, '' ) }}】</a>
-                  {{-- ブログタイトルをDBから取得し表示する/日付も含めて40文字表示する/ 40文字以上の場合は(...)で表示する --}}
+                  {{-- ブログタイトルをDBから取得し表示する/日付も含めて40文字表示する/ 30文字以上の場合は(...)で表示する --}}
                   <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 30, '…' ) }}</a><br>
                   @endforeach
               </a>
