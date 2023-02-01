@@ -452,6 +452,8 @@
     &__paginate_container{                  //ブログ関連ページネーション配置
         margin-left:450px;
     }
+
+    
     //オープンチャット・DM
     &__container_joining_chat{              //現在参加中のトークルーム一覧のコンテナ位置指定
         text-align: center;
@@ -1474,6 +1476,7 @@ ol li:before{
         display: none;
     }
     
+
     /*タブ切り替えの中身のスタイル*/
     &__tab_contents1 {
     display: none;
@@ -1528,8 +1531,12 @@ ol li:before{
 #menu01:checked ~ #menu01,
 #menu02:checked ~ #menu02,
 #menu03:checked ~ #menu03 {
-    display: block;
+display: block;
 }
+
+
+
+
 
 //ログイン画面などの背景色内の中央にテキスト類をブロックで配置
 .content_block{
