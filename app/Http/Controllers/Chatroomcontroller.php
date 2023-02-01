@@ -64,7 +64,7 @@ class ChatroomController extends Controller
     {
         // $data = Post::with('message')->where('id', $id)->first();
         $data = Chatroom::where('id', $id)->first();
-        $messages = Message::where('room_id', $id)->orderBy("created_at")->get();
+        $messages = Message::where('room_id', $id)->orderBy("id")->get();
         $room_id = $id;
         return view('open_chat.open_chat_room', ['room_id' => $room_id, 'messages' => $messages, 'data' => $data]);
     }

@@ -424,29 +424,6 @@ Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
 
 
 
-
-
-
-
-
-//「ブログを書く」ボタンクリックでページ遷移
-// Route::get('my_blog_edit', function () {
-//     return view('my_blog_edit');
-// });
-
-
-
-
-
-
-//あとで消す
-// ブログCDN読み込み　リッチテキストエディターページ
-// Route::get('/create2', 'BlogController@wys');
-Route::get('/create2', 'BlogController@savenew');
-
-
-
-
 //ユーザアイコンをクリックした時のマイページへの誘導画面(小ウィンドウ)表示 
 Route::get('user_icon_modal', function () {
     return view('components.user_icon_modal');

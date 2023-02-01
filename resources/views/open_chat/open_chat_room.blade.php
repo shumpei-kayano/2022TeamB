@@ -18,16 +18,30 @@
 </div>
 </div>
 
-<div class="p-large_bg_btn__card_bg_half">   {{-- チャット関連の背景色 --}}
-@foreach($messages as $message)
-<div class="p-message" style="z-index:10000"><p>{!! nl2br(e($message->message))!!}</p></div>
+<div class="p-large_bg_btn__card_bg_half"> <br>  {{-- チャット関連の背景色 --}}
+@foreach($messages as $message) <br>
+
+@if (Auth::user()->id  ==  $message->user_id ) 
+<div class="p-message2" ><p style="text-align:left">{{ $message->message }}</p></div> {{-- 自分のコメントは右側 --}}
+<div class="p-messagetime2">{{ $message->created_at }}</div><br>
+
+@else
+<div class="message_card1">
+<div class="p-message" style="z-index:10000"><p style="text-align:left">{{ $message->message }}</p></div>
+<div><img src="https://placehold.jp/150x150.png" alt="ユーザーアイコン画像" class="message_user_icon"></div>{{-- 他人ののコメントは左側 --}}
+<div class="p-messagetime1">{{ $message->created_at }}</div>
+</div>
+
+<br> 
+
+@endif
 @endforeach
 </div>
 <div class="p-large_bg_btn__card_bg_message_half">{{-- メッセージ送信 --}}
     <div class="p-large_bg_btn__card_bg_message_send">
         <form action="/open_chat_room/{{ $room_id }}" method="POST">
             @csrf
-            <input type="hidden" name="room_id" value={{ $room_id }}>
+            <input type="hidden" name="room_id" value={{ $room_id }}>{{-- チャットルームのＩＤをテーブルに入れる --}}
         <input name="message" type="text" class="form-control" placeholder="メッセージを入力して、送信ボタンをクリックしてください" aria-label="Recipient's username" aria-describedby="button-addon2"></div>
         <button class="p-large_bg_btn__card_bg_message_send1" type="submit">送信</button>
     </form>
