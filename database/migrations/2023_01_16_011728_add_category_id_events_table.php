@@ -27,6 +27,7 @@ class AddCategoryIdEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->dropColumn('category_id');  //カラムの削除
-        });
+       
+ });
     }
 }
