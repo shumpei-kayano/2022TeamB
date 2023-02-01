@@ -2015,7 +2015,7 @@ ol li:before{
     width: 1200px;
     margin: 0 auto;
     margin-top: 30px;
-    margin-left: 50px;
+    // margin-left: 50px;
     &__left {
         color: $black;
         background-color: $darkbrown;
@@ -2053,6 +2053,7 @@ ol li:before{
         margin-right: 0px;
         margin-top: 5px;
     }
+
     &__events {
         padding-right: 20px;
         float:right;
@@ -2277,7 +2278,6 @@ ol li:before{
         width: 20%;
     }
 }
-
 
 //店鋪マイページ画面
 .p-tenpo-mypage {

@@ -174,10 +174,10 @@ Route::get('events_detail', function () {
     return view('MyPage.events_d');
 });
 
-//マイページ設定画面
-// Route::get('mypage_set', function () {
-//     return view('MyPage.mypage_setting');
-// });
+// マイページ設定画面
+Route::get('mypage_set', function () {
+    return view('MyPage.mypage_setting');
+ });
 // Route::get('/user_mypage', [App\Http\Controllers\UsersController::class, 'index'])->name('user_mypage');
 //アカウント削除ボタン表示画面
 Route::get('mypage_del', function () {
@@ -591,3 +591,6 @@ Route::get('complete_report', 'ReportController@report');
 // Route::post('message_send', 'Chatroomcontroller@send');
 Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
 Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+
+//ユーザーマイページ編集・登録
+Route::get('mypage_edit', 'UsersController@useredit')->name('user_edit');
