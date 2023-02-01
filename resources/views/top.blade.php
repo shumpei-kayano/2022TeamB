@@ -48,12 +48,11 @@
               <div class="img"><a href="https://sato-no-tabi.jp/" target="_blank"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></a></div>
               <div class="img"><a href="http://www.yufuin.gr.jp/" target="_blank"><img src="./img/kinrinko.jpg" width="100%" height="330px"></a></div>
               <div class="img"><a href="https://kyokai.beppu-navi.jp/" target="_blank"><img src="./img/takegawara.jpg" width="100%" height="330px"></a></div>
-          </div>
-=======
             </div>
->>>>>>> origin/events
           </div>
         </div>
+      
+      
           <div class="row">
             {{-- エリアから探す テーブルで表示--}}
             <div class="col-8 c-bgcolor--beige">
@@ -78,6 +77,7 @@
             </div>
             <br>
           </div>
+        
 
 
           {{-- 新着ブログコーナー --}}
@@ -97,10 +97,8 @@
             </div>
             </div>
           </div>
-
-
+       
           
-
 
         {{-- イベント掲示板 --}}
         <div class="row">
@@ -164,10 +162,12 @@
               <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
             </div>
         </div>
+      </div>
         </div>
       </div>
     </div>
   </div>
+</div>
   <form method="POST" action="route('user_mypage')" accept-charset="UTF-8">
     <input class="xxxxx" type="submit" value="Click Me!">
 </form>
