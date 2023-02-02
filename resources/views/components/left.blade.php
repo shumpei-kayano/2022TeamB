@@ -7,7 +7,7 @@
         </div>
     </div>
     <p><a href="/event013">全てのカテゴリー</a></p>
-    @foreach ($categories as $item)
+    {{-- @foreach ($categories as $item)
     <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
-    @endforeach
+    @endforeach --}}
 </div>
