@@ -1762,7 +1762,43 @@ display: block;
         width: 50%;
     }
     &__hyouka {
-        width: 50%;
+         width: 50px;
+        //  background-color: white;
+        .star5_rating{
+            position: relative;
+            z-index: 0;
+            display: inline-block;
+            white-space: nowrap;
+            color: #CCCCCC; /* グレーカラー 自由に設定化 */
+            /*font-size: 30px; フォントサイズ 自由に設定化 */
+            margin: 0 auto;
+        }
+        
+        .star5_rating:before, .star5_rating:after{
+            content: '★★★★★';
+        }
+        
+        .star5_rating:after{
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            color: #ffcf32; /* イエローカラー 自由に設定化 */
+        }
+        
+        .star5_rating[data-rate="5"]:after{ width: 100%; } /* 星5 */
+        .star5_rating[data-rate="4.5"]:after{ width: 90%; } /* 星4.5 */
+        .star5_rating[data-rate="4"]:after{ width: 80%; } /* 星4 */
+        .star5_rating[data-rate="3.5"]:after{ width: 70%; } /* 星3.5 */
+        .star5_rating[data-rate="3"]:after{ width: 60%; } /* 星3 */
+        .star5_rating[data-rate="2.5"]:after{ width: 50%; } /* 星2.5 */
+        .star5_rating[data-rate="2"]:after{ width: 40%; } /* 星2 */
+        .star5_rating[data-rate="1.5"]:after{ width: 30%; } /* 星1.5 */
+        .star5_rating[data-rate="1"]:after{ width: 20%; } /* 星1 */
+        .star5_rating[data-rate="0.5"]:after{ width: 10%; } /* 星0.5 */
+        .star5_rating[data-rate="0"]:after{ width: 0%; } /* 星0 */
     }
     &__beneath {
         display: flex;
@@ -2082,6 +2118,77 @@ display: block;
     }
 }
 
+//マイページedit画面
+.p-mypage-store2 {
+    display: flex;
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    // margin-left: 50px;
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        height: 730px;
+        padding: 20px;  
+        margin-bottom: 30px;
+    }
+    &__input {
+        width: 50%;
+        padding: 10px;
+    }
+    &__hobby {
+        width: 30%;
+        padding: 10px;
+        margin-top: 50px;
+    }
+    &__hobby1 {
+        margin: 3px;
+    }
+    &__hobby2 {
+        margin: 3px;
+    }
+    &__hobby3 {
+        padding: 1px;
+        margin: 3px;
+    }
+
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+    &__beneath {
+        display: flex;
+        // justify-content: right;
+        margin-right: 0px;
+        margin-top: 5px;
+    }
+
+    &__events {
+        padding-right: 20px;
+        float:right;
+        width: 460px;
+        height: 450px;
+        overflow: hidden;
+        }   
+        
+    &__save {
+        margin-right: 0;
+    }
+    &__click {
+        padding-right: 30px;
+        text-align: right;
+        margin-bottom: 150px;
+        
+    }
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+        box-sizing: border-box;
+    }
+}
+
 
 
 //はい・いいえのボタン
@@ -2293,7 +2400,7 @@ display: block;
     justify-content: center; //水平方向中央揃え
     width: 1200px;
     margin: 0 auto;
-    margin-left: 50px;
+
     margin-top: 30px;
 
 
@@ -2336,7 +2443,55 @@ display: block;
         padding-left: 20px;
         width: 20%;
     }
+}
+//店鋪マイページedit画面
+.p-tenpo-mypage2 {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        height: 730px;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+    }
+    &__beneath {
+        display: flex;
+        // justify-content: right;
+        //  width: 800px;
+        margin-right: 0px;
+        margin-top: 5px;
+    }
+
+    &__events {
+        padding-right: 20px;
+        float:right;
+        width: 460px;
+        height: 450px;
+        overflow: hidden;
+    }
+    &__click {
+            padding-right: 30px;
+            text-align: right;
+            margin-bottom: 150px;
+    }
     
+
+    &__right {
+    
+        padding-left: 20px;
+        width: 20%;
+    }
 }
 
 
@@ -2347,7 +2502,7 @@ display: block;
     width: 1200px;
     margin:  0 auto;
     margin-top: 30px;
-    margin-left: 50px;
+ 
     margin-bottom: 30px;
 
     &__left {
@@ -2380,8 +2535,46 @@ display: block;
     }
     
 }
+//自治体マイページedit画面
+.p-municipality-mypage2 {
+    display: flex; //子要素を横並び
+    justify-content: center; //水平方向中央揃え
+    width: 1200px;
+    margin:  0 auto;
+    margin-top: 30px;
+ 
+    margin-bottom: 30px;
 
+    &__left {
+        color: $black;
+        background-color: $darkbrown;
+        width: 75%;
+        height: 670px;
+        padding: 20px;
+    }
+    &__top {
+        display: flex;
+        width: 100%;
+        padding: 20px;
+    }
+    &__events {
+        padding-right: 20px;
+        width: 800px;
+        height: 450px;
+        overflow: hidden;
+        }    
+    &__click {
+        padding-right: 30px;
+        text-align: right;
+        margin-bottom: 150px;
+    }
 
+    &__right {
+        padding-left: 20px;
+        width: 20%;
+    }
+
+}
 
 //マインドフルネス、スタートボタン表示画面
 .p-mindfulness-start {
@@ -2395,6 +2588,7 @@ display: block;
         background-color: $darkbrown;
         width: 75%; 
         padding: 20px;
+        margin-left: 50px;
     }
 
     &__top {

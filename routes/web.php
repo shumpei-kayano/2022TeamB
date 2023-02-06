@@ -542,3 +542,9 @@ Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
 
 //ユーザーマイページ編集・登録
 Route::get('mypage_edit', 'UsersController@useredit')->name('user_edit');
+
+//店舗マイページ編集・登録
+Route::get('tenpo_edit', 'UsersController@tenpoedit')->name('tenpo_edit');
+
+//自治体マイページ編集・登録
+Route::get('municipality_edit', 'UsersController@municipalityedit')->name('municipality_edit');

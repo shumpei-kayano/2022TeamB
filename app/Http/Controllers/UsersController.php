@@ -77,6 +77,21 @@ class UsersController extends Controller
         return view('./Mypage/user_edit',['human' =>$human],compact('categories'));
     }
 
+    public function tenpoedit()
+    {
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        $categories = Category::all();
+        return view('./Mypage/tenpo_edit',['human' =>$human],compact('categories'));
+    }
+
+    public function municipalityedit()
+    {
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        $categories = Category::all();
+        return view('./Mypage/municipality_edit',['human' =>$human],compact('categories'));
+    }
 
 }
 
