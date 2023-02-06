@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Event;
+use App\Models\Chatroom;
 
 class HomeController extends Controller
 {
@@ -37,10 +38,13 @@ class HomeController extends Controller
             ->paginate(3);
         // トップページ県・市町村からの募集event001
 
+        $chats = Chatroom::orderBy('created_at', 'desc')->paginate(6);
+
         return view('top', [
             'categories' => $categories,
             'data' => $data,
             'items' => $items,
+            'chats' => $chats,
         ]);
     }
     public function eventkojin()

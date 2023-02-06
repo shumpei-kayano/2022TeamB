@@ -759,7 +759,7 @@
     &__card_btn{
         background-color: #ffffff;
         border-radius : 8px;
-        width: 80%;
+        width: 900px;
         height: 100px;
         margin-left: 10%;
     }
@@ -1332,6 +1332,14 @@
         border-radius: 50%;
         background-color:$beige;
     }
+    &__open_chat_list_title{
+        margin-left: auto;
+        margin-right: auto;
+        a:hover{
+            text-decoration:underline;
+        }
+    }
+    
 }
 
 
@@ -2565,6 +2573,7 @@ display: block;
         text-indent: 1.0em;         //文字の開始位置を設定
         p {
             margin-bottom: 0px;
+            margin-top: 0px;
         }
    }
    /* .p-message:after {               //チャット吹き出し風設定
@@ -2595,23 +2604,33 @@ display: block;
    .p-messagetime2{
         text-align: right;
         margin-right: 120px;
+    font-size: 9px;
    }
 
    .p-messagetime1{
     text-align: left;
     margin-left: 20%;
+    font-size: 9px;
 }
 
 .message_user_icon{
-    float: left;
-    margin-left: 5%;
+    transform: translate(42px,-70px);
     border-radius: 50%;
     width: 60px;
     height: 60px;
     background-color: #000000;
-    margin-top: 0px;
 }
 
 .message_card1{
     width: 55%;
+    height: 80px;
 }
+.message_user_icon1{
+    width: 65px;
+}
+
+.p-messageuser1{
+    text-align: left;
+    margin-left: 20%;
+}
+

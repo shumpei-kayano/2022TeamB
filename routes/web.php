@@ -302,9 +302,8 @@ Route::get('open_chat_preview', function () {
 Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
 
 //オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
-Route::get('check_close', function () {
-    return view('open_chat.check_close');
-});
+Route::get('check_close/{id}', 'Chatroomcontroller@check');
+Route::post('check_close/{id}', 'Chatroomcontroller@delete');
 
 //オープンチャットを「退室する」ボタンで”閉鎖”確認画面へ
 Route::get('check_leaving', function () {
@@ -526,10 +525,6 @@ Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
 
-//オープンチャットルーム作成
-Route::post('open_chat_preview', 'ChatroomController@preview_post');
-Route::post('create_new_open', 'ChatroomController@create');
-// Route::post('create_new_open', 'ChatroomController@create2');
 
 
 //通報画面
@@ -537,8 +532,12 @@ Route::get('report', 'ReportController@index');
 Route::get('complete_report', 'ReportController@report');
 
 // Route::post('message_send', 'Chatroomcontroller@send');
-Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
-Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+Route::middleware('auth')->group(function () {
+    Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
+    Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+});
 
 //ユーザーマイページ編集・登録
 Route::get('mypage_edit', 'UsersController@useredit')->name('user_edit');
+
+Route::post('join_open_chat/{id}', 'Chatroomcontroller@index4');

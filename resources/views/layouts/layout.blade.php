@@ -82,7 +82,7 @@
               </div>
               {{-- ログイン後、ログアウトボタンの下に "ようこそ〇〇(ユーザ名)さん" と表示する --}}
               <div class="p-header__user_name">
-                <p type="button" style="font-size:1em" onclick="location.href='user_mypage'">ようこそ、{{ Auth::user()->name }}さん</p>
+                <p type="button" style="font-size:1em" onclick="location.href='/user_mypage'">ようこそ、{{ Auth::user()->name }}さん</p>
               </div>
             @endguest
       </div>

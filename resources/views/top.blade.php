@@ -141,24 +141,12 @@
             {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
             <div class="w-100 d-flex justify-content-center"><div class="p-open">オープンチャット</div></div><br>
             <div class="row">
+              @foreach ($chats as $chat)
               <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
+                <div class="p-open__open_chat_icon"></div><a href="open_chat_room/{{$chat->id}}" style="text-decoration: none; color:black;">
+                  {{Str::limit($chat->title, 26, '…' ) }}</a>
               </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">Python質問</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">メンタル相談</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">生活の相談</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">悩みの相談</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
-              </div>
+              @endforeach
               <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
             </div>
         </div>
