@@ -10,7 +10,7 @@
     <div class="row">
 
     {{-- 左メニューバー --}}
-    @component('components.left')
+    @component('components.left',['categories'=>$categories])
     @endcomponent
 
 

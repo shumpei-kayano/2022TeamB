@@ -9,21 +9,21 @@
 
 
 @section('main')
-<div class="p-mypage-store">
+<div class="p-mypage-store2">
     <div class="p-mypage-store__left">
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
                 <form action="{{'add'}}" method="post">
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}"></input>
+                <input type="text" name="name" class="form-control" id="user_name" value="{{ $human->name }}"></input>
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" value="{{ $human->email }}"></disabled>
+                <input type="email" name="email" class="form-control" id="mail" value="{{ $human->email }}"></disabled>
             </div>
             {{--  カテゴリを選択  --}}
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
                     <label for="hobby" class="form-label">趣味</label>
-                    <select name="category_id" class="form-select" aria-label="Default select example">
+                    <select name="category_id" name="hobby1" class="form-select" aria-label="Default select example">
                         <option disabled="" selected="">趣味を選択</option>
                         @foreach($categories as $item)
                         <option value="{{$item->id}}">{{$item->category_name}}</option>
@@ -31,7 +31,7 @@
                     </select>
                 </div> 
                 <div class="p-mypage-store__hobby2">
-                    <select name="category_id" class="form-select" aria-label="Default select example">
+                    <select name="category_id" name="hobby2" class="form-select" aria-label="Default select example">
                         <option disabled="" selected="">趣味を選択</option>
                         @foreach($categories as $item)
                         <option value="{{$item->id}}">{{$item->category_name}}</option>
@@ -39,7 +39,7 @@
                     </select>
                 </div> 
                 <div class="p-mypage-store__hobby3">
-                    <select name="category_id" class="form-select" aria-label="Default select example">
+                    <select name="category_id" name="hobby3" class="form-select" aria-label="Default select example">
                         <option disabled="" selected="">趣味を選択</option>
                         @foreach($categories as $item)
                         <option value="{{$item->id}}">{{$item->category_name}}</option>
@@ -58,11 +58,12 @@
             <label for="self">自己紹介文</label>
             <textarea type="text" class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" style="height: 100px"></textarea>
         </div>
-    </form>
+        </form>
+
     <tr>
 		<td>予約管理</td>
 	</tr>
-
+    <button class="p-mypage-store__save" type="submit">保存</button>
     <div class="p-mypage-store__beneath">
 
         <div id="calendar" style="width: 600px; padding-right: 30px; padding-left: 10px;" >
@@ -114,15 +115,14 @@
                         </span>
                         <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
                     </label>
-                </div>
-                {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
+                </div>                  
             </div>
             <form action="mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>
-            <a href="#"><button class="p-mypage-setting__btn">編集内容の保存</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
+            <a href="#"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
             <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
@@ -153,4 +153,6 @@
         reader.readAsDataURL(file);
     }    
 </script>
-@endsection
+
+
+@endsection     

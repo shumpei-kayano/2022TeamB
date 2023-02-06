@@ -134,7 +134,7 @@
                                     関連URL
                                     @endslot
                                     @slot('content')
-                                    {{-- DBから取得した関連URLにハイパーリンクを貼る --}}
+                                    {{-- DBから取得した関連URLにハイパーリンクを貼り、50文字以上は "･･･" で表示する --}}
                                     <a href="{{$item->url}}" target="_blank">{{Str::limit($item->url, 50, '…' ) }}</a> 
                                     
                                     @endslot

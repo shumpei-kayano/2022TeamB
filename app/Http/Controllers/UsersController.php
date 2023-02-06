@@ -64,9 +64,7 @@ class UsersController extends Controller
         $id = Auth::id();
         $human = DB::table('users')->find($id);
         $categories = Category::all();
-        return view('MyPage.user_mypage', ['human' => $human,'client' => $client,'categories' => $categories]);
-
-       
+        return view('MyPage.user_mypage', ['human' => $human, 'client' => $client, 'categories' => $categories]);
     }
 
     public function useredit()
@@ -74,9 +72,23 @@ class UsersController extends Controller
         $id = Auth::id();
         $human = DB::table('users')->find($id);
         $categories = Category::all();
-        return view('./Mypage/user_edit',['human' =>$human],compact('categories'));
+        return view('./Mypage/user_edit', ['human' => $human], compact('categories'));
     }
 
+    public function tenpoedit()
+    {
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        $categories = Category::all();
+        return view('./Mypage/tenpo_edit',['human' =>$human],compact('categories'));
+    }
+
+    public function municipalityedit()
+    {
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        $categories = Category::all();
+        return view('./Mypage/municipality_edit',['human' =>$human],compact('categories'));
+    }
 
 }
-
