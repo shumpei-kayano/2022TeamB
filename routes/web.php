@@ -149,7 +149,7 @@ Route::get('categorysearch/{id?}', 'EventController@categorySearch');
 Route::post('event016/{id}', 'EventController@update');
 
 // イベント編集画面
-Route::get('event016/{id}', 'EventController@edit');
+// Route::get('event016/{id}', 'EventController@edit');
 
 // Route::get('event014/{id}', 'EventController@detailView');
 //イベント/インプットのフレームのようなもの
@@ -210,6 +210,9 @@ Route::middleware('auth')->group(function () {
     // イベント詳細画面
     Route::get('event014/{id}', 'EventController@detailView');
     // Route::post('event014/{id}', 'EventController@attendEvent');
+    // イベント編集画面
+    Route::get('event016/{id}', 'EventController@edit');
+
     Route::middleware('password.confirm')->group(function () {
 
 

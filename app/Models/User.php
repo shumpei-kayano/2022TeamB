@@ -73,5 +73,9 @@ class User extends Authenticatable
     //     return $this->belongsToMany(User::class, 'follower_user', 'user_id', 'follower_id');
     // }
 
-
+    // 自治体スコープ
+    public function scopePublicUser($query)
+    {
+        return $query->where('publish_flag', '1');
+    }
 }

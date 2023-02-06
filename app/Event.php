@@ -10,7 +10,8 @@ class Event extends Model
     // protected $guerded = array('id');  //ブラックリスト方式:書き込みを禁止したいカラム名を設定
     protected $fillable = array(          //ホワイトリスト方式:保存したいカラム名を設定
         'user_id', 'facility_id', 'event_title', 'event_detail', 'city', 'url',
-        'date_of_event', 'end_time', 'event_image', 'publish_flag', 'updated_at', 'created_at'
+        'date_of_event', 'end_time', 'event_image', 'publish_flag', 'user_cl',
+        'updated_at', 'created_at'
     );
     public static $rules = [
         'user_id' => 'max:15|exists:users,id',
@@ -67,7 +68,8 @@ class Event extends Model
         $events->event_image = $filename;  //filename
         $events->publish_flag = '0';  //公開しないフラグ
         $events->category_id = $request->category_id;
-
+        $events->user_id = $request->user()->id;
+        $events->user_cl = $request->user()->publish_flag;
         $events->save();
     }
     // 新規作成メソッド（公開）//画像のfileをstorageに,file名をDBに保存してから
@@ -93,7 +95,8 @@ class Event extends Model
         $events->event_image = $filename;
         $events->publish_flag = '1';  //公開するフラグ
         $events->category_id = $request->category_id;
-        $events->user_id = $request->user()->id;
+        $events->user_id = $request->user()->id;  //ユーザIDをeventに保存
+        $events->user_cl = $request->user()->publish_flag;  //ユーザ種別をeventに保存
         $events->save();
     }
     // 更新メソッド
@@ -121,12 +124,18 @@ class Event extends Model
         $events->save();
     }
     // users user_id(Event)=id(User) 
-    public function publicUser()
+    public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
-    public function getpublicUsers()
+    // イベント投稿した人のuser_idを取得
+    public function getUserName()
     {
-        return $this->publicUser->where('publish_flag', '1');
+        return $this->user->name;
+    }
+    // guests 
+    public function guests()
+    {
+        return $this->hasMany('App\Models\Guest');
     }
 }

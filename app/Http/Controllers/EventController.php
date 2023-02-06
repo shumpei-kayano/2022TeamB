@@ -52,9 +52,13 @@ class EventController extends Controller
             return redirect('/event015');
         } elseif ($request->has('open')) {
             Event::eventInsert1($request);
+            $new_event = Event::orderBy('created_at', 'desc')->first();
+            $guests = new Guest;
+            $guests->user_id = $request->user()->id;
+            $guests->event_id = $new_event->id;
+            $guests->save();
             return redirect('/event013');
         } else {
-            // $message = 'ボタンは押されませんでした';
             return redirect('/event015');
         }
     }
@@ -89,13 +93,20 @@ class EventController extends Controller
         $user = Auth::user();
         $categories = Category::all();
         $item = Event::where('id', $request->id)->first();
-        $guests = Guest::where('event_id', $request->id)->first();
-        // dd($request->id);
+        // dd($user->id);
+        $guests = Guest::where('event_id', $request->id)
+            ->where('user_id', $user->id)->first();
+        if ($guests) {
+            $join_flg = true;
+        } else {
+            $join_flg = false;
+        }
         return view('event.eventdetailview', [
             'item' => $item,
             'categories' => $categories,
             'guests' => $guests,
-            'user' => $user
+            'user' => $user,
+            'join_flg' => $join_flg
         ]);
     }
     // イベント参加、ゲストテーブルに書き込み
@@ -105,9 +116,9 @@ class EventController extends Controller
             Guest::guestInsert($request, $id);
         } elseif ($request->has('cancel')) {
             Guest::where('event_id', $request->id)
-                ->where('user_id', $request->user_id)
+                ->where('user_id', $request->user()->id)
                 ->delete();
-            dd($request->user_id);
+            // dd($request->user()->id);
         } elseif ($request->has('edit')) {
             return redirect('/event016/{id}');
         }
@@ -124,8 +135,6 @@ class EventController extends Controller
         //     'user' => $user
         // ]);
     }
-
-
 
     // イベント削除
     public function destroy(Request $request)
@@ -164,19 +173,28 @@ class EventController extends Controller
             'city' => $city
         ]);
     }
-    // 自治体のイベントだけ表示させる userのpublish_flagが1だけ
-    public function publicIndex()
+    // user種別に表示させる userのpublish_flag→eventsのuser_cl
+    public function publicIndex(Request $request)
     {
         $categories = Category::all();
-        $publicusers = User::with('events')->where('publish_flag', '1')->get();
-        // dd($publicusers);
-        $items = Event::orderBy('updated_at', 'desc')  // 更新が新しい順
-            ->where('publish_flag', '1')         // 公開フラグ1だけ表示
-            ->where('user_id', $publicusers->first()->id)
-            ->orWhere('user_id', $publicusers[1]->id)
-            // ->orWhere('user_id', $publicusers[2]->id)
-            ->Paginate(8);
+        // flgに応じたユーザーを取り出す
+        // $users = User::with('events')
+        //     ->where('publish_flag', $request->public_flg)->get();
+        // 4と5のユーザーが取り出せている
+        // $users = collect([4, 5]);
+        $items = Event::with('user')
+            ->where('publish_flag', '1')     // 公開フラグ1だけ表示
+            // ->where('user_id', $users)
+            ->where('user_cl', $request->public_flg) // cl'1'だけ表示
+            ->orderBy('updated_at', 'desc')  // 更新が新しい順
+            ->paginate(8);
 
-        return view('event.eventichiranpublic', ['items' => $items, 'categories' => $categories,]);
+        return view(
+            'event.eventichiranpublic',
+            [
+                'items' => $items,
+                'categories' => $categories,
+            ]
+        );
     }
 }

@@ -114,7 +114,7 @@
               @endforeach
               </p>
             </div>
-            <div class="click"><a href="event013">もっと見る...Click here</a></div>
+            <div class="click"><a href="event001?public_flg=0">もっと見る...Click here</a></div>
           </div>
 
         {{-- 自治体コーナー --}}
@@ -133,7 +133,7 @@
             <div class="p-gov__gov_area">
               <p class="p-gov__gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
             </div>
-            <div class="click"><a href="event001">もっと見る...Click here</a></div>
+            <div class="click"><a href="event001?public_flg=1">もっと見る...Click here</a></div>
           </div>
 
         {{-- オープンチャット --}}

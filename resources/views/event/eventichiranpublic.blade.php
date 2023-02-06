@@ -39,6 +39,7 @@
                 <img src="{{asset('/storage/eimg/'.$item->event_image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{$item->event_title}}</h5>
+                  <h6 class="card-subtitle">{{$item->getUserName()}}</h6>
                   <p class="card-text">{{substr($item->date_of_event, 0, 10)}}</p>
                 </div>
               </a>
