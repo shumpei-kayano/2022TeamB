@@ -25,13 +25,31 @@ Route::get('welcome/top', function () {
 });
 
 //トップページ
-// Route::get('/', function () {
-//     return view('top');
-// });
-
 Route::get('/', 'HomeController@index');
 
-//ログイン画面にとぶ
+
+
+
+//キーワード検索(layout.blade.phpのheader内)
+
+//あとで消す
+Route::get('search_results', function () {
+    return view('search.index');
+});
+
+// ->name('search')は、layout.blade.phpの< action="{{ route('search') }}">で使うために名前をつけている
+Route::post('/search', 'SearchController@search')->name('search');
+
+/* Route::get('search_username', function () {
+    return view('search.search_username');
+}); */
+
+
+
+
+
+
+//「ログインする」ボタンからログイン画面にとぶ
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -508,16 +526,6 @@ Route::get('restaurant_follower_this_side', function () {
 Route::get('restaurant_follower_other_side', function () {
     return view('follow.restaurant_follower_other_side');
 });
-
-
-
-//検索結果表示ページ
-Route::get('search_results', function () {
-    return view('search_results');
-});
-
-
-
 
 
 

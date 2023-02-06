@@ -1,4 +1,11 @@
 {{-- 検索結果表示ページ --}}
+{{-- ※※※※※※※これは完成イメージなので機能しません※※※※※※ --}}
+{{-- ※※※※※※※これは完成イメージなので機能しません※※※※※※ --}}
+{{-- ※※※※※※※これは完成イメージなので機能しません※※※※※※ --}}
+{{-- ※※※※※※※これは完成イメージなので機能しません※※※※※※ --}}
+{{-- ※※※※※※※これは完成イメージなので機能しません※※※※※※ --}}
+{{-- ※※※※※※※これは完成イメージなので機能しません※※※※※※ --}}
+{{-- ※※※※※※※これは完成イメージなので機能しません※※※※※※ --}}
 @extends('layouts.layout')   
 @section('title')
     検索結果表示
@@ -49,7 +56,7 @@
 
                 <div class="col-3">
                     <div class="d-flex">
-                         {{-- ユーザ名ごとに１行に４つずつ表示する --}}
+                        {{-- ユーザ名ごとに１行に４つずつ表示する --}}
                         <div class="p-search_results_container__user_info">
                             <div class="col-12">
                                 <div class="d-flex">
@@ -67,7 +74,7 @@
 
                 <div class="col-3">
                     <div class="d-flex">
-                         {{-- ユーザ名ごとに１行に４つずつ表示する --}}
+                        {{-- ユーザ名ごとに１行に４つずつ表示する --}}
                         <div class="p-search_results_container__user_info">
                             <div class="col-12">
                                 <div class="d-flex">
@@ -167,6 +174,11 @@
 
             <a href="contact_results" target="_blank" class="p-search_results_container__restaurant_info_other">その他の店舗情報</a>
         </div>
+
+        {{-- ページネーションの設定 --}}
+        {{-- <div class="p-blog_edit_area__paginate_container">
+            {{ $data->links() }}
+        </div> --}}
     
 </div>
 

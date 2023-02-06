@@ -4,7 +4,7 @@ namespace App\Http\Controllers;                                         //フォ
 
 use Illuminate\Http\Request;                                            //Illuminate\Httpパッケージ内に用意されている「Request」を使える状態に
 use App\Blog;                                                           //Blogモデルを使う
-
+use App\Models\Category;
 
 class BlogController extends Controller                                 //Controllerというクラスを継承して作成している
 {                                                                       //https://qiita.com/yukibe/items/b7186f05d1c266076a35
@@ -18,8 +18,10 @@ class BlogController extends Controller                                 //Contro
     {
         // 新着順で並び替えて表示 →　並び順(orderBy)を投稿日(created_at)の 「降順(desc)」にして全て取得(get)する
         //  5件ずつ表示し、5件以上になるとページネーションが表示される(new_blog_list.blade.phpに記述)
-        $data = Blog::orderBy('created_at', 'desc')->paginate(5);           // orderBy('title', 'asc') にすると、今度はタイトルで昇順で並べ替えて表示もできる
-        return view('blog.new_blog_list')->with(['data' => $data]);         // DBから取得したデータを$dataに代入($dataの中に投稿データが入る)
+        $data = Blog::orderBy('created_at', 'desc')->paginate(5);                                        // orderBy('title', 'asc') にすると、今度はタイトルで昇順で並べ替えて表示もできる
+        $categories = Category::All();                                                                   //左側カテゴリーバーを呼び出す
+        return view('blog.new_blog_list')->with(['data' => $data, 'categories' => $categories]);         // DBから取得したデータを$dataに代入($dataの中に投稿データが入る/左側カテゴリーバーもDBから取得)
+
     }
 
     //ブログ機能CDN読み込み
@@ -59,8 +61,9 @@ class BlogController extends Controller                                 //Contro
     //ブログ投稿ページで(単独ページ)1ページずつ表示
     public function show($id)
     {
-        $data = Blog::where('id', $id)->first();                            //Blogテーブルから1件だけ取得して表示させる
-        return view('blog.blog_show')->with(['data' => $data]);
+        $data = Blog::where('id', $id)->first();                                                //Blogテーブルから1件だけ取得して表示させる
+        $categories = Category::All();                                                          //左側カテゴリーバーを呼び出す
+        return view('blog.blog_show')->with(['data' => $data, 'categories' => $categories]);    // DBから取得したデータを$dataに代入($dataの中に投稿データが入る/左側カテゴリーバーもDBから取得)
     }
 
     //投稿済みブログ一覧をリストで表示

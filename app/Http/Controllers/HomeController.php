@@ -28,21 +28,24 @@ class HomeController extends Controller
     {
         //トップページ左側カテゴリバー
         $categories = Category::all();
+
         //ブログコーナーにタイトルを新着順で3件抽出して表示
         $data = Blog::orderBy('created_at', 'desc')->paginate(3);
+
         // トップページ左下event013
         $items = Event::orderBy('updated_at', 'desc')
             ->where('publish_flag', '1')
             ->whereNotNull('user_id')
             ->paginate(3);
-        // トップページ県・市町村からの募集event001
 
+        // トップページ県・市町村からの募集event001
         return view('top', [
             'categories' => $categories,
             'data' => $data,
             'items' => $items,
         ]);
     }
+
     public function eventkojin()
     {
         //トップページ左下
