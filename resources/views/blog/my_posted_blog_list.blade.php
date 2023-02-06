@@ -17,6 +17,7 @@
             
             {{-- DBから記事データを @foreach で取り出す --}}
             @foreach($data as $datas) 
+            
             {{-- ブログ記事リスト区切りエリア --}}
             <div class="p-blog_edit_area__blog_post">    
                 <div class="col-12">
@@ -41,6 +42,7 @@
             </div>
 
             @endforeach
+
             {{-- ページネーションの設定 --}}
             <div class="p-blog_edit_area__paginate_container">
             {{ $data->links() }}

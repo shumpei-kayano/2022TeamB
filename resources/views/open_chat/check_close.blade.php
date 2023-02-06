@@ -11,7 +11,9 @@
         <div class="content_block">     {{-- 背景内の中央にテキスト類をブロックで配置 --}}
         <h4 class="p-register-card__title">本当に閉鎖しますか？</h4><br>
         <div class="yes_or_no">
-            <form action="completed_close">
+            <form action="{{ url('check_close/'.$data->id) }}" method="post">
+                @csrf
+                <input type="hidden" name="chat_id" value="{{$data->id}}">
             <input class="p-header__login-button yes_or_no__yes" type="submit" value="はい">  {{-- DB未設定 --}}
             </form>
             <form action="open_chat_room">

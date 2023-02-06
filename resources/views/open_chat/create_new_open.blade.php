@@ -13,22 +13,19 @@
         <a class="p-large_bg__logo_img" href="{{URL::to('terms_of_service')}}"><img src={{asset('/img/close.png')}} alt="" height="50px" width="40px"></a>
         </form>
         <h3>オープンチャット作成</h3>
-
-        <input type="file" id="fopen" style="display:none;">
-        <a href="Javascript:document.getElementById('fopen').click();">
-            <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px">
-        </a>
+        <form action="create_new_open" method="POST" enctype="multipart/form-data">  {{--  データベースに格納するよよ --}}
+            @csrf
         <div class="eventadd__img-container">
             {{--  デフォルト画像noimage  --}}
             <div id="default_image">
-                <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
+                <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px">
             </div>
             {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
             <div id="preview" class="e-imagePreview"></div>
             <div class="btn-wrap">
                 <label>
                     <span class="btn eventadd-btn-warning p-event-text c-text-sm">
-                    <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
+                    <input type="file" name="chat_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                     </span>
                     <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
                 </label>
@@ -36,8 +33,7 @@
             {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
         </div>
 
-        <form action="create_new_open" method="POST">  {{--  データベースに格納するよよ --}}
-            @csrf
+        
         <div class="p-new_create_block__camera">
        {{--  <img src="{{ asset('/img/circle_camera.png') }}" alt="" width="100px" height="100px"> --}}
         </div>
