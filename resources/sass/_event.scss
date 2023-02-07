@@ -187,7 +187,14 @@ color: $white;
    }
 }  
 
+.p-event {
+    &__event_title {
+        a { text-decoration: none; color: $black; }
+    }
+}
 
-// .eventadd-parent .obj-cover {
-
-// }
+.p-gov {
+    &__gov_title {
+        a { text-decoration: none; color: $black; }        
+    }
+}
