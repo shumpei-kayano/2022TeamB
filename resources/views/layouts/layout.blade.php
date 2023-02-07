@@ -54,8 +54,14 @@
 
         {{-- ヘッダーのキーワード検索ボックス表示 --}}
         <div class="p-header__search">
-          <input class="p-header__searchbox" type="search" name="search" value="{{request('search')}}" placeholder="キーワードを入力">
-          <input class="p-header__search-button" type="submit" name="submit" value="検索">
+          {{-- 検索ボタンを押した際のルーティングも、一覧画面の表示と同じSearchControllerのsearch_resultsメソッドに、getメソッドでアクセス --}}
+          <form action="{{ route('search') }}" method="post">
+          @csrf 
+            <input class="p-header__searchbox" name="keyword" placeholder="キーワードを入力">
+            <input class="p-header__search-button" type="submit" value="検索">
+          </form>
+
+
         </div>
 
         {{-- ゲストログイン --}} 
@@ -82,7 +88,7 @@
               </div>
               {{-- ログイン後、ログアウトボタンの下に "ようこそ〇〇(ユーザ名)さん" と表示する --}}
               <div class="p-header__user_name">
-                <p type="button" style="font-size:1em" onclick="location.href='user_mypage'">ようこそ、{{ Auth::user()->name }}さん</p>
+                <p type="button" style="font-size:1em" onclick="location.href='/user_mypage'">ようこそ、{{ Auth::user()->name }}さん</p>
               </div>
             @endguest
       </div>

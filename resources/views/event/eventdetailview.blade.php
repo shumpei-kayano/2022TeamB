@@ -31,12 +31,12 @@
                     <form action="{{ url('event014/'.$item->id) }}" method="post">
                     <div class="eventadd__btn-container">
                         @csrf
-                        @if ($user->id != $item->user_id && $user->id != $guests->user_id)
-                        <input type="submit" value="参加する" class='button' name="join">
-                        @elseif ($user->id != $item->user_id && $user->id == $guests->user_id)
-                        <input type="submit" value="参加辞退する" class='button' name="cancel">
-                        @elseif ($user->id == $item->user_id)
+                        @if ($user->id == $item->user_id)
                         <input type="submit" value="編集する" class='button' name="edit">
+                        @elseif ($join_flg == false)
+                        <input type="submit" value="参加する" class='button' name="join">
+                        @else
+                        <input type="submit" value="参加辞退する" class='button' name="cancel">
                         @endif
                     </div>
                     </form>

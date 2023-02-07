@@ -25,13 +25,31 @@ Route::get('welcome/top', function () {
 });
 
 //トップページ
-// Route::get('/', function () {
-//     return view('top');
-// });
-
 Route::get('/', 'HomeController@index');
 
-//ログイン画面にとぶ
+
+
+
+//キーワード検索(layout.blade.phpのheader内)
+
+//あとで消す
+Route::get('search_results', function () {
+    return view('search.index');
+});
+
+// ->name('search')は、layout.blade.phpの< action="{{ route('search') }}">で使うために名前をつけている
+Route::post('/search', 'SearchController@search')->name('search');
+
+/* Route::get('search_username', function () {
+    return view('search.search_username');
+}); */
+
+
+
+
+
+
+//「ログインする」ボタンからログイン画面にとぶ
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -149,7 +167,7 @@ Route::get('categorysearch/{id?}', 'EventController@categorySearch');
 Route::post('event016/{id}', 'EventController@update');
 
 // イベント編集画面
-Route::get('event016/{id}', 'EventController@edit');
+// Route::get('event016/{id}', 'EventController@edit');
 
 // Route::get('event014/{id}', 'EventController@detailView');
 //イベント/インプットのフレームのようなもの
@@ -210,6 +228,9 @@ Route::middleware('auth')->group(function () {
     // イベント詳細画面
     Route::get('event014/{id}', 'EventController@detailView');
     // Route::post('event014/{id}', 'EventController@attendEvent');
+    // イベント編集画面
+    Route::get('event016/{id}', 'EventController@edit');
+
     Route::middleware('password.confirm')->group(function () {
 
 
@@ -302,9 +323,8 @@ Route::get('open_chat_preview', function () {
 Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
 
 //オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
-Route::get('check_close', function () {
-    return view('open_chat.check_close');
-});
+Route::get('check_close/{id}', 'Chatroomcontroller@check');
+Route::post('check_close/{id}', 'Chatroomcontroller@delete');
 
 //オープンチャットを「退室する」ボタンで”閉鎖”確認画面へ
 Route::get('check_leaving', function () {
@@ -511,25 +531,11 @@ Route::get('restaurant_follower_other_side', function () {
 
 
 
-//検索結果表示ページ
-Route::get('search_results', function () {
-    return view('search_results');
-});
-
-
-
-
-
-
 //公開範囲の設定
 Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
 
-//オープンチャットルーム作成
-Route::post('open_chat_preview', 'ChatroomController@preview_post');
-Route::post('create_new_open', 'ChatroomController@create');
-// Route::post('create_new_open', 'ChatroomController@create2');
 
 
 //通報画面
@@ -537,8 +543,17 @@ Route::get('report', 'ReportController@index');
 Route::get('complete_report', 'ReportController@report');
 
 // Route::post('message_send', 'Chatroomcontroller@send');
-Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
-Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+Route::middleware('auth')->group(function () {
+    Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
+    Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+});
 
 //ユーザーマイページ編集・登録
 Route::get('mypage_edit', 'UsersController@useredit')->name('user_edit');
+
+Route::post('join_open_chat/{id}', 'Chatroomcontroller@index4');
+//店舗マイページ編集・登録
+Route::get('tenpo_edit', 'UsersController@tenpoedit')->name('tenpo_edit');
+
+//自治体マイページ編集・登録
+Route::get('municipality_edit', 'UsersController@municipalityedit')->name('municipality_edit');

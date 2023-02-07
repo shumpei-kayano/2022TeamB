@@ -9,8 +9,8 @@
 <div class="container-fluid">
     <div class="row">
 
-      {{-- 左メニューバー --}}
-      @component('components.left')
+      {{-- 左メニューバー／カテゴリーをDBから取得する--}}
+      @component('components.left',['categories'=>$categories])
       @endcomponent
       {{-- 右側 --}}
       <div class="col-10"> 
@@ -67,6 +67,7 @@
       </div>
     </div>
 </div>
+
 
 
 @endsection

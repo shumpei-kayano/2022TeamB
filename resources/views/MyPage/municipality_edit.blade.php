@@ -9,7 +9,7 @@
 
 
 @section('main')
-<div class="p-municipality-mypage">
+<div class="p-municipality-mypage2">
     <div class="p-municipality-mypage__left">
         <div class="p-municipality-mypage__top">
             <table>
@@ -21,7 +21,7 @@
                             <input type="text" class="form-control" style="width: 350px;" id="municipality-mypage__tel" style="width: 350px;" placeholder="000-0000-0000"></td>
                     </tr>
                     <tr>
-                        <td><label for="municipality-mypage-login__mail" class="form-label">メールアドレス（ログイン用）</label>
+                        <<td><label for="municipality-mypage-login__mail" class="form-label">メールアドレス（ログイン用）</label>
                             <input type="email" class="form-control" id="municipality-mypage-login__mail" placeholder="example@aaa.com"></td>
                         <td><label for="municipality-mypage__address" class="form-label">住所</label>
                             <input type="text" class="form-control" id="municipality-mypage__address" placeholder=""></td>
@@ -55,19 +55,33 @@
         
         </div>
     <div class="p-municipality-mypage__right">
-            <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
-            <form action="mypage_del">
-            <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
-            </form>
-            <form action='{{route('municipality_edit'),}}' method='get'>
-                <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
+        <div class="p-mypage-store__btn-container">     
+            <div class="eventadd__img-container">
+                {{--  デフォルト画像noimage  --}}
+                <div id="default_image">
+                    <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
+                </div>
+                {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
+                <div id="preview" class="e-imagePreview"></div>
+                <div class="btn-wrap">
+                    <label>
+                        <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
+                        <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
+                        </span>
+                        <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
+                    </label>
+                </div>                  
+            </div>
+            <form action="mypage_set">
+                <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
-            <a href="#"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
+            <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
+        </div>
     </div>
 </div>            
 @endsection

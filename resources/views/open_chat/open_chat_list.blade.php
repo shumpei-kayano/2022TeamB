@@ -18,7 +18,7 @@
             <div class="row" style="row-gap: 3ch;"> {{-- アイコン,タイトル,説明の下に余白をとる --}}
               @foreach ($items as $item)
               {{-- <div class="p-large_bg_btn__card_btn2"></div> --}}
-              <div class="p-large_bg_btn__card_btn d-flex">
+              <div class="p-large_bg_btn__card_btn d-flex"onclick="location.href='/open_chat_room/{{$item->id}}'">
                 
                   {{-- {{ $items->created_at }} --}}
                 <div class="p-open_chat_area__open_chat_list_icon"><svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

@@ -19,7 +19,12 @@
 					</td>
 					<td rowspan="3" class="p-user-mypage__hyouka"><br>
 						
-						<span class="rate-wrap">店鋪評価<span class="rate" style ="--score: {{ 3.7 }}"></span><span class="num">3.7</span></span>
+						<p>
+							<span class="star5_rating" data-rate="4"></span>
+						</p>
+						<p>
+							<span class="star5_rating" data-rate="2.5"></span>
+						</p>
     
 				</tr>
 				<tr>
@@ -63,17 +68,11 @@
 					<td class="p-user3-mypage__events3"><label for="introduction" class="form-label"></label>
 						<disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
 					</td>
+					<div class="p-mypage-store__click">
+						<a href="#">もっと見る...Click here</a></div>
 				</tr>
-				<div class="p-mypage-store__click">
-					<a href="#">もっと見る...Click here</a></div><br>
 				</div>
 		</div>
-		
-
-
-		</table>
-		<div class="p-mypage-store__click">
-			<a href="#">もっと見る...Click here</a></div><br>
 	</div>
 	<div class="p-user-mypage__right">
 		<form action="/event015" method="post" enctype="multipart/form-data">
@@ -85,7 +84,7 @@
                             <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません" width="200px" height="200px">
                         </div>
 		<a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
-		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>　
+		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
 		<a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>

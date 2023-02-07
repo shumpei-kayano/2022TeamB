@@ -60,14 +60,6 @@
 		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
 		<a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>
-		{{-- <input type="submit" value="設定" class='button' style="text-align: right"><br>
-		<input type="submit" value="プロフィール登録・編集" class='button'><br>
-		<input type="submit" value="フォロワー"class='button' ><br>
-		<input type="submit" value="フォロー中" class='button'><br>
-		<input type="submit" value="イベント投稿"class='button' ><br>
-		<input type="submit" value="ブログ投稿" class='button'><br>
-		<input type="submit" value="チャット"class='button' ><br>
-		<input type="submit" value="DM"class='button' ><br> --}}
 	</div>
 </div>
   @endsection

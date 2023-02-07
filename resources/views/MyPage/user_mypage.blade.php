@@ -13,7 +13,6 @@
     <div class="p-mypage-store__left">
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
-                <form action="{{'add'}}" method="post">
                 <label for="user_name" class="form-label">ユーザー名</label>
                 <input type="text" class="form-control" id="user_name" value="{{ $human->name }}"></input>
                 <label for="mail" class="form-label">メールアドレス</label>
@@ -22,30 +21,15 @@
             {{--  カテゴリを選択  --}}
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
-                    <label for="hobby" class="form-label">趣味</label>
-                    <select name="category_id" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">趣味を選択</option>
-                        @foreach($categories as $item)
-                        <option value="{{$item->id}}">{{$item->category_name}}</option>
-                        @endforeach
-                    </select>
-                </div> 
+                    <label for="user_name" class="form-label">趣味</label>
+                    <disabled type="text" class="form-control" id="hobby1" value=""></disabled>
+                </div>    
                 <div class="p-mypage-store__hobby2">
-                    <select name="category_id" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">趣味を選択</option>
-                        @foreach($categories as $item)
-                        <option value="{{$item->id}}">{{$item->category_name}}</option>
-                        @endforeach
-                    </select>
-                </div> 
+                    <disabled type="text" class="form-control" id="hobby2" value=""></disabled>
+                </div>    
                 <div class="p-mypage-store__hobby3">
-                    <select name="category_id" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">趣味を選択</option>
-                        @foreach($categories as $item)
-                        <option value="{{$item->id}}">{{$item->category_name}}</option>
-                        @endforeach
-                    </select>
-                </div> 
+                    <disabled type="text" class="form-control" id="hobby3" value=""></disabled>
+                </div>    
             </div>
 
             <div class="p-mypage-store__mind">
@@ -56,9 +40,8 @@
         </div>
         <div class="p-mypage-store__middle">
             <label for="self">自己紹介文</label>
-            <textarea type="text" class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" style="height: 100px"></textarea>
+            <disabled type="text" class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" style="height: 100px"></disabled>
         </div>
-    </form>
     <tr>
 		<td>予約管理</td>
 	</tr>
@@ -94,7 +77,6 @@
                 </td>
             </tr>
       </div>
-        
     </div>
 
     {{-- 右側のボタン集 --}}
@@ -105,17 +87,7 @@
                 <div id="default_image">
                     <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
                 </div>
-                {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
-                <div id="preview" class="e-imagePreview"></div>
-                <div class="btn-wrap">
-                    <label>
-                        <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
-                        <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
-                        </span>
-                        <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
-                    </label>
-                </div>
-                {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
+               
             </div>
             <form action="mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
@@ -123,9 +95,9 @@
             <form action='{{route('user_edit'),}}' method='get'>
                 <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             </form>
-            <a href="#"><button class="p-mypage-setting__btn">編集内容の保存</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
+            <a href="#"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
             <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
@@ -155,5 +127,26 @@
         };
         reader.readAsDataURL(file);
     }    
+
+<?php>
+try{
+    $dsn = 'mysql:dbname=usagi_db'
+
+    $pdo = new PDO($dsn);
+
+    $name = $POST['name'];
+    $email = $POST['email'];
+    $hobby1 = $POST['hobby1'];
+    $hobby2 = $POST['hobby2'];
+    $hobby3 = $POST['hobby3'];
+    $self_introduction = $POST['self_introduction'];
+
+    $sql = "INSERT INTO contents (name, email, hobby1, hobby2, hobby3, self_introduction) VALUES (:name, :emial, :hobby1, :hobby2, :hobby3, :self_introduction)";
+    $stmt = $pdo->prepare($sql);
+    $params = array(':name' => $name, ':email' => $email, ':hobby1' => $hobby1, ':hobby2' => $hobby2, ':hobby3' => $hobby3, ':self_introduction' => $self_introduction);
+    $stmt->execute($params);
+}
+
+<?>
 </script>
 @endsection
