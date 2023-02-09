@@ -95,7 +95,7 @@
         
             <div class="p-mypage-store__events" >
                 <tr>
-                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予約・参加表明・予約履歴一覧</label>
+                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予定・参加表明・予約履歴一覧</label>
                       <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
                     </td>
                </tr>
