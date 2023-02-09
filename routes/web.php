@@ -175,7 +175,7 @@ Route::get('event020', function () {
     return view('components.framelikeinput');
 });
 
-//利用者から見たユーザーマイページ画面
+//他のユーザに表示されるマイページ画面
 Route::get('user1/{id}', 'UsersController@user1');
 
 //利用者から見た店鋪マイページ

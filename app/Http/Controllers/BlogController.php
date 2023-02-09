@@ -5,6 +5,7 @@ namespace App\Http\Controllers;                                         //フォ
 use Illuminate\Http\Request;                                            //Illuminate\Httpパッケージ内に用意されている「Request」を使える状態に
 use App\Blog;                                                           //Blogモデルを使う
 use App\Models\Category;
+use App\Models\User;
 
 class BlogController extends Controller                                 //Controllerというクラスを継承して作成している
 {                                                                       //https://qiita.com/yukibe/items/b7186f05d1c266076a35

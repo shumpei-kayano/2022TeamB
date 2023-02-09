@@ -28,6 +28,6 @@ class Blog extends Model
     //ブログの1つの記事の投稿者は1人しか存在しないので、Blogは1つのUserしか持つことができない。
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 }
