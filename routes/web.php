@@ -549,7 +549,8 @@ Route::middleware('auth')->group(function () {
 });
 
 //ユーザーマイページ編集・登録
-Route::get('mypage_edit', 'UsersController@useredit')->name('user_edit');
+Route::get('user_edit/{id}', 'UsersController@useredit');
+Route::post('user_edit/{id}', 'UsersController@userupdate');
 
 Route::post('join_open_chat/{id}', 'Chatroomcontroller@index4');
 //店舗マイページ編集・登録
@@ -557,3 +558,5 @@ Route::get('tenpo_edit', 'UsersController@tenpoedit')->name('tenpo_edit');
 
 //自治体マイページ編集・登録
 Route::get('municipality_edit', 'UsersController@municipalityedit')->name('municipality_edit');
+
+Route::get('open_chat_preview/{id}', 'Chatroomcontroller@preview');

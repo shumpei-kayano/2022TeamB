@@ -14,21 +14,21 @@
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}"></input>
+                <input type="text" class="form-control"value="{{ $human->name }}" disabled>
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" value="{{ $human->email }}"></disabled>
+                <input type="email" class="form-control"value="{{ $human->email }}" disabled>
             </div>
             {{--  カテゴリを選択  --}}
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
                     <label for="user_name" class="form-label">趣味</label>
-                    <disabled type="text" class="form-control" id="hobby1" value=""></disabled>
+                    <input type="text" class="form-control" id="hobby1" value="{{ $human->hobby1 }}" disabled>
                 </div>    
                 <div class="p-mypage-store__hobby2">
-                    <disabled type="text" class="form-control" id="hobby2" value=""></disabled>
+                    <input type="text" class="form-control" id="hobby2" value="{{ $human->hobby2 }}" disabled>
                 </div>    
                 <div class="p-mypage-store__hobby3">
-                    <disabled type="text" class="form-control" id="hobby3" value=""></disabled>
+                    <input type="text" class="form-control" id="hobby3" value="{{ $human->hobby3 }}" disabled>
                 </div>    
             </div>
 
@@ -40,7 +40,7 @@
         </div>
         <div class="p-mypage-store__middle">
             <label for="self">自己紹介文</label>
-            <disabled type="text" class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" style="height: 100px"></disabled>
+            <textarea  class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" style="height: 100px" disabled>{{ $human->self_introduction }} </textarea>
         </div>
     <tr>
 		<td>予約管理</td>
@@ -84,16 +84,18 @@
         <div class="p-mypage-store__btn-container">     
             <div class="eventadd__img-container">
                 {{--  デフォルト画像noimage  --}}
-                <div id="default_image">
-                    <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
-                </div>
+                @if($human->icon == null)
+                <img src="img/noimage.jpg" class="user_mypage_icon" alt="">
+                @else
+                    <img src="{{ asset('storage/userimg/' . $human->icon) }}" class="user_mypage_icon" alt="写真がありません">
+                @endif
                
             </div>
             <form action="mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>
-            <form action='{{route('user_edit'),}}' method='get'>
-                <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
+            <form action="user_edit/{{ $human->id }}" method="get">
+              <a> <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             </form>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
@@ -128,7 +130,7 @@
         reader.readAsDataURL(file);
     }    
 
-<?php>
+
 try{
     $dsn = 'mysql:dbname=usagi_db'
 
@@ -147,6 +149,6 @@ try{
     $stmt->execute($params);
 }
 
-<?>
+
 </script>
 @endsection

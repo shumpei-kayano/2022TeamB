@@ -19,12 +19,7 @@
 					</td>
 					<td rowspan="3" class="p-user-mypage__hyouka"><br>
 						
-						<p>
-							<span class="star5_rating" data-rate="4"></span>
-						</p>
-						<p>
-							<span class="star5_rating" data-rate="2.5"></span>
-						</p>
+						<span class="rate-wrap">店舗評価<span class="rate" style ="--score: {{ 3.7 }}"></span><span class="num">3.7</span></span>
     
 				</tr>
 				<tr>
