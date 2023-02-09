@@ -123,4 +123,12 @@ class UsersController extends Controller
             ->where('id', $request->id)->update($param);
         return redirect('/user_mypage');
     }
+
+    public function user1($id)
+    {
+
+        $data = User::where('id', $id)->first();
+        $categories = Category::all();
+        return view('MyPage.user_look', ['data' => $data, 'categories' => $categories]);
+    }
 }

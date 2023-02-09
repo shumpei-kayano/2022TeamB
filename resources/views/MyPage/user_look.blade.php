@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="p-user2-mypage__right">
-      <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
+      <img src="{{ asset('storage/userimg/' . $data->icon) }}" width="200px" height="200px" class="user1_icon"><br>
       <a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
       <a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
       <a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>

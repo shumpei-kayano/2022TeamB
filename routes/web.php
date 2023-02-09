@@ -176,9 +176,8 @@ Route::get('event020', function () {
 });
 
 //利用者から見たユーザーマイページ画面
-Route::get('user1', function () {
-    return view('MyPage.user_look');
-});
+Route::get('user1/{id}', 'UsersController@user1');
+
 //利用者から見た店鋪マイページ
 Route::get('user2', function () {
     return view('MyPage.user_look2');

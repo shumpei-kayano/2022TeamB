@@ -2098,6 +2098,14 @@ display: block;
         width: 20%;
         box-sizing: border-box;
     }
+
+    &__save {
+        background-color:$navy;
+        color: #fff;
+        border-radius: 5px;
+        margin-left: 80%;
+    }
+
 }
 
 //マイページedit画面
@@ -2913,6 +2921,11 @@ display: block;
 .user_mypage_icon{
     width: 200px;                        //円の横幅
     height: 200px;                       //円の縦幅
+    border-radius: 50%;                 //円
+    object-fit:cover;
+}
+
+.user1_icon{
     border-radius: 50%;                 //円
     object-fit:cover;
 }

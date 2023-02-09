@@ -86,7 +86,7 @@
     <tr>
 		<td>予約管理</td>
 	</tr>
-    <button class="p-mypage-store__save" type="submit">保存</button>
+    <input class="p-mypage-store__save" type="submit" value="保存">
     <div class="p-mypage-store__beneath">
 
         <div id="calendar" style="width: 600px; padding-right: 30px; padding-left: 10px;" >
