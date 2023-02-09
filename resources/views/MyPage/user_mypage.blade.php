@@ -54,7 +54,7 @@
         
             <div class="p-mypage-store__events" >
                 <tr>
-                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予約・参加表明・予約履歴一覧</label>
+                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予定・参加表明・予約履歴一覧</label>
                       <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
                     </td>
                </tr>
@@ -91,9 +91,7 @@
                 @endif
                
             </div>
-            <form action="mypage_set">
-                <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
-            </form>
+                <a href="mypaage_set"><button class="p-mypage-setting__btn">設定</button></a>
             <form action="user_edit/{{ $human->id }}" method="get">
               <a> <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             </form>
@@ -101,7 +99,7 @@
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
             <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
-            <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
+            <a href=""><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
         </div>
     </div>

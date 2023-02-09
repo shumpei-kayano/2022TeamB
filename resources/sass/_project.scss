@@ -1888,10 +1888,20 @@ display: block;
         width: 75%;
         height: 670px;
         padding: 20px;
+       
     }
+    &__a {
+        margin-top: 80px;
+    }
+
     &__kojin {
         width: 50%;
+        padding-right: 50px;
+
     }
+    &__c {
+        width: 100%;
+        padding-top: 20px;    }
 
     table, tr, tbody{
         width: 100%;
@@ -1903,6 +1913,8 @@ display: block;
     &__hobby {
         display: flex;
         justify-content: space-between;
+        padding-top: 30px;
+        
         label {
             width: 30%;
         }
