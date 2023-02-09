@@ -18,13 +18,10 @@
             <div class="row" style="row-gap: 3ch;"> {{-- アイコン,タイトル,説明の下に余白をとる --}}
               @foreach ($items as $item)
               {{-- <div class="p-large_bg_btn__card_btn2"></div> --}}
-              <div class="p-large_bg_btn__card_btn d-flex"onclick="location.href='/open_chat_room/{{$item->id}}'">
+              <div class="p-large_bg_btn__card_btn d-flex"onclick="location.href='/open_chat_preview/{{$item->id}}'">
                 
                   {{-- {{ $items->created_at }} --}}
-                <div class="p-open_chat_area__open_chat_list_icon"><svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg></div>
+                <div class="p-open_chat_area__open_chat_list_icon"><img src="{{ asset('storage/cimg/' . $item->chat_image) }}" class="chat_list_icon"></div>
                 <div class="p-open_chat_area__open_chat_list_title"><br><h5><a  style="text-decoration: none; color:black;"  href="open_chat_room/{{$item->id}}">{{ Str::limit($item->title), 55,'(（　＾ω＾）・・・)' }}</a></h5>
                   <p>{{Str::limit($item->room_detail, 100, '…' ) }}</p>
                 </div>

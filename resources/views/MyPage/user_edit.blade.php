@@ -13,52 +13,75 @@
     <div class="p-mypage-store__left">
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
-                <form action="{{'add'}}" method="post">
+                <form action="user_edit" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $data->id }}">
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" name="name" class="form-control" id="user_name" value="{{ $human->name }}"></input>
+                <input type="text" name="name" class="form-control" value="{{ $data->name }}">
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" name="email" class="form-control" id="mail" value="{{ $human->email }}"></disabled>
+                <input type="email" name="email" class="form-control" value="{{ $data->email }}">
             </div>
             {{--  カテゴリを選択  --}}
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
                     <label for="hobby" class="form-label">趣味</label>
-                    <select name="category_id" name="hobby1" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">趣味を選択</option>
-                        @foreach($categories as $item)
-                        <option value="{{$item->id}}">{{$item->category_name}}</option>
-                        @endforeach
+                    <select name="hobby1" class="form-select" aria-label="Default select example">
+                        @if($data->hobby1 != null)
+                            <option value="{{ $data->hobby1 }}">{{ $data->hobby1 }}</option>
+                            @foreach($categories as $item)
+                            <option value="{{$item->category_name}}">{{$item->category_name}}</option>
+                            @endforeach
+                        @else
+                        <option disabled selected>カテゴリを入力</option>
+                            @foreach($categories as $item)
+                            <option value="{{$item->category_name}}">{{$item->category_name}}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div> 
                 <div class="p-mypage-store__hobby2">
-                    <select name="category_id" name="hobby2" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">趣味を選択</option>
-                        @foreach($categories as $item)
-                        <option value="{{$item->id}}">{{$item->category_name}}</option>
-                        @endforeach
+                    <select name="hobby2" class="form-select" aria-label="Default select example">
+                        @if($data->hobby2 != null)
+                            <option value="{{ $data->hobby2 }}">{{ $data->hobby2 }}</option>
+                            @foreach($categories as $item)
+                            <option value="{{$item->category_name}}">{{$item->category_name}}</option>
+                            @endforeach
+                        @else
+                        <option disabled selected>カテゴリを入力</option>
+                            @foreach($categories as $item)
+                            <option value="{{$item->category_name}}">{{$item->category_name}}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div> 
                 <div class="p-mypage-store__hobby3">
-                    <select name="category_id" name="hobby3" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">趣味を選択</option>
-                        @foreach($categories as $item)
-                        <option value="{{$item->id}}">{{$item->category_name}}</option>
-                        @endforeach
+                    <select name="hobby3" class="form-select" aria-label="Default select example">
+                        @if($data->hobby3 != null)
+                            <option value="{{ $data->hobby3 }}">{{ $data->hobby3 }}</option>
+                            @foreach($categories as $item)
+                            <option value="{{$item->category_name}}">{{$item->category_name}}</option>
+                            @endforeach
+                        @else
+                        <option disabled selected>カテゴリを入力</option>
+                            @foreach($categories as $item)
+                            <option value="{{$item->category_name}}">{{$item->category_name}}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div> 
             </div>
 
             <div class="p-mypage-store__mind">
                     {{-- <a href="mindfulness_detail"><button class="p-mypage-setting__btn">マインドフルネス</button></a> --}}
-                <a href="mindfulness_detail"><button class="p-mypage-store__btn"><img src="./img/mindfulness.jpeg" width="120" height="165"></a>
+                <a href="mindfulness_detail"><button class="p-mypage-store__btn"><img src="{{ asset('img/mindfulness.jpeg') }}" width="120" height="165"></a>
                       
             </div>
         </div>
         <div class="p-mypage-store__middle">
             <label for="self">自己紹介文</label>
-            <textarea type="text" class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" style="height: 100px"></textarea>
+            <textarea type="text" class="form-control p-mypage-store__textarea" name="self_introduction" cols="30" rows="4"  style="height: 100px">{{ $data->self_introduction }}</textarea>
         </div>
-        </form>
+        
 
     <tr>
 		<td>予約管理</td>
@@ -104,19 +127,24 @@
             <div class="eventadd__img-container">
                 {{--  デフォルト画像noimage  --}}
                 <div id="default_image">
-                    <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
+                    @if($data->icon != null)
+                    <img src="{{ asset('storage/userimg/' . $data->icon) }}" class="e-imagePreview">
+                    @else
+                    <img src="{{asset('img/noimage.jpg')}}" class="e-imagePreview">
+                    @endif
                 </div>
                 {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
                 <div id="preview" class="e-imagePreview"></div>
                 <div class="btn-wrap">
                     <label>
                         <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
-                        <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
+                        <input type="file" name="icon" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                         </span>
                         <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
                     </label>
                 </div>                  
             </div>
+        </form>
             <form action="mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>

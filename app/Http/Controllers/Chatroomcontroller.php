@@ -35,44 +35,30 @@ class ChatroomController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, chatroom::$rules);
-        // $chatroom = new chatroom();
-        // $form = $request->all();
-        // $chatroom->developer_id = $request->user()->id;
-        // unset($form['_token']);
-        // $chatroom->fill($form)->save();
-        // $file = $request->file('room_image');
-        // if (!empty($file)) {  // 画像がある時
-        //     $dir = 'eimg'; // imageディレクトリ名
-        //     $file_name = $file->getClientOriginalName(); // アップロードされたファイル名を取得
-        //     $path = $file->storeAs('public/' . $dir, $file_name); // 指定したディレクトリに画像を保存
-        //     $filename = basename($path);  // パスからファイル名部分だけ取得
-        // } else {
-        //     $filename = "noimage.jpg"; // 画像がない時
-        // }
-        //        $chatroom->room_image = $filename;
-        // $chatroom = new Chatroom();
-        // $form = $request->all();
-        // unset($form['_token']);
-        // $chatroom->fill($form)->save();
-        // $chatroom->developer_id = $request->user()->id;
-        // return redirect('/open_chat_list');
+        $file = $request->file('chat_image');
+        if (!empty($file)) {  // 画像がある時
+            $dir = 'cimg'; // imageディレクトリ名
+            $file_name = $file->getClientOriginalName(); // アップロードされたファイル名を取得
+            $path = $file->storeAs('public/' . $dir, $file_name); // 指定したディレクトリに画像を保存
+            $filename = basename($path);  // パスからファイル名部分だけ取得
+        } else {
+            $filename = "noimage.jpg"; // 画像がない時
+        }
 
-        $this->validate($request, chatroom::$rules);
         $chatroom = new chatroom();
-        $form = $request->all();
+        $chatroom->chat_image = $filename;
         $chatroom->developer_id = $request->user()->id;
-        unset($form['_token']);
-        $chatroom->fill($form)->save();
+        $chatroom->title = $request->title;
+        $chatroom->room_detail = $request->room_detail;
+        $chatroom->category = $request->category;
+        $chatroom->save();
         return redirect('/open_chat_list');
     }
 
-    public function preview_post(Request $request)
+    public function preview($id)
     {
-        $msg = $request->msg;
-        $data = [
-            'msg' => 'こんにちは、' . $msg . 'さん！',
-        ];
-        return view('open_chat.open_chat_preview', ['msg' => $request->msg]);
+        $data = Chatroom::where('id', $id)->first();
+        return view('open_chat.join_open_chat', ['data' => $data]);
     }
 
     //オープンチャット一覧表示
