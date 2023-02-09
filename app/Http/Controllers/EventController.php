@@ -52,8 +52,9 @@ class EventController extends Controller
             return redirect('/event015');
         } elseif ($request->has('open')) {
             Event::eventInsert1($request);
+            // insertしたeventをnew_eventに入れる
             $new_event = Event::orderBy('created_at', 'desc')->first();
-            $guests = new Guest;
+            $guests = new Guest;  // guestsテーブルに書込む
             $guests->user_id = $request->user()->id;
             $guests->event_id = $new_event->id;
             $guests->save();
@@ -120,20 +121,9 @@ class EventController extends Controller
                 ->delete();
             // dd($request->user()->id);
         } elseif ($request->has('edit')) {
-            return redirect('/event016/{id}');
+            return redirect('/event016/' . $id); // $idの編集画面へ
         }
-        return redirect('/event013');
-        // $user = Auth::user();
-        // $categories = Category::all();
-        // $item = Event::where('id', $request->id)->first();
-        // $guests = Guest::where('event_id', $request->id)->first();
-
-        // return view('event.eventdetailview', [
-        //     'item' => $item,
-        //     'categories' => $categories,
-        //     'guests' => $guests,
-        //     'user' => $user
-        // ]);
+        return redirect('/event014/' . $id); // $idの詳細画面へ
     }
 
     // イベント削除
@@ -182,13 +172,17 @@ class EventController extends Controller
         //     ->where('publish_flag', $request->public_flg)->get();
         // 4と5のユーザーが取り出せている
         // $users = collect([4, 5]);
+        $user_cl = $request->session()->get('user_cl');
+        if (isset($user_cl)) {    // 何もしない
+        } else {                  // なければ入れる
+            $request->session()->put('user_cl', $request->public_flg);
+        }
         $items = Event::with('user')
             ->where('publish_flag', '1')     // 公開フラグ1だけ表示
             // ->where('user_id', $users)
-            ->where('user_cl', $request->public_flg) // cl'1'だけ表示
+            ->where('user_cl', $request->session()->get('user_cl')) // cl'1'だけ表示
             ->orderBy('updated_at', 'desc')  // 更新が新しい順
             ->paginate(8);
-
         return view(
             'event.eventichiranpublic',
             [

@@ -106,33 +106,29 @@
             {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
             <div class="w-100 d-flex justify-content-center">
               <div class="p-event">イベント募集掲示板</div>
-            </div>
+            </div><br>
             <div class="p-event__event_area">
-              <p class="p-event__event_title">
               @foreach ($items as $item)
-              <p class="p-event__event_title">{{ substr($item->date_of_event,0,10) }} <br> {{ $item->event_title }} </p>
+              <p class="p-event__event_title"><a href="/event014/{{$item->id}}">{{ substr($item->date_of_event,0,10) }} <br> {{ $item->event_title }} </a></p>
               @endforeach
-              </p>
             </div>
+            <br>
             <div class="click"><a href="event001?public_flg=0">もっと見る...Click here</a></div>
           </div>
 
         {{-- 自治体コーナー --}}
           <div class="col-4 c-bgcolor--brown">
             {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
-            <div class="w-100 d-flex justify-content-center"><div class="p-gov">県・市町村からの募集</div></div><br>
+            <div class="w-100 d-flex justify-content-center">
+              <div class="p-gov">県・市町村からの募集</div>
+            </div><br>
             <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.29.<br>（竹田市）岡城跡散策</p>
+              @foreach ($publicEvents as $publicEvent)
+              <p class="p-gov__gov_title"><a href="/event014/{{$publicEvent->id}}">
+                {{ substr($publicEvent->date_of_event,0,10) }} <br> {{ $publicEvent->event_title }} </a></p>
+              @endforeach
             </div>
-            <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.22.<br>（豊後高田市）国宝　富貴寺大堂ライトアップ</p>
-            </div>
-            <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.20.<br>（杵築市）城下町散策ツアー</p>
-            </div>
-            <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
-            </div>
+            <br>
             <div class="click"><a href="event001?public_flg=1">もっと見る...Click here</a></div>
           </div>
 
@@ -142,10 +138,11 @@
             <div class="w-100 d-flex justify-content-center"><div class="p-open">オープンチャット</div></div><br>
             <div class="row">
               @foreach ($chats as $chat)
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><a href="open_chat_room/{{$chat->id}}" style="text-decoration: none; color:black;">
+              <div class="col-4 top_open">
+                <div class="col-12">
+                <img src="{{ asset('storage/cimg/' . $chat->chat_image) }}" class="open_chat_icon"></div><a href="/open_chat_preview/{{ $chat->id }}" style="text-decoration: none; color:black;">
                   {{Str::limit($chat->title, 26, '…' ) }}</a>
-              </div>
+                </div>
               @endforeach
               <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
             </div>

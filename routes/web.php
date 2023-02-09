@@ -154,22 +154,22 @@ Route::get('event001', 'EventController@publicIndex');
 
 
 // イベントに参加する
-Route::post('event014/{id}', 'EventController@attendEvent');
+// Route::post('event014/{id}', 'EventController@attendEvent');
 
 //イベントを削除 ルートパラメータでidを渡す
-Route::post('eventdel/{id}', 'EventController@destroy');
+// Route::post('eventdel/{id}', 'EventController@destroy');
 
 // イベント検索（開催地・カテゴリ）
 Route::get('locationsearch/{id?}', 'EventController@locationSearch');
 Route::get('categorysearch/{id?}', 'EventController@categorySearch');
 
 // 更新処理
-Route::post('event016/{id}', 'EventController@update');
+
 
 // イベント編集画面
-// Route::get('event016/{id}', 'EventController@edit');
 
-// Route::get('event014/{id}', 'EventController@detailView');
+
+
 //イベント/インプットのフレームのようなもの
 Route::get('event020', function () {
     return view('components.framelikeinput');
@@ -227,9 +227,11 @@ Route::get('municipality_mypage', function () {
 Route::middleware('auth')->group(function () {
     // イベント詳細画面
     Route::get('event014/{id}', 'EventController@detailView');
-    // Route::post('event014/{id}', 'EventController@attendEvent');
+    Route::post('event014/{id}', 'EventController@attendEvent');
     // イベント編集画面
     Route::get('event016/{id}', 'EventController@edit');
+    Route::post('event016/{id}', 'EventController@update');
+    Route::post('eventdel/{id}', 'EventController@destroy');
 
     Route::middleware('password.confirm')->group(function () {
 
@@ -239,8 +241,6 @@ Route::middleware('auth')->group(function () {
         });
     });
 });
-
-
 
 //公開範囲の設定
 Route::get('open_range', function () {
@@ -549,7 +549,8 @@ Route::middleware('auth')->group(function () {
 });
 
 //ユーザーマイページ編集・登録
-Route::get('mypage_edit', 'UsersController@useredit')->name('user_edit');
+Route::get('user_edit/{id}', 'UsersController@useredit');
+Route::post('user_edit/{id}', 'UsersController@userupdate');
 
 Route::post('join_open_chat/{id}', 'Chatroomcontroller@index4');
 //店舗マイページ編集・登録
@@ -557,3 +558,5 @@ Route::get('tenpo_edit', 'UsersController@tenpoedit')->name('tenpo_edit');
 
 //自治体マイページ編集・登録
 Route::get('municipality_edit', 'UsersController@municipalityedit')->name('municipality_edit');
+
+Route::get('open_chat_preview/{id}', 'Chatroomcontroller@preview');

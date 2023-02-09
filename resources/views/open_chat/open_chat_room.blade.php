@@ -8,7 +8,7 @@
 <div class="open_chat_container">
     <div class="d-flex justify-content-between" style="margin-top:20px; margin-left:150px;" >
     <form action="open_chat_list">
-        {{-- 戻るボタンをクリックするとマイページの参加中チャット一覧ページに戻る　※まだ一覧ページは未着手 --}}
+        {{-- 戻るボタンをクリックするとマイページの参加中チャット一覧ページに戻る--}}
         <a class="p-large_bg_btn__back" href="{{URL::to('open_chat_list')}}"><img src={{asset('/img/back.png')}} alt="" height="40px" width="80px"></a>
     </form><h2>{{ $data->title }}</h2>
 <div class="d-flex">
@@ -37,7 +37,7 @@
 <div class="p-message" style="z-index:10000">
     <p style="text-align:left">{{ $message->message }}</p></div>
 <div class="p-messagetime1">{{ $message->created_at }}</div>
-<div class="message_user_icon1"><img src="https://placehold.jp/150x150.png" alt="ユーザーアイコン画像" class="message_user_icon"></div>{{-- 他人ののコメントは左側 --}}
+<div class="message_user_icon1"><img src="{{ asset('storage/userimg/' . $message->user->icon) }}" alt="ユーザーアイコン画像" class="message_user_icon"></div>{{-- 他人ののコメントは左側 --}}
 
 </div>
 

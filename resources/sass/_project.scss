@@ -1367,7 +1367,7 @@
     margin-right: auto;
     margin-left: auto;
     width:1100px;
-    height:700px;
+    height:400px;
     color:#000;             //文字色設定
     &__camera{
         padding-top:70px;
@@ -1376,7 +1376,7 @@
         text-align: center;
     }
     &__display{
-        padding-top: 50px;
+
     }
     &__space{
         margin-top:50px;        //既存のオープンチャットに参加する際に表示する画面のテキストボックスの位置指定
@@ -2855,3 +2855,64 @@ display: block;
     margin-left: 20%;
 }
 
+.chat_list_icon{
+    width:  80px;       /* ※縦横を同値に */
+    height: 80px;       /* ※縦横を同値に */
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    object-fit:cover;
+}
+
+.chat_preview_icon{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    object-fit:cover;
+    margin-top: 3%;
+}
+
+.chat_preview_detail{
+    background-color: #D6C3A1;
+    height: 150px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    overflow: scroll;                   //トークルーム内スクロールバー表示
+    overflow-x: hidden;
+}
+.create_chat_icon{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    object-fit:cover;
+}
+
+.tyattotukuru{
+    text-align: center;
+        background-color:$darkbrown;
+        width: 1200px;
+        height: 700px;
+        border-radius : 5px;
+        margin: auto;                       //左端から余白
+        margin-top: 50px;                   //ヘッダーからの景色までの空白(リスト一覧ページと違い新規作成ボタンなしなので別に設定)
+        overflow: scroll;                   //トークルーム内スクロールバー表示
+        overflow-x: hidden;
+}
+
+.open_chat_icon{
+    width: 60px;                        //円の横幅
+    height: 60px;                       //円の縦幅
+    border-radius: 50%;                 //円
+    object-fit:cover;
+}
+.top_open{
+    margin-top: 3%;
+    text-align: center;
+}
+
+.user_mypage_icon{
+    width: 200px;                        //円の横幅
+    height: 200px;                       //円の縦幅
+    border-radius: 50%;                 //円
+    object-fit:cover;
+}

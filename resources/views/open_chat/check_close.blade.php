@@ -16,7 +16,7 @@
                 <input type="hidden" name="chat_id" value="{{$data->id}}">
             <input class="p-header__login-button yes_or_no__yes" type="submit" value="はい">  {{-- DB未設定 --}}
             </form>
-            <form action="open_chat_room">
+            <form action="/open_chat_room/{{ $data->id }}">
             <input class="p-header__login-button yes_or_no__no" type="submit" value="いいえ">
             </form>
           </div>
