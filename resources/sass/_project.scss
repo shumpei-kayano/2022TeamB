@@ -1779,42 +1779,8 @@ display: block;
     &__hyouka {
          width: 50px;
         //  background-color: white;
-        .star5_rating{
-            position: relative;
-            z-index: 0;
-            display: inline-block;
-            white-space: nowrap;
-            color: #CCCCCC; /* グレーカラー 自由に設定化 */
-            /*font-size: 30px; フォントサイズ 自由に設定化 */
-            margin: 0 auto;
-        }
-        
-        .star5_rating:before, .star5_rating:after{
-            content: '★★★★★';
-        }
-        
-        .star5_rating:after{
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            white-space: nowrap;
-            color: #ffcf32; /* イエローカラー 自由に設定化 */
-        }
-        
-        .star5_rating[data-rate="5"]:after{ width: 100%; } /* 星5 */
-        .star5_rating[data-rate="4.5"]:after{ width: 90%; } /* 星4.5 */
-        .star5_rating[data-rate="4"]:after{ width: 80%; } /* 星4 */
-        .star5_rating[data-rate="3.5"]:after{ width: 70%; } /* 星3.5 */
-        .star5_rating[data-rate="3"]:after{ width: 60%; } /* 星3 */
-        .star5_rating[data-rate="2.5"]:after{ width: 50%; } /* 星2.5 */
-        .star5_rating[data-rate="2"]:after{ width: 40%; } /* 星2 */
-        .star5_rating[data-rate="1.5"]:after{ width: 30%; } /* 星1.5 */
-        .star5_rating[data-rate="1"]:after{ width: 20%; } /* 星1 */
-        .star5_rating[data-rate="0.5"]:after{ width: 10%; } /* 星0.5 */
-        .star5_rating[data-rate="0"]:after{ width: 0%; } /* 星0 */
     }
+  
     &__beneath {
         display: flex;
         // justify-content: right;
@@ -1905,6 +1871,7 @@ display: block;
         width: 200px;
         height: 60px;
     }
+
 }
 //利用者から見たユーザーマイページ画面
 .p-user2-mypage {
@@ -2603,7 +2570,11 @@ display: block;
         background-color: $darkbrown;
         width: 75%; 
         padding: 20px;
-        margin-left: 50px;
+        float: left;
+    }
+    &__batsu {
+        margin-top: 0%;
+        float: right;
     }
 
     &__top {
@@ -2611,6 +2582,39 @@ display: block;
         height:60px;
         line-height:60px;
         margin: 250px;
+    }
+
+    .cross {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 4px;
+        background: #333;
+        transform: rotate(45deg);
+        vertical-align: middle;
+         margin: top;
+        
+      }
+      
+      .cross::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        transform: rotate(90deg);
+      }
+
+    .arrow-right{
+        border: 0;
+        border-top: solid 2px #000;
+        border-right: solid 2px #000;
+        display: inline-block;
+        transform: rotate(45deg);
+        width: 10px;
+        height: 10px;
     }
 
     &__timer{
@@ -2634,6 +2638,7 @@ display: block;
 
 
 
+
 //マインドフルネス終了画面
 .p-mindfulness-end {
     display: flex; //子要素を横並び
@@ -2648,9 +2653,9 @@ display: block;
         color: $black;
         background-color: $darkbrown;
         width: 75%;
+        
     }
     &__middle {
-        display: flex;
         justify-content: center;
         align-items: center;
         color: $black;
@@ -2659,10 +2664,16 @@ display: block;
         height: 95%;
         //margin: 0 auto;
     }
-    &__right {
-        padding-left: 20px;
-        width: 20%;
+    &__a {
+        text-align: center;
+        margin-top: 300px;
     }
+
+    &__batsu {
+        margin-top: 0%;
+        float: right;
+    }
+
 }
 
 .p-mindfulness-detail {
@@ -2671,6 +2682,7 @@ display: block;
     width: 1200px;
     margin:  0 auto;
     margin-top: 30px;
+
     &__left {
          display: flex;
         justify-content: center;
@@ -2679,6 +2691,7 @@ display: block;
         background-color: $darkbrown;
         width: 75%;
     }
+
     &__top {
         text-align: center;
         color: $black;
@@ -2694,6 +2707,10 @@ display: block;
             margin-left: 16em;
             margin-top: 25px;
           }
+        }
+        &__batsu {
+            margin-top: 0%;
+            float: right;
         }
         &__right {
             padding-left: 20px;
@@ -2727,6 +2744,7 @@ display: block;
     width: 1200px;
     margin:  0 auto;
     margin-top: 30px;
+
     &__left {
          display: flex;
         justify-content: center;
@@ -2734,6 +2752,7 @@ display: block;
         color: $black;
         background-color: $darkbrown;
         width: 75%;
+        height: 1200px;
 
         // #start {
         //     text-decoration: none;
@@ -2750,10 +2769,10 @@ display: block;
         //     width: 300px;
         //   }
     }
-        &__right {
-            padding-left: 20px;
-            width: 20%;
-        }
+        // &__right {
+        //     padding-left: 20px;
+        //     width: 20%;
+        // }
     }
 
 .chatroom_error{

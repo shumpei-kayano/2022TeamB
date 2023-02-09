@@ -6,13 +6,18 @@
 @section('main')
 <div class="p-mindfulness-start">
     <div class="p-mindfulness-start__left">
+      <div class="p-mindfulness-start__batsu" >
+        <form>
+          <a class="p-mindfulness-start__logo_img" href="{{URL::to('mindfulness_end')}}"><img src={{asset('/img/close.png')}} alt="" height="50px" width="40px"></a>
+          </form>
+        </div>
+        {{-- <span  class="cross"></span> --}}
       <div class="p-mindfulness-start__top">
       <div class="p-mindfulness__timer">
           <div style="font-size:100px" id="timer">5</div>
           
       </div>
           <a href="" id="start" class="inactive"><font size="7">スタート</font></a>
-          </div>
       </div>
     </div>
     <div class="p-mindfulness-start__right">
@@ -25,7 +30,7 @@
       <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
       <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
     </div>
-  </div>
+</div>
   <script>
     window.onload=function(){
   document.querySelector('#start').addEventListener('click',function(e){
