@@ -69,6 +69,7 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="publish_flag" value=0>
                         <div align="center">
                             <input class="p-header__login-button" type="submit" value="登録">
                           </div>

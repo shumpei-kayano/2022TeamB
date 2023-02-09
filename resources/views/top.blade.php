@@ -144,8 +144,8 @@
                   {{Str::limit($chat->title, 26, '…' ) }}</a>
                 </div>
               @endforeach
-              <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
             </div>
+            <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
         </div>
       </div>
         </div>

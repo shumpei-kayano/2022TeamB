@@ -33,11 +33,11 @@
 
 @else
 <div class="message_card1">
-    <div class="p-messageuser1">{{ $message->user->name }}</div>
+    <div class="p-messageuser1"><a href="/user1/{{$message->user->id}}" style="text-decoration: none; color:black;">{{ $message->user->name }}</a></div>
 <div class="p-message" style="z-index:10000">
     <p style="text-align:left">{{ $message->message }}</p></div>
 <div class="p-messagetime1">{{ $message->created_at }}</div>
-<div class="message_user_icon1"><img src="{{ asset('storage/userimg/' . $message->user->icon) }}" alt="ユーザーアイコン画像" class="message_user_icon"></div>{{-- 他人ののコメントは左側 --}}
+<div class="message_user_icon1" onclick="location.href='/user1/{{$message->user->id}}'"><img src="{{ asset('storage/userimg/' . $message->user->icon) }}" alt="ユーザーアイコン画像" class="message_user_icon"></div>{{-- 他人ののコメントは左側 --}}
 
 </div>
 
