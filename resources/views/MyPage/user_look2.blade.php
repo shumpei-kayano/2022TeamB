@@ -36,11 +36,13 @@
 		</table>
 		<tr>
 
-			<label for="self">紹介文</label>
-            <disabled  class="form-control p-user-mypage_introduction" name="self" id="self" cols="30" rows="4" style="height: 100px" style="width: 100px"></disabled>
+			<div class="p-user-mypage__introduction"><label for="introduction" class="form-label">紹介文</label>
+            <disabled  class="form-control" name="self" id="self" cols="30" rows="4" style="height: 100px" style="width: px"></disabled>
+			</div>
 		</tr>
 		<tr>
-			<td>予約管理</td>
+			<div class="p-user-mypage__introduction"><label for="introduction" class="form-label">予約管理</label>
+			</div>
 		</tr>
 		<div class="p-user-mypage__beneath">
 		  <div id="calendar" style="width: 600px; padding-right: 30px; padding-left: 10px;" >
