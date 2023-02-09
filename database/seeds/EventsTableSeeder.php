@@ -15,11 +15,11 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->delete();
 
-        for ($i = 1; $i < 26; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $data[] =
                 [
                     'user_id' => $i,
-                    'facility_id' => $i,
+                    // 'facility_id' => $i,
                     'event_title' => 'イベントタイトル' . $i,
                     'event_detail' => 'イベント詳細文章' . $i,
                     'deadline' => now(),

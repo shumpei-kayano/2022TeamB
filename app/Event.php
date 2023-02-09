@@ -78,8 +78,8 @@ class Event extends Model
         $file = $request->file('event_image');
         if (!empty($file)) {
             $dir = 'eimg';
-            $file_name = $file->getClientOriginalName();
-            $path = $file->storeAs('public/' . $dir, $file_name);
+            // $file_name = $file->getClientOriginalName();
+            $path = $file->store('public/' . $dir);
             $filename = basename($path);
         } else {
             $filename = "noimage.jpg";
@@ -105,13 +105,13 @@ class Event extends Model
         $events = Event::find($request->id);
 
         $file = $request->file('event_image');
-        if (!empty($file)) {
+        if (!empty($file)) {    //DBに新しいファイルを保存
             $dir = 'eimg';
-            $file_name = $file->getClientOriginalName();
-            $path = $file->storeAs('public/' . $dir, $file_name);
+            // $file_name = $file->getClientOriginalName();
+            $path = $file->store('public/' . $dir);
             $filename = basename($path);
-        } else {
-            $filename = "noimage.jpg";
+        } else {   //更新しないとき前の画像をそのまま入れる
+            $filename = $events->event_image;
         }
         $events->event_title = $request->event_title;
         $events->event_detail = $request->event_detail;

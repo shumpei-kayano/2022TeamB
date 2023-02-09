@@ -94,11 +94,11 @@
                             {{--  カテゴリを選択  --}}
                             <tr>
                                 <td colspan="3">
-                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    <label for="exampleInputEmail1" class="form-label">カテゴリー</label>
                                     @error('category_id')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
                                     <select name="category_id" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>{{$event->category->category_name}}</option>
+                                        <option value="{{$event->category_id}}">{{$event->category->category_name}}</option>
                                         @foreach ($categories as $item)
                                         <option value="{{$item->id}}">{{$item->category_name}}</option>
                                         @endforeach
@@ -113,7 +113,7 @@
                                     @error('city')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
                                     <select name="city" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>{{$event->area->city}}</option>
+                                        <option value="{{$event->city}}">{{$event->area->city}}</option>
                                         @foreach ($items as $item)
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach
