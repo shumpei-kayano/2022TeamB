@@ -2868,6 +2868,7 @@ display: block;
 }
 .message_user_icon1{
     width: 65px;
+    cursor:grab;
 }
 
 .p-messageuser1{
@@ -2887,13 +2888,13 @@ display: block;
     height: 300px;
     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
     object-fit:cover;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 .chat_preview_detail{
-    background-color: #D6C3A1;
-    height: 150px;
-    width: 600px;
+    background-color: $darkbrown;
+    height: 180px;
+    width: 700px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
