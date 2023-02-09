@@ -133,6 +133,14 @@ class Event extends Model
     {
         return $this->user->name;
     }
+    // イベント投稿した人のiconを取得
+    public function getUserIcon()
+    {
+        return $this->user->icon;
+    }
+
+
+
     // guests 
     public function guests()
     {

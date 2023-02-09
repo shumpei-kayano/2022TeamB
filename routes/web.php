@@ -154,22 +154,22 @@ Route::get('event001', 'EventController@publicIndex');
 
 
 // イベントに参加する
-Route::post('event014/{id}', 'EventController@attendEvent');
+// Route::post('event014/{id}', 'EventController@attendEvent');
 
 //イベントを削除 ルートパラメータでidを渡す
-Route::post('eventdel/{id}', 'EventController@destroy');
+// Route::post('eventdel/{id}', 'EventController@destroy');
 
 // イベント検索（開催地・カテゴリ）
 Route::get('locationsearch/{id?}', 'EventController@locationSearch');
 Route::get('categorysearch/{id?}', 'EventController@categorySearch');
 
 // 更新処理
-Route::post('event016/{id}', 'EventController@update');
+
 
 // イベント編集画面
-// Route::get('event016/{id}', 'EventController@edit');
 
-// Route::get('event014/{id}', 'EventController@detailView');
+
+
 //イベント/インプットのフレームのようなもの
 Route::get('event020', function () {
     return view('components.framelikeinput');
@@ -227,9 +227,11 @@ Route::get('municipality_mypage', function () {
 Route::middleware('auth')->group(function () {
     // イベント詳細画面
     Route::get('event014/{id}', 'EventController@detailView');
-    // Route::post('event014/{id}', 'EventController@attendEvent');
+    Route::post('event014/{id}', 'EventController@attendEvent');
     // イベント編集画面
     Route::get('event016/{id}', 'EventController@edit');
+    Route::post('event016/{id}', 'EventController@update');
+    Route::post('eventdel/{id}', 'EventController@destroy');
 
     Route::middleware('password.confirm')->group(function () {
 
@@ -239,8 +241,6 @@ Route::middleware('auth')->group(function () {
         });
     });
 });
-
-
 
 //公開範囲の設定
 Route::get('open_range', function () {

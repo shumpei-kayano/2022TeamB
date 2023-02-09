@@ -30,10 +30,10 @@
                         <div id="preview" class="e-imagePreview"></div>
                         <div class="btn-wrap">
                             <label>
-                                <span class="btn btn-warning p-event-text c-text-sm">登録
+                                <span class="btn btn-warning p-event-text c-text-sm event-register">登録
                                 <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                                 </span>
-                                <button type="button" id="delete" class="btn btn-warning p-event-text c-text-sm">削除</button>
+                                <button type="button" id="delete" class="btn btn-warning p-event-text c-text-sm event-register">削除</button>
                                 {{--  <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">  --}}
                             </label>
                         </div>
