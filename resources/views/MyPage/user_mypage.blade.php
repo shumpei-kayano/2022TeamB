@@ -13,33 +13,23 @@
     <div class="p-mypage-store__left">
         <div class="p-mypage-store__top">
             <div class="p-mypage-store__input">
-                <form action="{{'add'}}" method="post">
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}"disabled>
+                <input type="text" class="form-control"value="{{ $human->name }}" disabled>
                 <label for="mail" class="form-label">メールアドレス</label>
-                <input type="email" class="form-control" id="mail" value="{{ $human->email }}" disabled>
+                <input type="email" class="form-control"value="{{ $human->email }}" disabled>
             </div>
             {{--  カテゴリを選択  --}}
             <div class="p-mypage-store__hobby">
                 <div class="p-mypage-store__hobby1">
-                    <label for="hobby" class="form-label">趣味</label>
-                    <select name="category_id" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">選択</option>
-                    </select>
-                </div> 
+                    <label for="user_name" class="form-label">趣味</label>
+                    <input type="text" class="form-control" id="hobby1" value="{{ $human->hobby1 }}" disabled>
+                </div>    
                 <div class="p-mypage-store__hobby2">
-                    <select name="category_id" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">選択</option>
-                    </select>
-                </div> 
+                    <input type="text" class="form-control" id="hobby2" value="{{ $human->hobby2 }}" disabled>
+                </div>    
                 <div class="p-mypage-store__hobby3">
-                    <select name="category_id" class="form-select" aria-label="Default select example">
-                        <option disabled="" selected="">選択</option>
-                        {{-- @foreach ($items as $item)
-                            <option value="{{ $item->category_name }}">{{ $item->category_name }}</option>
-                        @endforeach --}}
-                    </select>
-                </div> 
+                    <input type="text" class="form-control" id="hobby3" value="{{ $human->hobby3 }}" disabled>
+                </div>    
             </div>
 
             <div class="p-mypage-store__mind">
@@ -50,23 +40,21 @@
         </div>
         <div class="p-mypage-store__middle">
             <label for="self">自己紹介文</label>
-            <textarea class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" value="{{ $human->self_introduction }}" disabled></textarea>
+            <textarea  class="form-control p-mypage-store__textarea" name="self_introduction" id="self" cols="30" rows="4" style="height: 100px" disabled>{{ $human->self_introduction }} </textarea>
         </div>
-        {{--  編集完了ボタン  --}}
-        <button type="submit">保存</button>
-    </form>
     <tr>
 		<td>予約管理</td>
 	</tr>
 
     <div class="p-mypage-store__beneath">
+
         <div id="calendar" style="width: 600px; padding-right: 30px; padding-left: 10px;" >
-              <iframe src="https://calendar.google.com/calendar/embed?src=287c89bb6ebc5188bb0488b9e9e8a34c2451cf5ce97f1664ce2d8cac5ff76b4f%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" width="500" height="320" frameborder="0" scrolling="no" ></iframe>
+              <iframe src="https://calendar.google.com/calendar/embed?src=287c89bb6ebc5188bb0488b9e9e8a34c2451cf5ce97f1664ce2d8cac5ff76b4f%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0;" width="500" height="320" frameborder="0" scrolling="no" ></iframe>
         </div>
         
             <div class="p-mypage-store__events" >
                 <tr>
-                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予約・参加表明・予約履歴一覧</label>
+                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予定・参加表明・予約履歴一覧</label>
                       <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
                     </td>
                </tr>
@@ -89,7 +77,6 @@
                 </td>
             </tr>
       </div>
-        
     </div>
 
     {{-- 右側のボタン集 --}}
@@ -97,29 +84,22 @@
         <div class="p-mypage-store__btn-container">     
             <div class="eventadd__img-container">
                 {{--  デフォルト画像noimage  --}}
-                <div id="default_image">
-                    <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません">
-                </div>
-                {{-- jsでinput=fileの画像プレビュー https://www.kabanoki.net/1552/  --}}
-                <div id="preview" class="e-imagePreview"></div>
-                <div class="btn-wrap">
-                    <label>
-                        <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
-                        <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
-                        </span
-                        <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
-                    </label>
-                </div>
-                {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
+                @if($human->icon == null)
+                <img src="img/noimage.jpg" class="user_mypage_icon" alt="">
+                @else
+                    <img src="{{ asset('storage/userimg/' . $human->icon) }}" class="user_mypage_icon" alt="写真がありません">
+                @endif
+               
             </div>
-            <form action="mypage_set">
-                <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
+                <a href="mypaage_set"><button class="p-mypage-setting__btn">設定</button></a>
+            <form action="user_edit/{{ $human->id }}" method="get">
+              <a> <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             </form>
-            <a href="useredit"><button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
+            <a href="#"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
             <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
-            <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
+            <a href=""><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
         </div>
     </div>
@@ -147,5 +127,26 @@
         };
         reader.readAsDataURL(file);
     }    
+
+
+try{
+    $dsn = 'mysql:dbname=usagi_db'
+
+    $pdo = new PDO($dsn);
+
+    $name = $POST['name'];
+    $email = $POST['email'];
+    $hobby1 = $POST['hobby1'];
+    $hobby2 = $POST['hobby2'];
+    $hobby3 = $POST['hobby3'];
+    $self_introduction = $POST['self_introduction'];
+
+    $sql = "INSERT INTO contents (name, email, hobby1, hobby2, hobby3, self_introduction) VALUES (:name, :emial, :hobby1, :hobby2, :hobby3, :self_introduction)";
+    $stmt = $pdo->prepare($sql);
+    $params = array(':name' => $name, ':email' => $email, ':hobby1' => $hobby1, ':hobby2' => $hobby2, ':hobby3' => $hobby3, ':self_introduction' => $self_introduction);
+    $stmt->execute($params);
+}
+
+
 </script>
 @endsection

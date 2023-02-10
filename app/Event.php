@@ -10,7 +10,8 @@ class Event extends Model
     // protected $guerded = array('id');  //ブラックリスト方式:書き込みを禁止したいカラム名を設定
     protected $fillable = array(          //ホワイトリスト方式:保存したいカラム名を設定
         'user_id', 'facility_id', 'event_title', 'event_detail', 'city', 'url',
-        'date_of_event', 'end_time', 'event_image', 'publish_flag', 'updated_at', 'created_at'
+        'date_of_event', 'end_time', 'event_image', 'publish_flag', 'user_cl',
+        'updated_at', 'created_at'
     );
     public static $rules = [
         'user_id' => 'max:15|exists:users,id',
@@ -35,10 +36,11 @@ class Event extends Model
     }
 
     /** @var array Datetime型として扱うカラム */
-    protected $dates = [
-        'date_of_event',
-        'end_time',
-    ];
+    // protected $dates = [
+    //     'date_of_event',
+    //     'end_time',
+    // ];
+    // https://inouelog.com/laravel-time-display/ ↑substr($,0,10)で表示
 
     // 新規作成メソッド（保存）
     public static function eventInsert0(Request $request)
@@ -61,12 +63,13 @@ class Event extends Model
         $events->event_detail = $request->event_detail;
         $events->city = $request->city;
         $events->url = $request->url;
-        $events->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
-        $events->end_time = $request->end_time = date('Y-m-d H:i:s');
+        $events->date_of_event = $request->date_of_event;
+        $events->end_time = $request->end_time;
         $events->event_image = $filename;  //filename
         $events->publish_flag = '0';  //公開しないフラグ
         $events->category_id = $request->category_id;
-
+        $events->user_id = $request->user()->id;
+        $events->user_cl = $request->user()->publish_flag;
         $events->save();
     }
     // 新規作成メソッド（公開）//画像のfileをstorageに,file名をDBに保存してから
@@ -75,8 +78,8 @@ class Event extends Model
         $file = $request->file('event_image');
         if (!empty($file)) {
             $dir = 'eimg';
-            $file_name = $file->getClientOriginalName();
-            $path = $file->storeAs('public/' . $dir, $file_name);
+            // $file_name = $file->getClientOriginalName();
+            $path = $file->store('public/' . $dir);
             $filename = basename($path);
         } else {
             $filename = "noimage.jpg";
@@ -87,12 +90,13 @@ class Event extends Model
         $events->event_detail = $request->event_detail;
         $events->city = $request->city;
         $events->url = $request->url;
-        $events->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
-        $events->end_time = $request->end_time = date('Y-m-d H:i:s');
+        $events->date_of_event = $request->date_of_event;
+        $events->end_time = $request->end_time;
         $events->event_image = $filename;
         $events->publish_flag = '1';  //公開するフラグ
         $events->category_id = $request->category_id;
-
+        $events->user_id = $request->user()->id;  //ユーザIDをeventに保存
+        $events->user_cl = $request->user()->publish_flag;  //ユーザ種別をeventに保存
         $events->save();
     }
     // 更新メソッド
@@ -101,22 +105,45 @@ class Event extends Model
         $events = Event::find($request->id);
 
         $file = $request->file('event_image');
-        if (!empty($file)) {
+        if (!empty($file)) {    //DBに新しいファイルを保存
             $dir = 'eimg';
-            $file_name = $file->getClientOriginalName();
-            $path = $file->storeAs('public/' . $dir, $file_name);
+            // $file_name = $file->getClientOriginalName();
+            $path = $file->store('public/' . $dir);
             $filename = basename($path);
-        } else {
-            $filename = "noimage.jpg";
+        } else {   //更新しないとき前の画像をそのまま入れる
+            $filename = $events->event_image;
         }
         $events->event_title = $request->event_title;
         $events->event_detail = $request->event_detail;
         $events->city = $request->city;
         $events->url = $request->url;
-        $events->date_of_event = $request->date_of_event = date('Y-m-d H:i:s');
-        $events->end_time = $request->end_time = date('Y-m-d H:i:s');
+        $events->date_of_event = $request->date_of_event;
+        $events->end_time = $request->end_time;
         $events->event_image = $filename;  //filename
         $events->category_id = $request->category_id;
         $events->save();
+    }
+    // users user_id(Event)=id(User) 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+    // イベント投稿した人のuser_idを取得
+    public function getUserName()
+    {
+        return $this->user->name;
+    }
+    // イベント投稿した人のiconを取得
+    public function getUserIcon()
+    {
+        return $this->user->icon;
+    }
+
+
+
+    // guests 
+    public function guests()
+    {
+        return $this->hasMany('App\Models\Guest');
     }
 }

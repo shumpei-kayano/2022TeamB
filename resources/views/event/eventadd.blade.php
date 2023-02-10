@@ -7,8 +7,9 @@
 @section('main')
     <div class="eventadd-container">
         {{-- 左側のメニューバー --}}
-        @component('components.left')
+        @component('components.left', ['categories' => $categories])
         @endcomponent
+
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
         <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">
@@ -28,9 +29,10 @@
                         <div class="btn-wrap">
                             <label>
                                 <span class="btn eventadd-btn-warning p-event-text c-text-sm">登録
-                                <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
-                                </span
-                                <button type="button" id="delete" class="btn eventadd-btn-warning p-event-text c-text-sm">削除</button>
+                                <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg"></span>
+                                <span class="btn eventadd-btn-warning p-event-text c-text-sm">削除</span>
+                                
+                                
                             </label>
                         </div>
                         {{-- ファイルをアップロードするボタンBootstrap https://qiita.com/zoonaka/items/46d44793827920282f75  --}}                       
@@ -71,10 +73,10 @@
                             {{--  開催場所を選択  --}}
                             <tr>
                                 <td colspan="3">
-                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    <label for="exampleInputEmail1" class="form-label">イベント開催地</label>
                                     @error('city')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     <select name="city" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>開催場所を選択</option>
+                                        <option disabled selected>開催地を選択</option>
                                         @foreach ($items as $item)
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach

@@ -30,7 +30,7 @@
     color: #fff;
     background-color: $navy;
     border-color:$navy;
-  } S
+  } 
 .p-event-text {
     background-color: $navy;
     color: $white;
@@ -146,5 +146,55 @@ color: $white;
         color: black;
         overflow-wrap: break-word;
 
+    }
+}
+
+//イベント詳細のアイコンを横並びにする
+.eventadd {
+    &-parent {
+        display: flex;
+        justify-content: space-between;
+        .obj-cover {
+            width: 50px;
+            height: 50px;
+        }
+        img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+}
+
+//イベント編集画面の登録削除ボタン
+
+.eventadd__btn-container{
+    .button:hover{
+    background-color: white;
+    
+}
+}
+//イベント編集画面の保存・公開ボタン
+.btn-wrap {
+    .event-register:hover {
+        background-color: white;
+    }
+}
+//イベント編集画面のイベント削除ボタン
+.eventadd__btn-container{
+    .btn-warning:hover {
+       background-color: white;
+   }
+}  
+
+.p-event {
+    &__event_title {
+        a { text-decoration: none; color: $black; }
+    }
+}
+
+.p-gov {
+    &__gov_title {
+        a { text-decoration: none; color: $black; }        
     }
 }

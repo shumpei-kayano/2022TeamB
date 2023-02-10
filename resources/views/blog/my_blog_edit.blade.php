@@ -16,7 +16,7 @@
                 {{-- なりすましアクセスなどを防ぐコードで、Laravelにフォームを設置する時は必ずこの@csrfを付けないと、フォームが動かない --}}
                 @csrf                                  
                 <input type="text" name="title" value="{{ $data->title}}" class="formtitle" style="margin-top:100px; width:800px; margin-bottom:20px; height:40px; placeholder=ブログタイトル（32文字以内）;">
-                {{-- id="editor"がQuillエディタを表示するタグ ／下の<script>内にに記述--}}
+                    {{-- id="editor"がQuillエディタを表示するタグ ／下の<script>内にに記述--}}
                     <div id="editor" name="text" style="height: 400px; width:800px; margin-left:87px; border-radius:0px 0px 5px 5px; background-color:white;">
                     {{-- {{ }}を{!! nl2br( ) !!} に変える事で、フォームの改行を<br>に自動変換する --}}
                         {!! nl2br($data->text)!!}

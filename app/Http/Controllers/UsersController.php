@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
+use Google\Service\AndroidEnterprise\Resource\Users;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Google_Client;
@@ -62,18 +64,71 @@ class UsersController extends Controller
 
         $id = Auth::id();
         $human = DB::table('users')->find($id);
-        return view('MyPage.user_mypage', ['human' => $human,'client' => $client]);
-
-       
+        $categories = Category::all();
+        return view('MyPage.user_mypage', ['human' => $human, 'client' => $client, 'categories' => $categories]);
     }
 
-    public function useredit()
+    public function useredit($id)
+    {
+        // $id = Auth::id();
+        // $human = DB::table('users')->find($id);
+        // $categories = Category::all();
+        // return view('./Mypage/user_edit', ['human' => $human], compact('categories'));
+
+        $data = User::where('id', $id)->first();
+        $categories = Category::all();
+        return view('MyPage.user_edit', ['data' => $data, 'categories' => $categories]);
+    }
+
+    public function tenpoedit()
     {
         $id = Auth::id();
         $human = DB::table('users')->find($id);
-        return view('MyPage.useredit',['human' =>$human]);
+        $categories = Category::all();
+        return view('./Mypage/tenpo_edit', ['human' => $human], compact('categories'));
     }
 
+    public function municipalityedit()
+    {
+        $id = Auth::id();
+        $human = DB::table('users')->find($id);
+        $categories = Category::all();
+        return view('./Mypage/municipality_edit', ['human' => $human], compact('categories'));
+    }
 
+    public function userupdate(Request $request)
+    {
+
+        $users = User::find($request->id);
+        $file = $request->file('icon');
+        if (!empty($file)) {  // 画像がある時
+            $dir = 'userimg'; // imageディレクトリ名
+            $file_name = $file->getClientOriginalName(); // アップロードされたファイル名を取得
+            $path = $file->storeAs('public/' . $dir, $file_name); // 指定したディレクトリに画像を保存
+            $filename = basename($path);  // パスからファイル名部分だけ取得
+        } else {
+            $filename = $users->icon; // 画像がない時
+        }
+
+        $param = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'hobby1' => $request->hobby1,
+            'hobby2' => $request->hobby2,
+            'hobby3' => $request->hobby3,
+            'self_introduction' => $request->self_introduction,
+            'icon' => $filename,
+        ];
+        DB::table('users')
+            ->where('id', $request->id)->update($param);
+        return redirect('/user_mypage');
+    }
+
+    public function user1($id)
+    {
+
+        $data = User::where('id', $id)->first();
+        $categories = Category::all();
+        return view('MyPage.user_look', ['data' => $data, 'categories' => $categories]);
+    }
 }
-

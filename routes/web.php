@@ -25,13 +25,31 @@ Route::get('welcome/top', function () {
 });
 
 //トップページ
-// Route::get('/', function () {
-//     return view('top');
-// });
-
 Route::get('/', 'HomeController@index');
 
-//ログイン画面にとぶ
+
+
+
+//キーワード検索(layout.blade.phpのheader内)
+
+//あとで消す
+Route::get('search_results', function () {
+    return view('search.index');
+});
+
+// ->name('search')は、layout.blade.phpの< action="{{ route('search') }}">で使うために名前をつけている
+Route::post('/search', 'SearchController@search')->name('search');
+
+/* Route::get('search_username', function () {
+    return view('search.search_username');
+}); */
+
+
+
+
+
+
+//「ログインする」ボタンからログイン画面にとぶ
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -130,19 +148,36 @@ Route::get('event013', 'EventController@index');
 Route::get('event015', 'EventController@add');
 Route::post('event015', 'EventController@create');
 
+//イベント一覧（自治体）
+Route::get('event001', 'EventController@publicIndex');
 
 
 
+// イベントに参加する
+// Route::post('event014/{id}', 'EventController@attendEvent');
 
-Route::get('event014', function () {
-    return view('event.eventadd2');
+//イベントを削除 ルートパラメータでidを渡す
+// Route::post('eventdel/{id}', 'EventController@destroy');
+
+// イベント検索（開催地・カテゴリ）
+Route::get('locationsearch/{id?}', 'EventController@locationSearch');
+Route::get('categorysearch/{id?}', 'EventController@categorySearch');
+
+// 更新処理
+
+
+// イベント編集画面
+
+
+
+//イベント/インプットのフレームのようなもの
+Route::get('event020', function () {
+    return view('components.framelikeinput');
 });
 
+//他のユーザに表示されるマイページ画面
+Route::get('user1/{id}', 'UsersController@user1');
 
-//利用者から見たユーザーマイページ画面
-Route::get('user1', function () {
-    return view('MyPage.user_look');
-});
 //利用者から見た店鋪マイページ
 Route::get('user2', function () {
     return view('MyPage.user_look2');
@@ -156,10 +191,10 @@ Route::get('events_detail', function () {
     return view('MyPage.events_d');
 });
 
-//マイページ設定画面
-// Route::get('mypage_set', function () {
-//     return view('MyPage.mypage_setting');
-// });
+// マイページ設定画面
+Route::get('mypage_set', function () {
+    return view('MyPage.mypage_setting');
+});
 // Route::get('/user_mypage', [App\Http\Controllers\UsersController::class, 'index'])->name('user_mypage');
 //アカウント削除ボタン表示画面
 Route::get('mypage_del', function () {
@@ -170,7 +205,7 @@ Route::get('mypage_del', function () {
 //     return view('MyPage.user_mypage');
 // });
 // アカウント情報編集処理
-Route::post('/add','UsersController@add')->name('add');
+Route::post('/add', 'UsersController@add')->name('add');
 // Route::get('user_mypage', function () {
 //     return view('MyPage.user_mypage');});
 Route::get('user_mypage', 'UsersController@display');
@@ -187,7 +222,24 @@ Route::get('municipality_mypage', function () {
 
 
 
+//アカウント削除するときのパスワード再確認
+Route::middleware('auth')->group(function () {
+    // イベント詳細画面
+    Route::get('event014/{id}', 'EventController@detailView');
+    Route::post('event014/{id}', 'EventController@attendEvent');
+    // イベント編集画面
+    Route::get('event016/{id}', 'EventController@edit');
+    Route::post('event016/{id}', 'EventController@update');
+    Route::post('eventdel/{id}', 'EventController@destroy');
 
+    Route::middleware('password.confirm')->group(function () {
+
+
+        Route::get('check_deactivate', function () {
+            return view('auth.check_deactivate');
+        });
+    });
+});
 
 //公開範囲の設定
 Route::get('open_range', function () {
@@ -270,9 +322,8 @@ Route::get('open_chat_preview', function () {
 Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
 
 //オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
-Route::get('check_close', function () {
-    return view('open_chat.check_close');
-});
+Route::get('check_close/{id}', 'Chatroomcontroller@check');
+Route::post('check_close/{id}', 'Chatroomcontroller@delete');
 
 //オープンチャットを「退室する」ボタンで”閉鎖”確認画面へ
 Route::get('check_leaving', function () {
@@ -322,51 +373,20 @@ Route::get('joining_chat', function () {
 
 
 //ブログ関連
-
-//ブログ記事の削除完了画面
-Route::get('blog_completed_deactivate', function () {
-    return view('blog.blog_completed_deactivate');
-});
-
-//トップページから「もっと見る」をクリックでブログ記事一覧表示
-Route::get('new_blog_list', 'BlogController@index');
-
-//ブログ記事詳細ページ表示
-// Route::get('blog_show', function () {
-//     return view('blog.blog_show');
-// });
-
-//投稿済みブログ一覧
-Route::get('my_posted_blog_list', function () {
-    return view('blog.my_posted_blog_list');
-});
-
-//ブログ編集画面
-Route::get('my_blog_edit', function () {
-    return view('blog.my_blog_edit');
-});
-
-// 投稿ページを表示
-Route::get('/create', 'BlogController@postpage');
-
-// 投稿をコントローラーに送信
-Route::post('/newpostsend', 'BlogController@savenew');
-
-// 投稿一覧を表示する
-Route::get('/new_blog_list', 'BlogController@list');
-
-// 投稿一覧を表示する
-// ブログリッチテキストエディターページ
-Route::get('/create2', 'BlogController@wys');
-
-// ブログ新規投稿投稿をコントローラーに送信
-Route::post('/newpostsend', 'BlogController@savenew');
-
 //トップページからブログコーナーの「もっと見る」をクリックでブログ記事一覧表示
 Route::get('/new_blog_list', 'BlogController@list');
 
 // ブログ(単独ページ)記事を表示する
 Route::get('/blog_show/{id}', 'BlogController@show');
+
+//ブログ編集ページの右側ボタン・1つのFormで複数ボタン(ブログを書く・削除する)を実装する
+Route::post('/blog_delete', 'BlogController@buttons');
+
+// ブログリッチテキストエディターページ
+Route::get('/create2', 'BlogController@wys');
+
+// ブログ新規投稿投稿をコントローラーに送信
+Route::post('/newpostsend', 'BlogController@savenew');
 
 //投稿済みブログ一覧
 Route::get('/my_posted_blog_list', 'BlogController@posted');
@@ -377,8 +397,7 @@ Route::get('/my_blog_edit/{id}', 'BlogController@edit');
 //ブログ編集後、送信ボタンをクリックで、blogsテーブルに編集(更新)されたデータを格納する
 Route::post('/update', 'BlogController@update');
 
-//ブログ編集ページの右側1つのFormで複数ボタンを実装する
-Route::post('/blog_delete', 'BlogController@buttons');
+
 
 //ブログ記事の削除確認画面　　
 Route::get('/blog_completed_deactivate/{id}', 'BlogController@delete');
@@ -391,26 +410,6 @@ Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
 
 
 
-
-
-
-
-
-
-//「ブログを書く」ボタンクリックでページ遷移
-// Route::get('my_blog_edit', function () {
-//     return view('my_blog_edit');
-// });
-
-
-
-
-
-
-//あとで消す
-// ブログCDN読み込み　リッチテキストエディターページ
-// Route::get('/create2', 'BlogController@wys');
-Route::get('/create2', 'BlogController@savenew');
 
 
 
@@ -531,25 +530,11 @@ Route::get('restaurant_follower_other_side', function () {
 
 
 
-//検索結果表示ページ
-Route::get('search_results', function () {
-    return view('search_results');
-});
-
-
-
-
-
-
 //公開範囲の設定
 Route::get('open_range', function () {
     return view('MyPage.open_range');
 });
 
-//オープンチャットルーム作成
-Route::post('open_chat_preview', 'ChatroomController@preview_post');
-Route::post('create_new_open', 'ChatroomController@create');
-// Route::post('create_new_open', 'ChatroomController@create2');
 
 
 //通報画面
@@ -557,5 +542,20 @@ Route::get('report', 'ReportController@index');
 Route::get('complete_report', 'ReportController@report');
 
 // Route::post('message_send', 'Chatroomcontroller@send');
-Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
-Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+Route::middleware('auth')->group(function () {
+    Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
+    Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+});
+
+//ユーザーマイページ編集・登録
+Route::get('user_edit/{id}', 'UsersController@useredit');
+Route::post('user_edit/{id}', 'UsersController@userupdate');
+
+Route::post('join_open_chat/{id}', 'Chatroomcontroller@index4');
+//店舗マイページ編集・登録
+Route::get('tenpo_edit', 'UsersController@tenpoedit')->name('tenpo_edit');
+
+//自治体マイページ編集・登録
+Route::get('municipality_edit', 'UsersController@municipalityedit')->name('municipality_edit');
+
+Route::get('open_chat_preview/{id}', 'Chatroomcontroller@preview');

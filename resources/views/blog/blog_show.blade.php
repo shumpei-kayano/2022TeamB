@@ -10,7 +10,7 @@
     <div class="row">
 
     {{-- 左メニューバー --}}
-    @component('components.left')
+    @component('components.left',['categories'=>$categories])
     @endcomponent
 
 
@@ -31,16 +31,13 @@
                     <div class="col-12">
                     <div class="row" >
                     <div class="d-flex">
-                        {{-- ユーザアイコンをsvgデータで表示 --}}
-                        <div class="p-blog_area__user_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                        </svg>
+                        {{-- ユーザアイコンをsvgデータで表示/アイコンクリックで、ユーザマイページへ画面遷移 --}}
+                        <div class="p-blog_area__user_icon" onclick="location.href='/user1/{{$data->user->id}}'">
+                            <img src="{{ asset('storage/userimg/' . $data->user->icon)  }}" class="p-blog_area__user_icon" alt="写真がありません">
                         </div>
 
                         {{-- 投稿者をDBから取得して表示 --}}
-                        <div class="p-blog_area__user_name">投稿者：{{$data->user_id}}</div>  
+                        <div class="p-blog_area__user_name"><p class="p-blog_area__user_name1" onclick="location.href='/user1/{{$data->user->id}}'">投稿者：{{$data->user->name}}</p></div>  
                         {{-- 投稿日をDBから取得して表示 --}}          
                         <div class="p-blog_area__user_data">投稿日：{{$data->created_at}}</div>         
                     </div>

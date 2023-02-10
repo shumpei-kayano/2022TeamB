@@ -67,7 +67,9 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Tokyo',   /* https://naoya-ono.com/blog/laravel-timezone/ */
+    //タイムゾーンを日本時間に設定
+    //https://naoya-ono.com/blog/laravel-timezone/ 
+    'timezone' => 'Asia/Tokyo',
 
     /*
     |--------------------------------------------------------------------------

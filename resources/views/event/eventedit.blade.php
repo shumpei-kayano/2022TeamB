@@ -7,7 +7,7 @@
 @section('main')
     <div class="eventadd-container">
         {{-- 左側のメニューバー --}}
-        @component('components.left')
+        @component('components.left', ['categories' => $categories])
         @endcomponent
         {{-- 右側のイベント欄 --}}
         <section class="eventadd p-event-right-content">
@@ -30,10 +30,10 @@
                         <div id="preview" class="e-imagePreview"></div>
                         <div class="btn-wrap">
                             <label>
-                                <span class="btn btn-warning p-event-text c-text-sm">登録
+                                <span class="btn btn-warning p-event-text c-text-sm event-register">登録
                                 <input type="file" name="event_image" onChange="imgPreView(event)" style="display:none" accept="image/png, image/jpeg">
                                 </span>
-                                <button type="button" id="delete" class="btn btn-warning p-event-text c-text-sm">削除</button>
+                                <button type="button" id="delete" class="btn btn-warning p-event-text c-text-sm event-register">削除</button>
                                 {{--  <input type="submit" value="削除" class="btn btn-warning p-event-text c-text-sm">  --}}
                             </label>
                         </div>
@@ -42,7 +42,7 @@
                     {{--  左下の更新ボタン  --}}
                     <div class="eventadd__btn-container">
                         <input type="submit" value="更新" name="edit" class='button' formaction="{{ url('event016/'.$event->id) }}">
-                        {{--  <input type="submit" value="削除" name="delete" class='button'>  --}}
+
                     
                     <div class="c-color--black">
         {{--  確認モーダルを挿入  --}}
@@ -94,11 +94,11 @@
                             {{--  カテゴリを選択  --}}
                             <tr>
                                 <td colspan="3">
-                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    <label for="exampleInputEmail1" class="form-label">カテゴリー</label>
                                     @error('category_id')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
                                     <select name="category_id" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>{{$event->category->category_name}}</option>
+                                        <option value="{{$event->category_id}}">{{$event->category->category_name}}</option>
                                         @foreach ($categories as $item)
                                         <option value="{{$item->id}}">{{$item->category_name}}</option>
                                         @endforeach
@@ -109,11 +109,11 @@
                             {{--  開催場所を選択  --}}
                             <tr>
                                 <td colspan="3">
-                                    <label for="exampleInputEmail1" class="form-label">場所（市町村名）</label>
+                                    <label for="exampleInputEmail1" class="form-label">イベント開催地</label>
                                     @error('city')<span class="badge bg-danger">必須</span>{{$message}}@enderror
                                     {{--  <input type="text" name="city" value="{{$event->area->city}}" class="form-control" placeholder="場所（市町村名）">  --}}
                                     <select name="city" class="form-select" aria-label="Default select example">
-                                        <option disabled selected>{{$event->area->city}}</option>
+                                        <option value="{{$event->city}}">{{$event->area->city}}</option>
                                         @foreach ($items as $item)
                                         <option value="{{$item->id}}">{{$item->city}}</option>
                                         @endforeach

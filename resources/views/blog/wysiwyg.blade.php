@@ -42,10 +42,11 @@
 
 
 <script>
-//ブログテキストエディタCDN読込
+//ブログテキストエディタCDN読込(ツールバーカスタマイズ設定)
 //#editorの所に新しいQuillを設置して、テーマはsnowを使う
 //https://nebikatsu.com/7896.html/
-
+//"layout.blade.phpの<head>内に"Quill ブログ機能読み込み記述
+    
     var quill = new Quill('#editor', {
     modules: {
         //ブログエディタのツールバーをカスタマイズ
@@ -100,31 +101,6 @@ $("#moji_suu").text(count);
         }
     });
 });
-
-//ブログテキストエディタCDN読込
-//#editorの所に新しいQuillを設置して、テーマはsnowを使ってください
-    var quill = new Quill('#editor', {
-    modules: {
-        toolbar: [
-        ['bold', 'italic', 'underline', 'strike'],
-        [{'color': []}, {'background': []}],
-        ['link', 'blockquote', 'image'],
-        [{ list: 'ordered' }, { list: 'bullet' }]
-        ]
-    },
-    placeholder: '文章を入力してください（15,000文字以内）',
-    theme: 'snow'
-}); 
-
-
-// 回答フォームを送信
-document.ansform.subbtn.addEventListener('click', function() {
-// Quillのデータをinputに代入
-document.querySelector('input[name=text]').value = document.querySelector('.ql-editor').innerHTML;
-// 送信
-document.ansform.submit();
-});
-
 </script>
 
 @endsection

@@ -4,19 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryIdEventsTable extends Migration
+class AddMunicipalityFlagPublicUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     * category_idのカラムを追加
+     *
      * @return void
      */
     public function up()
     {
-        Schema::table('events', function (Blueprint $table) {
-            $table->integer('category_id');  //カラム追加
+        Schema::table('public_users', function (Blueprint $table) {
+            $table->integer('municipality_flag');  //カラム追加
         });
     }
+
+
 
     /**
      * Reverse the migrations.
@@ -25,8 +27,8 @@ class AddCategoryIdEventsTable extends Migration
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn('category_id');  //カラムの削除
+        Schema::table('public_users', function (Blueprint $table) {
+            $table->dropColumn('municipality_flag');  //カラムの削除
         });
     }
 }

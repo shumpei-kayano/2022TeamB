@@ -12,12 +12,14 @@
     <div class="row">
 
       {{-- 左メニューバー --}}
-      <div class="col-2 c-bgcolor--brown left-bar Category_bar">
+      @component('components.left', ['categories' => $categories])
+      @endcomponent
+      {{--  <div class="col-2 c-bgcolor--brown left-bar Category_bar">
         <div class="w-100 d-flex justify-content-center"><div class=p-left_menu_bar>カテゴリから検索</div></div><br>
-            @foreach ($items as $item)
-            <p>{{$item->category_name}}</p>
-            @endforeach
-      </div>
+    @foreach ($items as $item)
+    <p>{{$item->category_name}}</p>
+    
+    @endforeach</div>  --}}
 
       {{-- 右側 --}}
       <div class="col-10"> 
@@ -25,26 +27,32 @@
           {{-- おすすめ写真表示 --}}
           <div class="col-12 c-bgcolor--darkbrown">
             <div class="slider">  
-              <div class="img"><img src="./img/yufuin.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/chikuraku.jpg" width="100%" height="330px"></div>   
-              <div class="img"><img src="./img/reimen.jpg" width="100%" height="330px"></div>   
-              <div class="img"><img src="./img/hyugadon.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/kitsuki_kimono.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/ishibashi.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/funai_pacchin.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/futagoji.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/usajingu.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/yujakukoen.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/suyanosaka.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/miyamakirishima.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/asagiri.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/kyusuikei.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/okajyo.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></div>
-              <div class="img"><img src="./img/kinrinko.jpg" width="100%" height="330px"></div>
-          </div>
+              {{-- https://mgmgblog.com/post-464/ --}}
+              {{-- 画像クリックで関連リンクに遷移／新しいタブで開く --}}
+              <div class="img"><a href="http://www.yufuin.gr.jp/" target="_blank"><img src="./img/yufuin.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://tsukumiryoku.com/" target="_blank"><img src="./img/hyugadon.jpg" width="100%" height="330px"></a></div>   
+              <div class="img"><a href="http://www.futagoji.jp/" target="_blank"><img src="./img/futagoji.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="http://www.oita-yeg.gr.jp/patchin/" target="_blank"><img src="./img/funai_pacchin.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.city.usa.oita.jp/tourist/touristspot/touristspot2/touristspot3/10178.html" target="_blank"><img src="./img/ishibashi.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://taketa.guide/" target="_blank"><img src="./img/okajyo.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.kit-suki.com/" target="_blank"><img src="./img/suyanosaka.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.usa-kanko.jp/" target="_blank"><img src="./img/asagiri.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://sato-no-tabi.jp/" target="_blank"><img src="./img/yujakukoen.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://k-miyachan.com/" target="_blank"><img src="./img/miyamakirishima.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://k-miyachan.com/" target="_blank"><img src="./img/kyusuikei.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://taketa.guide/" target="_blank"><img src="./img/chikuraku.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.kit-suki.com/" target="_blank"><img src="./img/kitsuki_kimono.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://www.usa-kanko.jp/" target="_blank"><img src="./img/usajingu.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="http://www.yufuin.gr.jp/" target="_blank"><img src="./img/tsujibasha.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://kyokai.beppu-navi.jp/" target="_blank"><img src="./img/reimen.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://sato-no-tabi.jp/" target="_blank"><img src="./img/harajirinotaki.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="http://www.yufuin.gr.jp/" target="_blank"><img src="./img/kinrinko.jpg" width="100%" height="330px"></a></div>
+              <div class="img"><a href="https://kyokai.beppu-navi.jp/" target="_blank"><img src="./img/takegawara.jpg" width="100%" height="330px"></a></div>
+            </div>
           </div>
         </div>
+      
+      
           <div class="row">
             {{-- エリアから探す テーブルで表示--}}
             <div class="col-8 c-bgcolor--beige">
@@ -54,19 +62,22 @@
               <table class="p-area_search__area_table">
                 <tbody>
                   <tr>
-                    <td>　　　大分市</td><td>　　日田市</td><td>　　　津久見市</td><td>　　杵築市</td><td>　　由布市</td><td>　　日出町</td>
+                    <td>　　　<a href="locationsearch/1">大分市</a></td><td>　　<a href="locationsearch/3">日田市</a></td><td>　　　<a href="locationsearch/4">津久見市</a></td><td>　　<a href="locationsearch/5">杵築市</a></td><td>　　<a href="locationsearch/6">由布市</a></td><td>　　<a href="locationsearch/7">日出町</a></td>
                   </tr>
                   <tr>
-                    <td>　　　別府市</td><td>　　佐伯市</td><td>　　　 竹田市</td><td>　　 宇佐市</td><td>　　国東市</td><td>　　九重町</td>
+                    <td>　　　<a href="locationsearch/2">別府市</a></td><td>　　<a href="locationsearch/8">佐伯市</a></td><td>　　　 <a href="locationsearch/9">竹田市</a></td><td>　　 <a href="locationsearch/10">宇佐市</a></td><td>　　<a href="locationsearch/11">国東市</a></td><td>　　<a href="locationsearch/12">九重町</a></td>
                   </tr>
                   <tr>
-                    <td>　　　中津市　</td><td>　　臼杵市　</td><td>　　 豊後高田市　</td><td>　 豊後大野市　</td><td>　　姫島村　</td><td>　　玖珠町　</td>
+                    <td>　　　<a href="locationsearch/13">中津市</a>　</td><td>　　<a href="locationsearch/14">臼杵市</a>　</td><td>　　 <a href="locationsearch/15">豊後高田市</a>　</td><td>　 <a href="locationsearch/16">豊後大野市</a>　</td><td>　　<a href="locationsearch/17">姫島村</a>　</td><td>　　<a href="locationsearch/18">玖珠町</a>　</td>
                   </tr>
+                {{--  <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td><a href="locationsearch/19">オンライン</a></td></tr> --}}
                 </tbody>
               </table>
             </div>
             <br>
           </div>
+        
 
 
           {{-- 新着ブログコーナー --}}
@@ -78,7 +89,7 @@
                 <a class="p-blog__blog_title">
                   {{-- 投稿日時を表示/10文字だけ表示で時刻は非表示に --}}
                   <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 10, '' ) }}】</a>
-                  {{-- ブログタイトルをDBから取得し表示する/日付も含めて40文字表示する/ 40文字以上の場合は(...)で表示する --}}
+                  {{-- ブログタイトルをDBから取得し表示する/日付も含めて40文字表示する/ 30文字以上の場合は(...)で表示する --}}
                   <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 30, '…' ) }}</a><br>
                   @endforeach
               </a>
@@ -86,48 +97,39 @@
             </div>
             </div>
           </div>
-
-
+       
           
-
 
         {{-- イベント掲示板 --}}
         <div class="row">
           <div class="col-4 c-bgcolor--darkbrown">
             {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
-            <div class="w-100 d-flex justify-content-center"><div class=p-event>イベント募集掲示板</div></div><br>
+            <div class="w-100 d-flex justify-content-center">
+              <div class="p-event">イベント募集掲示板</div>
+            </div><br>
             <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.29.<br>トリニータファン集まれ！オフ会開催</p>
+              @foreach ($items as $item)
+              <p class="p-event__event_title"><a href="/event014/{{$item->id}}">{{ substr($item->date_of_event,0,10) }} <br> {{ $item->event_title }} </a></p>
+              @endforeach
             </div>
-            <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.22.<br>ゲーム大会開催</p>
-            </div>
-            <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.20.<br>一緒に焼き肉行きませんか</p>
-            </div>
-            <div class="p-event__event_area">
-              <p class="p-event__event_title">2022.10.15.<br>フットサルメンバー募集</p>
-            </div>
-            <div class="click"><a href="event013">もっと見る...Click here</a></div>
+            <br>
+            <div class="click"><a href="event001?public_flg=0">もっと見る...Click here</a></div>
           </div>
 
         {{-- 自治体コーナー --}}
           <div class="col-4 c-bgcolor--brown">
             {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
-            <div class="w-100 d-flex justify-content-center"><div class="p-gov">県・市町村からの募集</div></div><br>
+            <div class="w-100 d-flex justify-content-center">
+              <div class="p-gov">県・市町村からの募集</div>
+            </div><br>
             <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.29.<br>（竹田市）岡城跡散策</p>
+              @foreach ($publicEvents as $publicEvent)
+              <p class="p-gov__gov_title"><a href="/event014/{{$publicEvent->id}}">
+                {{ substr($publicEvent->date_of_event,0,10) }} <br> {{ $publicEvent->event_title }} </a></p>
+              @endforeach
             </div>
-            <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.22.<br>（豊後高田市）国宝　富貴寺大堂ライトアップ</p>
-            </div>
-            <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.20.<br>（杵築市）城下町散策ツアー</p>
-            </div>
-            <div class="p-gov__gov_area">
-              <p class="p-gov__gov_title">2022.10.19.<br>（臼杵市）臼杵焼き陶芸体験</p>
-            </div>
-            <div class="click"><a href="#">もっと見る...Click here</a></div>
+            <br>
+            <div class="click"><a href="event001?public_flg=1">もっと見る...Click here</a></div>
           </div>
 
         {{-- オープンチャット --}}
@@ -135,32 +137,22 @@
             {{-- clsssの"p-blog"をさらに囲うdivタグを作り、w-100 d-flex justify-content-centerを直接設定する --}}
             <div class="w-100 d-flex justify-content-center"><div class="p-open">オープンチャット</div></div><br>
             <div class="row">
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">Python質問</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">メンタル相談</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">生活の相談</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">悩みの相談</p>
-              </div>
-              <div class="col-4">
-                <div class="p-open__open_chat_icon"></div><p class="p-open__open_chat_title">気軽に相談</p>
-              </div>
-              <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
+              @foreach ($chats as $chat)
+              <div class="col-4 top_open">
+                <div class="col-12">
+                <img src="{{ asset('storage/cimg/' . $chat->chat_image) }}" class="open_chat_icon"></div><a href="/open_chat_preview/{{ $chat->id }}" style="text-decoration: none; color:black;">
+                  {{Str::limit($chat->title, 26, '…' ) }}</a>
+                </div>
+              @endforeach
             </div>
+            <div class="click"><a href="open_chat_list">もっと見る...Click here</a></div><br>
         </div>
+      </div>
         </div>
       </div>
     </div>
   </div>
-  <form method="POST" action="route('user_mypage')" accept-charset="UTF-8">
-    <input class="xxxxx" type="submit" value="Click Me!">
-</form>
+</div>
+
 @endsection
+

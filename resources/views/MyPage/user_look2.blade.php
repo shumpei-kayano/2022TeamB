@@ -19,7 +19,7 @@
 					</td>
 					<td rowspan="3" class="p-user-mypage__hyouka"><br>
 						
-						<span class="rate-wrap">店鋪評価<span class="rate" style ="--score: {{ 3.7 }}"></span><span class="num">3.7</span></span>
+						<span class="rate-wrap">店舗評価<span class="rate" style ="--score: {{ 3.7 }}"></span><span class="num">3.7</span></span>
     
 				</tr>
 				<tr>
@@ -36,11 +36,13 @@
 		</table>
 		<tr>
 
-			<label for="self">紹介文</label>
-            <disabled  class="form-control p-user-mypage_introduction" name="self" id="self" cols="30" rows="4" style="height: 100px" style="width: 100px"></disabled>
+			<div class="p-user-mypage__introduction"><label for="introduction" class="form-label">紹介文</label>
+            <disabled  class="form-control" name="self" id="self" cols="30" rows="4" style="height: 100px" style="width: px"></disabled>
+			</div>
 		</tr>
 		<tr>
-			<td>予約管理</td>
+			<div class="p-user-mypage__introduction"><label for="introduction" class="form-label">予約管理</label>
+			</div>
 		</tr>
 		<div class="p-user-mypage__beneath">
 		  <div id="calendar" style="width: 600px; padding-right: 30px; padding-left: 10px;" >
@@ -63,17 +65,11 @@
 					<td class="p-user3-mypage__events3"><label for="introduction" class="form-label"></label>
 						<disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
 					</td>
+					<div class="p-mypage-store__click">
+						<a href="#">もっと見る...Click here</a></div>
 				</tr>
-				<div class="p-mypage-store__click">
-					<a href="#">もっと見る...Click here</a></div><br>
 				</div>
 		</div>
-		
-
-
-		</table>
-		<div class="p-mypage-store__click">
-			<a href="#">もっと見る...Click here</a></div><br>
 	</div>
 	<div class="p-user-mypage__right">
 		<form action="/event015" method="post" enctype="multipart/form-data">
@@ -85,7 +81,7 @@
                             <img src="img/noimage.jpg" class="e-imagePreview" alt="写真がありません" width="200px" height="200px">
                         </div>
 		<a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
-		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>　
+		<a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
 		<a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
 		<a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>

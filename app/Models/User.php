@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'publish_flag', 'password',
     ];
 
     /**
@@ -53,5 +53,29 @@ class User extends Authenticatable
     public function blogs()
     {
         return $this->hasMany('App\Blog');
+    }
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
+
+
+
+
+    /* フォロー機能 */
+    // public function follows()
+    // {
+    //     return $this->belongsToMany(User::class, 'follower_user', 'follower_id', 'user_id');
+    // }
+
+    // public function followers()
+    // {
+    //     return $this->belongsToMany(User::class, 'follower_user', 'user_id', 'follower_id');
+    // }
+
+    // 自治体スコープ
+    public function scopePublicUser($query)
+    {
+        return $query->where('publish_flag', '1');
     }
 }
