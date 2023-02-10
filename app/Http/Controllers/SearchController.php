@@ -28,7 +28,7 @@ class SearchController extends Controller
             //チャットルーム3件ずつ表示
             $chatrooms = Chatroom::where('title', 'like', "%{$keyword}%")->paginate(3);
             //取得した値を('usernames', 'events', 'chatrooms'を一緒に渡す)viewに渡して表示す
-            return view('search.find', compact('usernames', 'events', 'chatrooms'));
+            return view('search.find', compact('usernames', 'events', 'chatrooms', 'keyword'));
         } else {
             //もし、値(keyword)が空なら、トップページを表示する
             return redirect('/');

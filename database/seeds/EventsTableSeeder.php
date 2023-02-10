@@ -15,23 +15,22 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->delete();
 
-        for ($i = 0; $i < 10; $i++) {
-            $data[] =
-                [
-                    'user_id' => $i,
-                    // 'facility_id' => $i,
-                    'event_title' => 'イベントタイトル' . $i,
-                    'event_detail' => 'イベント詳細文章' . $i,
-                    'deadline' => now(),
-                    'city' => $i,
-                    'date_of_event' => now(),
-                    'end_time' => now(),
-                    'event_image' => 'noimage.jpg',
-                    'publish_flag' => 1,
-                    'category_id' => $i
-                ];
-        }
 
+        $data[] =
+            [
+                'user_id' => 1,
+                'event_title' => 'イベントタイトル',
+                'event_detail' => 'イベント詳細文章',
+                'deadline' => now(),
+                'city' => 1,
+                'date_of_event' => now(),
+                'end_time' => now(),
+                'event_image' => 'noimage.jpg',
+                'publish_flag' => 1,
+                'category_id' => 1,
+                'user_cl' => 0,
+                'url' => 'http://localhost/'
+            ];
         DB::table('events')->insert($data);
     }
 }
