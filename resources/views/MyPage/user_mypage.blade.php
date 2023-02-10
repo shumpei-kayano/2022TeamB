@@ -15,7 +15,7 @@
             <div class="p-mypage-store__input">
                 <form action="{{'add'}}" method="post">
                 <label for="user_name" class="form-label">ユーザー名</label>
-                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}">
+                <input type="text" class="form-control" id="user_name" value="{{ $human->name }}"disabled>
                 <label for="mail" class="form-label">メールアドレス</label>
                 <input type="email" class="form-control" id="mail" value="{{ $human->email }}" disabled>
             </div>
