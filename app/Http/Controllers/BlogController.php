@@ -52,7 +52,7 @@ class BlogController extends Controller                                 //Contro
     {
         $post = new Blog;                               //新規でblogsテーブル書き込み
         $this->validate($request, blog::$rules);        //ブログを登録する時に設定したルールにのっとっているかバリデートチェック
-        $post->user_id = $request->user()->name;        //投稿したユーザ名を表示
+        $post->user_id = $request->user()->id;          //投稿したユーザ名を表示
         $post->title = $request->title;                 //title(タイトル)をtitleカラムに
         $post->text = $request->text;                   //text(本文)をtextカラムに
         $post->save();                                  //$post -> save();でDBに保存が実行される

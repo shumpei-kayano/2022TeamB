@@ -302,6 +302,7 @@
         background-color: white;
         border-radius: 10px;
         text-align: center;
+        cursor:grab;
     }
     &__icon{                        //ユーザ名の検索結果のユーザアイコン設定
         padding-top:5px;
@@ -317,6 +318,7 @@
         background-color: white;
         border-radius: 10px;
         text-indent: 1em;
+        cursor:grab;
     }
     &__event_title{
         font-size:20px;
@@ -340,6 +342,7 @@
         background-color: white;
         border-radius: 10px;
         text-indent: 1em;
+        cursor:grab;
     }
     &__restaurant_title{
         font-size:20px;
