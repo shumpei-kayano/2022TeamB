@@ -57,6 +57,7 @@
           {{-- 検索ボタンを押した際のルーティングも、一覧画面の表示と同じSearchControllerのsearch_resultsメソッドに、getメソッドでアクセス --}}
           <form action="{{ route('search') }}" method="post">
           @csrf 
+            {{-- valueの中に@if,issetでキーワード検索後も検索ボックスにキーワード残す --}}
             <input class="p-header__searchbox" name="keyword" placeholder="キーワードを入力" value="@if (isset( $keyword )) {{ $keyword }} @endif">
             <input class="p-header__search-button" type="submit" value="検索">
           </form>

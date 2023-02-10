@@ -19,6 +19,8 @@
             @foreach($data as $datas) 
             
             {{-- ブログ記事リスト区切りエリア --}}
+            {{-- ログインユーザのidとDBから取り出したuser_idが一致した時の処理 --}}
+            @if(Auth::user()->id == $datas->user_id)
             <div class="p-blog_edit_area__blog_post">    
                 <div class="col-12">
                 <div class="d-flex">
@@ -40,13 +42,16 @@
                 </div>
                 </div>
             </div>
-
+            @endif
             @endforeach
 
             {{-- ページネーションの設定 --}}
+            {{-- ログインユーザのidとDBから取り出したuser_idが一致した時の処理 --}}
+            @if(Auth::user()->id == $datas->user_id)
             <div class="p-blog_edit_area__paginate_container">
             {{ $data->links() }}
             </div>
+            @endif
         </div> 
     </div>
 

@@ -40,9 +40,6 @@ Route::get('search_results', function () {
 // ->name('search')は、layout.blade.phpの< action="{{ route('search') }}">で使うために名前をつけている
 Route::post('/search', 'SearchController@search')->name('search');
 
-/* Route::get('search_username', function () {
-    return view('search.search_username');
-}); */
 
 
 
