@@ -70,6 +70,7 @@
                         </div>
 
                         <input type="hidden" name="publish_flag" value=0>
+                        <input type="hidden" name="icon" value="noimage.jpg">
                         <div align="center">
                             <input class="p-header__login-button" type="submit" value="登録">
                           </div>

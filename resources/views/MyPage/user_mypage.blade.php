@@ -91,15 +91,15 @@
                 @endif
                
             </div>
-                <a href="mypaage_set"><button class="p-mypage-setting__btn">設定</button></a>
+                <a href="mypage_set"><button class="p-mypage-setting__btn">設定</button></a>
             <form action="user_edit/{{ $human->id }}" method="get">
               <a> <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>
             </form>
             <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
-            <a href="#"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
+            <a href="event015"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
             <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
-            <a href=""><button class="p-mypage-setting__btn"> チャット</button></a>
+            <a href="open_chat_list"><button class="p-mypage-setting__btn"> チャット</button></a>
             <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
         </div>
     </div>
