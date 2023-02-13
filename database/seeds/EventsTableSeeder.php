@@ -13,26 +13,6 @@ class EventsTableSeeder extends Seeder
 
     public function run()
     {
-        DB::table('events')->delete();
-
-
-        // // $data[] =
-        //     [
-        //         'user_id' => 1,
-        //         'event_title' => 'イベントタイトル',
-        //         'event_detail' => 'イベント詳細文章',
-        //         'deadline' => now(),
-        //         'city' => 1,
-        //         'date_of_event' => now(),
-        //         'end_time' => now(),
-        //         'event_image' => 'noimage.jpg',
-        //         'publish_flag' => 1,
-        //         'category_id' => 1,
-        //         'user_cl' => 0,
-        //         'url' => 'http://localhost/'
-        //     ];
-        // // DB::table('events')->insert($data);
-
         // 以下８件分は「ゲーム」カテゴリのイベントです。カテゴリ番号１
         $data[] =
             [
