@@ -17,7 +17,7 @@ class CreateGuestsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('event_id');
             $table->string('user_id');
-            $table->string('facility_id');
+            // $table->string('facility_id');
             $table->timestamps();
         });
     }

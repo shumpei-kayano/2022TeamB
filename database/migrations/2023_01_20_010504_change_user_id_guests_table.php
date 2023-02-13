@@ -15,7 +15,7 @@ class ChangeUserIdGuestsTable extends Migration
     {
         Schema::table('guests', function (Blueprint $table) {
             $table->string('user_id')->nullable()->change();
-            $table->string('facility_id')->nullable()->change();
+            // $table->string('facility_id')->nullable()->change();
         });
     }
 
@@ -28,7 +28,7 @@ class ChangeUserIdGuestsTable extends Migration
     {
         Schema::table('guests', function (Blueprint $table) {
             $table->string('user_id')->nullable(false)->change();
-            $table->string('facility_id')->nullable(false)->change();
+            // $table->string('facility_id')->nullable(false)->change();
         });
     }
 }

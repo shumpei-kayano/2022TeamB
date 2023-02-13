@@ -15,7 +15,7 @@ class ChangeDetailToTextEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->string('user_id')->change();
-            $table->string('facility_id')->change();
+            // $table->string('facility_id')->change();
             $table->text('event_detail')->change();
             //stringでmaigrateしたらvarchar(191)になったのでtext型に変更
         });
@@ -30,7 +30,7 @@ class ChangeDetailToTextEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->text('user_id')->change();
-            $table->text('facility_id')->change();
+            // $table->text('facility_id')->change();
             $table->string('event_detail')->change();
         });
     }
