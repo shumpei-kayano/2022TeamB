@@ -42,4 +42,10 @@ class Guest extends Model
     {
         return $this->belongsTo('App\Event');
     }
+
+    // イベント参加したEventのIdを取得
+    public function getEventTitle()
+    {
+        return $this->event->event_title;
+    }
 }

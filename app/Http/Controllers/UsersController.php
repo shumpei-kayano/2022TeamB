@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Google_Client;
 use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
-
+use App\Event;
+use App\Models\Guest;
 
 class UsersController extends Controller
 {
@@ -65,7 +66,10 @@ class UsersController extends Controller
         $id = Auth::id();
         $human = DB::table('users')->find($id);
         $categories = Category::all();
-        return view('MyPage.user_mypage', ['human' => $human, 'client' => $client, 'categories' => $categories]);
+        $items = Event::where('user_id', $id)->paginate(2);
+        $joinEvents = Guest::where('user_id', $id)->paginate(2);
+
+        return view('MyPage.user_mypage', ['human' => $human, 'client' => $client, 'categories' => $categories, 'items' => $items, 'joinEvents' => $joinEvents]);
     }
 
     public function useredit($id)
