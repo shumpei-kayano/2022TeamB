@@ -70,37 +70,6 @@ document.querySelector('input[name=text]').value = document.querySelector('.ql-e
 document.ansform.submit();
 });
 
-
-
-
-//入力文字数カウントscript
-$(function(){
-//カウントするフィールドを監視
-$("#floatingTextarea2").keyup(function(){
-//現在入力されている文字
-var text = $(this).val();
-//正確にカウントするため改行コード削除
-text = text.replace((new RegExp("\r\n","g")),"");
-text = text.replace((new RegExp("\n","g")),"");
-//現在の文字数
-var count = text.length;
-//管理者が設定した上限文字数
-var moji_limit = $(this).attr("limit");
-//文字数をリアルタイムの表示
-$("#moji_suu").text(count);
-        //処理分け
-        if(count == 0){
-            //字を消して0文字となった場合。
-            $("#moji_suu").text("0");
-        } else if(count > moji_limit) {
-             //上限文字数を超えたら赤色表示
-            $("#moji_suu").css("color", "red");
-        } else {
-             //文字数が範囲内なら色を戻す
-            $("#moji_suu").css("color", "");
-        }
-    });
-});
 </script>
 
 @endsection

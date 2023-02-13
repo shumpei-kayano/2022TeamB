@@ -18,7 +18,7 @@ class BlogController extends Controller                                 //Contro
     public function list(Request $request)
     {
         // 新着順で並び替えて表示 →　並び順(orderBy)を投稿日(created_at)の 「降順(desc)」にして全て取得(get)する
-        //  5件ずつ表示し、5件以上になるとページネーションが表示される(new_blog_list.blade.phpに記述)
+        // 5件ずつ表示し、5件以上になるとページネーションが表示される(new_blog_list.blade.phpに記述)
         $data = Blog::orderBy('created_at', 'desc')->paginate(5);                                        // orderBy('title', 'asc') にすると、今度はタイトルで昇順で並べ替えて表示もできる
         $categories = Category::All();                                                                   //左側カテゴリーバーを呼び出す
         return view('blog.new_blog_list')->with(['data' => $data, 'categories' => $categories]);         // DBから取得したデータを$dataに代入($dataの中に投稿データが入る/左側カテゴリーバーもDBから取得)
@@ -52,7 +52,7 @@ class BlogController extends Controller                                 //Contro
     {
         $post = new Blog;                               //新規でblogsテーブル書き込み
         $this->validate($request, blog::$rules);        //ブログを登録する時に設定したルールにのっとっているかバリデートチェック
-        $post->user_id = $request->user()->id;        //投稿したユーザ名を表示
+        $post->user_id = $request->user()->id;          //投稿したユーザ名を表示
         $post->title = $request->title;                 //title(タイトル)をtitleカラムに
         $post->text = $request->text;                   //text(本文)をtextカラムに
         $post->save();                                  //$post -> save();でDBに保存が実行される
@@ -75,11 +75,19 @@ class BlogController extends Controller                                 //Contro
     }
 
     //https://qiita.com/yukibe/items/da6b49ed05e04e21017f
+    //https://nebikatsu.com/7368.html/
     //投稿済みブログの編集用画面を表示
     public function edit(Request $request)
     {
+        //投稿済みブログの編集ページ呼び出し
         $data = Blog::find($request->id);
-        return view('blog.my_blog_edit', ['data' => $data]);
+        //投稿したユーザIDとログインした者のIDが同じなら、編集ページへとばす(なりすましハッキングの防止)
+        if ($data->user_id == auth()->id()) {
+            return view('blog.my_blog_edit')->with('data', $data);
+        } else {
+            //そうでないなら、トップページへとばす
+            return redirect('/');
+        }
     }
 
     //ブログ編集後、送信ボタンをクリックしその内容を送信した後にblogsテーブルに編集されたデータを格納する
@@ -104,4 +112,13 @@ class BlogController extends Controller                                 //Contro
         $data->delete();                                                                //deleteメソッドを実行し、内容をDBから削除する
         return view('blog.blog_completed_deactivate');                                  //削除が完了したら、削除しました画面を表示する
     }
+
+    //他のユーザに表示されるマイページの「ブログを読む」の画面遷移先
+    /* public function blogs(Request $request)
+    {
+        $id = $request->user_id;
+        $data = Blog::where($id)->paginate(4);
+        $categories = Category::All();
+        return view('blog.posted_blog')->with(['data' => $data, 'categories' => $categories]);
+    } */
 }

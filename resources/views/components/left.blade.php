@@ -11,3 +11,18 @@
     <p><a href="{{ url('categorysearch/'.$item->id) }}">{{$item->category_name}}</a></p>
     @endforeach
 </div>
+
+
+
+<script>
+
+$(document).ready(function () {
+hsize = $(window).height();
+$(".max-height").css("height", hsize + "px");
+});
+$(window).resize(function () {
+hsize = $(window).height();
+$(".max-height").css("height", hsize + "px");
+});
+
+</script>

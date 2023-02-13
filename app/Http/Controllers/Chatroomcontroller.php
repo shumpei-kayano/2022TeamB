@@ -36,13 +36,13 @@ class ChatroomController extends Controller
     {
         $this->validate($request, chatroom::$rules);
         $file = $request->file('chat_image');
-        if (!empty($file)) {  // 画像がある時
-            $dir = 'cimg'; // imageディレクトリ名
-            $file_name = $file->getClientOriginalName(); // アップロードされたファイル名を取得
-            $path = $file->storeAs('public/' . $dir, $file_name); // 指定したディレクトリに画像を保存
-            $filename = basename($path);  // パスからファイル名部分だけ取得
+        if (!empty($file)) {                                            // 画像がある時
+            $dir = 'cimg';                                              // imageディレクトリ名
+            $file_name = $file->getClientOriginalName();                // アップロードされたファイル名を取得
+            $path = $file->storeAs('public/' . $dir, $file_name);       // 指定したディレクトリに画像を保存
+            $filename = basename($path);                                // パスからファイル名部分だけ取得
         } else {
-            $filename = "noimage.jpg"; // 画像がない時
+            $filename = "noimage.jpg";                                  // 画像がない時
         }
 
         $chatroom = new chatroom();
@@ -112,9 +112,9 @@ class ChatroomController extends Controller
 
     public function delete(Request $request)
     {
-        $id = $request->chat_id;                                                        //リクエストで送られてきたブログidを受け取り、$idに代入する
-        $data = Chatroom::find($id);                                                        //findメソッドで、指定されたidに該当するレコードを取得し、$dataへ代入
-        $data->delete();                                                                //deleteメソッドを実行し、内容をDBから削除する
+        $id = $request->chat_id;                                   //リクエストで送られてきたブログidを受け取り、$idに代入する
+        $data = Chatroom::find($id);                               //findメソッドで、指定されたidに該当するレコードを取得し、$dataへ代入
+        $data->delete();                                           //deleteメソッドを実行し、内容をDBから削除する
         return redirect('open_chat_list');
     }
 }

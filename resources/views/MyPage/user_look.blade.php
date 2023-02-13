@@ -37,7 +37,7 @@
       <a href="#"><button class="p-user-mypage__btn"> DM送信</button></a>
       <a href="#"><button class="p-user-mypage__btn"> フォローする</button></a>
       <a href="#"><button class="p-user-mypage__btn"> フォロワー</button></a>
-      <a href="#"><button class="p-user-mypage__btn"> ブログを読む</button></a>
+      <a href="posted_blog/{id}"><button class="p-user-mypage__btn"> ブログを読む</button></a>
       <a href="#"><button class="p-user-mypage__btn--red"> 通報する</button></a>
 
     </div>

@@ -44,24 +44,24 @@
         color:white;                      //ボタン内の文字色
         border: none;
     }
-    &__search-button:hover{
+    &__search-button:hover{                 //検索ボタンにマウスオンで薄くなる
         opacity: 0.5;
     }
-    &__login-button:hover{
+    &__login-button:hover{                  //検索ボタンにマウスオンで薄くなる
         opacity: 0.5;
     }
-    &__user_name{
+    &__user_name{                           //ログイン後、ユーザ名の文字色設定
         color:#04047b;
         text-decoration: none;
     }
-    &__user_name:hover{
+    &__user_name:hover{                     //ユーザ名にマウスオンで薄くなる
         opacity:0.5;
         text-decoration: underline;
     }
 }
 
 //ヘッダーのロゴ位置指定
-.p-logo {
+.p-logo {                                   
     margin-top: 5px;
     margin-left: 61px;
 }
@@ -77,7 +77,7 @@
 .slider img{
     width:100%;
     height: 330px;
-    object-fit: cover;              //画像を中央でトリミング
+    object-fit: cover;                      //画像を中央でトリミング
 }
 
 /*-------- スライダー高さ調整 ----------*/
@@ -89,17 +89,14 @@
 .slider .slick-next{                        //矢印の位置やサイズを調整したい場合は下記の値を変更すればOKです。
     right:0!important;                      //font-size位置を調整したい場合：.slick-nextと.slick-prevのrightとleft
 }                                           //サイズを変えたい場合：.slick-arrow:beforeのfont-size
-
 .slider .slick-prev{
     left:0!important;
 }
-
 .slider .slick-arrow{
     width: initial!important;
     height: initial!important;
     z-index:2!important;
 }
-
 .slider .slick-arrow:before{
     font-size: 30px!important;
 }
@@ -135,13 +132,13 @@
 }
 
 //トップページのブログコーナー
-.p-blog{                                  //ブログコーナータイトル中央寄せ
+.p-blog{                                      //ブログコーナータイトル中央寄せ
     position: relative;
     display: inline-block;
     padding: 0 55px ;
     font-size:18px;
-    padding-top:8px;                       //タイトル上の余白
-    padding-bottom:3px;                    //タイトル下の余白
+    padding-top:8px;                          //タイトル上の余白
+    padding-bottom:3px;                       //タイトル下の余白
     &__blog_title.a{
             text-decoration: none;
         }
@@ -162,7 +159,6 @@
     height: 1px;
     background-color: black;
   }
-
 .p-blog:after{
     content: '';
     position: absolute;
@@ -172,7 +168,6 @@
     height: 1px;
     background-color: black;
 }
-
 .p-blog:before {
     left:0;
   }
@@ -181,7 +176,7 @@
   }
 
 
-//トップ画面の左側カテゴリメニューバーのタイトル設定
+//トップ画面"左側カテゴリメニューバー"タイトルの線 スタイル設定
 .p-left_menu_bar{
     position: relative;
     display: inline-block;
@@ -189,45 +184,49 @@
     font-size:12px;
     padding-top:8px;                       //タイトル上の余白
     padding-bottom:3px;                    //タイトル下の余白
-  
 }
 .p-left_menu_bar:before {
-        content: '';
-        position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
-        top: 55%;                       //トップからどのくらい離すか
-        display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
-        width: 45px;
-        height: 1px;
-        background-color: black;
+    content: '';
+    position: absolute;                 //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                           //トップからどのくらい離すか
+    display: inline-block;              //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    width: 45px;
+    height: 1px;
+    background-color: black;
     }
-    
-    .p-left_menu_bar:after{
-        content: '';
-        position: absolute;
-        top: 55%;
-        display: inline-block;
-        width: 45px;
-        height: 1px;
-        background-color: black;
+.p-left_menu_bar:after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
     }
-    
-    .p-left_menu_bar:before {
-        left:0;
+.p-left_menu_bar:before {
+    left:0;
     }
-    .p-left_menu_bar:after {
-        right: 0;
+.p-left_menu_bar:after {
+    right: 0;
     }
 
 
 //トップ画面の左側カテゴリメニューバー
 .Category_bar{
-    height: 796px;
-    overflow: scroll;
+    height: 830px;
+    overflow: auto;
     overflow-x: hidden;
     a {
         color: $black;
         text-decoration: none;
     }
+}
+
+//イベント情報一覧出力エリア高さ指定
+.p-event-right-content {
+    height:830px;
+    overflow:scroll;
+    overflow-x: hidden;
 }
 
 //検索結果表示画面
@@ -237,8 +236,6 @@
         margin-top:10px;
         margin-right:auto;
         margin-left:auto;
-        // background-color: white;
-        // border-radius: 10px;
         padding: 0.1px;
 
     &__contact_info{                        //連絡先結果表示
@@ -247,8 +244,6 @@
         margin-top:10px;
         margin-right:auto;
         margin-left:auto;
-        // background-color: rgb(179, 128, 128);
-        // border-radius: 10px;;
     }
     &__contact_info1{                       //その他のユーザを表示から
         width:1240px;
@@ -263,8 +258,6 @@
         margin-top:5px;
         margin-right:auto;
         margin-left:auto;
-        // background-color: rgb(194, 208, 103);
-        // border-radius: 10px;;
     }
     &__restaurant_info{                     //飲食店結果表示
         width:1240px;
@@ -272,8 +265,6 @@
         margin-top:5px;
         margin-right:auto;
         margin-left:auto;
-        // background-color: rgb(155, 161, 214);
-        // border-radius: 10px;
     }
     &__contact_info_title{                  //ユーザ名の検索結果表示　左上のタイトル
         padding-top:5px;
@@ -302,7 +293,6 @@
         background-color: white;
         border-radius: 10px;
         text-align: center;
-        cursor:grab;
     }
     &__icon{                        //ユーザ名の検索結果のユーザアイコン設定
         padding-top:5px;
@@ -318,7 +308,6 @@
         background-color: white;
         border-radius: 10px;
         text-indent: 1em;
-        cursor:grab;
     }
     &__event_title{
         font-size:20px;
@@ -342,7 +331,6 @@
         background-color: white;
         border-radius: 10px;
         text-indent: 1em;
-        cursor:grab;
     }
     &__restaurant_title{
         font-size:20px;
@@ -353,36 +341,32 @@
 .p-blog_area{
     &__white_bg{
         width:1200px;
+        height:790px;
         background-color: white;
         display: flex;
         justify-content: center;
         margin-left:auto;
         margin-right:auto;
         border-radius: 10px;
-            }
-   &__user_icon{                    //ユーザアイコンを表示
+        }
+    &__user_icon{                    //ユーザアイコンを表示
         width:100px;
         height:100px;
         border-radius: 50%;
         margin-top:5px;
         margin-bottom:20px;
-        cursor: grab;
+        cursor: pointer;            //ユーザアイコンにマウスをのせると手になる
         }
-   &__user_name{                    //ユーザ名表示エリア
+    &__user_name{                    //ブログ投稿者表示エリア
         margin-top:50px;
         margin-left:20px;
         font-size: 20px;
         width:350px;
         }
     &__user_name1{                  //ブロブ詳細ページのユーザ名にマウスをのせると手になる
-        cursor: grab;
+        cursor: pointer;
     }
-   &__user_data{
-        margin-top:50px;
-        font-size: large;
-        width:350px;
-        }
-   &__user_time{
+    &__user_data{                    //ブログ投稿日表示エリア
         margin-top:50px;
         font-size: large;
         width:350px;
@@ -390,9 +374,9 @@
     &__textarea{
         height:570px;
     }
-    &__textarea_scroll_bar{   //ブログ本文エリアのscrollバー設定
+    &__textarea_scroll_bar{           //ブログ本文エリアのscrollバー設定
         height: 570px;
-        font-size:1.2em;      //ブログ本文のフォントサイズ設定
+        font-size:1.2em;              //ブログ本文のフォントサイズ設定
         overflow: scroll;
         overflow-x: hidden;
         }
@@ -414,7 +398,7 @@
         margin-left:50px;                   //左側のベージュの枠からボタンを何px離すか
         margin-top:700px;
     }
-    &__blog_title{
+    &__blog_title{                          //ブログタイトル
         height:40px;
         margin-top:10px;
         text-align: center;
@@ -471,40 +455,12 @@
         margin-top:5px;
         margin-bottom:20px;
     }
-
-
-
-
-    
-    //オープンチャット・DM
-    &__container_joining_chat{              //現在参加中のトークルーム一覧のコンテナ位置指定
-        text-align: center;
-        background-color:$darkbrown;
-        width: 1000px;
-        height: 700px;
-        border-radius : 5px;
-        margin-top: 50px;                   //ヘッダーからの背景色までの空白
-        margin-right:auto;
-        margin-left:auto;
-    }
-    &__button_1{
-        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
-    }
-    &__close_img{
-        padding-top:10px;
-        padding-left:900px;
-    }
-    &__close_img:hover{
-        opacity:0.5;
-    }
-    &__open_chat_list_icon{
+    &__my_posted_blog_list_icon{
         width:50px;
         height:50px;
         border-radius: 50%;
-        margin-top:15px;
-    }
-    &__open_chat_list_title{
-        margin-left:40px;
+        margin-top:0px;
+        margin-bottom:20px;
     }
 }
 
@@ -540,25 +496,28 @@
             opacity:0.5;
         }
     &__blog_btn{
-    background-color: $navy;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    width: 200px;
-    height: 50px;
-    margin-top:10px;
-    margin-left:400px;
-    display: block;
+        background-color: $navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        margin-top:10px;
+        margin-left:400px;
+        display: block;
     }
 }
 
-//ブログCDN読み込みテキストエリアの背景色、横幅、位置などの設定
+//ブログCDN読み込みエディタツールバーの背景色、横幅、位置などの設定
 .ql-toolbar {
     background-color: white;
     width:800px;
     margin-left:87px;
     border-radius:5px 5px 0px 0px;
     }
+
+
+
 
 
 
@@ -581,7 +540,7 @@
     width: 45px;
     height: 1px;
     background-color: black;
-  }
+}
 
 .p-event:after{
     content: '';
@@ -595,10 +554,10 @@
 
 .p-event:before {
     left:0;
-  }
+}
 .p-event:after {
     right: 0;
-  }
+}
 
 
 
@@ -614,13 +573,13 @@
 
 .p-gov:before {
     content: '';
-    position: absolute;             //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
-    top: 55%;                      //トップからどのくらい離すか
-    display: inline-block;          //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
+    position: absolute;                     //positionは、指定した要素の配置方法で absoluteは、絶対配置を指定
+    top: 55%;                               //トップからどのくらい離すか
+    display: inline-block;                  //指定したHTMLのタグをインラインブロック(インライン要素と要素幅は同じで横幅と高さを指定できる値)要素に変更する値
     width: 45px;
     height: 1px;
     background-color: black;
-  }
+}
 
 .p-gov:after{
     content: '';
@@ -634,10 +593,10 @@
 
 .p-gov:before {
     left:0;
-  }
+}
 .p-gov:after {
     right: 0;
-  }
+}
 
 //トップページのオープンチャットコーナー
 .p-open{                                    
@@ -667,7 +626,7 @@
     width: 45px;
     height: 1px;
     background-color: black;
-  }
+}
 
 .p-open:after{
     content: '';
@@ -681,10 +640,44 @@
 
 .p-open:before {
     left:0;
-  }
+}
 .p-open:after {
     right: 0;
-  }
+}
+
+//オープンチャット・DM
+.p-blog_edit_area{
+    &__container_joining_chat{              //現在参加中のトークルーム一覧のコンテナ位置指定
+        text-align: center;
+        background-color:$darkbrown;
+        width: 1000px;
+        height: 700px;
+        border-radius : 5px;
+        margin-top: 50px;                   //ヘッダーからの背景色までの空白
+        margin-right:auto;
+        margin-left:auto;
+    }
+    &__button_1{
+        margin-left:50px;                  //左側のベージュの枠からボタンを何px離すか
+    }
+    &__close_img{                          //Closeボタン
+        padding-top:10px;
+        padding-left:900px;
+    }
+    &__close_img:hover{
+        opacity:0.5;
+    }
+    &__open_chat_list_icon{                 //アイコンの設定
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        margin-top:15px;
+    }
+    &__open_chat_list_title{                //タイトルの設定
+        margin-left:40px;
+    }
+}
+
 
 
 
@@ -710,9 +703,6 @@
         font-size: 12px;                //フォントサイズ
         color:white;                  //ボタン内の文字色
         border: none;
-        // display: block;
-        // margin: 0 0 0 auto;            //ボタンの位置指定
-        // margin-top: 20px;              //ヘッダーからの新規作成ボタンまでの空白
     }
     &__create-close_button{
         background-color: $navy;
@@ -722,9 +712,7 @@
         font-size: 12px;                //フォントサイズ
         color:white;                  //ボタン内の文字色
         border: none;
-        display: block;
-        // margin: 0 0 0 auto;            //ボタンの位置指定
-        // margin-top: 20px;              
+        display: block;        
     }
     &__create-leave_button{
         background-color: $navy;
@@ -734,8 +722,6 @@
         font-size: 12px;                //フォントサイズ
         color:white;                  //ボタン内の文字色
         border: none;
-        // display: block;
-        // margin:0 0 0 auto;            //ボタンの位置指定
     }
     &__back{
         margin-top:10px;
@@ -886,7 +872,7 @@
             &__btn:hover{
                 opacity:0.5;
             }
-            &__btn_camera{                  //写真アップロードのボタン設定
+            &__btn_camera{                                  //写真アップロードのボタン設定
                 background-color: rgb(220, 213, 213);
                 border: none;
                 border-radius: 10px;
@@ -1711,6 +1697,7 @@ display: block;
 // .p-event-right-content {
 //     padding: 30px 30px;
 //     background-color: $darkbrown;
+
 
 
 
@@ -2820,13 +2807,13 @@ display: block;
 }
 
 //ブログCDN読み込みテキストエリアの背景色、横幅、位置などの設定
- .ql-toolbar {
-   background-color: white;
-   width:800px;
-   margin-left:87px;
-   border-radius:5px 5px 0px 0px;
-   }
-   .p-message{
+.ql-toolbar {
+    background-color: white;
+    width:800px;
+    margin-left:87px;
+    border-radius:5px 5px 0px 0px;
+}
+.p-message{
     background-color: #ffffff;
         border-radius : 8px;
         width: 80%;
@@ -2836,23 +2823,8 @@ display: block;
             margin-bottom: 0px;
             margin-top: 0px;
         }
-   }
-   /* .p-message:after {               //チャット吹き出し風設定
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 3px; 
-    left: -19px;
-    border: 8px solid transparent;
-    border-right: 18px solid #edf1ee;
-    -webkit-transform: rotate(35deg);
-    transform: rotate(35deg);
-   }
-   p-message p{
-    margin: 0;
-    padding: 0;
-   } */
-   .p-message2{
+}
+.p-message2{
     background-color: #92fb9d;
         border-radius : 8px;
         width: 50%;
@@ -2861,14 +2833,14 @@ display: block;
         p {
             margin-bottom: 0px;
         }
-   }
-   .p-messagetime2{
+}
+.p-messagetime2{
         text-align: right;
         margin-right: 120px;
     font-size: 9px;
-   }
+}
 
-   .p-messagetime1{
+.p-messagetime1{
     text-align: left;
     margin-left: 20%;
     font-size: 9px;
@@ -2897,16 +2869,16 @@ display: block;
 }
 
 .chat_list_icon{
-    width:  80px;       /* ※縦横を同値に */
-    height: 80px;       /* ※縦横を同値に */
-    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width:  80px;                       //縦横を同値に
+    height: 80px;                       //縦横を同値に
+    border-radius: 50%;                 //角丸半径を50%にする(=円形にする)
     object-fit:cover;
 }
 
 .chat_preview_icon{
     width: 300px;
     height: 300px;
-    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    border-radius: 50%;                 //角丸半径を50%にする(=円形にする) */
     object-fit:cover;
     margin-top: 2%;
 }
@@ -2924,7 +2896,7 @@ display: block;
 .create_chat_icon{
     width: 300px;
     height: 300px;
-    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    border-radius: 50%;                 // 角丸半径を50%にする(=円形にする) */
     object-fit:cover;
 }
 

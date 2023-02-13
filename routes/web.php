@@ -31,12 +31,6 @@ Route::get('/', 'HomeController@index');
 
 
 //キーワード検索(layout.blade.phpのheader内)
-
-//あとで消す
-Route::get('search_results', function () {
-    return view('search.index');
-});
-
 // ->name('search')は、layout.blade.phpの< action="{{ route('search') }}">で使うために名前をつけている
 Route::post('/search', 'SearchController@search')->name('search');
 
@@ -396,13 +390,15 @@ Route::get('/my_blog_edit/{id}', 'BlogController@edit');
 //ブログ編集後、送信ボタンをクリックで、blogsテーブルに編集(更新)されたデータを格納する
 Route::post('/update', 'BlogController@update');
 
-
-
 //ブログ記事の削除確認画面　　
 Route::get('/blog_completed_deactivate/{id}', 'BlogController@delete');
 
 //ブログ記事の削除完了画面　　　
 Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
+
+//他のユーザに表示されるマイページの「ブログを読む」の画面遷移先
+/* Route::get('posted_blog/{id}', 'BlogController@blogs'); */
+
 
 
 

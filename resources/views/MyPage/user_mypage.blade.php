@@ -90,7 +90,7 @@
                     <img src="{{ asset('storage/userimg/' . $human->icon) }}" class="user_mypage_icon" alt="写真がありません">
                 @endif
                
-            </div>
+            </div><br>
                 <a href="mypage_set"><button class="p-mypage-setting__btn">設定</button></a>
             <form action="user_edit/{{ $human->id }}" method="get">
               <a> <button class="p-mypage-setting__btn">プロフィール登録・編集</button></a>

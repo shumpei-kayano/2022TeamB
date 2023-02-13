@@ -11,6 +11,7 @@
     <div class="d-flex"> 
         <div class="row">
             <div class="p-blog_edit_area__container">
+
                 {{-- URLで、この/newpostsendというURLに入力されたデータを送信する --}}
                 <form action=/update method='post' name="ansform" enctype="multipart/form-data">  
                 {{-- なりすましアクセスなどを防ぐコードで、Laravelにフォームを設置する時は必ずこの@csrfを付けないと、フォームが動かない --}}
@@ -29,6 +30,7 @@
                     <input type="hidden" name="blog_id" value="{{$data->id}}">
                     <input type="submit" name="subbtn" value="更新する" class="p-posted_blog_container__blog_btn" >
                 </form>
+                
             </div>
         </div>
         

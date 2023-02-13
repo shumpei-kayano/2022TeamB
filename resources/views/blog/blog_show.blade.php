@@ -31,13 +31,15 @@
                     <div class="col-12">
                     <div class="row" >
                     <div class="d-flex">
-                        {{-- ユーザアイコンをsvgデータで表示/アイコンクリックで、ユーザマイページへ画面遷移 --}}
-                        <div class="p-blog_area__user_icon" onclick="location.href='/user1/{{$data->user->id}}'">
+                        {{-- ユーザアイコンを表示/アイコンクリックで、ユーザマイページへ画面遷移 --}}
+                        {{-- @authで、ログイン時のみ投稿ユーザマイページを閲覧できるように設定  --}}
+                        <div class="p-blog_area__user_icon" @auth onclick="location.href='/user1/{{$data->user->id}}'" @endauth>
                             <img src="{{ asset('storage/userimg/' . $data->user->icon)  }}" class="p-blog_area__user_icon" alt="写真がありません">
                         </div>
+                        
 
-                        {{-- 投稿者をDBから取得して表示 --}}
-                        <div class="p-blog_area__user_name"><p class="p-blog_area__user_name1" onclick="location.href='/user1/{{$data->user->id}}'">投稿者：{{$data->user->name}}</p></div>  
+                        {{-- 投稿者をDBから取得して表示/@authで、ログイン時のみ投稿ユーザマイページを閲覧できるように設定 --}}
+                        <div class="p-blog_area__user_name"><p class="p-blog_area__user_name1" @auth onclick="location.href='/user1/{{$data->user->id}}'" @endauth>投稿者：{{$data->user->name}}</p></div>  
                         {{-- 投稿日をDBから取得して表示 --}}          
                         <div class="p-blog_area__user_data">投稿日：{{$data->created_at}}</div>         
                     </div>

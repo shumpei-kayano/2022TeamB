@@ -22,7 +22,7 @@ class EventController extends Controller
         $items = Event::orderBy('updated_at', 'desc')
             ->where('publish_flag', '1')
             ->whereNotNull('user_id')
-            ->Paginate(8);
+            ->Paginate(16);
         // $users = User::where('publish_flag','0');, 'users' => $users
         return view('event.eventichirankojin', ['items' => $items, 'categories' => $categories]);
     }
@@ -140,7 +140,7 @@ class EventController extends Controller
         $items = Event::orderBy('updated_at', 'desc')
             ->where('publish_flag', '1')
             ->where('category_id', $id)
-            ->Paginate(8);
+            ->Paginate(16);
         return view('event.eventcategorysearch', [
             'items' => $items,
             'categories' => $categories,
@@ -155,7 +155,7 @@ class EventController extends Controller
         $items = Event::orderBy('updated_at', 'desc')
             ->where('publish_flag', '1')
             ->where('city', $id)
-            ->Paginate(8);
+            ->Paginate(16);
         return view('event.eventlocationsearch', [
             'items' => $items,
             'categories' => $categories,
@@ -182,7 +182,7 @@ class EventController extends Controller
             // ->where('user_id', $users)
             ->where('user_cl', $request->session()->get('user_cl')) // cl'1'だけ表示
             ->orderBy('updated_at', 'desc')  // 更新が新しい順
-            ->paginate(8);
+            ->paginate(16);
         return view(
             'event.eventichiranpublic',
             [

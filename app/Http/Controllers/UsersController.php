@@ -101,13 +101,13 @@ class UsersController extends Controller
 
         $users = User::find($request->id);
         $file = $request->file('icon');
-        if (!empty($file)) {  // 画像がある時
-            $dir = 'userimg'; // imageディレクトリ名
-            $file_name = $file->getClientOriginalName(); // アップロードされたファイル名を取得
-            $path = $file->storeAs('public/' . $dir, $file_name); // 指定したディレクトリに画像を保存
-            $filename = basename($path);  // パスからファイル名部分だけ取得
+        if (!empty($file)) {                                        // 画像がある時
+            $dir = 'userimg';                                       // imageディレクトリ名
+            $file_name = $file->getClientOriginalName();            // アップロードされたファイル名を取得
+            $path = $file->storeAs('public/' . $dir, $file_name);   // 指定したディレクトリに画像を保存
+            $filename = basename($path);                            // パスからファイル名部分だけ取得
         } else {
-            $filename = $users->icon; // 画像がない時
+            $filename = $users->icon;                               // 画像がない時
         }
 
         $param = [

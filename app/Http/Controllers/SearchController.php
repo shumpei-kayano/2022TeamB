@@ -27,7 +27,7 @@ class SearchController extends Controller
             $events = Event::where('event_title', 'like', "%{$keyword}%")->paginate(3);
             //チャットルーム3件ずつ表示
             $chatrooms = Chatroom::where('title', 'like', "%{$keyword}%")->paginate(3);
-            //取得した値を('usernames', 'events', 'chatrooms'を一緒に渡す)viewに渡して表示す
+            //取得した値を('usernames', 'events', 'chatrooms'を一緒に渡す)viewに渡して表示する
             return view('search.find', compact('usernames', 'events', 'chatrooms', 'keyword'));
         } else {
             //もし、値(keyword)が空なら、トップページを表示する
