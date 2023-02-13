@@ -34,4 +34,13 @@ class SearchController extends Controller
             return redirect('/');
         }
     }
+
+    public function user_search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $usernames = User::where('name', 'like', "%{$keyword}%");
+
+        return view('search.search_username', compact('usernames'));
+    }
 }

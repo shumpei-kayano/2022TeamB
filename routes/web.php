@@ -40,9 +40,6 @@ Route::get('search_results', function () {
 // ->name('search')は、layout.blade.phpの< action="{{ route('search') }}">で使うために名前をつけている
 Route::post('/search', 'SearchController@search')->name('search');
 
-/* Route::get('search_username', function () {
-    return view('search.search_username');
-}); */
 
 
 
@@ -305,8 +302,10 @@ Route::middleware('auth')->group(function () {
 //オープンチャット一覧ページで「新規作成ボタン」をクリックしたらと
 //オープンチャット新規作成画面で「CLOSEボタン」をクリックすると
 //オープンチャット利用規約ページを表示
-Route::get('terms_of_service', function () {
-    return view('open_chat.terms_of_service');
+Route::middleware('auth')->group(function () {
+    Route::get('terms_of_service', function () {
+        return view('open_chat.terms_of_service');
+    });
 });
 
 //オープンチャット利用規約の「確認しました」ボタンをクリック後、
