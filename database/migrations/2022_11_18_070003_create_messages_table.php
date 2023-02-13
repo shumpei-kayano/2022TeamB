@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('room_id')->nullable();
             $table->string('user_id')->nullable();
-            $table->string('facility_id')->nullable();
+            // $table->string('facility_id')->nullable();
             $table->string('message')->nullable();
             $table->timestamps();
         });

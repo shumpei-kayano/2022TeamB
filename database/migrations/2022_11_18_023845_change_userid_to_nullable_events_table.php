@@ -15,7 +15,7 @@ class ChangeUseridToNullableEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->text('user_id')->nullable()->change();
-            $table->text('facility_id')->nullable()->change();
+            // $table->text('facility_id')->nullable()->change();
         });
     }
 
@@ -28,7 +28,7 @@ class ChangeUseridToNullableEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->text('user_id')->nullable(false)->change();
-            $table->text('facility_id')->nullable(false)->change();
+            // $table->text('facility_id')->nullable(false)->change();
         });
     }
 }
