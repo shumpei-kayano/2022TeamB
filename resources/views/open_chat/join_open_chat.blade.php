@@ -13,7 +13,7 @@
 
     <div class="p-new_create_block">
         <div class="p-new_create_block__display">
-        <h1>{{ $data->title }}</h1><br>
+        <p>{{ Str::limit($data->title), 5, '…' }}</p><br>
         <div class="chat_preview_detail"><br><p>{{ $data->room_detail }}</p><br></div><br>
         <form action="/open_chat_room/{{ $data->id }}">
             <input class="p-large_bg__check_btn" type="submit" value="参加する">

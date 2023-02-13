@@ -10,7 +10,8 @@
     <form action="open_chat_list">
         {{-- 戻るボタンをクリックするとマイページの参加中チャット一覧ページに戻る--}}
         <a class="p-large_bg_btn__back" href="{{URL::to('open_chat_list')}}"><img src={{asset('/img/back.png')}} alt="" height="40px" width="80px"></a>
-    </form><h2>{{ $data->title }}</h2>
+    </form><h4>{{Str::limit($data->title, 70, '…' ) }}</h4>
+    
 <div class="d-flex">
     @if (Auth::user()->id  ==  $data->developer_id)
     <form action="/check_close/{{ $data->id }}" method="get">

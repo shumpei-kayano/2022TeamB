@@ -73,7 +73,7 @@
                         <input type="hidden" name="icon" value="noimage.jpg">
                         <div align="center">
                             <input class="p-header__login-button" type="submit" value="登録">
-                          </div>
+                        </div>
                     </form>
                 </div>
             </div>
