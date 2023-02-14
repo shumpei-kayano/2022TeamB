@@ -191,15 +191,15 @@ Route::get('mypage_set', function () {
 Route::get('mypage_del', function () {
     return view('MyPage.mypage_delete_account');
 });
-//ユーザーマイページ画面
-// Route::get('user_mypage', function () {
-//     return view('MyPage.user_mypage');
-// });
+
+
+
+
 // アカウント情報編集処理
 Route::post('/add', 'UsersController@add')->name('add');
 // Route::get('user_mypage', function () {
 //     return view('MyPage.user_mypage');});
-Route::get('user_mypage', 'UsersController@display');
+
 //店鋪マイページ画面
 Route::get('tenpo_mypage', function () {
     return view('MyPage.tenpo_mypage');
@@ -276,8 +276,8 @@ Route::get('open_chat_list', 'ChatroomController@index3');
 
 //アカウント削除前のパスワード確認画面
 Route::middleware('auth')->group(function () {
-
-
+    //ユーザーマイページ画面
+    Route::get('user_mypage', 'UsersController@display');
 
     Route::middleware('password.confirm')->group(function () {
 
@@ -397,7 +397,8 @@ Route::get('/blog_completed_deactivate/{id}', 'BlogController@delete');
 Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
 
 //他のユーザに表示されるマイページの「ブログを読む」の画面遷移先
-/* Route::get('posted_blog/{id}', 'BlogController@blogs'); */
+// Route::get('posted_blog/{id}', 'BlogController@posted');
+Route::post('posted_blog/{id}', 'BlogController@blogs');
 
 
 
