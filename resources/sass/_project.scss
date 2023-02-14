@@ -237,7 +237,6 @@
         margin-right:auto;
         margin-left:auto;
         padding: 0.1px;
-
     &__contact_info{                        //連絡先結果表示
         width:1240px;
         height:150px;
@@ -362,6 +361,14 @@
         border-radius: 10px;
         }
     &__user_icon{                    //ユーザアイコンを表示
+        width:80px;
+        height:80px;
+        border-radius: 50%;
+        margin-top:7px;
+        margin-bottom:20px;
+        cursor: pointer;            //ユーザアイコンにマウスをのせると手になる
+        }
+    &__search_user_icon{            //ユーザアイコンを表示
         width:40px;
         height:40px;
         border-radius: 50%;
