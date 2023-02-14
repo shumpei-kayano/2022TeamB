@@ -96,22 +96,22 @@
             <div class="p-mypage-store__events" >
                 <tr>
                     <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予定・参加表明・予約履歴一覧</label>
-                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""style="height:50px"></disabled>
                     </td>
                </tr>
                <tr>
                     <td class="p-mypage-store__events2"><label for="introduction" class="form-label"></label>
-                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""style="height:50px"></disabled>
                     </td>
                 </tr>
                 <tr>
                     <td class="p-mypage-store__events3"><label for="introduction" class="form-label">イベント投稿履歴</label>
-                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""style="height:50px"></disabled>
                     </td>
                 </tr>
                 <tr>
                     <td class="p-mypage-store__events4"><label for="introduction" class="form-label"></label>
-                      <disabled  type="text" class="form-control" id="introduction" placeholder=""></disabled>
+                      <disabled  type="text" class="form-control" id="introduction" placeholder=""style="height:50px"></disabled>
                 <div class="p-mypage-store__click">
                     <a href="#">もっと見る...Click here</a></div>
             </div>

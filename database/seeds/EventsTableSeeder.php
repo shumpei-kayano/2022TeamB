@@ -13,7 +13,7 @@ class EventsTableSeeder extends Seeder
 
     public function run()
     {
-        DB::table('events')->delete();
+        // DB::table('events')->delete();
 
 
         // // $data[] =
