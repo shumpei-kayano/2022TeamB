@@ -22,8 +22,15 @@
                 
                   {{-- {{ $items->created_at }} --}}
                 <div class="p-open_chat_area__open_chat_list_icon"><img src="{{ asset('storage/cimg/' . $item->chat_image) }}" class="chat_list_icon"></div>
-                <div class="p-open_chat_area__open_chat_list_title"><br><h5><a  style="text-decoration: none; color:black;"  href="open_chat_room/{{$item->id}}">{{ Str::limit($item->title), 55,'(（　＾ω＾）・・・)' }}</a></h5>
-                  <p>{{Str::limit($item->room_detail, 100, '…' ) }}</p>
+                <div class="p-open_chat_area__open_chat_list_title">
+                  <p>
+                    <a style="text-decoration: none; color:black;"  href="open_chat_room/{{$item->id}}">{{ Str::limit($item->title), 5, '…' }}</a>
+                  </p>
+
+                {{--<hr> は、水平方向の罫線 --}}  
+                <hr>
+
+                <a style="text-decoration: none; color:black;"  href="open_chat_room/{{$item->id}}">{{Str::limit($item->room_detail, 50, '…' ) }}</a>
                 </div>
               
               </div>

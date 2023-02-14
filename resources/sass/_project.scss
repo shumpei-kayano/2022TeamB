@@ -176,7 +176,7 @@
   }
 
 
-//トップ画面"左側カテゴリメニューバー"タイトルの線 スタイル設定
+//トップ画面"左側メニューバー"タイトルの線 スタイル設定
 .p-left_menu_bar{
     position: relative;
     display: inline-block;
@@ -294,6 +294,10 @@
         border-radius: 10px;
         text-align: center;
     }
+    &__user_info:hover{                           //ユーザ名の検索結果を4つずつ表示
+        opacity: 0.5;
+        cursor: pointer;
+    }
     &__icon{                        //ユーザ名の検索結果のユーザアイコン設定
         padding-top:5px;
     }
@@ -308,6 +312,10 @@
         background-color: white;
         border-radius: 10px;
         text-indent: 1em;
+    }
+    &__event_info_results:hover{
+        opacity: 0.5;
+        cursor:pointer;
     }
     &__event_title{
         font-size:20px;
@@ -331,6 +339,10 @@
         background-color: white;
         border-radius: 10px;
         text-indent: 1em;
+        cursor:pointer;
+    }
+    &__restaurant_info_results:hover{ 
+        opacity: 0.5;
     }
     &__restaurant_title{
         font-size:20px;
@@ -350,8 +362,8 @@
         border-radius: 10px;
         }
     &__user_icon{                    //ユーザアイコンを表示
-        width:100px;
-        height:100px;
+        width:40px;
+        height:40px;
         border-radius: 50%;
         margin-top:5px;
         margin-bottom:20px;
