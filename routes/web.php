@@ -14,7 +14,7 @@
 //Laravelのホーム表示
 
 use App\Chatroom;
-use App\Http\Controllers\Chatroomcontroller;
+use App\Http\Controllers\ChatroomController;
 use App\Http\Controllers\UsersController;
 use Doctrine\DBAL\Schema\Index;
 
@@ -30,9 +30,21 @@ Route::get('/', 'HomeController@index');
 
 
 
+
 //キーワード検索(layout.blade.phpのheader内)
 // ->name('search')は、layout.blade.phpの< action="{{ route('search') }}">で使うために名前をつけている
+//Route::middleware('auth')->group(function ()に入れ子にすることでログイン画面にとばす
 Route::post('/search', 'SearchController@search')->name('search');
+//ルーティングに直接searchを入力したらトップページにリダイレクトする
+Route::get('/search', function () {
+    return redirect('/');
+});
+
+//他のユーザに表示されるマイページ画面
+//ログインしていないユーザは、ログイン画面にとばす
+Route::middleware('auth')->group(function () {
+    Route::get('user1/{id}', 'UsersController@user1');
+});
 
 
 
@@ -166,9 +178,6 @@ Route::get('event020', function () {
     return view('components.framelikeinput');
 });
 
-//他のユーザに表示されるマイページ画面
-Route::get('user1/{id}', 'UsersController@user1');
-
 //利用者から見た店鋪マイページ
 Route::get('user2', function () {
     return view('MyPage.user_look2');
@@ -191,15 +200,15 @@ Route::get('mypage_set', function () {
 Route::get('mypage_del', function () {
     return view('MyPage.mypage_delete_account');
 });
-//ユーザーマイページ画面
-// Route::get('user_mypage', function () {
-//     return view('MyPage.user_mypage');
-// });
+
+
+
+
 // アカウント情報編集処理
 Route::post('/add', 'UsersController@add')->name('add');
 // Route::get('user_mypage', function () {
 //     return view('MyPage.user_mypage');});
-Route::get('user_mypage', 'UsersController@display');
+
 //店鋪マイページ画面
 Route::get('tenpo_mypage', function () {
     return view('MyPage.tenpo_mypage');
@@ -276,8 +285,8 @@ Route::get('open_chat_list', 'ChatroomController@index3');
 
 //アカウント削除前のパスワード確認画面
 Route::middleware('auth')->group(function () {
-
-
+    //ユーザーマイページ画面
+    Route::get('user_mypage', 'UsersController@display');
 
     Route::middleware('password.confirm')->group(function () {
 
@@ -304,7 +313,7 @@ Route::middleware('auth')->group(function () {
 
 //オープンチャット利用規約の「確認しました」ボタンをクリック後、
 //新規作成画面を表示する
-Route::get('create_new_open', 'Chatroomcontroller@index_2');
+Route::get('create_new_open', 'ChatroomController@index_2');
 
 //オープンチャット新規作成プレビュー画面
 Route::get('open_chat_preview', function () {
@@ -312,11 +321,11 @@ Route::get('open_chat_preview', function () {
 });
 
 //オープンチャットのプレビュー画面から「新規作成ボタン」クリックでトークルーム開始
-Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
+Route::get('open_chat_room/{id}', 'ChatroomController@show');
 
 //オープンチャットを「閉鎖する」ボタンで”閉鎖”確認画面へ
-Route::get('check_close/{id}', 'Chatroomcontroller@check');
-Route::post('check_close/{id}', 'Chatroomcontroller@delete');
+Route::get('check_close/{id}', 'ChatroomController@check');
+Route::post('check_close/{id}', 'ChatroomController@delete');
 
 //オープンチャットを「退室する」ボタンで”閉鎖”確認画面へ
 Route::get('check_leaving', function () {
@@ -397,7 +406,8 @@ Route::get('/blog_completed_deactivate/{id}', 'BlogController@delete');
 Route::post('/blog_completed_deactivate/{id}', 'BlogController@remove');
 
 //他のユーザに表示されるマイページの「ブログを読む」の画面遷移先
-/* Route::get('posted_blog/{id}', 'BlogController@blogs'); */
+// Route::get('posted_blog/{id}', 'BlogController@posted');
+Route::post('posted_blog/{id}', 'BlogController@blogs');
 
 
 
@@ -536,21 +546,21 @@ Route::get('open_range', function () {
 Route::get('report', 'ReportController@index');
 Route::get('complete_report', 'ReportController@report');
 
-// Route::post('message_send', 'Chatroomcontroller@send');
+// Route::post('message_send', 'ChatroomController@send');
 Route::middleware('auth')->group(function () {
-    Route::get('open_chat_room/{id}', 'Chatroomcontroller@show');
-    Route::post('open_chat_room/{id}', 'Chatroomcontroller@send');
+    Route::get('open_chat_room/{id}', 'ChatroomController@show');
+    Route::post('open_chat_room/{id}', 'ChatroomController@send');
 });
 
 //ユーザーマイページ編集・登録
 Route::get('user_edit/{id}', 'UsersController@useredit');
 Route::post('user_edit/{id}', 'UsersController@userupdate');
 
-Route::post('join_open_chat/{id}', 'Chatroomcontroller@index4');
+Route::post('join_open_chat/{id}', 'ChatroomController@index4');
 //店舗マイページ編集・登録
 Route::get('tenpo_edit', 'UsersController@tenpoedit')->name('tenpo_edit');
 
 //自治体マイページ編集・登録
 Route::get('municipality_edit', 'UsersController@municipalityedit')->name('municipality_edit');
 
-Route::get('open_chat_preview/{id}', 'Chatroomcontroller@preview');
+Route::get('open_chat_preview/{id}', 'ChatroomController@preview');

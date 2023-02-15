@@ -23,10 +23,12 @@ class SearchController extends Controller
 
             //ユーザ名4件ずつ表示
             $usernames = User::where('name', 'like', "%{$keyword}%")->paginate(4);
-            //イベントタイトル・イベント詳細を3件ずつ表示
+            //イベントタイトルとイベント詳細を3件ずつ表示
             $events = Event::where('event_title', 'like', "%{$keyword}%")->paginate(3);
+            $events = Event::where('event_detail', 'like', "%{$keyword}%")->paginate(3);
             //チャットルーム3件ずつ表示
             $chatrooms = Chatroom::where('title', 'like', "%{$keyword}%")->paginate(3);
+            $chatrooms = Chatroom::where('room_detail', 'like', "%{$keyword}%")->paginate(3);
             //取得した値を('usernames', 'events', 'chatrooms'を一緒に渡す)viewに渡して表示する
             return view('search.find', compact('usernames', 'events', 'chatrooms', 'keyword'));
         } else {

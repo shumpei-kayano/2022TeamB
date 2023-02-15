@@ -26,12 +26,12 @@
                         <div class="col-12">
                             <div class="d-flex">
                             {{-- ユーザアイコンを表示 --}}
-                            <div class="p-search_results_container__icon" @auth onclick="location.href='/user1/{{$username->id}}'" @endauth>
-                                <img src="{{ asset('storage/userimg/' . $username->icon)  }}" class="p-blog_area__user_icon" alt="写真がありません">
+                            <div class="p-search_results_container__icon"  onclick="location.href='/user1/{{$username->id}}'" >
+                                <img src="{{ asset('storage/userimg/' . $username->icon)  }}" class="p-blog_area__search_user_icon" alt="写真がありません" style="width:40px; height:40px; border-radius:50%;">
                             </div>
 
                             {{-- ユーザ名をDBから取得して表示 / ユーザ名が10文字以上の場合は「・・・」で表示する --}}
-                            <div class="p-search_results_container__user_name" @auth onclick="location.href='/user1/{{$username->id}}'" @endauth>{{Str::limit($username->name, 10, '(…)' )}}</div>
+                            <div class="p-search_results_container__user_name" onclick="location.href='/user1/{{$username->id}}'">{{Str::limit($username->name, 10, '(…)' )}}</div>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@
                 @endforeach
                 @endif
 
-                <a href="search_username" target="_blank" class="p-search_results_container__contact_info_other">その他のユーザー</a>
+                {{-- <a href="search_username" target="_blank" class="p-search_results_container__contact_info_other">その他のユーザー</a> --}}
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="col-12">
             <div class="d-flex">
                 {{-- イベントごとに１行ずつ表示する --}}
-                <div class="p-search_results_container__event_info_results" @auth onclick="location.href='/event014/{{$event->id}}'" @endauth>
+                <div class="p-search_results_container__event_info_results" onclick="location.href='/event014/{{$event->id}}'">
                 {{-- イベントタイトルをDBから取得して表示/イベントタイトルが30文字以上の場合は「・・・」で表示する --}}
                 <div class="p-search_results_container__event_title">{{Str::limit($event->event_title, 30, '(…)' )}}</div>
                 {{-- イベント詳細をDBから取得して表示/イベント詳細が150文字以上の場合は「・・・」で表示する --}}
@@ -71,7 +71,7 @@
             @endforeach
             @endif
             
-        <a href="contact_results" target="_blank" class="p-search_results_container__event_info_other">その他のイベント情報</a>
+        {{-- <a href="contact_results" target="_blank" class="p-search_results_container__event_info_other">その他のイベント情報</a> --}}
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@
                 @endforeach
                 @endif
 
-        <a href="contact_results" target="_blank" class="p-search_results_container__restaurant_info_other">その他のチャットルーム</a>
+        {{-- <a href="contact_results" target="_blank" class="p-search_results_container__restaurant_info_other">その他のチャットルーム</a> --}}
     </div>
 
 </div>

@@ -44,10 +44,12 @@
 
             {{-- ページネーションの設定 --}}
             {{-- ログインユーザのidとDBから取り出したuser_idが一致した時の処理 --}}
+            @if(isset($datas))
             @if(Auth::user()->id == $datas->user_id)
             <div class="p-blog_edit_area__paginate_container">
             {{ $data->links() }}
             </div>
+            @endif
             @endif
         </div> 
     </div>

@@ -114,11 +114,14 @@ class BlogController extends Controller                                 //Contro
     }
 
     //他のユーザに表示されるマイページの「ブログを読む」の画面遷移先
-    /* public function blogs(Request $request)
+    public function blogs($id)
     {
-        $id = $request->user_id;
-        $data = Blog::where($id)->paginate(4);
+        // $id = $request->user_id;
+        // $data = Blog::where($id)->paginate(4);
         $categories = Category::All();
-        return view('blog.posted_blog')->with(['data' => $data, 'categories' => $categories]);
-    } */
+        $data = Blog::orderBy('created_at', 'desc')  // orderBy('title', 'asc') にすると、今度はタイトルで昇順で並べ替えて表示もできる
+            ->where('user_id', $id)->paginate(5);
+        return view('blog.posted_blog', ['data' => $data, 'categories' => $categories]);
+        // return redirect('/posted_blog/' . $id);  //->with(['data' => $data, 'categories' => $categories])
+    }
 }

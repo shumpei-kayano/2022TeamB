@@ -17,6 +17,9 @@
 
         {{-- 右のコンテンツrow(12) --}}
         <div class="row align-items-center">
+          {{--  <div class="create_btn">  --}}
+            <a class="p-large_bg_btn__back" href="{{URL::to('home')}}"><img src={{asset('/img/back.png')}} alt="戻る" height="30px" width="60px"></a>
+          {{--  </div>  --}}
           {{--  ページタイトル(8)  --}}
           <div class="col-8">
               <div class="alert c-bgcolor--beige c-text-lg c-color" role="alert">

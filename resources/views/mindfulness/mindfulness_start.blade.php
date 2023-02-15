@@ -20,7 +20,7 @@
           <a href="" id="start" class="inactive"><font size="7">スタート</font></a>
       </div>
     </div>
-    <div class="p-mindfulness-start__right">
+    {{--  <div class="p-mindfulness-start__right">
       <img src="{{ asset('/img/noimage.jpg') }}" width="200px" height="200px">
       <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
       <a href="#"><button class="p-mypage-setting__btn"> フォロワー登録・編集</button></a>
@@ -29,7 +29,7 @@
       <a href="#"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
       <a href="#"><button class="p-mypage-setting__btn"> チャット</button></a>
       <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
-    </div>
+    </div>  --}}
 </div>
   <script>
     window.onload=function(){
