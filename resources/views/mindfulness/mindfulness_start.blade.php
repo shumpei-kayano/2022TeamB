@@ -14,7 +14,7 @@
         {{-- <span  class="cross"></span> --}}
       <div class="p-mindfulness-start__top">
       <div class="p-mindfulness__timer">
-          <div style="font-size:100px" id="timer">5</div>
+          <div style="font-size:100px" id="timer">0</div>
           
       </div>
           <a href="" id="start" class="inactive"><font size="7">スタート</font></a>
@@ -35,11 +35,11 @@
     window.onload=function(){
   document.querySelector('#start').addEventListener('click',function(e){
     e.preventDefault();
-    var count = 5;
+    var count = 0;
     var id = setInterval(function(){
-      count--;
+      count++;
       document.querySelector('#timer').textContent=count;
-      if(count <= 0) clearInterval(id);
+      if(count >= 5) clearInterval(id);
     },1000);
   });
   
