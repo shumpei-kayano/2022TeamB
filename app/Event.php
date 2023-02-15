@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Google_Client;
+use Google_Service_Calendar;
+use Google_Service_Calendar_Event;
 
 class Event extends Model
 {
@@ -72,6 +75,45 @@ class Event extends Model
         $events->user_cl = $request->user()->publish_flag;
         $events->save();
     }
+    public static function addEventCalendar(Request $request)
+    {
+        // Google API クライアントの初期化
+        $client = new Google_Client();
+        $client->setApplicationName('GoogleCalendarAPIのテスト');
+        $client->setScopes(Google_Service_Calendar::CALENDAR_EVENTS);
+        $client->setAuthConfig(storage_path('app/api-key/calender-api-test-376003-53e5486ef712.json'));
+        $client->setAccessType('offline');
+        // Google サービスの初期化
+        $service = new Google_Service_Calendar($client);
+        // Google カレンダーに追加するイベントの情報を設定
+        $event = new Google_Service_Calendar_Event;
+        $event->summary = $request->get('event_title');
+        $startDate = $request->date_of_event;
+        $startDate2 = $startDate . ':00+09:00';
+        $endDate = $request->end_time;
+        $endDate2 = $endDate . ':00+09:00';
+        $event->start = array(
+            // 'dateTime' => '2023-02-17T10:00:00+09:00',
+            // "date_of_event" => "2023-02-16T15:23"
+
+            'dateTime' => $startDate2,
+            'timeZone' => 'Asia/Tokyo',
+        );
+        $event->end =  array(
+            'dateTime' => $endDate2,
+            'timeZone' => 'Asia/Tokyo',
+        );
+        // カレンダーの ID を指定し、イベントを追加
+        $calendarId = '287c89bb6ebc5188bb0488b9e9e8a34c2451cf5ce97f1664ce2d8cac5ff76b4f@group.calendar.google.com';
+        $event = $service->events->insert($calendarId, $event);
+        // レスポンスを JSON 形式で返す
+        return response()->json([
+            'message' => 'Event added to Google Calendar',
+            'eventId' => $event->id,
+        ]);
+    }
+
+
     // 新規作成メソッド（公開）//画像のfileをstorageに,file名をDBに保存してから
     public static function eventInsert1(Request $request)
     {
@@ -147,3 +189,12 @@ class Event extends Model
         return $this->hasMany('App\Models\Guest');
     }
 }
+// "open" => "公開"
+// "_token" => "waC4NqvQAm3OkGHTyU4r66cq0MlXLinrgH0YL025"
+// "event_title" => "dsfa"
+// "category_id" => "16"
+// "city" => "18"
+// "date_of_event" => "2023-02-16T15:23"
+// "end_time" => "2023-03-02T15:23"
+// "url" => null
+// "event_detail" => null

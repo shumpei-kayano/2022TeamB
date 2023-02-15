@@ -95,7 +95,7 @@
         
             <div class="p-mypage-store__events" >
                 <tr>
-                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予定・参加表明・予約履歴一覧</label>
+                    <td class="p-mypage-store__events1"><label for="introduction" class="form-label">イベント予定・参加表明</label>
                       <disabled  type="text" class="form-control" id="introduction" placeholder=""style="height:50px"></disabled>
                     </td>
                </tr>
@@ -113,7 +113,7 @@
                     <td class="p-mypage-store__events4"><label for="introduction" class="form-label"></label>
                       <disabled  type="text" class="form-control" id="introduction" placeholder=""style="height:50px"></disabled>
                 <div class="p-mypage-store__click">
-                    <a href="#">もっと見る...Click here</a></div>
+                </div>
             </div>
                 </td>
             </tr>
@@ -148,12 +148,12 @@
             <form action="/mypage_set">
                 <a href="#"><button class="p-mypage-setting__btn"> 設定</button></a>
             </form>
-            <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
-            <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>
+            {{--  <a href="#"><button class="p-mypage-setting__btn"> フォロー中</button></a>
+            <a href="#"><button class="p-mypage-setting__btn"> フォロワー</button></a>  --}}
             <a href="event015"><button class="p-mypage-setting__btn"> イベント投稿</button></a>
             <a href="my_posted_blog_list"><button class="p-mypage-setting__btn"> ブログ投稿</button></a>
             <a href="open_chat_list"><button class="p-mypage-setting__btn"> チャット</button></a>
-            <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>
+            {{--  <a href="#"><button class="p-mypage-setting__btn"> DM</button></a>  --}}
         </div>
     </div>
 </div>
