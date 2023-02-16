@@ -128,9 +128,15 @@ class EventController extends Controller
     }
 
     // イベント削除
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
-        Event::find($request->id)->delete();
+        // ゲストテーブルからイベントに参加している全てのゲストを削除
+        $event = Event::find($id);
+        $event->guests()->delete();
+        // イベントを削除
+        $event->delete();
+        // Guest::find($request->event()->id)->delete();
+        // Event::find($request->id)->delete();
         return redirect('/event013');
     }
 
