@@ -51,6 +51,7 @@ class EventController extends Controller
             Event::eventInsert0($request);
             return redirect('/event015');
         } elseif ($request->has('open')) {
+            Event::addEventCalendar($request);
             Event::eventInsert1($request);
             // insertしたeventをnew_eventに入れる
             $new_event = Event::orderBy('created_at', 'desc')->first();

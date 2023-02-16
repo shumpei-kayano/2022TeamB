@@ -148,8 +148,7 @@ Route::get('/municipalitypage', function () {
 //イベント一覧（個人）画面
 Route::get('event013', 'EventController@index');
 
-Route::get('event015', 'EventController@add');
-Route::post('event015', 'EventController@create');
+
 
 //イベント一覧（自治体）
 Route::get('event001', 'EventController@publicIndex');
@@ -231,6 +230,9 @@ Route::middleware('auth')->group(function () {
     Route::get('event016/{id}', 'EventController@edit');
     Route::post('event016/{id}', 'EventController@update');
     Route::post('eventdel/{id}', 'EventController@destroy');
+    // イベント新規投稿
+    Route::get('event015', 'EventController@add');
+    Route::post('event015', 'EventController@create');
 
     Route::middleware('password.confirm')->group(function () {
 
