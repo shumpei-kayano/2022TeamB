@@ -67,7 +67,7 @@ class BlogController extends Controller                                 //Contro
         return view('blog.blog_show')->with(['data' => $data, 'categories' => $categories]);    // DBから取得したデータを$dataに代入($dataの中に投稿データが入る/左側カテゴリーバーもDBから取得)
     }
 
-    //投稿済みブログ一覧をリストで表示
+    //投稿済みブログ一覧をリストで降順(desc)表示
     public function posted()
     {
         $data = Blog::orderBy('created_at', 'desc')->paginate(5);           // orderBy('title', 'asc') にすると、今度はタイトルで昇順で並べ替えて表示もできる

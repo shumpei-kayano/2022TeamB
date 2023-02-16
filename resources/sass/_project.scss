@@ -222,12 +222,6 @@
     }
 }
 
-//イベント情報一覧出力エリア高さ指定
-.p-event-right-content {
-    height:830px;
-    overflow:scroll;
-    overflow-x: hidden;
-}
 
 //検索結果表示画面
 .p-search_results_container{                //結果表示エリア
@@ -481,6 +475,9 @@
         margin-top:0px;
         margin-bottom:20px;
     }
+    &____blog_text_small{
+        width:700px;
+    }
 }
 
 //ブログ編(編集・投稿・削除ページ)のボタン表示設定
@@ -694,6 +691,7 @@
     }
     &__open_chat_list_title{                //タイトルの設定
         margin-left:40px;
+        width:700px;
     }
 }
 
@@ -1386,7 +1384,7 @@
     margin-right: auto;
     margin-left: auto;
     width:1100px;
-    height:400px;
+    height:350px;
     color:#000;             //文字色設定
     &__camera{
         padding-top:70px;
@@ -1395,7 +1393,8 @@
         text-align: center;
     }
     &__display{
-
+        font-size:30px;
+        margin-bottom:10px;
     }
     &__space{
         margin-top:50px;        //既存のオープンチャットに参加する際に表示する画面のテキストボックスの位置指定

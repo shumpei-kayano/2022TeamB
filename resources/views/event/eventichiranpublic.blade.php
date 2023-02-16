@@ -55,7 +55,7 @@
         <div class="row p-event-right-content">
           <div class="col-8"></div>
           <div class="col-4">
-         {{ $items->links() }}
+        {{ $items->links() }}
           </div>
         </div>
 

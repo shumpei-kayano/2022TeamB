@@ -31,7 +31,7 @@
                             </div>
 
                             {{-- ユーザ名をDBから取得して表示 / ユーザ名が10文字以上の場合は「・・・」で表示する --}}
-                            <div class="p-search_results_container__user_name" onclick="location.href='/user1/{{$username->id}}'">{{Str::limit($username->name, 10, '(…)' )}}</div>
+                            <div class="p-search_results_container__user_name" onclick="location.href='/user1/{{$username->id}}'">{{Str::limit($username->name, 20, '…' )}}</div>
                             </div>
                         </div>
 
@@ -62,9 +62,9 @@
                 {{-- イベントごとに１行ずつ表示する --}}
                 <div class="p-search_results_container__event_info_results" onclick="location.href='/event014/{{$event->id}}'">
                 {{-- イベントタイトルをDBから取得して表示/イベントタイトルが30文字以上の場合は「・・・」で表示する --}}
-                <div class="p-search_results_container__event_title">{{Str::limit($event->event_title, 30, '(…)' )}}</div>
+                <div class="p-search_results_container__event_title">{{Str::limit($event->event_title, 50, '…' )}}</div>
                 {{-- イベント詳細をDBから取得して表示/イベント詳細が150文字以上の場合は「・・・」で表示する --}}
-                <div class="p-search_results_container__event_details">{{Str::limit($event->event_detail, 150, '(…)' )}}</div>
+                <div class="p-search_results_container__event_details">{{Str::limit($event->event_detail, 150, '…' )}}</div>
                 </div>
             </div>
         </div>
@@ -92,9 +92,9 @@
                 {{-- チャットルームごとに１行ずつ表示する --}}
                 <div class="p-search_results_container__restaurant_info_results" onclick="location.href='/open_chat_preview/{{$chatroom->id}}'">
                 {{-- チャットルームタイトルが30文字以上の場合は「・・・」で表示する --}}
-                <div class="p-search_results_container__restaurant_title">{{Str::limit($chatroom->title, 30, '(…)' )}}</div>
+                <div class="p-search_results_container__restaurant_title">{{Str::limit($chatroom->title, 50, '…' )}}</div>
                 {{-- イベント詳細が150文字以上の場合は「・・・」で表示する --}}
-                <div class="p-search_results_container__restaurant_details">{{Str::limit($chatroom->room_detail, 150, '(…)' )}}</div>
+                <div class="p-search_results_container__restaurant_details">{{Str::limit($chatroom->room_detail, 150, '…' )}}</div>
                 </div>
             </div>
         </div>

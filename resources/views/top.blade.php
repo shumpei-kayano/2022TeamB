@@ -109,7 +109,7 @@
             </div><br>
             <div class="p-event__event_area">
               @foreach ($items as $item)
-              <p class="p-event__event_title"><a href="/event014/{{$item->id}}">{{ substr($item->date_of_event,0,10) }} <br> {{ $item->event_title }} </a></p>
+              <p class="p-event__event_title"><a href="/event014/{{$item->id}}">【{{ substr($item->date_of_event,0,10) }}】 <br> {{ $item->event_title }} </a></p>
               @endforeach
             </div>
             <br>
@@ -125,7 +125,7 @@
             <div class="p-gov__gov_area">
               @foreach ($publicEvents as $publicEvent)
               <p class="p-gov__gov_title"><a href="/event014/{{$publicEvent->id}}">
-                {{ substr($publicEvent->date_of_event,0,10) }} <br> {{ $publicEvent->event_title }} </a></p>
+                【{{ substr($publicEvent->date_of_event,0,10) }}】<br> {{ $publicEvent->event_title }} </a></p>
               @endforeach
             </div>
             <br>

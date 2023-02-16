@@ -35,19 +35,20 @@
                           <div class="p-blog_edit_area__open_chat_list_title">      
                             <h5>
                               {{-- 投稿日時を created_at でDBから取得し表示する/20文字だけ表示 --}}
-                              <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 20, '' ) }}】</a>
-                              {{-- ブログタイトルを title でDBから取得し表示する/日付も含めて50文字表示する/ 50文字以上の場合は(...)で表示する --}}
-                              <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 50, '…' ) }}</a>
+                              <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 10, '' ) }}】</a>
                             </h5>
-                            
+                            <h5>
+                              {{-- ブログタイトルを title でDBから取得し表示する/日付も含めて50文字表示する/ 50文字以上の場合は(...)で表示する --}}
+                              <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 40, '…' ) }}</a>
+                            </h5>
 
                             {{--<hr> は、水平方向の罫線 --}}  
-                            <hr>
+                           {{--  <hr> --}}
 
-                            <div class="p-blog_edit_area__blog_text_small">
+                            {{-- <div class="p-blog_edit_area__blog_text_small"> --}}
                               {{-- DBから記事本文データを text で取得／DBから装飾タグ含めて70文字まで表示(※※※※※※70文字以上だとページレイアウト崩れるので変更しない※※※※※※)--}}
-                              <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;">{!! nl2br((Str::limit($datas->text, 10))) !!} </a>
-                            </div>   
+                              {{-- <a href="/blog_show/{{$datas->id}}" style="text-decoration: none; color:black;">{!! nl2br((Str::limit($datas->text, 10))) !!} </a> --}}
+                            {{-- </div> --}}
                           </div>
                         </div>
                     </div>

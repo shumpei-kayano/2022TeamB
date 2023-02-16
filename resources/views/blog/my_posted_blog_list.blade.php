@@ -31,9 +31,9 @@
 
                     <div class="p-blog_edit_area__blog_title_small">
                         {{-- 投稿日時をDBから取得し表示する/20文字だけ表示 --}}
-                        <a href="/my_blog_edit/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 20, '' ) }}】</a>
+                        <a href="/my_blog_edit/{{$datas->id}}" style="text-decoration: none; color:black;"> 【{{Str::limit($datas->created_at, 10, '' ) }}】</a><br>
                         {{-- ブログタイトルをDBから取得し表示する/日付も含めて50文字表示する/ 50文字以上の場合は(...)で表示する --}}
-                        <a href="/my_blog_edit/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 50, '…' ) }}</a>
+                        <a href="/my_blog_edit/{{$datas->id}}" style="text-decoration: none; color:black;"> {{Str::limit($datas->title, 70, '…' ) }}</a>
                     </div>
 
                 </div>
@@ -43,8 +43,9 @@
             @endforeach
 
             {{-- ページネーションの設定 --}}
-            {{-- ログインユーザのidとDBから取り出したuser_idが一致した時の処理 --}}
+            {{-- $dataが定義されていて、かつnullではない時にtrueを返す --}}
             @if(isset($datas))
+            {{-- ログインユーザのidとDBから取り出したuser_idが一致した時 --}}
             @if(Auth::user()->id == $datas->user_id)
             <div class="p-blog_edit_area__paginate_container">
             {{ $data->links() }}
